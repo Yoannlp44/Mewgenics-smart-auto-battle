@@ -1,0 +1,261 @@
+alleyitems_!autorarity [
+	LeatherHat
+	LeatherMask
+	LeatherArmor
+    PaperHat
+	PaperMask
+	PaperArmor
+	CardboardHat
+	CardboardMask
+	CardboardArmor
+	UsedHat
+	UsedMask
+	UsedArmor
+	BrokenWindow
+	TrashCan
+]
+
+junkyarditems_!autorarity [
+    ScrapHat
+	ScrapMask
+	ScrapArmor
+	RubberHat
+	RubberMask
+	RubberArmor
+	BarbedHat
+	BarbedMask
+	BarbedNeck
+  	RecycledHat
+	RecycledMask
+	RecycledArmor
+	BagOfChum
+	HumanHead
+
+]
+boneyarditems_!autorarity [
+    RagHood
+    RagMask
+    RagArmor
+	CatHideHat
+	CatHideMask
+	CatHideArmor
+	BonesHat
+	BonesMask
+	BonesNeck
+	RottenHat
+	RottenMask
+	RottenArmor
+	Tombstone
+	CharonsObal
+]
+seweritems_!autorarity [
+	FecalMask
+	FecalHood
+	FecalNecklace
+	BrickHat
+	BrickMask
+	BrickNecklace
+	SlimyHat
+	SlimyMask
+	SlimyNecklace
+	RatHat
+	RatMask
+	RatNecklace
+	DoodieMask
+	ManholeCover
+]
+cavesitems_!autorarity [
+	TwineHat
+	TwineMask
+	TwineArmor
+	RockHat
+	RockMask
+	RockArmor
+	MinerHat
+	MinerMask
+	MinerArmor
+	GemstoneHat
+	GemstoneMask
+	GemstoneArmor
+	MinersBeard
+	GoldenPickaxe
+]
+meatworlditems_!autorarity [
+	Polyp
+	FleshKid
+]
+
+
+desertitems_!autorarity [
+    FaceGrub
+	HeadGrub
+	NeckGrub
+	CactusMask
+	CactusHat
+	CactusNecklace
+	FaceWrap
+	HeadWrap
+	NeckWrap
+	DryBoneMask
+	DryBoneHat
+	DryBoneNecklace
+	CowSkull
+	GallonOfWater
+]
+crateritems_!autorarity [
+    DirtClodHat
+	DirtClodMask
+	DirtClodNeck
+    WoodHat
+	WoodMask
+	WoodArmor
+	FlowerMask
+	FlowerHat
+	FlowerNecklace
+	RockyMask
+	RockyHat
+	RockyNecklace
+	Brambles
+	ConjoinedAmeoba
+]
+moonitems_!autorarity [
+    ObeliskMask
+	ObeliskHat
+	ObeliskArmor
+	DebrisMask
+	DebrisHat
+	DebrisArmor
+	SpaceHelmet
+	SpaceAntenna
+	SpaceBoosters
+	TinyPlanet
+	MiniMoon
+	AsteroidBelt
+	MegaAlienBlaster
+	AmericanFlag
+]
+bunkeritems_!autorarity [
+    GimpHat
+	GimpMask
+	GimpArmor
+	ManGlasses
+	ManHair
+	ManTie
+	ExperimentalMask
+	ExperimentalHat
+	ExperimentalNeck
+	RadioactiveHat
+	RadioactiveMask
+	RadioactiveNecklace
+	CrustySock
+	DemonCore
+]
+coreitems_!autorarity [
+	CrimsonMask
+	RedCap
+	PoundOfFlesh
+	HumanFleshMask
+	HumanFleshHat
+	HumanFleshArmor
+	MoltenHat
+	MoltenMask
+	MoltenNecklace
+	GutsHeart
+	GutsLiver
+	GutsIntestines
+	BookOfBelial
+	HexagramSigil
+]
+dimensionxitems_!autorarity [
+	Bug
+	Glitch
+]
+
+
+labitems_!autorarity [
+    CoolGlasses
+	CoolShirt
+	CoolHat
+	BionicHat
+	BionicMask
+	BionicArmor
+	NurseHat
+	NurseMask
+	NurseNecklace
+	HybridHat
+	HybridMask
+	HybridNecklace
+	Triachnid
+	Experimentx
+]
+iceageitems_!autorarity [
+	FrozenHat
+	FrozenMask
+	FrozenNecklace
+	SaberToothedHat
+	CavemanBeard
+	SaberToothedPelt
+	RuneofJera
+	RuneofHagalaz
+	RuneofPerthro
+	CavemanWig
+	CavemanEyebrows
+	CavemanNecklace
+	SabertoothTigerPelt
+	MammothTusk
+
+]
+jurassicitems_!autorarity [
+    LeafyMask
+	LeafyHat
+	LeafyNecklace
+	DinoHat
+	DinoMask
+	DinoNecklace
+	BigRockHat
+	BigRockMask
+	BigRockNecklace
+	PhoenixHat
+	PhoenixMask
+	PhoenixNecklace
+	ChildOfTheGlowingOne
+	Fate
+]
+futureitems_!autorarity [
+    CyborgHat
+	CyborgMask
+	CyborgArmor
+	FattyHat
+	FattyMask
+	FattyNecklace
+	MedicalHat
+	MedicalMask
+	MedicalNecklace
+	OcularChip
+	CerebralChip
+	SpinalChip
+	RoboArm
+	TV
+]
+theenditems_!autorarity [
+    TentacleMask
+	TentacleHat
+	TentacleNeck
+    VeinyHat
+	VeinyMask
+	VeinyArmor
+	DemonicHat
+	DemonicMask
+	DemonicNecklace
+	MothersHat
+	MothersMask
+	MothersNecklace
+	LilTumor
+	VideoGameCart
+]
+theinfiniteitems_!autorarity [
+    EtherealRings
+	EtherealEyes
+]
+
+

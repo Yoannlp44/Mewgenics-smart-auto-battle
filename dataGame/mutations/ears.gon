@@ -1,0 +1,691 @@
+ears {
+    300 { //horn
+        tag animal
+        str 1 //designed as: +1 melee damage
+    }
+    301 { //antenna
+        tag animal
+        int 1 //designed as +1 mana regen
+    }
+    302 { //fishy
+        tag animal
+        desc "MUTATION_EARS_302_DESC"
+
+        passives {
+            PassiveWhenAffectedByElement {
+                element water
+                passives {
+                    HealthRegenUp 1
+                    AddManaRegen 1
+                }
+            }
+        }
+    }
+    303 { //bullhorn
+        tag animal
+        desc "MUTATION_EARS_303_DESC"
+
+        str 1
+        passives {
+            AddStatusToBasicMeleeAttack {
+                Knockback 1
+            }
+        }
+    }
+    304 { //pigtails
+        cha 1
+    }
+    305 { //boil
+        shield 1
+    }
+    306 { //bunny ear
+        tag animal
+        spd 1
+    }
+    307 { //brains
+        int 1
+    }
+    308 { //shrek
+        str 1
+        cha -1
+    }
+    309 { //antlers
+        tag animal
+        desc "MUTATION_EARS_309_DESC"
+
+        passives {
+            AddStatusToBasicAttack {
+                Bleed 1
+            }
+        }
+    }
+    310 { //human
+        int 1
+    }
+
+    //311 { //TODO(no effect or comment here???)
+    //
+    //}
+
+
+    313 { //Ram horns
+        tag animal
+        desc "MUTATION_EARS_313_DESC"
+
+        shield 1
+        passives {
+            AddStatusToBasicMeleeAttack {
+                Knockback 1
+            }
+        }
+    }
+
+    314 { //Deer horns
+        tag animal
+        desc "MUTATION_EARS_314_DESC"
+        passives {
+            Thorns 1
+            AddStatusToBasicMeleeAttack {
+                Bleed 1 
+            }
+        }
+    }
+    
+    315 { //Fly Ears
+        tag animal
+        desc "MUTATION_EARS_315_DESC" 
+
+        passives { 
+            SpawnEachTurn {
+                object CharmedFly
+                good false //good relative to the thing attacking, for luck calculations
+                chance 50% 
+            }
+            
+            // damage 1 per turn
+            Poison 1
+        }
+    }
+
+
+    316 { //Bat Ears
+        tag animal
+        desc "MUTATION_EARS_316_DESC"
+
+        passives {
+            ShowHiddenThings 1
+            DodgeChance 5%
+        }
+    }
+
+    317 { // Bone Ears
+        desc "MUTATION_EARS_317_DESC"
+
+        passives { 
+            StatusKilledCharacters {
+                Conditional_RandomChance {
+                    odds 10%
+                    AutoReanimate 50%
+                }
+            } 
+        }
+    }
+
+    318 { // Frog Eyes
+        tag animal
+        desc "MUTATION_EARS_318_DESC"
+
+        passives {
+            PassiveWhenAffectedByElement {
+                element water
+                passives {
+                    Brace 1
+                }
+            } 
+        }
+    }
+
+    319 { // Pierced Ears
+        tag animal
+        desc "MUTATION_EARS_319_DESC"
+
+        passives {
+            StatusOnTookDamage {
+                Charge 1
+            }
+        }
+    }
+
+    320 { // Alien Ears
+        desc "MUTATION_EARS_320_DESC"
+
+        passives {
+            KineticSpikes 1 
+        }
+    }
+
+
+    
+    321 { // Spring Ears
+        desc "MUTATION_EARS_321_DESC"
+
+        passives {
+            MeleeRevengeDamage {
+                knockback 1
+            }
+        }
+    }
+
+
+    322 { // Lamb Ears 
+        tag animal
+        cha 1 
+    }
+
+    323 { // Vamp Ears
+        desc "MUTATION_EARS_323_DESC"
+
+        passives {
+            AddStatusToBasicAttack {
+                FlatLeech 1
+            } 
+        }
+    }
+
+    // // Tyler to add % chance
+    // 324 { // Extra Paw
+    //     desc "10% chance of counter attack when hit"
+    //     tag extra
+    //
+    //     passives {   
+    //         CounterAttack { 
+    //             chance 10%
+    //         }
+    //     }
+    // }
+
+    325 { // Tree Branch
+        desc "MUTATION_EARS_325_DESC"
+
+        passives {
+            PassiveWhenAffectedByElement {
+                element water
+                passives {
+                    StatusEachTurnEnd {
+                        Shield 1
+                        Charge 1
+                    }
+                } 
+            } 
+        }
+    }
+
+    326 { // Worm Ear
+        desc "MUTATION_EARS_326_DESC"
+
+        passives {
+            SpawnEachTurn {
+                chance 5%
+                object  CharmedMaggot
+            } 
+        }
+    }
+
+    327 { // Ant Antenna
+        tag animal
+        desc "MUTATION_EARS_327_DESC"
+            passives {
+                SpawnOnBattleStartRandomEmptyTile {
+                    object RandomFoodPickup 
+                }
+            } 
+    }
+
+    328 { // Snake Ears
+        tag animal
+        desc "MUTATION_EARS_328_DESC"
+            
+        passives {
+            AddStatusToBasicAttack {
+                Petrify [1, .05]
+            } 
+            RevengeDamage {
+                effects {
+                    Petrify [1, .05]
+                } 
+            }
+        }
+    }
+
+    329 { // External Gills
+        tag animal
+        desc "MUTATION_EARS_329_DESC" 
+        passives {
+            AddStatusToBasicAttack {
+                ChangeTile WaterTile
+            }
+            AddElementsToBasicAttack Water 
+        }  
+
+    }
+
+    330 { // Hook Ears
+        desc "MUTATION_EARS_330_DESC"
+        passives {
+            Thorns 1
+            MeleeRevengeDamage {
+                Immobile 10%
+            }
+        }
+    }
+
+    331 { // Mace Ears
+        desc "MUTATION_EARS_331_DESC"
+        passives {
+            AddStatusToBasicAttack {
+                Knockback 1
+            }
+        }
+    }
+
+    332 { // Blubber Lobes
+        desc "MUTATION_EARS_332_DESC"
+        passives {
+            Brace 1
+        }
+    }
+    
+    333 { // Metal Plate
+        shield 3 
+    }
+
+    334 { // Metal Detector
+        desc "MUTATION_EARS_334_DESC"
+        passives {
+            SpawnOnBattleStartRandomEmptyTile {
+                object Coin
+                number [1 3]
+            }
+        }
+    }
+
+    335 { // Docked Ears
+        desc "MUTATION_EARS_335_DESC"
+        passives { 
+            Bleed 1 
+            Quivered 1
+        }
+    }
+
+    336 { // Large Leaves
+        desc "MUTATION_EARS_336_DESC"
+        passives {
+            StatusIfUnusedMovePoints {
+                ManaGain 3 
+            } 
+        }
+    }
+
+    337 { // Burning ears
+        desc "MUTATION_EARS_337_DESC"
+        passives {
+            AddStatusToBasicAttack {
+                Burn 1
+            }
+        }
+    }
+    
+    338 { // Frozen ears
+        desc "MUTATION_EARS_338_DESC"
+        passives {
+            MeleeRevengeDamage {
+                Freeze [1 0.15]
+            }
+        }
+    }
+
+    339 { // Lightning Rods
+        desc "MUTATION_EARS_339_DESC"
+        passives { 
+            ElementImmune Electric
+        }
+    }
+
+    
+    340 { // Aura Ears
+        divine_shield 1
+    }
+
+    341 { //Large Ears 
+        desc "MUTATION_EARS_341_DESC" 
+        passives {
+            ChanceToBackflip {
+                ability BackflipDodge
+                chance 10%
+            } 
+        }
+    }
+
+    342 { //Infested Ears 
+        desc "MUTATION_EARS_342_DESC" 
+        con -1
+        passives {
+            SpawnThingOnDamage {
+                object CharmedFlea
+                good false //good relative to the thing attacking, for luck calculations
+                chance 20%
+            }
+        }
+    }
+
+    343 { //Long Antlers
+        tag animal
+        desc "MUTATION_EARS_343_DESC" 
+        passives {        
+            Thorns 1 
+        } 
+    }
+
+    344 { //Kitten
+        desc "MUTATION_EARS_344_DESC"  
+        passives {
+            SpawnOnDowned CharmedKitten
+        }
+    }
+
+    345 { //Mouse Ears
+        tag animal
+        desc "MUTATION_EARS_345_DESC"  
+
+        passives {
+            RevengeDamage {
+                effects {
+                    Charmed [1, .15]           
+                } 
+            }
+        }
+    }
+    
+    750 { //Jackrabbit Ears
+        tag animal
+        desc "MUTATION_EARS_750_DESC"  
+
+        passives {
+            ReplaceBasicMove_Mutation BasicJump
+        }
+    }
+
+    751 { // Folded Ears
+        desc "MUTATION_EARS_751_DESC" 
+        passives {
+            DodgeChance 10%
+        }
+    }
+
+    752 { // Fin Ears
+        tag animal
+        desc "MUTATION_EARS_752_DESC" 
+        passives {
+            PassiveWhenAffectedByElement {
+                element water
+                passives {
+                    DamageUp 2 
+                }
+            } 
+        }
+    }
+
+    753 { // Goat Horns
+        tag animal
+        desc "MUTATION_EARS_753_DESC" 
+        passives { 
+            AddKnockbackDamage 1
+            AddStatusToBasicAttack {
+                Knockback 1
+            }
+        }
+    }
+
+    754 { // Electric Ears
+        desc "MUTATION_EARS_754_DESC" 
+        spd 1 
+        passives {
+            AddDamageToElementDamage {
+                element Electric
+                damage 1
+            } 
+        }
+    }
+    
+    755 { // Head Ferns
+        desc "MUTATION_EARS_755_DESC" 
+        passives { 
+            StatusOnCastSpell {
+                Charge 1
+            }   
+        }
+    }
+
+
+    900 { //slender
+        desc "MUTATION_EARS_900_DESC"
+
+        passives {
+            DodgeChance 10%
+        }
+    }
+
+
+    1500 { //rat ears
+        tag animal
+        desc "MUTATION_EARS_1500_DESC"
+
+        passives {
+            DodgeChance 2%
+        }
+    }
+
+    //simple stat mod parts
+    400 {
+        str 2
+        con -1
+    }
+    401 {
+        str 2
+        dex -1
+    }
+    402 {
+        str 2
+        cha -1
+    }
+    403 {
+        str 2
+        int -1
+    }
+    404 {
+        str 2
+        spd -1
+    }
+    405 {
+        str 2
+        lck -1
+    }
+    406 {
+        con 2
+        str -1
+    }
+    407 {
+        con 2
+        dex -1
+    }
+    408 {
+        con 2
+        cha -1
+    }
+    409 {
+        con 2
+        int -1
+    }
+    410 {
+        con 2
+        spd -1
+    }
+    411 {
+        con 2
+        lck -1
+    }
+    412 {
+        dex 2
+        con -1
+    }
+    413 {
+        dex 2
+        str -1
+    }
+    414 {
+        dex 2
+        cha -1
+    }
+    415 {
+        dex 2
+        int -1
+    }
+    416 {
+        dex 2
+        spd -1
+    }
+    417 {
+        dex 2
+        lck -1
+    }
+    418 {
+        int 2
+        con -1
+    }
+    419 {
+        int 2
+        dex -1
+    }
+    420 {
+        int 2
+        cha -1
+    }
+    421 {
+        int 2
+        str -1
+    }
+    422 {
+        int 2
+        spd -1
+    }
+    423 {
+        int 2
+        lck -1
+    }
+    424 {
+        cha 2
+        con -1
+    }
+    425 {
+        cha 2
+        dex -1
+    }
+    426 {
+        cha 2
+        str -1
+    }
+    427 {
+        cha 2
+        int -1
+    }
+    428 {
+        cha 2
+        spd -1
+    }
+    429 {
+        cha 2
+        lck -1
+    }
+    430 {
+        lck 2
+        con -1
+    }
+    431 {
+        lck 2
+        dex -1
+    }
+    432 {
+        lck 2
+        cha -1
+    }
+    433 {
+        lck 2
+        int -1
+    }
+    434 {
+        lck 2
+        spd -1
+    }
+    435 {
+        lck 2
+        str -1
+    }
+    436 {
+        spd 2
+        con -1
+    }
+    437 {
+        spd 2
+        str -1
+    }
+    438 {
+        spd 2
+        cha -1
+    }
+    439 {
+        spd 2
+        int -1
+    }
+    440 {
+        spd 2
+        dex -1
+    }
+    441 {
+        spd 2
+        lck -1
+    }
+
+    //Birth Defects
+    700 { //anotia
+        tag birth_defect
+        lck -2
+    }
+    701 { //turner syndrome
+        tag birth_defect
+        int -2
+    }
+	702 { //underdeveloped ears
+        tag birth_defect
+        cha -1
+    }
+	703 { //low ears
+        desc "MUTATION_EARS_703_DESC"
+        tag birth_defect
+
+        passives {
+            Confusion 2
+        }
+    }
+	704 { //wilted ears
+        desc "MUTATION_EARS_704_DESC"
+        tag birth_defect
+
+        passives {
+            Immobile 1
+        }
+    }
+	-2 { //no ears (completely missing part) //TODO: deaf (unaffected by musical abilities)
+        tag birth_defect
+        dex -2
+    }
+}

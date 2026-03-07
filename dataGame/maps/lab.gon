@@ -1,0 +1,119 @@
+graphics Map_Lab
+chapter_id lab
+tileset lab
+world_name_frame thelab
+area_name AREA_NAME_LAB
+act 3
+chapter 1
+
+version 1
+
+
+levels {
+    folder lab
+    easy [easy]
+    hard [easy] //switch this to "hard" in the brackets if we get specific hard levels in!
+    rare [rare]
+    boss [boss]
+    miniboss [miniboss]
+    special [special]
+}
+
+music lab
+ambience amb_alley.ogg
+
+events {
+    normal [
+        common
+        lab_events.gon
+    ]
+}
+
+enemy_pools { //for effects that need to spawn a "chapter enemy" of some sort
+    small []
+    medium [RatCat Gamete NubsCat CatHuman HumanCat CopBot DrDitto Drcat Mangy3 Needlecat Stacy2p0]
+    large [MegaMutant]
+}
+
+item_pools {
+    chapter_item_pool labitems
+}
+
+bosses {
+    stacy auto
+    spewer auto
+}
+
+minibosses {
+    druidcat auto
+    monkcat auto
+    psychiccat auto
+    tinkerercat auto
+    jestercat auto
+}
+
+random_generation_flags {
+    choose_one [GenFlag_Boss_Stacy, GenFlag_Boss_Spewer] //select one of these flags at random to set upon map generation
+}
+
+nodes {
+    #include "standard_nodes.gon"
+
+    //exits
+    exit0 {
+        type exit
+        next_map iceage.gon
+        locked true
+        override_art MapNodeExit_IceAge
+    }
+    exit1 {
+        type exit
+        next_map future.gon
+        locked true
+        override_art MapNodeExit_Future
+    }
+
+    //special
+    boss {
+        type boss
+    }
+
+    miniboss_event {
+        type empty
+    }
+
+    quest_event {
+        type special_event
+        level Quest_BrokenTimeMachine
+        override_art MapNode_BrokenTimeMachine
+    }
+}
+
+flags {
+    IceAgeUnlocked {
+        quest_event {
+            level Quest_TimeMachine
+            override_art MapNode_TimeMachine
+        }
+    }
+    FutureUnlocked {
+        quest_event {
+            level Quest_TimeMachine
+            override_art MapNode_TimeMachine
+        }
+    }
+    GenFlag_Boss_Stacy {
+        miniboss_event {
+            type special_event
+            level StacyMutant1
+        }
+        boss {
+            level stacy
+        }
+    }
+    GenFlag_Boss_Spewer {
+        boss {
+            level spewer
+        }
+    }
+}

@@ -1,0 +1,75 @@
+graphics Map_Future
+chapter_id future
+tileset future
+world_name_frame future
+area_name AREA_NAME_FUTURE
+act 3
+chapter 2
+version 1
+
+levels {
+    folder future
+    easy [easy]
+    hard [easy]
+    rare [rare]
+    boss [boss]
+    miniboss [miniboss]
+    special [special]
+}
+
+music future
+ambience amb_future.ogg
+
+events {
+    normal [
+        common
+        future_events.gon
+    ]
+}
+
+enemy_pools { //for effects that need to spawn a "chapter enemy" of some sort
+    small [Invader]
+    medium [FatCat FutureBot SoldierBot HangerBot DoctorBot TallBot TVBot JarHead FetusJar FetusNoJar]
+    large [FatMan FatWoman]
+}
+
+item_pools {
+    chapter_item_pool futureitems
+}
+
+minibosses {
+    lightningelemental auto
+    drmangler auto
+}
+
+nodes {
+    #include "standard_nodes.gon"
+
+    //exits
+    exit0 {
+        type exit
+        next_map theend.gon
+        locked true
+        override_art MapNodeExit_TheEnd
+    }
+
+    //special
+    boss {
+        type boss
+        boss_cutscene hitler
+    }
+
+    time_machine {
+        type special_event
+        level Quest_TimeMachineFuture
+        override_art MapNode_TimeMachine
+    }
+}
+
+flags {
+    TheEndUnlocked {
+        exit0 {
+            locked false
+        }
+    }
+}

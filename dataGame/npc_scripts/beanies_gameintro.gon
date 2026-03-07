@@ -1,0 +1,81 @@
+//default  happy  veryhappy  sad  angry  veryangry
+//questioning  whispering  pondering  mocking
+//inlove  confused  paranoid  shocked  scared  spacedout
+//grossedout bored winking
+
+movieclip BeaniesIntro
+default_npc Beanies
+
+states_and_transitions {
+	states {
+		verycloseup ["verycloseup"]
+		closeup ["closeup"]
+		choosecats ["choosecats"]
+		zoomedout ["zoomedout"]
+		closerup ["closerup"]
+	}
+
+	transitions {
+	}
+}
+
+sequences {
+	
+	intro {
+		set_state verycloseup
+		delay 5.4
+		dialog NPC_BEANIES_INTRO_1
+		set_state closeup
+		set_mood happy
+		dialog NPC_BEANIES_INTRO_2
+		dialog NPC_BEANIES_INTRO_3
+		dialog NPC_BEANIES_INTRO_4
+		set_state zoomedout
+		set_mood default
+		dialog NPC_BEANIES_INTRO_5 
+		dialog NPC_BEANIES_INTRO_6
+		dialog NPC_BEANIES_INTRO_7
+		dialog NPC_BEANIES_INTRO_8
+		dialog NPC_BEANIES_INTRO_9
+		dialog NPC_BEANIES_INTRO_10
+		dialog NPC_BEANIES_INTRO_11
+		dialog NPC_BEANIES_INTRO_12
+		set_state closeup
+		set_mood veryhappy
+		dialog NPC_BEANIES_INTRO_13
+		set_state choosecats
+		set_mood default
+		dialog NPC_BEANIES_INTRO_14
+		dialog_and_autopass NPC_BEANIES_INTRO_15
+		unlock_controls 1
+		wait_for choose_cat1
+		wait_for choose_cat2
+		lock_controls 1
+		dialog NPC_BEANIES_INTRO_16
+		dialog NPC_BEANIES_INTRO_17
+		dialog NPC_BEANIES_INTRO_18
+		sfx Intro_LabDisposal
+		wait_for reject_cat
+		delay .05
+		set_state closeup
+		set_mood sad
+		dialog NPC_BEANIES_INTRO_19
+		set_state zoomedout
+		set_mood default
+		dialog NPC_BEANIES_INTRO_20
+		dialog NPC_BEANIES_INTRO_21
+		dialog NPC_BEANIES_INTRO_22
+		set_state closeup
+		set_mood happy
+		dialog NPC_BEANIES_INTRO_23
+		set_state zoomedout
+		set_mood pondering
+		dialog NPC_BEANIES_INTRO_24
+		dialog NPC_BEANIES_INTRO_25
+		set_state closeup
+		set_mood happy
+		dialog NPC_BEANIES_INTRO_26
+		dialog NPC_BEANIES_INTRO_27
+	}
+
+}

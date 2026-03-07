@@ -1,0 +1,549 @@
+movieclip TinkOffice
+default_npc Tink
+
+states_and_transitions {
+	states {
+		idle ["idle"]
+	}
+
+	transitions {
+	}
+}
+
+sequences {
+	
+	unprompted {
+		dialog NPC_TINK_UNPROMPTED_1
+	}
+
+	unknown {
+		dialog NPC_TINK_UNKNOWN_1
+		get npc_reward
+	}
+
+	also {
+		dialog NPC_TINK_ALSO_1
+	}
+
+	
+	tink_begin_accepting_cats {
+		set_state closeup
+		dialog NPC_TINK_TINK_BEGIN_ACCEPTING_CATS_1
+		set_state idle
+		dialog NPC_TINK_TINK_BEGIN_ACCEPTING_CATS_2
+		set_state verycloseup
+		dialog NPC_TINK_TINK_BEGIN_ACCEPTING_CATS_3
+		set_state closeup
+		dialog NPC_TINK_TINK_BEGIN_ACCEPTING_CATS_4
+		set_state verycloseup
+		dialog NPC_TINK_TINK_BEGIN_ACCEPTING_CATS_5
+		dialog NPC_TINK_TINK_BEGIN_ACCEPTING_CATS_6
+		set_state closeup
+		dialog NPC_TINK_TINK_BEGIN_ACCEPTING_CATS_7
+		set_state idle
+		dialog NPC_TINK_TINK_BEGIN_ACCEPTING_CATS_8
+		dialog NPC_TINK_TINK_BEGIN_ACCEPTING_CATS_9
+		dialog NPC_TINK_TINK_BEGIN_ACCEPTING_CATS_10
+		set_state closeup
+		dialog NPC_TINK_TINK_BEGIN_ACCEPTING_CATS_11
+		dialog NPC_TINK_TINK_BEGIN_ACCEPTING_CATS_12
+		set_state verycloseup
+		dialog NPC_TINK_TINK_BEGIN_ACCEPTING_CATS_13
+		dialog NPC_TINK_TINK_BEGIN_ACCEPTING_CATS_14
+		set_state idle
+		dialog NPC_TINK_TINK_BEGIN_ACCEPTING_CATS_15	
+		dialog NPC_TINK_TINK_BEGIN_ACCEPTING_CATS_16
+		set_state closeup
+		dialog NPC_TINK_TINK_BEGIN_ACCEPTING_CATS_17	
+		set_state idle
+		dialog NPC_TINK_TINK_BEGIN_ACCEPTING_CATS_18
+		dialog NPC_TINK_TINK_BEGIN_ACCEPTING_CATS_19	
+		dialog NPC_TINK_TINK_BEGIN_ACCEPTING_CATS_20
+		dialog NPC_TINK_TINK_BEGIN_ACCEPTING_CATS_21		
+
+		begin_accepting_cats tink
+	}
+
+
+	tink_prettybow {
+		set_state closeup
+		dialog NPC_TINK_TINK_PRETTYBOW_1
+		dialog NPC_TINK_TINK_PRETTYBOW_2
+		set_state idle
+		dialog NPC_TINK_TINK_PRETTYBOW_3
+		dialog NPC_TINK_TINK_PRETTYBOW_4
+		get npc_reward
+		set_state closeup
+		dialog NPC_TINK_TINK_PRETTYBOW_5
+		dialog NPC_TINK_TINK_PRETTYBOW_6
+		dialog NPC_TINK_TINK_PRETTYBOW_7
+		set_state zoomedout
+		dialog NPC_TINK_TINK_PRETTYBOW_8
+		dialog NPC_TINK_TINK_PRETTYBOW_9
+		set_state idle
+		dialog NPC_TINK_TINK_PRETTYBOW_10
+	}
+
+	tink_tags {//5
+		dialog NPC_TINK_TINK_TAGS_1
+		set_state closeup
+		dialog NPC_TINK_TINK_TAGS_2
+		dialog NPC_TINK_TINK_TAGS_3
+		dialog NPC_TINK_TINK_TAGS_4
+		dialog NPC_TINK_TINK_TAGS_5
+		dialog NPC_TINK_TINK_TAGS_6
+		set_state verycloseup
+		dialog NPC_TINK_TINK_TAGS_7
+		dialog NPC_TINK_TINK_TAGS_8
+		set_state closeup
+		dialog NPC_TINK_TINK_TAGS_9
+		get npc_reward
+	}
+
+	tink_basestats {//1
+		set_state verycloseup
+		dialog NPC_TINK_TINK_BASESTATS_1
+		set_state closeup
+		dialog NPC_TINK_TINK_BASESTATS_2
+		dialog NPC_TINK_TINK_BASESTATS_3
+		set_state idle
+		dialog NPC_TINK_TINK_BASESTATS_4
+		dialog NPC_TINK_TINK_BASESTATS_5
+		dialog NPC_TINK_TINK_BASESTATS_6
+		dialog NPC_TINK_TINK_BASESTATS_7
+		dialog NPC_TINK_TINK_BASESTATS_8
+		set_state closeup
+		dialog NPC_TINK_TINK_BASESTATS_9
+		dialog NPC_TINK_TINK_BASESTATS_10
+		set_state verycloseup
+		dialog NPC_TINK_TINK_BASESTATS_11
+		get npc_reward
+	}
+
+	tink_inbreeding {//2
+		set_state closeup
+		dialog NPC_TINK_TINK_INBREEDING_1
+		set_state idle
+		dialog NPC_TINK_TINK_INBREEDING_2
+		dialog NPC_TINK_TINK_INBREEDING_3
+		dialog NPC_TINK_TINK_INBREEDING_4
+		dialog NPC_TINK_TINK_INBREEDING_5
+		set_state closeup
+		dialog NPC_TINK_TINK_INBREEDING_6
+		set_state idle
+		dialog NPC_TINK_TINK_INBREEDING_7
+		dialog NPC_TINK_TINK_INBREEDING_8
+		set_state closeup
+		dialog NPC_TINK_TINK_INBREEDING_9
+		set_state verycloseup
+		dialog NPC_TINK_TINK_INBREEDING_10
+		set_state idle
+		dialog NPC_TINK_TINK_INBREEDING_11
+		dialog NPC_TINK_TINK_INBREEDING_12
+		dialog NPC_TINK_TINK_INBREEDING_13
+		get npc_reward
+	}
+
+	tink_aggression {//4
+		set_state zoomedout
+		dialog NPC_TINK_TINK_AGGRESSION_1
+		set_state idle
+		dialog NPC_TINK_TINK_AGGRESSION_2
+		set_state verycloseup
+		dialog NPC_TINK_TINK_AGGRESSION_3
+		set_state closeup
+		dialog NPC_TINK_TINK_AGGRESSION_4 
+		set_state idle
+		dialog NPC_TINK_TINK_AGGRESSION_5
+		dialog NPC_TINK_TINK_AGGRESSION_6
+		set_state closeup
+		dialog NPC_TINK_TINK_AGGRESSION_7
+		set_state idle
+		dialog NPC_TINK_TINK_AGGRESSION_8
+		set_state closeup
+		dialog NPC_TINK_TINK_AGGRESSION_9
+		set_state idle
+		dialog NPC_TINK_TINK_AGGRESSION_10
+		set_state zoomedout
+		dialog NPC_TINK_TINK_AGGRESSION_11
+		set_state closeup
+		dialog NPC_TINK_TINK_AGGRESSION_12
+		get npc_reward
+	}
+	
+	tink_sexuality {//3
+		dialog NPC_TINK_TINK_SEXUALITY_1
+		dialog NPC_TINK_TINK_SEXUALITY_2
+		set_state closeup
+		dialog NPC_TINK_TINK_SEXUALITY_3
+		set_state idle
+		dialog NPC_TINK_TINK_SEXUALITY_4
+		set_state closeup
+		dialog NPC_TINK_TINK_SEXUALITY_5
+		dialog NPC_TINK_TINK_SEXUALITY_6
+		dialog NPC_TINK_TINK_SEXUALITY_7
+		set_state idle
+		dialog NPC_TINK_TINK_SEXUALITY_8
+		set_state verycloseup
+		dialog NPC_TINK_TINK_SEXUALITY_9
+		set_state idle
+		dialog NPC_TINK_TINK_SEXUALITY_10
+		dialog NPC_TINK_TINK_SEXUALITY_11
+		dialog NPC_TINK_TINK_SEXUALITY_12
+		get npc_reward
+	}
+
+	tink_relationships {//6
+		set_state verycloseup
+		dialog NPC_TINK_TINK_RELATIONSHIPS_1
+		set_state closeup
+		dialog NPC_TINK_TINK_RELATIONSHIPS_2
+		set_state idle
+		dialog NPC_TINK_TINK_RELATIONSHIPS_3
+		dialog NPC_TINK_TINK_RELATIONSHIPS_4
+		dialog NPC_TINK_TINK_RELATIONSHIPS_5
+		set_state zoomedout
+		dialog NPC_TINK_TINK_RELATIONSHIPS_6
+		set_state closeup
+		dialog NPC_TINK_TINK_RELATIONSHIPS_7
+		set_state idle
+		dialog NPC_TINK_TINK_RELATIONSHIPS_8
+		set_state verycloseup
+		dialog NPC_TINK_TINK_RELATIONSHIPS_9
+		dialog NPC_TINK_TINK_RELATIONSHIPS_10
+		set_state idle
+		dialog NPC_TINK_TINK_RELATIONSHIPS_11
+		dialog NPC_TINK_TINK_RELATIONSHIPS_12
+		set_state verycloseup
+		dialog NPC_TINK_TINK_RELATIONSHIPS_13
+		set_state idle
+		dialog NPC_TINK_TINK_RELATIONSHIPS_14
+		dialog NPC_TINK_TINK_RELATIONSHIPS_15
+		dialog NPC_TINK_TINK_RELATIONSHIPS_16
+		set_state verycloseup
+		dialog NPC_TINK_TINK_RELATIONSHIPS_17
+		set_state closeup
+		dialog NPC_TINK_TINK_RELATIONSHIPS_18
+		set_state idle
+		dialog NPC_TINK_TINK_RELATIONSHIPS_19
+		dialog NPC_TINK_TINK_RELATIONSHIPS_20
+		get npc_reward
+	}
+	
+	tink_max_intro {//used for when tink hits max favor.
+		dialog NPC_TINK_TINK_MAX_INTRO_1
+		set_state closeup
+		dialog NPC_TINK_TINK_MAX_INTRO_2
+		set_state verycloseup
+		dialog NPC_TINK_TINK_MAX_INTRO_3
+		set_state closeup
+		dialog NPC_TINK_TINK_MAX_INTRO_4
+		dialog NPC_TINK_TINK_MAX_INTRO_5
+		dialog NPC_TINK_TINK_MAX_INTRO_6
+		set_state zoomedout
+		dialog NPC_TINK_TINK_MAX_INTRO_7
+		set_state closeup
+		dialog NPC_TINK_TINK_MAX_INTRO_8
+		dialog NPC_TINK_TINK_MAX_INTRO_9
+		dialog NPC_TINK_TINK_MAX_INTRO_10
+		dialog NPC_TINK_TINK_MAX_INTRO_11
+		dialog NPC_TINK_TINK_MAX_INTRO_12
+		get npc_reward
+	}
+
+	tink_max_repeating {
+		do_random_sequence [tink_max1, tink_max2, tink_max3, tink_max4, tink_max5, tink_max6, tink_max7, tink_max8, tink_max9, tink_max10]
+	}
+
+	tink_max1 {//max1-10 are for when tink is at max favor
+		set_state closeup
+		dialog NPC_TINK_TINK_MAX1_1
+		dialog NPC_TINK_TINK_MAX1_2
+		dialog NPC_TINK_TINK_MAX1_3
+		set_state verycloseup
+		dialog NPC_TINK_TINK_MAX1_4
+		get npc_reward
+	}
+	
+	tink_max2 {
+		dialog NPC_TINK_TINK_MAX2_1
+		dialog NPC_TINK_TINK_MAX2_2
+		set_state closeup
+		dialog NPC_TINK_TINK_MAX2_3
+		dialog NPC_TINK_TINK_MAX2_4
+		dialog NPC_TINK_TINK_MAX2_5
+		set_state idle
+		dialog NPC_TINK_TINK_MAX2_6
+		dialog NPC_TINK_TINK_MAX2_7
+		get npc_reward
+	}
+	
+	tink_max3 {
+		dialog NPC_TINK_TINK_MAX3_1
+		set_state verycloseup
+		dialog NPC_TINK_TINK_MAX3_2
+		set_state idle
+		dialog NPC_TINK_TINK_MAX3_3
+		set_state closeup
+		dialog NPC_TINK_TINK_MAX3_4
+		set_state verycloseup
+		dialog NPC_TINK_TINK_MAX3_5
+		set_state idle
+		dialog NPC_TINK_TINK_MAX3_6
+		get npc_reward
+	}
+	
+	tink_max4 {
+		dialog NPC_TINK_TINK_MAX4_1
+		dialog NPC_TINK_TINK_MAX4_2
+		set_state closeup
+		dialog NPC_TINK_TINK_MAX4_3
+		dialog NPC_TINK_TINK_MAX4_4
+		set_state idle
+		dialog NPC_TINK_TINK_MAX4_5
+		set_state closeup
+		dialog NPC_TINK_TINK_MAX4_6
+		set_state verycloseup
+		dialog NPC_TINK_TINK_MAX4_7
+		set_state closeup
+		dialog NPC_TINK_TINK_MAX4_8
+		dialog NPC_TINK_TINK_MAX4_9
+		dialog NPC_TINK_TINK_MAX4_10
+		get npc_reward
+	}
+	
+	tink_max5 {
+		dialog NPC_TINK_TINK_MAX5_1
+		dialog NPC_TINK_TINK_MAX5_2
+		set_state closeup
+		dialog NPC_TINK_TINK_MAX5_3
+		set_state idle
+		dialog NPC_TINK_TINK_MAX5_4
+
+		get npc_reward
+	}
+
+	tink_max6 {
+		dialog NPC_TINK_TINK_MAX6_1
+		dialog NPC_TINK_TINK_MAX6_2
+		dialog NPC_TINK_TINK_MAX6_3
+		dialog NPC_TINK_TINK_MAX6_4
+		dialog NPC_TINK_TINK_MAX6_5
+		get npc_reward
+	}
+	
+	tink_max7 {
+		dialog NPC_TINK_TINK_MAX7_1
+		dialog NPC_TINK_TINK_MAX7_2
+		set_state closeup
+		dialog NPC_TINK_TINK_MAX7_3
+		dialog NPC_TINK_TINK_MAX7_4
+		dialog NPC_TINK_TINK_MAX7_5
+		dialog NPC_TINK_TINK_MAX7_6
+		get npc_reward
+	}
+	
+	tink_max8 {
+		set_state closeup
+		dialog NPC_TINK_TINK_MAX8_1
+		dialog NPC_TINK_TINK_MAX8_2
+		dialog NPC_TINK_TINK_MAX8_3
+		set_state idle
+		dialog NPC_TINK_TINK_MAX8_4
+		get npc_reward
+	}
+	
+	tink_max9 {
+		set_state verycloseup
+		dialog NPC_TINK_TINK_MAX9_1
+		set_state closeup
+		dialog NPC_TINK_TINK_MAX9_2
+		dialog NPC_TINK_TINK_MAX9_3
+		set_state idle
+		dialog NPC_TINK_TINK_MAX9_4
+		dialog NPC_TINK_TINK_MAX9_5
+		get npc_reward
+	}
+	
+	tink_max10 {
+		set_state closeup
+		dialog NPC_TINK_TINK_MAX10_1
+		set_state idle
+		dialog NPC_TINK_TINK_MAX10_2
+		dialog NPC_TINK_TINK_MAX10_3
+		dialog NPC_TINK_TINK_MAX10_4
+		dialog NPC_TINK_TINK_MAX10_5
+		set_state closeup
+		dialog NPC_TINK_TINK_MAX10_6
+		dialog NPC_TINK_TINK_MAX10_7
+		set_state verycloseup
+		dialog NPC_TINK_TINK_MAX10_8
+		dialog NPC_TINK_TINK_MAX10_9
+		get npc_reward
+	}
+	
+	//Tink Tips
+	
+	unprompted {
+		do_random_sequence [unprompted_a, unprompted_b, unprompted_c, unprompted_d, unprompted_e, unprompted_f, unprompted_g, unprompted_h, unprompted_i]
+	}
+	
+	unprompted_a {
+		dialog NPC_TINK_UNPROMPTED_A_1
+		dialog NPC_TINK_UNPROMPTED_A_2
+		do_sequence forward_to_tips	
+	}
+	unprompted_b {
+		dialog NPC_TINK_UNPROMPTED_B_1
+		dialog NPC_TINK_UNPROMPTED_B_2
+		do_sequence forward_to_tips	
+	}
+	unprompted_c {
+		dialog NPC_TINK_UNPROMPTED_C_1
+		do_sequence forward_to_tips
+	}
+	unprompted_d {
+		dialog NPC_TINK_UNPROMPTED_D_1
+		do_sequence forward_to_tips	
+	}
+	unprompted_e {
+		dialog NPC_TINK_UNPROMPTED_E_1
+		do_sequence forward_to_tips	
+	}
+	unprompted_f {
+		dialog NPC_TINK_UNPROMPTED_F_1
+		dialog NPC_TINK_UNPROMPTED_F_2
+		do_sequence forward_to_tips	
+	}
+	unprompted_g {
+		dialog NPC_TINK_UNPROMPTED_G_1
+		dialog NPC_TINK_UNPROMPTED_G_2
+		do_sequence forward_to_tips	
+	}
+	unprompted_h {
+		dialog NPC_TINK_UNPROMPTED_H_1
+		dialog NPC_TINK_UNPROMPTED_H_2
+		do_sequence forward_to_tips	
+	}
+	unprompted_i {
+		dialog NPC_TINK_UNPROMPTED_I_1
+		do_sequence forward_to_tips	
+	}
+	
+	
+	forward_to_tips {
+		do_random_sequence [tink_tips_comfort, tink_tips_stimulation, tink_tips_stimulation, tink_tips_appeal , tink_tips_health, tink_tips_mutation,
+		tink_tips_cleaning, tink_tips_basestats, tink_tips_multiclassing, tink_tips_inbreeding ]
+	}
+	
+	
+	tink_tips_intro {
+		dialog NPC_TINK_TINK_TIPS_INTRO_1
+		dialog NPC_TINK_TINK_TIPS_INTRO_2
+		dialog NPC_TINK_TINK_TIPS_INTRO_3
+		dialog NPC_TINK_TINK_TIPS_INTRO_4
+		do_sequence tink_tips_comfort
+	}
+	tink_tips_comfort {
+		dialog NPC_TINK_TINK_TIPS_COMFORT_1
+		dialog NPC_TINK_TINK_TIPS_COMFORT_2
+		dialog NPC_TINK_TINK_TIPS_COMFORT_3
+		dialog NPC_TINK_TINK_TIPS_COMFORT_4
+	}
+	tink_tips_stimulation {
+		dialog NPC_TINK_TINK_TIPS_STIMULATION_1
+		dialog NPC_TINK_TINK_TIPS_STIMULATION_2
+		dialog NPC_TINK_TINK_TIPS_STIMULATION_3
+		dialog NPC_TINK_TINK_TIPS_STIMULATION_4
+		dialog NPC_TINK_TINK_TIPS_STIMULATION_5
+		dialog NPC_TINK_TINK_TIPS_STIMULATION_6
+		dialog NPC_TINK_TINK_TIPS_STIMULATION_7
+	}
+	tink_tips_appeal {
+		dialog NPC_TINK_TINK_TIPS_APPEAL_1
+		dialog NPC_TINK_TINK_TIPS_APPEAL_2
+		dialog NPC_TINK_TINK_TIPS_APPEAL_3
+		dialog NPC_TINK_TINK_TIPS_APPEAL_4
+	}
+	tink_tips_health {
+		dialog NPC_TINK_TINK_TIPS_HEALTH_1
+		dialog NPC_TINK_TINK_TIPS_HEALTH_2
+		dialog NPC_TINK_TINK_TIPS_HEALTH_3
+		dialog NPC_TINK_TINK_TIPS_HEALTH_4
+		dialog NPC_TINK_TINK_TIPS_HEALTH_5
+	}
+	tink_tips_mutation {
+		dialog NPC_TINK_TINK_TIPS_MUTATION_1
+		dialog NPC_TINK_TINK_TIPS_MUTATION_2
+		dialog NPC_TINK_TINK_TIPS_MUTATION_3
+		dialog NPC_TINK_TINK_TIPS_MUTATION_4
+	}
+	tink_tips_cleaning {
+		dialog NPC_TINK_TINK_TIPS_CLEANING_1
+		dialog NPC_TINK_TINK_TIPS_CLEANING_2
+		dialog NPC_TINK_TINK_TIPS_CLEANING_3
+		dialog NPC_TINK_TINK_TIPS_CLEANING_4
+	}
+	tink_tips_basestats {
+		dialog NPC_TINK_TINK_TIPS_BASESTATS_1
+		dialog NPC_TINK_TINK_TIPS_BASESTATS_2
+		dialog NPC_TINK_TINK_TIPS_BASESTATS_3
+	}
+	tink_tips_multiclassing {
+		dialog NPC_TINK_TINK_TIPS_MULTICLASSING_1
+		dialog NPC_TINK_TINK_TIPS_MULTICLASSING_2
+		dialog NPC_TINK_TINK_TIPS_MULTICLASSING_3
+		dialog NPC_TINK_TINK_TIPS_MULTICLASSING_4
+		dialog NPC_TINK_TINK_TIPS_MULTICLASSING_5
+	}
+	tink_tips_inbreeding {
+		dialog NPC_TINK_TINK_TIPS_INBREEDING_1
+		dialog NPC_TINK_TINK_TIPS_INBREEDING_2
+		dialog NPC_TINK_TINK_TIPS_INBREEDING_3
+		dialog NPC_TINK_TINK_TIPS_INBREEDING_4
+		dialog NPC_TINK_TINK_TIPS_INBREEDING_5
+	}
+	
+	//Tina 2 intro
+	tink_tina2 {
+		dialog NPC_TINK_TINK_TINA2_1
+		dialog NPC_TINK_TINK_TINA2_2
+		dialog NPC_TINK_TINK_TINA2_3
+		dialog NPC_TINK_TINK_TINA2_4
+		set_state closeup
+		dialog NPC_TINK_TINK_TINA2_5
+		dialog NPC_TINK_TINK_TINA2_6
+		dialog NPC_TINK_TINK_TINA2_7
+		dialog NPC_TINK_TINK_TINA2_8
+		set_state idle
+		dialog NPC_TINK_TINK_TINA2_9
+		dialog NPC_TINK_TINK_TINA2_10
+
+	}
+	
+	tink_terminator {
+		set_state closeup
+		dialog NPC_TINK_TINK_TERMINATOR_1
+		dialog NPC_TINK_TINK_TERMINATOR_2
+		dialog NPC_TINK_TINK_TERMINATOR_3
+		dialog NPC_TINK_TINK_TERMINATOR_4
+		set_state idle
+		dialog NPC_TINK_TINK_TERMINATOR_5
+		dialog NPC_TINK_TINK_TERMINATOR_6
+		dialog NPC_TINK_TINK_TERMINATOR_7
+		dialog NPC_TINK_TINK_TERMINATOR_8
+		dialog NPC_TINK_TINK_TERMINATOR_9
+		set_state closeup
+		dialog NPC_TINK_TINK_TERMINATOR_10
+		dialog NPC_TINK_TINK_TERMINATOR_11
+		dialog NPC_TINK_TINK_TERMINATOR_12
+		dialog NPC_TINK_TINK_TERMINATOR_13
+		set_state idle
+		dialog NPC_TINK_TINK_TERMINATOR_14
+		set_state zoomedout
+		dialog NPC_TINK_TINK_TERMINATOR_15
+
+	}
+	
+}
+

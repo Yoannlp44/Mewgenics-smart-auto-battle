@@ -1,0 +1,339 @@
+movieclip JackOffice
+default_npc BabyJack
+
+states_and_transitions {
+	states {
+		idle ["idle" "blocking"]
+	}
+
+	transitions {
+	}
+}
+
+sequences {
+	
+	unprompted {
+		cancelable true
+		dialog_and_autopass NPC_JACK_UNPROMPTED_1
+		wait_for_cancel 1
+	}
+
+	also {
+		dialog NPC_JACK_ALSO_1
+	}
+
+	jack_begin_accepting_cats { //jacks introduction is in combat_tutorial since he needs to pop up over the house
+		lock_controls 1
+		dialog NPC_JACK_JACK_BEGIN_ACCEPTING_CATS_1
+		dialog NPC_JACK_JACK_BEGIN_ACCEPTING_CATS_2
+		set_state closeup
+		dialog NPC_JACK_JACK_BEGIN_ACCEPTING_CATS_3
+		dialog NPC_JACK_JACK_BEGIN_ACCEPTING_CATS_4
+		dialog NPC_JACK_JACK_BEGIN_ACCEPTING_CATS_5
+		dialog NPC_JACK_JACK_BEGIN_ACCEPTING_CATS_6
+		set_state blocking
+		dialog NPC_JACK_JACK_BEGIN_ACCEPTING_CATS_7
+		dialog NPC_JACK_JACK_BEGIN_ACCEPTING_CATS_8
+		dialog NPC_JACK_JACK_BEGIN_ACCEPTING_CATS_9
+		dialog NPC_JACK_JACK_BEGIN_ACCEPTING_CATS_10
+		set_state zoomedout
+		dialog NPC_JACK_JACK_BEGIN_ACCEPTING_CATS_11
+		set_state blocking
+		dialog NPC_JACK_JACK_BEGIN_ACCEPTING_CATS_12
+		dialog NPC_JACK_JACK_BEGIN_ACCEPTING_CATS_13
+		dialog NPC_JACK_JACK_BEGIN_ACCEPTING_CATS_14
+		dialog NPC_JACK_JACK_BEGIN_ACCEPTING_CATS_15
+		dialog NPC_JACK_JACK_BEGIN_ACCEPTING_CATS_16
+		begin_accepting_cats jack
+		set_state idle
+		unlock_controls 1
+	}
+
+	out_of_stock {
+		set_state blocking
+		dialog NPC_JACK_OUT_OF_STOCK_1
+	}
+	purchase_item {
+		cancelable true
+		dialog_and_autopass NPC_JACK_PURCHASE_ITEM_1
+		wait_for_cancel 1
+	}
+	cant_afford {
+		cancelable true
+		dialog_and_autopass NPC_JACK_CANT_AFFORD_1
+		wait_for_cancel 1
+	}
+
+	tooltip {
+		cancelable true
+		tooltip_dialog NPC_JACK_SHOP_TOOLTIP
+		wait_for_cancel 1
+	}
+	hide_text {
+		cancelable true
+		dialog_and_autopass ""
+	}
+
+	//UNLOCKS
+	jack_shopupgrade1 {
+		lock_controls 1
+		set_state blocking
+		dialog NPC_JACK_JACK_SHOPUPGRADE1_1
+		dialog NPC_JACK_JACK_SHOPUPGRADE1_2
+		dialog NPC_JACK_JACK_SHOPUPGRADE1_3
+		dialog NPC_JACK_JACK_SHOPUPGRADE1_4
+		dialog NPC_JACK_JACK_SHOPUPGRADE1_5
+		dialog NPC_JACK_JACK_SHOPUPGRADE1_6
+		dialog NPC_JACK_JACK_SHOPUPGRADE1_7
+		dialog NPC_JACK_JACK_SHOPUPGRADE1_8
+		set_state closeup
+		dialog NPC_JACK_JACK_SHOPUPGRADE1_9
+		set_state blocking
+		dialog NPC_JACK_JACK_SHOPUPGRADE1_10
+		dialog NPC_JACK_JACK_SHOPUPGRADE1_11
+		dialog NPC_JACK_JACK_SHOPUPGRADE1_12
+		dialog NPC_JACK_JACK_SHOPUPGRADE1_13
+		get npc_reward
+		set_state idle
+		unlock_controls 1
+	}
+	jack_shopupgrade2 {
+		lock_controls 1
+		set_state blocking
+		set_state closeup
+		dialog NPC_JACK_JACK_SHOPUPGRADE2_1
+		set_state blocking
+		dialog NPC_JACK_JACK_SHOPUPGRADE2_2
+		dialog NPC_JACK_JACK_SHOPUPGRADE2_3
+		dialog NPC_JACK_JACK_SHOPUPGRADE2_4
+		dialog NPC_JACK_JACK_SHOPUPGRADE2_5
+		set_state zoomedout
+		dialog NPC_JACK_JACK_SHOPUPGRADE2_6
+		set_state verycloseup
+		dialog NPC_JACK_JACK_SHOPUPGRADE2_7
+		dialog NPC_JACK_JACK_SHOPUPGRADE2_8
+		set_state blocking
+		dialog NPC_JACK_JACK_SHOPUPGRADE2_9
+		get npc_reward
+		set_state idle
+		unlock_controls 1
+	}
+	jack_shopupgrade3 {
+		lock_controls 1
+		set_state blocking
+		set_state closeup
+		dialog NPC_JACK_JACK_SHOPUPGRADE3_1
+		set_state blocking
+		dialog NPC_JACK_JACK_SHOPUPGRADE3_2
+		dialog NPC_JACK_JACK_SHOPUPGRADE3_3
+		dialog NPC_JACK_JACK_SHOPUPGRADE3_4
+		dialog NPC_JACK_JACK_SHOPUPGRADE3_5
+		dialog NPC_JACK_JACK_SHOPUPGRADE3_6
+		dialog NPC_JACK_JACK_SHOPUPGRADE3_7
+		set_state closeup
+		dialog NPC_JACK_JACK_SHOPUPGRADE3_8
+		set_state blocking
+		dialog NPC_JACK_JACK_SHOPUPGRADE3_9
+		dialog NPC_JACK_JACK_SHOPUPGRADE3_10
+		get npc_reward
+		set_state idle
+		unlock_controls 1
+	}
+	jack_shopupgrade4 {
+		lock_controls 1
+		set_state blocking
+		set_state verycloseup
+		dialog NPC_JACK_JACK_SHOPUPGRADE4_1
+		set_state blocking
+		dialog NPC_JACK_JACK_SHOPUPGRADE4_2
+		dialog NPC_JACK_JACK_SHOPUPGRADE4_3
+		dialog NPC_JACK_JACK_SHOPUPGRADE4_4
+		dialog NPC_JACK_JACK_SHOPUPGRADE4_5
+		dialog NPC_JACK_JACK_SHOPUPGRADE4_6
+		dialog NPC_JACK_JACK_SHOPUPGRADE4_7
+		dialog NPC_JACK_JACK_SHOPUPGRADE4_8
+		dialog NPC_JACK_JACK_SHOPUPGRADE4_9
+		set_state closeup
+		dialog NPC_JACK_JACK_SHOPUPGRADE4_10
+		set_state blocking
+		dialog NPC_JACK_JACK_SHOPUPGRADE4_11
+	    dialog NPC_JACK_JACK_SHOPUPGRADE4_12
+		dialog NPC_JACK_JACK_SHOPUPGRADE4_13
+		set_state verycloseupcloseup
+		dialog NPC_JACK_JACK_SHOPUPGRADE4_14
+		dialog NPC_JACK_JACK_SHOPUPGRADE4_15
+		set_state closeup
+		dialog NPC_JACK_JACK_SHOPUPGRADE4_16
+		get npc_reward
+		set_state idle
+		unlock_controls 1
+	}
+	
+	jack_max_intro {//when jack gains max favor
+		lock_controls 1
+		set_state blocking
+		dialog NPC_JACK_JACK_MAX_INTRO_1
+		dialog NPC_JACK_JACK_MAX_INTRO_2
+		dialog NPC_JACK_JACK_MAX_INTRO_3
+		set_state closeup
+		dialog NPC_JACK_JACK_MAX_INTRO_4
+		set_state blocking
+		dialog NPC_JACK_JACK_MAX_INTRO_5
+		dialog NPC_JACK_JACK_MAX_INTRO_6
+		dialog NPC_JACK_JACK_MAX_INTRO_7
+		get npc_reward
+		set_state idle
+		unlock_controls 1
+	}
+
+	jack_max_repeating {
+		do_random_sequence [jack_max1, jack_max2, jack_max3, jack_max4, jack_max5]
+	}
+	
+	jack_max1 {//max1-5 is for when jack is at max favor
+		lock_controls 1
+		set_state blocking
+		set_state verycloseup
+		dialog NPC_JACK_JACK_MAX1_1
+		set_state closeup
+		dialog NPC_JACK_JACK_MAX1_2
+		dialog NPC_JACK_JACK_MAX1_3
+		get npc_reward
+		set_state idle
+		unlock_controls 1
+	}
+	
+	jack_max2 {
+		lock_controls 1
+		set_state blocking
+		dialog NPC_JACK_JACK_MAX2_1
+		dialog NPC_JACK_JACK_MAX2_2
+		dialog NPC_JACK_JACK_MAX2_3
+		get npc_reward
+		set_state idle
+		unlock_controls 1
+	}
+
+	jack_max3 {
+		lock_controls 1
+		set_state blocking
+		set_state verycloseup
+		dialog NPC_JACK_JACK_MAX3_1
+		set_state closeup
+		dialog NPC_JACK_JACK_MAX3_2
+		set_state blocking
+		dialog NPC_JACK_JACK_MAX3_3
+		dialog NPC_JACK_JACK_MAX3_4
+		dialog NPC_JACK_JACK_MAX3_5
+		get npc_reward
+		set_state idle
+		unlock_controls 1
+	}
+
+	jack_max4 {
+		lock_controls 1
+		set_state blocking
+		set_state closeup
+		dialog NPC_JACK_JACK_MAX4_1
+		set_state blocking
+		dialog NPC_JACK_JACK_MAX4_2
+		dialog NPC_JACK_JACK_MAX4_3
+		dialog NPC_JACK_JACK_MAX4_4
+		get npc_reward
+		set_state idle
+		unlock_controls 1
+	}
+	
+	jack_max5 {
+		lock_controls 1
+		set_state blocking
+		dialog NPC_JACK_JACK_MAX5_1
+		dialog NPC_JACK_JACK_MAX5_2
+		dialog NPC_JACK_JACK_MAX5_3
+		dialog NPC_JACK_JACK_MAX5_4
+		get npc_reward
+		set_state idle
+		unlock_controls 1
+	}
+
+
+
+	unknown {
+		lock_controls 1
+		set_state blocking
+		dialog NPC_JACK_UNKNOWN_1
+		get npc_reward
+		set_state idle
+		unlock_controls 1
+	}
+	
+//Jack unlock intros
+	
+	jack_desert_intro {
+		lock_controls 1
+		set_state blocking
+
+		dialog NPC_JACK_JACK_DESERT_INTRO_1
+		dialog NPC_JACK_JACK_DESERT_INTRO_2
+		dialog NPC_JACK_JACK_DESERT_INTRO_3
+		dialog NPC_JACK_JACK_DESERT_INTRO_4
+		set_state closeup
+		dialog NPC_JACK_JACK_DESERT_INTRO_5
+		set_state verycloseup
+		dialog NPC_JACK_JACK_DESERT_INTRO_6
+		set_state blocking
+		dialog NPC_JACK_JACK_DESERT_INTRO_7
+		dialog NPC_JACK_JACK_DESERT_INTRO_8
+		dialog NPC_JACK_JACK_DESERT_INTRO_9
+		dialog NPC_JACK_JACK_DESERT_INTRO_10
+		dialog NPC_JACK_JACK_DESERT_INTRO_11
+		dialog NPC_JACK_JACK_DESERT_INTRO_12
+
+		set_state idle
+		unlock_controls 1
+	}
+	
+	jack_zara {
+		lock_controls 1
+		set_state blocking
+
+		dialog NPC_JACK_JACK_ZARA_1
+		dialog NPC_JACK_JACK_ZARA_2
+		set_state verycloseup
+		dialog NPC_JACK_JACK_ZARA_3
+		set_state blocking
+		dialog NPC_JACK_JACK_ZARA_4
+		dialog NPC_JACK_JACK_ZARA_5
+		dialog NPC_JACK_JACK_ZARA_6
+		dialog NPC_JACK_JACK_ZARA_7
+		dialog NPC_JACK_JACK_ZARA_8
+		dialog NPC_JACK_JACK_ZARA_9
+		dialog NPC_JACK_JACK_ZARA_10
+
+		set_state idle
+		unlock_controls 1
+	}
+	
+	Jack_Gainaltfurniture {//jack explains what rare alts are and talks about the nona cat
+		lock_controls 1
+		set_state blocking
+		set_state closeup
+		dialog NPC_JACK_JACK_GAINALTFURNITURE_1
+		dialog NPC_JACK_JACK_GAINALTFURNITURE_2
+		dialog NPC_JACK_JACK_GAINALTFURNITURE_3
+		dialog NPC_JACK_JACK_GAINALTFURNITURE_4
+		set_state blocking
+		dialog NPC_JACK_JACK_GAINALTFURNITURE_5
+		dialog NPC_JACK_JACK_GAINALTFURNITURE_6
+		dialog NPC_JACK_JACK_GAINALTFURNITURE_7
+		dialog NPC_JACK_JACK_GAINALTFURNITURE_8
+
+		set_state idle
+		unlock_controls 1
+	}
+	
+		//default  happy  veryhappy  sad  angry  veryangry
+        //questioning  whispering  pondering  mocking
+        //inlove  confused  paranoid  shocked  scared  spacedout
+		//grossedout bored winking
+}

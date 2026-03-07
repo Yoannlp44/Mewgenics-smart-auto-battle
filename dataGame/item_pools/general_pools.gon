@@ -1,0 +1,812 @@
+general_!autorarity [
+    //COMMON
+    //armor sets
+
+    //weapons
+    GlassShard
+    RailSpikes
+    LilSlugger
+    ChumBucket
+    Molars
+    Lighter
+    SeedBombs
+    OldHose
+    Bottles
+    Stick
+    RubberFist
+    SmallBomb
+    BagOfRocks
+
+    //trinkets
+    Feather
+    Weight
+    PullTab
+    Pawn
+
+    //misc
+    Mustache
+    HeadSpring
+    FrankBolts
+    FortuneNecklace
+    Scarf
+    BanditMask
+
+    //UNCOMMON
+    //armor sets
+
+    //weapons
+    Bomb
+    BoneClub
+    Whetstone
+    Hairspray
+    SixPack
+    DryIce
+    BarbedPaw
+    BigStick
+    Textbook
+    BucketOfLard
+    NailGun
+    StrongMagnet
+    OddRemote
+    BearTraps
+    RustyRazor
+    Bricks
+
+    //trinkets
+    Book
+    Dumbell
+    Jazzercise
+    OldShoe
+    BodySpray
+    LuckyPenny
+    WizCheese
+    EmptySyringe
+    LiquidNitrogen
+    Ember
+    Conductor
+    FeedBag
+    Nightshade
+    Knight
+    FishHook
+    D6
+
+    //misc
+    Glasses
+    FaceCovering
+    Bozo
+    Bandage
+    Horns
+    SpikedCollar
+    Wig
+    HeadCheese
+    HockeyMask
+    InfamousMask
+
+    //RARE
+    //armor sets
+    LuckyHat
+	LuckyMask
+	LuckyArmor
+
+    //weapons
+    NailBoard
+    MeatHook
+    Kebab
+    Pipe
+    ObsidianChunk
+    SoulClaw
+    IceCubes
+    GnarledClaw
+    BiggestStick
+    SawBlades
+    ButterflyKnife
+
+    //trinkets
+    SnaggleTooth
+    JarOfLeeches
+    BrassKnuckles
+    FlyLarva
+    StrangeMarble
+    VibratingSkull
+    MatchStick
+    BeeStinger
+    BoneMarrow
+    //Neverstone
+    Rook
+    PetrifiedPoop
+    HumanHand
+    HumanBrain
+    HumanLeg
+    HumanToe
+    HumanHeart
+    HumanFoot
+    MysteriousEye
+    MetalSquare
+
+    //misc
+    Muzzle
+    MysticalBlindfold
+    ThirdEye
+    Flower
+    Antenna
+    LionMane
+    Gobbler
+    HappyHelmet
+    BulletproofVest
+    DunceCap
+
+    //very rare
+    SelfDestructButton
+    Shotgun
+    Revolver
+    Sniper
+    Log
+    Queen
+    RocketLauncher
+
+    //legendary (TODO: these are just very rare for now)
+    Mjolnir
+    Magneto
+    RazorBlade
+    Technology
+    GlyphOfProtection
+    MomsKnife
+    MysteriousBone
+    HolyGrail
+    SpearOfDestiny
+    
+    //armor (unsorted)
+    BearTrapMask
+    PinsAndNeedles
+    NinjaBandana
+    Monocle
+	TieDyeBandana
+	PeaceSymbolFacePaint
+    PhantomMask
+    WhiteBelt
+    BrownBelt
+    BlackBelt
+    BlackCandle
+    CamoHat
+    JesterCap
+    LuckyToe
+    Bling
+    Halo
+    PropellerCap
+    OddMedallion
+    FishNecklace
+    MangyWig
+    RisingSunBandana
+    JewelOfDrog
+    LeakyBrain
+    FryingPan
+    CrownOfHorns
+    TheRelic
+    TwoOfSpades
+    ColostomyBag
+    SurvivalistMask
+    SurvivalistGaiter
+    PeaceSymbol
+    EmptyGenerator
+    DarkFriend
+    FannyPack
+    MorphineDrip
+    LeatherJacket
+    Bandages
+    HorseBlinders
+    Callus
+    LeechBrood
+    FocusBand
+    MedicHat
+    KingsCrown
+    EmoWig
+    ToxicCanister
+    HealingGauze
+    BrokenMirrorHat
+    TopHat
+    Helmet
+    ConfusingHat
+    NightmareHat
+    CrownOfPestilence
+    RainHat
+    SplinteredCrown
+    MedievalHelmet
+    MarkIV
+    MamaLeech
+    FuryDice
+    DNAMultiplier
+    PackOfBlades
+    Backpack
+    StoneOrbit
+    AngelicProtection
+    ChefsApron
+    RadarDish
+    ExtraSetOfEyes
+    SkullClamp
+    BrainChip
+    BlessedAshes
+    AttractiveHairClip
+    WaterFeeder
+    ChampionsMask
+    MeekStone
+    Stomach
+    SpareParts
+    SnakeskinHat
+    DeathShroud
+    Scrubs
+	TatteredScrap 
+
+    //armor sets (unsorted)
+    MageHat
+    MageRobe
+    MageScarf
+    ThiefHood
+    ThiefTattoo
+    ThiefCloak
+    FighterHelm
+    FighterScar
+    FighterShoulderPad
+    ClericHat
+    ClericRelic
+    ClericTears
+    TankHelmet
+    TankTattoo
+    TankPads
+    HunterCap
+    HunterMonocle
+    HunterQuiver
+    TinfoilHat
+    MysticEye
+    DivinersCloth
+    DeathMask
+    SpiderHat
+    LeechNecklace
+    HeadBrand
+    FaceBrand
+    PrayerBeads
+    ScrappersMask
+    ScrappersHat
+    ScrappersBackpack
+    IronJaw
+    FleshShroud
+    HookedNecklace
+    GreenmanMask
+    MushroomHat
+    RingOfMushrooms
+    ClownMakeup
+    CapAndBells
+    Ruffle
+    
+    ProtectionTransmitter
+    DamageTransmitter
+    EnergyTransmitter
+    ThrummingCirclet
+    ThrummingCharm
+    ThrummingSpectacles
+    WitchesHat
+    WitchesNose
+    WitchesCape
+    StunningHaircut
+    StunningChain
+    StunningBeard
+    
+    SuperheroHat
+    SuperheroMask
+    SuperheroCape
+    LeadHelmet
+    LeadMask
+    LeadShoulderPads
+    Obi
+    Fukumen
+    Zukin
+    ScaryBaby
+    CharmingBaby
+    FreezingBaby
+    ProwlersCap
+    ProwlersMask
+    ProwlersVial
+    FeatheredVeil
+    FeatheredNecklace
+    FeatheredCap
+	
+	//misc unadded locked items
+	SpellBook                  
+	BagOfBags                    
+	Steroids                     
+	HolyWater
+	TankJuice                    
+	HuntersFlute                 
+	FriendshipBracelet           
+	CambionConception            
+	EmptyHand                    
+	Fireworks                    
+	SackOfMeat                   
+	DruidsWhistle                
+	BallOfYarn
+	NinnyStick                   
+	SkillSplit    
+	AnointingOil                 
+	Girder 	
+	LilKitty 
+	ToyGun    
+	CatWhiskers                  
+	CatEars                      
+	CatCollar 
+	CopycatHat                   
+	CopycatMask
+	CopycatScarf
+    TheBoxCardboard
+	TheBoxChest                  
+	TheBox                       
+	TheBlackBox 
+
+
+	//??? ( i dont think these are from events, but arent in any pools at all )
+	Ankh    
+	FeatherDarts 
+
+
+    //weapons (unsorted)
+    Blackjack
+    BigSpring
+    Grenade
+    Pinwheel
+    CrispPaper
+    PurpleMushroom
+    BlackMushroom
+    RedMushroom
+    PoisonVial
+    PopCap
+    CreepyPhoto
+    FingerBone
+    SpringBoard
+    Shovel
+    Trowel
+    StaffOfFlame
+    LacedNeedle
+    BattleAxe
+    InfinityArrow
+    BentSpoon
+    UnderworldStaff
+    BallPeenHammer
+    ButchersCleaver
+    RainStaff
+    Bo
+	Taser
+	Crossbow
+	SlingShot
+	
+	SteelBall
+
+    TractorBeam
+    RollOfPennies
+    GrapplingHook
+    Chainsaw
+    BurningCoal
+    RainbowRemote
+    RubberBat
+    RustedRod
+    MeatCleaver
+    SharpStraw
+    BagOfGlass
+    BagOfMeat
+    BagOfGlitter
+    BagOfStuff
+    Pickaxe
+    MiniNuke
+    FreyedWires
+    OldExtinguisher
+    TrashCanLid
+    Kandarian
+    Geode
+    Rocks
+    ExtraLimb
+    GripTrainer
+    ShoeHorn
+    Cheese
+    LipFiller
+    EnergyDrink
+    CatPaw
+    FlowerMix
+    PuzzleBox
+    Crowbar
+    FireFlower
+    Bible
+    CarBattery
+    ModelingClay
+    PolymorphRemote
+    MelonBaller
+    EtherSoakedRag
+    DeathsScythe
+    Necronomicon
+    Jitte
+    AnarchistCookbook
+    HeavyMace
+    UraniumRod
+    Ocarina
+    USAShield
+    Pliers
+
+    //trinkets (unsorted)
+    BloodyCoin
+    GlowingCoin
+    ElectricCoin
+    CounterfeitCoin
+    Whistle
+    Metronome
+    TinkerTools
+    RingOfFrost
+    LuckyCoinPurse
+    RageJuice
+    PrayerCard
+    TankToy
+    TarotDeck
+    TinyCage
+    
+    Libra
+    BallOfBandages
+    Natural20
+    Spring
+    RedDrink
+    GreenDrink
+    PurpleDrink
+    LilBattery
+    CarvingKnife
+    Teleport
+    SmallEye
+    
+    GlowingSeed
+    MagicSeed
+    WeirdEgg
+    SpottedMushroom
+    MundaneStone
+    EmptySack
+    AAABattery
+    ToolBox
+    RubberCement
+    CoinPurse
+    Fork
+    CatONineTails
+    Glue
+    MyShadow
+    EggSack
+    GorgonsEye
+    HotLunch
+    ButterBean
+    MomsRing
+    MindStone
+    SkillStone
+    Multiplier
+    SacredHeart
+    FetusInAJar
+    Breakfast
+    DreamCatcher
+    LunchBox
+    SatanicBible
+    TinyPebble
+    ScrapBag
+    Cookbook
+    BirdHead
+    BrokenMirror
+    Binoculars
+    Bishop
+    VibratingMeteorite
+    GoldenEgg
+    BirdFeed
+    AngelWing
+    PetrifiedPinky
+    CatRib
+    EstusFlask_Full
+    HeavyRock
+    LuckyCoin
+    
+    SoulJar
+    SoyMilk
+    Cancer
+    Wafer
+    SpoonBender
+
+    //misc new stuff
+    PoopHat
+
+    //parasites (this should probably be in the parasites or good parasites pool)
+    TheTick
+
+    //fancy consumables
+    MetalCoat
+    ShoePolish
+    JokerCard
+
+    //items ed coded
+    FeatheredMask
+    Debris
+    MudMask
+    VisionPlugin
+    RubberBand
+    MuertosMask
+    RhinestoneStickers
+
+    ConjoinedEye
+    StoneHelmet
+    OakHelmet
+
+    RustingHelmet
+    TrainingBand
+
+    SmallRune
+    QuartzNecklace
+    CinderBlock
+    BoxingCharm
+    Crucifix
+
+
+    //steven unlocks
+    ThrobbingCrown 
+    CrownOfChaos
+    ChildsCrown
+    TinasBellyButton
+    TinasLarynx
+    TinasFriend
+    PyrophinasToenail
+    ZaratanaTurd
+    ScorchedEarth
+    RoboticArm
+    LiquidMetal
+    HitlersToupe
+
+    StevensGobbler
+    StevensFartFace
+    StevensShotgun
+    StevensMustache
+    StevensGristle
+    StevensBagofRocks
+    StevensHelmet
+    StevensFriend
+    StevenStone
+    StevenMarrow
+    StevensBottle
+    StevensHat
+
+    StevenHat1
+    StevenMask1
+    StevenNeck1
+    StevenTrinket1
+    StevenWeapon1
+    StevensConsumable1
+    StevenHat2
+    StevenMask2
+    StevenNeck2
+    StevenTrinket2
+    StevenWeapon2
+    StevensConsumable2
+]
+
+consumables_!autorarity [
+    FoodMedium
+    FoodBig
+    Catnip
+    CatnipBig
+    RoidRage
+    SpeedBall
+    BrainCandy
+    DiscoBiscuit
+    Clover
+    Upper
+    Percs
+    Antidote
+    Chicken
+    
+    Enema
+    SitrusBerry
+    SmellingSalts
+    Lard
+    KiloOfCatnip
+    RottenMeat
+
+    BagOfGrass
+    Mushrooms
+    Star
+    Bullseye
+    Eyeball
+    WitchsEye
+    ForbiddenFruit
+    PCP
+    StemCells
+    
+    WishBone
+    SuperBandage
+]
+
+//ANY ITEM POOLS THAT HAVE WEIGHTS GET EFFECTED BY LUCK AND NEED TO BE SORTED WORST TO BEST
+basic_consumables {
+    FoodMedium 5
+    FoodBig 2
+    Catnip 3
+    CatnipBig 2
+    pills 7 //since pills is weightless this should be an even chance of any pill
+    Antidote 1
+    Chicken .1
+}
+
+consumables {
+    basic_consumables 100
+    consumables_consumable_common 50
+    consumables_consumable_uncommon 35
+    consumables_consumable_rare 15
+    consumables_consumable_very_rare 1
+}
+
+pills [
+    RoidRage
+    SpeedBall
+    BrainCandy
+    DiscoBiscuit
+    Clover
+    Upper
+    Percs
+]
+
+food {
+    FoodMedium 1
+    FoodBig 1
+    Chicken .01
+}
+
+
+weapons [ //this is referenced in EXACTLY 1 EVENT, and EXACTLY 1 FIGHTER PASSIVE. those should just pull from a chapter pool instead
+    GlassShard
+    RailSpikes
+    NailBoard
+    LilSlugger
+    ChumBucket
+    MeatHook
+    Kebab
+    Pipe
+    ObsidianChunk
+    SoulClaw
+    Bomb
+    BoneClub
+    Molars
+    Whetstone
+    Hairspray
+    Lighter
+    SeedBombs
+    Battery
+    OldHose
+    SixPack
+    IceCubes
+    DryIce
+    Bottles
+    Stick
+    RubberFist
+    BarbedPaw
+    GnarledClaw
+    Garbage
+    Shotgun
+    Revolver
+    Sniper
+    SmallBomb
+    PogoStick
+    Spitball
+    MiniJetpack
+    BigStick
+    BiggestStick
+    Log
+    Taser
+    Deathbot
+    Crossbow
+    BucketOfAcid
+    StunGun
+    SlingShot
+    22Rifle
+    Uzi
+    BagOfRocks
+    Textbook
+    BucketOfLard
+    NailGun
+    StrongMagnet
+    SawBlades
+    OddRemote
+    ButterflyKnife
+    BearTraps
+    RustyRazor
+    Bricks
+    Mjolnir
+    
+    Blackjack
+    BigSpring
+    Grenade
+    Pinwheel
+    CrispPaper
+    PurpleMushroom
+    BlackMushroom
+    RedMushroom
+    PoisonVial
+    PopCap
+    CreepyPhoto
+    FingerBone
+    SpringBoard
+    Shovel
+    Trowel
+    StaffOfFlame
+    LacedNeedle
+    BattleAxe
+    TractorBeam
+    RollOfPennies
+    GrapplingHook
+    Chainsaw
+    BurningCoal
+    RainbowRemote
+    RubberBat
+    RustedRod
+    MeatCleaver
+    SharpStraw
+    BagOfGlass
+    BagOfMeat
+    BagOfGlitter
+    BagOfStuff
+    Pickaxe
+
+    RocketLauncher
+
+    MiniNuke
+    FreyedWires
+    OldExtinguisher
+    TrashCanLid
+    Kandarian
+    Geode
+    Rocks
+    ExtraLimb
+    GripTrainer
+    ShoeHorn
+    Cheese
+    LipFiller
+    EnergyDrink
+    CatPaw
+    FlowerMix
+    PuzzleBox
+    Crowbar
+    FireFlower
+    Bible
+    CarBattery
+    ModelingClay
+]
+
+parasites [
+    Tapeworm
+    Pinworm
+    Ringworm
+    Heartworm
+    BotflyLarva
+    BrainMaggot
+    Cordyceps
+    CymothoaExigua
+    EyeWorm
+    Malaria
+    NaegleriaFowleri
+    Scabies
+    BeanParasite
+	EuhaplorchisCaliforniensis
+	Roundworm
+	SacculinaCarcini
+	Lice
+	Cooties
+	Hookworm
+	Parousworm
+	TheTick
+]
+
+
+cursed_items [
+    Splinters
+    BadSplinters
+    SludgeMask
+    SludgeNeck
+    SludgeHat
+    AlluringDoodie
+    ChildSkull
+    CursedHairball
+    PawShards
+    FaceShards
+]
+

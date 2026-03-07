@@ -1,0 +1,3047 @@
+Research {
+    template self_buff
+    
+    meta {
+        name "ABILITY_RESEARCH_NAME"
+        desc "ABILITY_RESEARCH_DESC"
+        class Tinkerer
+        type_icon "misc"
+    }
+
+    graphics {
+		animation idea
+    }
+    
+    cost {
+        infcantrip true
+        mana 5
+    }
+    
+    damage_instance {
+        effects {
+            Tech 1
+        }
+    }
+}
+Research2 {
+    variant_of Research
+
+    meta {
+        desc "ABILITY_RESEARCH2_DESC"
+    }
+
+    bonus_passives {
+        CapTechSpent 1
+    }
+
+    damage_instance {
+        effects {
+            Tech 1
+        }
+    }
+}
+
+
+Discharge {
+    template spell
+
+    meta {
+        name "ABILITY_DISCHARGE_NAME"
+        desc "ABILITY_DISCHARGE_DESC"
+        class Tinkerer
+        type_icon "magic"
+    }
+
+    graphics {
+        particle WaterConduct
+		animation tapatk
+    }
+    
+    cost {
+        mana X
+        infcantrip true
+        X_cant_be_zero true
+        disallow_cost_modification true
+    }
+
+    target {
+        max_aoe 0
+        max_range 1
+        min_range 1
+        X_is current_mana
+    }
+    
+    damage_instance {
+        damage X
+
+        elements [
+            Electric
+        ]
+    }
+}
+Discharge2 {
+    variant_of Discharge
+
+    meta {
+        desc "ABILITY_DISCHARGE2_DESC"
+    }
+
+    damage_instance {
+        effects {
+            Stun [1 X*.1]
+        }
+    }
+}
+
+Repair {
+    template spell
+
+    meta {
+        name "ABILITY_REPAIR_NAME"
+        desc "ABILITY_REPAIR_DESC"
+        class Tinkerer
+        type_icon "misc"
+    }
+
+    graphics {
+        animation tinkerAdjacent
+        //animation tinkerSelf
+        //TODO: switch animation depending on target
+		particle none
+
+    }
+    
+    cost {
+        mana 5
+        infcantrip true
+    }
+
+    target {
+        max_aoe 0
+        max_range 1
+        min_range 0
+    }
+    
+    damage_instance {
+        damage 0
+        type status_spell
+        cant_miss true
+
+        effects {
+            RepairAll 1
+            RepairAllCondition 1
+        }
+    }
+}
+Repair2 {
+    variant_of Repair
+
+    meta {
+        desc "ABILITY_REPAIR2_DESC"
+    }
+
+    damage_instance {
+        effects {
+            RepairAll 10
+        }
+    }
+}
+
+
+ShoddyJetpack {
+    template jump_attack
+
+    meta {
+        name "ABILITY_SHODDYJETPACK_NAME"
+        desc "ABILITY_SHODDYJETPACK_DESC"
+        class Tinkerer
+        type_icon "movement"
+    }
+
+    graphics {
+        jump_attack_animation land
+    }
+
+    cost {
+        mana 6
+        infcantrip true
+    }
+    
+    target {
+        max_range 20
+
+        aoe_mode occupied_tiles
+        aoe_excludes_self false
+        restrictions none
+
+        randomize_target_within_range 3
+    }
+
+    damage_instance {
+        damage 0
+        type none
+        cant_miss true
+
+        effects {
+            IgnoreSelf true
+            ExplosionIfHitSomething 5
+        }
+    }
+}
+ShoddyJetpack2 {
+    variant_of ShoddyJetpack
+
+    meta {
+        desc "ABILITY_SHODDYJETPACK2_DESC"
+    }
+
+    target {
+        randomize_target_within_range 0
+    }
+}
+
+
+SpawnDecoy {
+    template spawn
+
+    meta {
+        name "ABILITY_SPAWNDECOY_NAME"
+        desc "ABILITY_SPAWNDECOY_DESC"
+        class Tinkerer
+        type_icon "defense"
+    }
+
+    tags [summon]
+    
+    graphics {
+        lob true
+        animation tinker
+    }
+    
+    cost {
+        infcantrip true
+        mana 8
+    }
+    
+    target {
+        min_range 1
+        max_range 3
+    }
+
+    spawn {
+        object ExplodingDecoy
+    }
+}
+SpawnDecoy2 {
+    variant_of SpawnDecoy
+
+    meta {
+        desc "ABILITY_SPAWNDECOY2_DESC"
+    }
+
+    self_damage {
+        effects {
+            DecoySwapper 1
+        }
+    }
+
+    spawn {
+        object ExplodingDecoy
+    }
+}
+DecoySwap {
+    template swap
+
+    graphics {
+    }
+
+    cost {
+        mana 5
+        infcantrip true
+    }
+
+    target {
+        max_range 20
+    }
+}
+DecoyExplode {
+    template spell
+
+    graphics { 
+        dont_orient true
+        particle Explosion
+    }
+    
+    cost {
+        mana 0
+    }
+    
+    target {
+        knockback_mode character_to_tile
+        aoe_excludes_self true
+        
+        target_mode none
+        min_range 0
+        max_range 0
+        
+        min_aoe 0
+        max_aoe 1
+    }
+    
+    damage_instance {
+        damage 5
+        knockback 1
+
+        elements [
+            Explosion
+        ]
+    }
+}
+
+
+Switcheroo { //CUT
+    template self_buff
+    
+    meta {
+        name "ABILITY_SWITCHEROO_NAME"
+        desc "ABILITY_SWITCHEROO_DESC"
+        class Tinkerer
+        type_icon "misc"
+    }
+
+    graphics {
+		animation idea
+    }
+    
+    cost {
+        infcantrip true
+        mana 6
+    }
+    
+    damage_instance {
+        effects {
+            Switcheroo 1
+        }
+    }
+}
+Switcheroo2 {
+    variant_of Switcheroo
+
+    meta {
+        desc "ABILITY_SWITCHEROO2_DESC"
+    }
+
+    damage_instance {
+        effects {
+            Tech 1
+        }
+    }
+}
+
+
+SpringShoes {
+    template jump_attack
+
+    meta {
+        name "ABILITY_SPRINGSHOES_NAME"
+        desc "ABILITY_SPRINGSHOES_DESC"
+        class Tinkerer
+        type_icon "movement"
+    }
+
+    graphics {
+        jump_attack_animation land
+    }
+
+    cost {
+        mana 2
+        infcantrip true
+    }
+    
+    target { 
+        target_mode tile
+
+        min_range 1
+        max_range 2
+        
+        aoe_mode occupied_tiles
+        min_aoe 0
+        max_aoe 0
+        
+        range_display_include_character_size true
+        restrictions must_be_moveable
+    }
+
+    damage_instance {
+        type none
+        damage 0
+    }
+}
+SpringShoes2 {
+    variant_of SpringShoes
+
+    meta {
+        desc "ABILITY_SPRINGSHOES2_DESC"
+    }
+
+    target {
+        max_range 5
+    }
+}
+
+
+Flamethrower { //used as Deathbot's basic attack
+    template spell
+
+    meta {
+        name "ABILITY_FLAMETHROWER_NAME"
+        desc "ABILITY_FLAMETHROWER_DESC"
+    }
+
+    graphics {
+        animation attack
+        particle FireBlastSmall
+        delay 10
+        palette 6
+    }
+    
+    cost {
+        move_points 0
+        act_points 1
+    }
+    
+    target {
+        target_mode direction
+        aoe_mode line
+        
+        max_aoe 3
+        
+        aoe_considers_character_size true
+        aoe_excludes_self true
+        knockback_mode character_to_tile
+    }
+    
+    damage_instance {
+        damage 5
+        
+        effects {
+            Burn 3
+        }
+        
+        elements [
+            Fire
+        ]
+    }
+}
+TurretShot { //used as Turret's basic attack
+    template lobbed_attack
+    
+    target {
+        min_range 1
+        max_range 6
+    }
+
+    damage_instance {
+        damage 3+bonus_ranged_damage
+    }
+}
+RocketTurretShot { //used as Rocket Turret's basic attack
+    template spell
+
+    target {
+        min_range 1
+        max_range 6
+
+        min_aoe 0
+        max_aoe 1
+    }
+
+    graphics {
+        animation shoot
+        use_projectile true
+        projectile Projectile_Rocket
+
+        rocket_swirl {
+            speed [1.5, 2.5] //random range of rotations per second
+            radius [.5 1]
+        }
+        easing 1 // ease in
+
+        lob_height 5
+
+        particle Explosion
+    }
+    
+    damage_instance {
+        damage 5
+        knockback 1
+        elements [
+            Fire
+            Explosion
+        ]
+    }
+}
+
+
+AutoPilot {
+    template self_buff
+    
+    meta {
+        name "ABILITY_AUTOPILOT_NAME"
+        desc "ABILITY_AUTOPILOT_DESC"
+        class Tinkerer
+        type_icon "misc"
+    }
+
+    graphics {
+
+    }
+    
+    cost {
+        infcantrip true
+        mana 10
+    }
+    
+    damage_instance {
+        effects {
+            TakeBonusTurnWithAIControl {
+                include_spells true
+            }
+        }
+        ai_base_score -99999 //AI shouldn't cast this lol
+    }
+}
+AutoPilot2 {
+    variant_of AutoPilot
+
+    meta {
+        desc "ABILITY_AUTOPILOT2_DESC"
+    }
+
+    cost {
+        infcantrip true
+        mana 7
+    }
+
+    target {
+        target_mode tile
+        min_range 0
+        max_range 4
+    }
+}
+
+Recycle {
+    template self_buff
+    
+    meta {
+        name "ABILITY_RECYCLE_NAME"
+        desc "ABILITY_RECYCLE_DESC"
+        class Tinkerer
+        type_icon "misc"
+    }
+
+    graphics {
+		animation idea
+    }
+    
+    cost {
+        infcantrip true
+        mana 5
+        requires_destructible_weapon true
+    }
+    
+    damage_instance {
+        effects {
+            DestroyWeapon 1
+            Tech 1
+            RefreshActPoints 1
+        }
+    }
+}
+Recycle2 {
+    variant_of Recycle
+
+    meta {
+        desc "ABILITY_RECYCLE2_DESC"
+    }
+
+    cost {
+        mana X
+    }
+    target {
+        X_is custom
+    }
+    bonus_passives {
+        XIsRecycleCostReduction 5
+    }
+}
+
+
+BuildTurret {
+    template spawn
+
+    meta {
+        name "ABILITY_BUILDTURRET_NAME"
+        desc "ABILITY_BUILDTURRET_DESC"
+        class Tinkerer
+    }
+
+    tags [summon]
+    
+    graphics {
+        lob true
+        animation buildRobot//Projectile
+    }
+    
+    cost {
+        infcantrip true
+        mana 8
+    }
+    
+    target {
+        min_range 1
+        max_range 1
+        max_aoe 0
+
+        range_excludes_blocking false
+        restrictions aoe_must_exist
+    }
+
+    spawn {
+        object TinkererTurret
+    }
+}
+BuildTurret2 {
+    variant_of BuildTurret
+
+    meta {
+        desc "ABILITY_BUILDTURRET2_DESC"
+    }
+
+    spawn {
+        object RocketTurret
+    }
+}
+
+
+
+RocketSkates {
+    template dash_attack
+    
+    meta {
+        name "ABILITY_ROCKETSKATES_NAME"
+        desc "ABILITY_ROCKETSKATES_DESC"
+        class Tinkerer
+    }
+    
+    graphics {
+        dash_start_animation dashstart
+        dash_animation dash
+        //dash_end_animation dashend
+        dash_attack_animation none
+    }
+    
+    cost {
+        infcantrip true
+        mana 3
+    }
+    
+    target {
+        aoe_mode standard
+        min_aoe 0
+        max_aoe 1
+        knockback_mode character_to_tile
+        aoe_excludes_self false
+    }
+    
+    damage_instance {
+        damage 5
+        knockback 1
+        type spell
+        incidentally_collects_pickups false
+
+        effects {
+            VisualFXTile Explosion
+        }
+
+        elements [
+            Explosion
+            Fire
+        ]
+    }
+}
+RocketSkates2 {
+    variant_of RocketSkates
+
+    meta {
+        desc "ABILITY_ROCKETSKATES2_DESC"
+    }
+
+    target {
+        max_aoe 2
+    }
+}
+RocketSkates_Bombchu {
+    template dash_attack
+    
+    meta {
+        name "ABILITY_BOMBCHUDASH_NAME"
+        desc "ABILITY_BOMBCHUDASH_DESC"
+        animate_name false
+    }
+    
+    graphics {
+        dash_start_animation dashstart
+        dash_animation dash
+        dash_attack_animation none
+    }
+    
+    cost {
+        mana 5
+    }
+    
+    target {
+        aoe_mode standard
+        min_aoe 0
+        max_aoe 1
+        knockback_mode character_to_tile
+        aoe_excludes_self false
+    }
+
+    self_damage {
+        effects {
+            Vaporize 1
+        }
+    }
+    
+    damage_instance {
+        damage 5
+        knockback 1
+        type spell
+        incidentally_collects_pickups false
+
+        effects {
+            VisualFXTile Explosion
+        }
+
+        elements [
+            Explosion
+            Fire
+        ]
+    }
+}
+
+
+DrillDown {
+    template teleport
+    
+    meta {
+        name "ABILITY_DRILLDOWN_NAME"
+        desc "ABILITY_DRILLDOWN_DESC"
+        animate_name true
+        class Tinkerer
+    }
+
+    graphics {
+        animation_out digDown
+        animation_in digUp
+    }
+
+    cost {
+        infcantrip true
+        mana 5
+    }
+
+    target {
+        range_mode cross
+        max_range 10
+    }
+}
+DrillDown2 {
+    variant_of DrillDown
+
+    meta {
+        desc "ABILITY_DRILLDOWN2_DESC"
+    }
+
+    target {
+        restrictions [aoe_must_be_displaceable]
+    }
+
+    damage_instance {
+        makes_contact true
+
+        effects {
+            IgnoreSelf 1
+            ExplosionIfHitSomething 5
+        }
+    }
+}
+
+ArmorUp {
+    template self_buff
+    
+    meta {
+        name "ABILITY_ARMORUP_NAME"
+        desc "ABILITY_ARMORUP_DESC"
+        class Tinkerer
+        type_icon "defense"
+    }
+
+    graphics {
+		animation tinkerSelf
+    }
+    
+    cost {
+        infcantrip true
+        mana 5
+    }
+    
+    damage_instance {
+        effects {
+            Craft {
+                pool tinkerer_default
+                slot random_empty_armor
+            }
+        }
+    }
+}
+ArmorUp2 {
+    variant_of ArmorUp
+
+    meta {
+        desc "ABILITY_ARMORUP2_DESC"
+    }
+
+    target {
+        target_mode tile
+        min_range 0
+        max_range 1
+    }
+}
+
+FreshOffTheForge {
+    template self_buff
+    
+    meta {
+        name "ABILITY_FRESHOFFTHEFORGE_NAME"
+        desc "ABILITY_FRESHOFFTHEFORGE_DESC"
+        class Tinkerer
+        type_icon "defense"
+    }
+
+    graphics {
+
+    }
+    
+    cost {
+        infcantrip true
+        mana 5
+    }
+    
+    damage_instance {
+        effects {
+            Shield 7
+            Burn 3
+        }
+
+        elements [
+            Fire
+        ]
+    }
+}
+FreshOffTheForge2 {
+    variant_of FreshOffTheForge
+
+    meta {
+        desc "ABILITY_FRESHOFFTHEFORGE2_DESC"
+    }
+
+    target {
+        target_mode tile
+        min_range 0
+        max_range 1
+    }
+}
+
+ElectricNail {
+    template spawn
+
+    meta {
+        name "ABILITY_ELECTRICNAIL_NAME"
+        desc "ABILITY_ELECTRICNAIL_DESC"
+        class Tinkerer
+    }
+
+    tags [summon]
+    
+    graphics {
+        lob true
+        animation buildRobotProjectile
+    }
+    
+    cost {
+        infcantrip true
+        mana 5
+    }
+    
+    target {
+        min_range 1
+        max_range 4
+        max_aoe 0
+
+        range_excludes_blocking false
+        restrictions aoe_must_exist
+    }
+
+    spawn {
+        object ElectricNail
+    }
+}
+ElectricNail2 {
+    variant_of ElectricNail
+
+    meta {
+        desc "ABILITY_ELECTRICNAIL2_DESC"
+    }
+
+    cost {
+        mana 3
+    }
+
+    target {
+        max_range 8
+    }
+
+    spawn {
+        object ElectricNail
+    }
+}
+
+
+Craft {
+    template self_buff
+    
+    meta {
+        name "ABILITY_CRAFT_NAME"
+        desc "ABILITY_CRAFT_DESC"
+        type_icon "misc"
+        class Tinkerer
+    }
+
+    graphics {
+        animation tinker
+    }
+
+    target {
+        restrictions aoe_must_exist
+        aoe_restrictions must_have_cat_with_empty_weapon_slot
+    }
+
+    cost {
+        infcantrip true
+        mana 4
+    }
+
+    damage_instance {
+        damage 0
+
+        effects {
+            Craft {
+                pool tinkerer_default
+                slot weapon
+            }
+        }
+        ai_base_score 9999
+    }
+}
+Craft2 {
+    variant_of Craft
+    
+    meta {
+        desc "ABILITY_CRAFT2_DESC"
+    }
+
+    target {
+        target_mode tile
+        max_range 3
+        min_range 0
+    }
+}
+
+Shockwave {
+    template spell
+    
+    meta {
+        name "ABILITY_SHOCKWAVE_NAME"
+        desc "ABILITY_SHOCKWAVE_DESC"
+        class Tinkerer
+    }
+
+    graphics {
+        particle WaterConduct
+        animation shocking
+        delay 3
+    }
+    
+    cost {
+        infcantrip true
+        mana 7
+    }
+    
+    target {
+        aoe_mode all
+        target_mode none
+        aoe_excludes_self true
+    }
+    
+    damage_instance {
+        damage 10
+
+        effects {
+            DamageDistanceAOEFalloff 1
+        }
+
+        elements [
+            Electric
+            Conducted //this prevents it from conducting, since it hits everything already conduction damage is irrelevant
+        ]
+    }
+}
+Shockwave2 {
+    variant_of Shockwave
+
+    meta {
+        desc "ABILITY_SHOCKWAVE2_DESC"
+    }
+
+    damage_instance {
+        damage 15
+
+        effects {
+            DamageDistanceAOEFalloff 2
+        }
+    }
+}
+
+Math {
+    template spell
+
+    meta {
+        name "ABILITY_MATH_NAME"
+        desc "ABILITY_MATH_DESC"
+        class Tinkerer
+        type_icon magic
+        icon_shell_frame attack
+        icon_damage_display "?"
+    }
+
+    graphics {
+        particle MagicMissleBlast
+		animation pointout
+    }
+    
+    cost {
+        infcantrip true
+        mana 5
+    }
+    
+    target {
+        max_aoe 0
+        max_range 5
+    }
+    
+    damage_instance {
+        damage 0
+        show_damage_on_0 true
+
+        effects {
+            Math 1
+        }
+    }
+}
+Math2 {
+    variant_of Math
+
+    meta {
+        desc "ABILITY_MATH2_DESC"
+    }
+
+    damage_instance {
+        effects {
+            Math 2
+        }
+    }
+}
+
+Reprogram {
+    template self_buff
+    
+    meta {
+        name "ABILITY_REPROGRAM_NAME"
+        desc "ABILITY_REPROGRAM_DESC"
+        class Tinkerer
+        type_icon "misc"
+    }
+
+    graphics {
+
+    }
+    
+    cost {
+        infcantrip true
+        mana 3
+    }
+    
+    damage_instance {
+        effects {
+            ConjureBonusAbility Class
+        }
+    }
+}
+Reprogram2 {
+    variant_of Reprogram
+
+    meta {
+        desc "ABILITY_REPROGRAM2_DESC"
+    }
+
+    damage_instance {
+        effects {
+            ConjureBonusAbility {
+                ability Class
+                upgraded true
+            }
+        }
+    }
+}
+
+Improve {
+    template self_buff
+    
+    meta {
+        name "ABILITY_IMPROVE_NAME"
+        desc "ABILITY_IMPROVE_DESC"
+        class Tinkerer
+        type_icon "buff"
+    }
+
+    graphics {
+        animation tinkerSelf
+    }
+    
+    cost {
+        infcantrip true
+        mana 2
+    }
+    
+    damage_instance {
+        effects {
+            RandomStatUp 1
+        }
+    }
+}
+Improve2 {
+    variant_of Improve
+
+    meta {
+        desc "ABILITY_IMPROVE2_DESC"
+    }
+
+    damage_instance {
+        effects {
+            RandomStatUp 2
+        }
+    }
+
+    target {
+        target_mode tile
+        max_range 1
+        min_range 0
+    }
+}
+
+Catbot {
+    template spawn
+
+    meta {
+        name "ABILITY_CATBOT_NAME"
+        desc "ABILITY_CATBOT_DESC"
+        class Tinkerer
+    }
+
+    tags [summon]
+    
+    graphics {
+        lob true
+        animation tinker
+    }
+    
+    cost {
+        infcantrip true
+        mana 8
+    }
+    
+    target {
+        min_range 1
+        max_range 1
+        max_aoe 0
+
+        range_excludes_blocking false
+        restrictions aoe_must_exist
+    }
+
+    spawn {
+        object Catbot
+    }
+}
+Catbot2 {
+    variant_of Catbot
+
+    meta {
+        desc "ABILITY_CATBOT2_DESC"
+    }
+
+    self_damage {
+        effects {
+            Tech 1
+            RefreshActPoints 1
+        }
+    }
+}
+
+Bombchu {
+    template spawn
+
+    meta {
+        name "ABILITY_BOMBCHU_NAME"
+        desc "ABILITY_BOMBCHU_DESC"
+        class Tinkerer
+    }
+    
+    tags [summon]
+
+    graphics {
+        lob true
+        animation buildRobot
+    }
+    
+    cost {
+        infcantrip true
+        mana 7
+    }
+    
+    target {
+        min_range 1
+        max_range 1
+        max_aoe 0
+
+        range_excludes_blocking false
+        restrictions aoe_must_exist
+    }
+
+    spawn {
+        object Bombchu
+    }
+}
+Bombchu2 {
+    variant_of Bombchu
+
+    meta {
+        desc "ABILITY_BOMBCHU2_DESC"
+    }
+
+    graphics {
+        animation buildRobotProjectile
+    }
+
+    cost {
+        mana 6
+    }
+
+    target {
+        max_range 4
+    }
+}
+
+RemoteDetonator {
+    template targeted_status
+    
+    meta {
+        name "ABILITY_REMOTEDETONATOR_NAME"
+        desc "ABILITY_REMOTEDETONATOR_DESC"
+        class Tinkerer
+    }
+
+    graphics {
+        particle none
+		animation pointout
+    }
+    
+    cost {
+        infcantrip true
+        mana 4
+    }
+
+    target {
+        max_range 20
+
+        restrictions must_have_familiar
+    }
+    
+    damage_instance {
+        damage 0
+        cant_miss true
+
+        effects {
+            ExplodeCharacter 5
+        }
+    }
+}
+RemoteDetonator2 {
+    variant_of RemoteDetonator
+
+    meta {
+        desc "ABILITY_REMOTEDETONATOR2_DESC"
+    }
+
+    cost {
+        mana 2
+    }
+}
+
+ShortCircuit {
+    template spell
+
+    meta {
+        name "ABILITY_SHORTCIRCUIT_NAME"
+        desc "ABILITY_SHORTCIRCUIT_DESC"
+        class Tinkerer
+    }
+
+    graphics {
+        particle WaterConduct
+    }
+    
+    cost {
+        infcantrip true
+        mana 3
+    }
+
+    target {
+        target_mode none
+
+        aoe_mode standard
+        min_aoe 1
+        max_aoe 1
+
+        aoe_considers_character_size true
+        aoe_excludes_self true
+    }
+
+    damage_instance {
+        damage 1
+        knockback 0
+
+        effects {
+            RandomKnockback {
+                min 1
+                max 3
+            }
+        }
+
+        elements [
+            Electric
+        ]
+    }
+}
+ShortCircuit2 {
+    variant_of ShortCircuit
+
+    meta {
+        desc "ABILITY_SHORTCIRCUIT2_DESC"
+    }
+    damage_instance {
+        damage 2
+
+        effects {
+            RandomKnockback {
+                min 1
+                max 10
+            }
+        }
+    }
+}
+
+Electrolyze {
+    template self_buff
+    
+    meta {
+        name "ABILITY_ELECTROLYZE_NAME"
+        desc "ABILITY_ELECTROLYZE_DESC"
+        class Tinkerer
+        type_icon "buff"
+    }
+
+    graphics {
+
+    }
+    
+    cost {
+        infcantrip true
+        mana 7
+    }
+    
+    damage_instance {
+        effects {
+            CurrentWeaponDamageUp 3
+            CurrentWeaponAddElectricElement 1
+        }
+    }
+}
+Electrolyze2 {
+    variant_of Electrolyze
+
+    meta {
+        desc "ABILITY_ELECTROLYZE2_DESC"
+    }
+
+    cost {
+        mana 5
+    }
+}
+
+EjectButton {
+    template self_buff
+    
+    meta {
+        name "ABILITY_EJECTBUTTON_NAME"
+        desc "ABILITY_EJECTBUTTON_DESC"
+        class Tinkerer
+    }
+
+    graphics {
+
+    }
+    
+    cost {
+        infcantrip true
+        mana 3
+    }
+    
+    damage_instance {
+        effects {
+            ExplosionIfHitSomething 5
+            RandomDistanceDisplace {
+                stacks 20
+                min_dist 4
+            }
+        }
+    }
+}
+EjectButton2 {
+    variant_of EjectButton
+
+    meta {
+        desc "ABILITY_EJECTBUTTON2_DESC"
+    }
+
+    cost {
+        mana 1
+    }
+}
+
+Firecrackers {
+    template lobbed_attack
+    
+    meta {
+        name "ABILITY_FIRECRACKERS_NAME"
+        desc "ABILITY_FIRECRACKERS_DESC"
+        class Tinkerer
+    }
+
+    graphics {
+        animation throwobject
+		projectile Firecracker
+    }
+
+    cost {
+        infcantrip true
+        mana 5
+    }
+
+    target {
+        max_aoe 2
+
+        min_range 1
+        max_range 5+bonus_range
+
+        max_targets 3
+        restrictions none
+
+        can_multihit true
+    }
+
+    damage_instance {
+        damage 0
+        type ranged
+
+        effects {
+            SmallHitExplosion 1
+        }
+    }
+}
+Firecrackers2 {
+    variant_of Firecrackers
+
+    meta {
+        desc "ABILITY_FIRECRACKERS2_DESC"
+    }
+
+    target {
+        max_range 6+bonus_range
+        max_targets -1
+    }
+}
+
+Upgrade {
+    template targeted_status
+    
+    meta {
+        name "ABILITY_UPGRADE_NAME"
+        desc "ABILITY_UPGRADE_DESC"
+        class Tinkerer
+    }
+
+
+    graphics {
+        animation sing3
+    }
+    
+    cost {
+        infcantrip true
+        mana 4
+    }
+
+    target {
+        min_range 0
+        max_range 3
+        max_aoe 0
+        restrictions aoe_must_exist
+        aoe_restrictions familiars_only
+    }
+    
+    damage_instance {
+        damage 0
+
+        effects {
+            AllStatsUp 1
+            FullHeal 1
+        }
+    }
+}
+Upgrade2 {
+    variant_of Upgrade
+    
+    meta {
+        desc "ABILITY_UPGRADE2_DESC"
+    }
+
+    damage_instance {
+        effects {
+            AllStatsUp 1
+            FullHeal 1
+            DivineShield 1
+        }
+    }
+}
+
+Eureka {
+    template self_buff
+    
+    meta {
+        name "ABILITY_EUREKA_NAME"
+        desc "ABILITY_EUREKA_DESC"
+        class Tinkerer
+        type_icon "misc"
+    }
+
+    graphics {
+		animation idea
+    }
+    
+    cost {
+        infcantrip true
+        mana 5
+        once_per_fight true
+    }
+    
+    damage_instance {
+        effects {
+            Tech 3
+            Madness {
+                stacks 1
+                tickdown_this_turn true
+            }
+        }
+    }
+}
+Eureka2 {
+    template self_buff
+    
+    meta {
+        name "ABILITY_EUREKA_NAME"
+        desc "ABILITY_EUREKA2_DESC"
+        class Tinkerer
+        type_icon "misc"
+    }
+
+    graphics {
+
+    }
+    
+    cost {
+        infcantrip true
+        mana 5
+        once_per_fight true
+    }
+    
+    damage_instance {
+        effects {
+            Tech 3
+        }
+    }
+}
+
+PunchBot {
+    template spawn
+
+    meta {
+        name "ABILITY_PUNCHBOT_NAME"
+        desc "ABILITY_PUNCHBOT_DESC"
+        class Tinkerer
+    }
+    
+    tags [summon]
+
+    graphics {
+        lob true
+        animation buildRobotProjectile
+    }
+    
+    cost {
+        infcantrip true
+        mana 6
+    }
+    
+    target {
+        min_range 1
+        max_range 2
+        max_aoe 0
+
+        range_excludes_blocking false
+        restrictions aoe_must_exist
+    }
+
+    spawn {
+        object RubberFistBot
+    }
+}
+PunchBot2 {
+    variant_of PunchBot
+
+    meta {
+        desc "ABILITY_PUNCHBOT2_DESC"
+    }
+
+    cost {
+        mana 6
+    }
+
+    target {
+        max_range 6
+    }
+}
+
+FastHands {
+    template self_buff
+    
+    meta {
+        name "ABILITY_FASTHANDS_NAME"
+        desc "ABILITY_FASTHANDS_DESC"
+        class Tinkerer
+    }
+
+    tags [noncopyable]
+
+    graphics {
+		animation thumbsup
+    }
+    
+    cost {
+        infcantrip true
+        mana 8
+    }
+
+    damage_instance {
+        effects {
+            RefreshNonManaItemAbilities 1
+        }
+    }
+}
+FastHands2 {
+    variant_of FastHands
+
+    meta {
+        desc "ABILITY_FASTHANDS2_DESC"
+    }
+
+    damage_instance {
+        effects {
+            RepairAll 1
+        }
+    }
+}
+
+
+//Mech Suit Abilities
+
+MechSuitPunch {
+    template dash_attack
+
+    meta {
+        name "ABILITY_MECHPUNCH_NAME"
+        desc "ABILITY_MECHPUNCH_DESC"
+    }
+    
+    graphics {
+        dash_start_animation ramStart
+        dash_animation ramLoop
+        dash_attack_animation ramEnd
+        always_play_animations true
+    }
+
+    target { 
+        max_range 1+bonus_range
+        max_aoe 1+bonus_melee_range
+    }
+
+    damage_instance {
+        damage 5+bonus_melee_damage
+        knockback 3
+    }
+}
+
+MechSuitEject {
+    template throw_attack
+    
+    meta {
+        name "ABILITY_MECHSUITEJECT_NAME"
+        desc "ABILITY_MECHSUITEJECT_DESC"
+    }
+
+    graphics {
+        animation eject
+    }
+
+    cost {
+        mana 3
+        must_be_consuming true
+        infcantrip true
+    }
+    
+    target {
+        max_range 5
+        min_range 3
+        restrictions none
+        throw_consumed_character true
+    }
+    
+    damage_instance {
+        damage 5+bonus_melee_ability_damage
+        blocked_damage 5+bonus_melee_ability_damage
+        custom_additional_ai_weight toss_far
+
+        effects {
+            EndTurn 1
+        }
+        ai_base_score -999999
+    }
+}
+
+MechSuitBarrage {
+    template straightshot_attack
+    
+    meta {
+        name "ABILITY_MECHSUITBARRAGE_NAME"
+        desc "ABILITY_MECHSUITBARRAGE_DESC"
+    }
+
+    graphics {
+        projectile Bullet
+        animation shoot
+        speed 25
+        use_origin_offsets false
+    }
+
+    cost {
+        mana 5
+        must_be_consuming true
+        infcantrip true
+    }
+    
+    target {
+        target_mode direction
+        max_aoe 10
+        min_aoe 1
+        multihit 6
+        stagger_multihit_targets true
+
+        aoe_mode custom
+        custom_aoe      [[1  0] [1  0]  [1, 0] [1, 0]  [1, 0] [1, 0]]
+        custom_aoe_util [[1, 0] [1, 1]  [1, 0] [1, 1]  [1, 0] [1, 1]]
+
+        custom_aoe_mirror      [[1  0] [1  0]  [1, 0] [1, 0]  [1, 0] [1, 0]]
+        custom_aoe_util_mirror [[1, 1] [1, 0]  [1, 1] [1, 0]  [1, 1] [1, 0]]
+
+        mirror_custom_aoe true
+    }
+    
+    damage_instance {
+        damage 4+bonus_ranged_damage
+
+        elements [
+            Fire
+            Explosion
+        ]
+    }
+}
+MechSuitDash {
+    template trample_dash
+    
+    meta {
+        name "ABILITY_MECHDASH_NAME"
+        desc "ABILITY_MECHDASH_DESC"
+    }
+    
+    graphics {
+        dash_start_animation thrustersStart
+        dash_animation thrustersLoop
+        dash_end_animation thrustersEnd
+
+        speed .5
+    }
+    
+    cost {
+        mana 5
+        infcantrip true
+    }
+
+    temporary_effects {
+        TileTrail FireTile
+    }
+    
+    damage_instance {
+        damage 3+bonus_melee_damage
+    }
+}
+
+MechExplode {
+    template throw_attack
+
+    graphics {
+        animation dying
+        dont_orient true
+    }
+
+    cost {
+        mana 0
+        infcantrip true
+    }
+    
+    target {
+        target_mode random_tile
+        min_range 5
+        max_range 7
+        restrictions none
+        throw_consumed_character true
+        allow_any_orientation true
+    }
+
+    self_damage {
+        effects {
+            ApplyToConsumed {
+                Die 1
+            }
+            ExplodeCharacter_NoDie 1
+        }
+    }
+    
+    damage_instance {
+        damage 5+bonus_melee_ability_damage
+        blocked_damage 5+bonus_melee_ability_damage
+    }
+}
+
+MechSuit {
+    template spawn
+
+    meta {
+        name "ABILITY_MECHSUIT_NAME"
+        desc "ABILITY_MECHSUIT_DESC"
+        class Tinkerer
+    }
+    
+    tags [summon]
+
+    graphics {
+        lob false
+        animation portout
+    }
+    
+    cost {
+        infcantrip true
+        mana 15
+        once_per_fight true
+    }
+    
+    target {
+        range_mode custom
+        custom_range [[-2 0] [-2 -1] [-1 -2] [0 -2] [-1 1] [0 1] [1 0] [1 -1]]
+
+        aoe_mode custom
+        dont_orient_aoe true
+
+        custom_aoe [[0 0] [1 0] [0 1] [1 1]]
+
+        range_excludes_blocking false
+        restrictions must_fit_2x2_character
+        aoe_restrictions none
+
+        range_display_include_aoe true
+        mouse_offset [.5 .5]
+        
+    }
+
+    spawn {
+        object MechSuit
+        size 2
+
+        post_spawn_statuses {
+            EnterMount enter
+        }
+    }
+}
+MechSuit2 {
+    variant_of MechSuit
+
+    meta {
+        desc "ABILITY_MECHSUIT2_DESC"
+    }
+
+    cost {
+        mana 0
+    }
+}
+
+UnreliableShield {
+    template self_buff
+    
+    meta {
+        name "ABILITY_UNRELIABLESHIELD_NAME"
+        desc "ABILITY_UNRELIABLESHIELD_DESC"
+        class Tinkerer
+        type_icon "defense"
+    }
+
+    graphics {
+
+    }
+
+    bonus_passives {
+        AbilityEnabledPercentEachTurn 25%
+    }
+    
+    cost {
+        infcantrip true
+        mana 4
+    }
+    
+    damage_instance {
+        effects {
+            Shield 6
+            Temporary {
+                status Brace
+                stacks 1
+                turns 1
+                expires_on_begin_turn true
+            }
+        }
+    }
+}
+UnreliableShield2 {
+    variant_of UnreliableShield
+
+    meta {
+        desc "ABILITY_UNRELIABLESHIELD2_DESC"
+    }
+
+    bonus_passives {
+        AbilityEnabledPercentEachTurn 33%
+    }
+
+    cost {
+        mana 3
+    }
+}
+
+UnreliableMissile {
+    template spell
+    
+    meta {
+        name "ABILITY_UNRELIABLEMISSILE_NAME"
+        desc "ABILITY_UNRELIABLEMISSILE_DESC"
+        class Tinkerer
+    }
+
+    graphics {
+        use_projectile true
+        projectile Projectile_Rocket
+        particle Explosion
+        animation throwobject
+
+        rocket_swirl {
+            speed [1.5, 2.5] //random range of rotations per second
+            radius [.5 1]
+        }
+        easing 1 // ease in
+        lob_height 5
+    }
+
+    cost {
+        infcantrip true
+        mana 4
+    }
+
+    target {
+        target_mode random_tile
+        min_range 1
+        max_range 20
+
+        restrictions must_have_enemy
+    }
+
+    bonus_passives {
+        AbilityEnabledPercentEachTurn 25%
+    }
+
+    damage_instance {
+        damage 5
+        knockback 1
+
+        elements [
+            Explosion
+            Fire
+        ]
+    }
+}
+UnreliableMissile2 {
+    variant_of UnreliableMissile
+
+    meta {
+        desc "ABILITY_UNRELIABLEMISSILE2_DESC"
+    }
+
+    bonus_passives {
+        AbilityEnabledPercentEachTurn 33%
+    }
+
+    cost {
+        mana 3
+    }
+}
+
+SpareParts {
+    template self_buff
+    
+    meta {
+        name "ABILITY_SPAREPARTS_NAME"
+        desc "ABILITY_SPAREPARTS_DESC"
+        class Tinkerer
+        type_icon "misc"
+    }
+
+    graphics {
+
+    }
+    
+    cost {
+        infcantrip true
+        mana 1
+        requires_destructible_weapon true
+    }
+    
+    damage_instance {
+        effects {
+            DestroyWeapon 1
+            
+            RandomStatusFromPool {
+                Shield 2
+                Charge 4
+                Thorns 1
+                GainCoins 1
+            }
+        }
+    }
+}
+SpareParts2 {
+    variant_of SpareParts
+
+    meta {
+        desc "ABILITY_SPAREPARTS2_DESC"
+    }
+
+    damage_instance {
+        effects {
+            RandomStatusFromPool {
+                Shield 4
+                Charge 8
+                Thorns 2
+                GainCoins 2
+            }
+        }
+    }
+}
+
+BatteryNuke {
+    template spell
+
+    meta {
+        name "ABILITY_SPLITTHEATOM_NAME"
+        desc "ABILITY_SPLITTHEATOM_DESC"
+        class Tinkerer
+    }
+
+    graphics {
+        particle Explosion
+        delay 3
+    }
+    
+    cost {
+        infcantrip true
+        mana 50
+        can_pay_over_multiple_turns true
+        disallow_cost_modification true
+    }
+
+    
+    target {
+        target_mode none
+        aoe_mode all
+        aoe_considers_character_size false
+        knockback_mode zero
+        aoe_restrictions exclude_allies
+    }
+
+    damage_instance {
+        damage 50
+
+        effects {
+            Burn 10
+        }
+        
+        elements [
+            Fire
+            Explosion
+        ]
+    }
+}
+BatteryNuke2 {
+    variant_of BatteryNuke
+
+    meta {
+        desc "ABILITY_SPLITTHEATOM2_DESC"
+    }
+
+    bonus_passives {
+        AbsorbManaFromOtherSpells 1
+    }
+}
+
+ExperimentalTeleporter {
+    template teleport
+    
+    meta {
+        name "ABILITY_EXPERIMENTALTELEPORTER_NAME"
+        desc "ABILITY_EXPERIMENTALTELEPORTER_DESC"
+        animate_name true
+        class Tinkerer
+    }
+
+    graphics {
+        self_damage_mid_port true
+    }
+
+    cost {
+        infcantrip true
+        mana 7
+    }
+
+    target {
+        max_range 20
+    }
+
+    self_damage {
+        effects {
+            Conditional_ActiveWeather_Any {
+                weather [FlySwarm FireflySwarm ButterflySwarm]
+
+                DestroyEquipmentAndAttachParasite {
+                    chance 1
+                    pool [FlyHat FlyMask FlyNeck]
+                }
+            } Else {
+                DestroyEquipmentAndAttachParasite {
+                    chance .15
+                    pool [FlyHat FlyMask FlyNeck]
+                }
+            }
+        }
+    }
+}
+ExperimentalTeleporter2 {
+    variant_of ExperimentalTeleporter
+
+    meta {
+        desc "ABILITY_EXPERIMENTALTELEPORTER2_DESC"
+    }
+
+    cost {
+        mana 3
+    }
+}
+
+ShockTherapy {
+    template spell
+
+    meta {
+        name "ABILITY_SHOCKTHERAPY_NAME"
+        desc "ABILITY_SHOCKTHERAPY_DESC"
+        class Tinkerer
+        type_icon "magic"
+    }
+
+    graphics {
+        particle WaterConduct
+    }
+    
+    cost {
+        mana 5
+        infcantrip true
+    }
+
+    target {
+        max_aoe 0
+        max_range 1
+        min_range 0
+    }
+    
+    damage_instance {
+        damage 1
+
+        effects {
+            Cleanse 0
+            RandomStatUp 1
+            Stun [1 .25]
+        }
+
+        elements [
+            Electric
+        ]
+    }
+}
+ShockTherapy2 {
+    variant_of ShockTherapy
+
+    meta {
+        desc "ABILITY_SHOCKTHERAPY2_DESC"
+    }
+
+    target {
+        max_range 5
+    }
+}
+
+BuildNuke {
+    template spawn
+
+    meta {
+        name "ABILITY_BUILDNUKE_NAME"
+        desc "ABILITY_BUILDNUKE_DESC"
+        class Tinkerer
+    }
+
+    tags [summon]
+    
+    graphics {
+        lob true
+        animation buildRobot
+    }
+    
+    cost {
+        infcantrip true
+        mana 9
+    }
+    
+    target {
+        min_range 1
+        max_range 1
+        max_aoe 0
+
+        range_excludes_blocking false
+        restrictions aoe_must_exist
+    }
+
+    spawn {
+        object MiniNuke
+    }
+}
+BuildNuke2 {
+    variant_of BuildNuke
+
+    meta {
+        desc "ABILITY_BUILDNUKE2_DESC"
+    }
+
+    graphics {
+        animation buildRobotProjectile
+    }
+
+    target {
+        max_range 4
+    }
+}
+
+InstantBarrier {
+    template self_buff
+    
+    meta {
+        name "ABILITY_INSTANTBARRIER_NAME"
+        desc "ABILITY_INSTANTBARRIER_DESC"
+        class Tinkerer
+        type_icon "defense"
+    }
+
+    graphics {
+
+    }
+
+    target {
+        X_is current_shield
+    }
+    
+    cost {
+        infcantrip true
+        mana 1
+        enabled_formula 1-X
+    }
+    
+    damage_instance {
+        effects {
+            Shield 6
+        }
+    }
+}
+InstantBarrier2 {
+    variant_of InstantBarrier
+
+    meta {
+        desc "ABILITY_INSTANTBARRIER2_DESC"
+    }
+
+    cost {
+        infcantrip true
+        mana X
+        enabled_formula 1
+    }
+}
+
+VoltTackle {
+    template teleport
+    
+    meta {
+        name "ABILITY_VOLTTACKLE_NAME"
+        desc "ABILITY_VOLTTACKLE_DESC"
+        class Tinkerer
+        type_icon "defense"
+    }
+
+    graphics {
+
+    }
+
+    cost {
+        infcantrip true
+        mana 7
+    }
+    target {
+        max_range 20
+        restrictions [aoe_must_be_displaceable must_move must_be_conductive]
+    }
+    
+    damage_instance {
+        damage 5
+        type spell
+
+        effects {
+            IgnoreSelf 1
+            VisualFXTile WaterConduct
+        }
+
+        elements [
+            Electric
+        ]
+    }
+}
+VoltTackle2 {
+    variant_of VoltTackle
+
+    meta {
+        desc "ABILITY_VOLTTACKLE2_DESC"
+    }
+
+    damage_instance {
+        effects {
+            Stun [1 .5]
+        }
+    }
+}
+
+Smash {
+    template melee_attack
+    
+    meta {
+        name "ABILITY_SMASHTINKERER_NAME"
+        desc "ABILITY_SMASHTINKERER_DESC"
+        class Tinkerer
+    }
+
+    tags [weapon_throw]
+
+    graphics {
+        animation weaponslam
+    }
+
+    cost {
+        requires_destructible_weapon true
+        infcantrip true
+        mana 5
+    }
+
+    target {
+        min_range 1
+        max_range 4+bonus_range
+    }
+
+    bonus_passives {
+        AbilityInheritsWeaponEffects 2
+    }
+
+    self_damage {
+        effects {
+            DestroyWeaponThrow 1
+        }
+    }
+
+    damage_instance {
+        damage 0
+    }
+}
+Smash2 {
+    variant_of Smash
+
+    meta {
+        desc "ABILITY_SMASHTINKERER2_DESC"
+    }
+
+    cost {
+        mana 2
+    }
+}
+
+ShedScrap {
+    template spawn
+
+    meta {
+        name "ABILITY_SHEDSCRAP_NAME"
+        desc "ABILITY_SHEDSCRAP_DESC"
+        class Tinkerer
+    }
+    
+    graphics {
+        lob true
+        animation throwobject
+    }
+    
+    cost {
+        infcantrip true
+        mana 1
+        enabled_formula X
+    }
+    
+    target {
+        min_range 1
+        max_range 1
+        max_aoe 0
+        X_is current_shield
+
+        range_excludes_blocking false
+        restrictions aoe_must_exist
+    }
+
+    self_damage {
+        effects {
+            Shield -1
+        }
+    }
+
+    spawn {
+        object Junk
+    }
+}
+ShedScrap2 {
+    variant_of ShedScrap
+
+    meta {
+        desc "ABILITY_SHEDSCRAP2_DESC"
+    }
+
+    target {
+        max_range 2
+    }
+}
+
+
+RepairArmor {
+    template self_buff
+
+    meta {
+        name "ABILITY_REPAIRARMOR_NAME"
+        desc "ABILITY_REPAIRARMOR_DESC"
+        class Tinkerer
+    }
+    
+    cost {
+        infcantrip true
+        mana 5
+    }
+
+    damage_instance {
+        effects {
+            ResetArmorShield 1
+            RepairArmorCondition 1
+        }
+    }
+}
+RepairArmor2 {
+    template targeted_status
+
+    meta {
+        name "ABILITY_REPAIRARMOR_NAME"
+        desc "ABILITY_REPAIRARMOR2_DESC"
+        class Tinkerer
+    }
+    
+    cost {
+        infcantrip true
+        mana 5
+    }
+
+    target {
+        max_range 20
+        restrictions must_have_ally
+        min_range 0
+    }
+
+    damage_instance {
+        effects {
+            ResetArmorShield 1
+            RepairArmorCondition 1
+        }
+    }
+}
+
+RocketRide {
+    template jump_attack
+    
+    meta {
+        name "ABILITY_ROCKETRIDE_NAME"
+        desc "ABILITY_ROCKETRIDE_DESC"
+        class Tinkerer
+    }
+    
+    graphics {
+        jump_attack_animation land
+        do_damage_immediately true
+    }
+    
+    cost {
+        infcantrip true
+        mana 8
+    }
+    
+    target {
+        aoe_mode standard
+        min_aoe 0
+        max_aoe 1
+        max_range 20
+        knockback_mode character_to_tile
+        aoe_excludes_self false
+    }
+    
+    damage_instance {
+        damage 8
+        knockback 1
+        type spell
+        incidentally_collects_pickups false
+
+        effects {
+            VisualFXTile Explosion
+        }
+
+        elements [
+            Explosion
+            Fire
+        ]
+    }
+}
+RocketRide2 {
+    variant_of RocketRide
+
+    meta {
+        desc "ABILITY_ROCKETRIDE2_DESC"
+    }
+
+    cost {
+        mana 5
+    }
+}
+
+Roomba_Bump { //basic attack for roomba
+    template dash_attack
+
+    graphics {
+        dash_start_animation ramStart
+        dash_animation ramLoop
+        dash_attack_animation ramEnd
+    }
+
+    target { 
+        max_range 1
+        max_aoe 1
+    }
+
+    damage_instance {
+        damage 5+bonus_melee_damage
+    }
+}
+
+RoboVac {
+    template spawn
+
+    meta {
+        name "ABILITY_ROBOVAC_NAME"
+        desc "ABILITY_ROBOVAC_DESC"
+        class Tinkerer
+    }
+    
+    tags [summon]
+
+    graphics {
+        lob true
+        animation buildRobot
+    }
+    
+    cost {
+        infcantrip true
+        mana 4
+    }
+    
+    target {
+        min_range 1
+        max_range 1
+        max_aoe 0
+
+        range_excludes_blocking false
+        restrictions aoe_must_exist
+    }
+
+    spawn {
+        object RoboVacuum
+    }
+}
+RoboVac2 {
+    variant_of RoboVac
+
+    meta {
+        desc "ABILITY_ROBOVAC2_DESC"
+    }
+
+    spawn {
+        object RoboVacuum2
+    }
+}
+
+
+NurseBotHeal { //basic attack for nurse bot, does not need an icon
+    template tile_targeted_melee_attack
+
+    meta {
+        name "ABILITY_FEELGOODDRUGS_NAME"
+    }
+
+    graphics {
+        animation heal
+    }
+
+    damage_instance {
+        heal 5+bonus_melee_damage
+    }
+}
+NurseBotHealCat {
+    variant_of NurseBotHeal
+    target {
+        restrictions [must_not_have_tag]
+        target_requires_tag robot
+    }
+}
+
+NurseBot {
+    template spawn
+
+    meta {
+        name "ABILITY_NURSEBOT_NAME"
+        desc "ABILITY_NURSEBOT_DESC"
+        class Tinkerer
+    }
+    
+    tags [summon]
+
+    graphics {
+        lob true
+        animation buildRobot
+    }
+    
+    cost {
+        infcantrip true
+        mana 9
+    }
+    
+    target {
+        min_range 1
+        max_range 1
+        max_aoe 0
+
+        range_excludes_blocking false
+        restrictions aoe_must_exist
+    }
+
+    spawn {
+        object NurseBot
+    }
+}
+NurseBot2 {
+    variant_of NurseBot
+
+    meta {
+        desc "ABILITY_NURSEBOT2_DESC"
+    }
+
+    cost {
+        mana 6
+    }
+}
+
+TeslaBolt { //basic attack for tesla coil, does not need an icon
+    template spell
+
+    graphics {
+        particle Bolt
+        animation none
+        dont_visualize_ai true
+        dont_orient true
+    }
+
+    target {
+        max_aoe 0
+        max_range 3
+        min_range 1
+    }
+    
+    damage_instance {
+        damage 3
+        custom_additional_ai_weight teslacoil_priorities
+        
+        effects {
+            Stun [1, .1]
+        }
+        
+        elements [
+            Electric
+        ]
+    }
+}
+
+TeslaCoil {
+    template spawn
+
+    meta {
+        name "ABILITY_TESLACOIL_NAME"
+        desc "ABILITY_TESLACOIL_DESC"
+        class Tinkerer
+    }
+    
+    tags [summon]
+
+    graphics {
+        lob true
+        animation buildRobot
+    }
+    
+    cost {
+        infcantrip true
+        mana 7
+    }
+    
+    target {
+        min_range 1
+        max_range 1
+        max_aoe 0
+
+        range_excludes_blocking false
+        restrictions aoe_must_exist
+    }
+
+    spawn {
+        object TeslaCoil
+    }
+}
+TeslaCoil2 {
+    variant_of TeslaCoil
+
+    meta {
+        desc "ABILITY_TESLACOIL2_DESC"
+    }
+
+    graphics {
+        animation buildRobotProjectile
+    }
+
+    target {
+        max_range 7
+    }
+}
+
+RefineMaterials {
+    template targeted_status
+    
+    meta {
+        name "ABILITY_REFINEMATERIALS_NAME"
+        desc "ABILITY_REFINEMATERIALS_DESC"
+        class Tinkerer
+        type_icon "misc"
+    }
+
+    graphics {
+    }
+
+    cost {
+        infcantrip true
+        mana 1
+    }
+
+    target {
+        max_range 3
+
+        restrictions must_have_tag
+        target_requires_tag pickup
+    }
+
+    damage_instance {
+        damage 0
+        type status_spell
+
+        effects {
+            CollectsPickupsWithAltEffects {
+                Tech 1
+            }
+        }
+    }
+}
+RefineMaterials2 {
+    variant_of RefineMaterials
+    
+    meta {
+        desc "ABILITY_REFINEMATERIALS2_DESC"
+    }
+
+    damage_instance {
+        effects {
+            CollectsPickupsWithAltEffects {
+                Tech 1
+                Shield 1
+                RandomStatUp 1
+            }
+        }
+    }
+}
+
+Fabricate {
+    template targeted_status
+    
+    meta {
+        name "ABILITY_FABRICATE_NAME"
+        desc "ABILITY_FABRICATE_DESC"
+        class Tinkerer
+        type_icon "misc"
+    }
+
+    graphics {
+    }
+
+    cost {
+        infcantrip true
+        mana 5
+    }
+
+    target {
+        max_range 3
+        min_range 1
+        restrictions aoe_must_exist
+        aoe_restrictions must_have_cat_with_empty_weapon_slot
+    }
+
+    damage_instance {
+        damage 0
+        type status_spell
+
+        effects {
+            CloneWeaponTemp 1
+        }
+    }
+}
+Fabricate2 {
+    variant_of Fabricate
+
+    meta {
+        desc "ABILITY_FABRICATE2_DESC"
+    }
+
+    cost {
+        mana 4
+    }
+
+    target {
+        max_range 20
+    }
+}
+
+Sparks {
+    template lobbed_attack
+    
+    meta {
+        name "ABILITY_SPARKS_NAME"
+        desc "ABILITY_SPARKS_DESC"
+        class Tinkerer
+    }
+
+    graphics {
+        animation castspell
+        projectile LightningBallProjectile
+        lob_height 1
+        speed 20
+    }
+
+    cost {
+        infcantrip true
+        mana 7
+    }
+
+    target {
+        target_mode none
+        aoe_excludes_self true
+        max_aoe 20
+
+        max_targets 3
+        aoe_restrictions [must_have_enemy_or_robot must_have_living_character]
+    }
+
+    damage_instance {
+        damage 3
+        type spell
+
+        effects {
+            VisualFXTile WaterConduct
+        }
+
+        elements [
+            Electric
+        ]
+    }
+}
+Sparks2 {
+    variant_of Sparks 
+
+    meta {
+        desc "ABILITY_SPARKS2_DESC"
+    }
+
+    target {
+        max_targets 5
+    }
+}
+
+Hone { //alternate basic attack for Blacksmith passive
+    template self_buff
+
+    meta {
+        name "ABILITY_HONE_NAME"
+        desc "ABILITY_HONE_DESC"
+        class Tinkerer
+        type_icon "misc"
+    }
+
+    tags [noncopyable]
+    
+    graphics {
+        animation tinkerSelf
+
+    }
+    
+    cost {
+        requires_weapon true
+    }
+
+    damage_instance {
+        damage 0
+
+        effects {
+            RepairWeapon 1
+            CurrentWeaponDamageUp 1
+            RepairWeaponCondition 1
+        }
+    }
+}
+Hone2 { //alternate basic attack for Blacksmith passive
+    variant_of Hone
+
+    meta {
+        desc "ABILITY_HONE2_DESC"
+    }
+
+    damage_instance {
+        effects {
+            RefreshWeaponAbility 1
+        }
+    }
+}

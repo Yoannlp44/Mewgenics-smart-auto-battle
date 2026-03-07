@@ -1,0 +1,464 @@
+// --- DEFAULT SAFE (Fallback universel — n'attaque jamais les alliés) ---
+smart_default.merge {
+    damage_ally -100
+    damage_enemy 1
+    heal_ally 1
+    heal_enemy -100
+    kill_enemy 5
+    kill_ally -100
+    debuff_ally -100
+    buff_ally 1
+    debuff_enemy 1
+    buff_enemy -100
+    damage_self -0.1
+    heal_self 1
+    buff_self 1
+    debuff_self -0.1
+    damage_ally_corpse 0
+    damage_enemy_corpse 0
+    revive_ally_corpse 1
+    revive_enemy_corpse -1
+    spawn_object 1
+    spawn_object_distance_to_enemy -.01
+    spawn_object_distance_to_ally .0001
+    negative_weight_scale .99
+    spend_mana_scale .99
+    consider_total_damage true
+    consider_secondary_damage true
+    accurate_knockback false
+    consider_overkill true
+}
+
+// --- HUNTER (Sniper & Pièges) ---
+smart_hunter.merge {
+    damage_ally -100
+    damage_enemy 2
+    heal_ally 1
+    heal_enemy -100
+    kill_enemy 10
+    kill_ally -100
+    debuff_ally -100
+    buff_ally -100
+    debuff_enemy 2
+    buff_enemy -100
+    damage_self -2
+    heal_self 1
+    buff_self 2
+    debuff_self -2
+    damage_ally_corpse 0
+    damage_enemy_corpse 2
+    revive_ally_corpse 1
+    revive_enemy_corpse -1
+    spawn_object 3
+    spawn_object_distance_to_enemy -.01
+    spawn_object_distance_to_ally .0001
+    negative_weight_scale .99
+    spend_mana_scale .99
+    consider_total_damage true
+    consider_secondary_damage true
+    accurate_knockback false
+    consider_overkill true
+}
+
+// --- FIGHTER (Mêlée Agressif) ---
+smart_fighter.merge {
+    damage_ally -100
+    damage_enemy 2
+    heal_ally 0
+    heal_enemy -100
+    kill_enemy 10
+    kill_ally -100
+    debuff_ally -100
+    buff_ally 0
+    debuff_enemy 1
+    buff_enemy -100
+    damage_self -0.5
+    heal_self 1
+    buff_self 2
+    debuff_self -2
+    damage_ally_corpse 0
+    damage_enemy_corpse 0
+    revive_ally_corpse 0
+    revive_enemy_corpse -1
+    spawn_object 1
+    spawn_object_distance_to_enemy -.01
+    spawn_object_distance_to_ally .0001
+    negative_weight_scale .99
+    spend_mana_scale .99
+    consider_total_damage true
+    consider_secondary_damage true
+    accurate_knockback false
+    consider_overkill true
+}
+
+// --- TANK (Protecteur & Contrôle) ---
+smart_tank.merge {
+    damage_ally -100
+    damage_enemy 1
+    heal_ally 1
+    heal_enemy -100
+    kill_enemy 5
+    kill_ally -100
+    debuff_ally -100
+    buff_ally 2
+    debuff_enemy 2
+    buff_enemy -100
+    damage_self -0.1
+    heal_self 2
+    buff_self 2           // Aime lancer Taunt/Provocation sur soi, mais pas au point d'abuser
+    debuff_self -1
+    damage_ally_corpse 0
+    damage_enemy_corpse 0
+    revive_ally_corpse 1
+    revive_enemy_corpse -1
+    spawn_object 1
+    spawn_object_distance_to_enemy -.01
+    spawn_object_distance_to_ally .0001
+    negative_weight_scale .99
+    spend_mana_scale .99
+    consider_total_damage true
+    consider_secondary_damage true
+    accurate_knockback false
+    consider_overkill true
+}
+
+// --- MAGE (Artillerie Lourde) ---
+smart_mage.merge {
+    damage_ally -1000     // Pénalité COLOSSALE contre le tir ami (Météores)
+    damage_enemy 3
+    heal_ally 1
+    heal_enemy -100
+    kill_enemy 10
+    kill_ally -1000
+    debuff_ally -100
+    buff_ally 2
+    debuff_enemy 2
+    buff_enemy -100
+    damage_self -5
+    heal_self 1
+    buff_self 1
+    debuff_self -5
+    damage_ally_corpse 0
+    damage_enemy_corpse 0
+    revive_ally_corpse 1
+    revive_enemy_corpse -1
+    spawn_object 1
+    spawn_object_distance_to_enemy -.01
+    spawn_object_distance_to_ally .0001
+    negative_weight_scale .99
+    spend_mana_scale .99
+    consider_total_damage true
+    consider_secondary_damage true
+    accurate_knockback false
+    consider_overkill true
+}
+
+// --- CLERIC / MEDIC (Soigneur Pur) ---
+smart_cleric.merge {
+    damage_ally -100
+    damage_enemy 1
+    heal_ally 100
+    heal_enemy -100
+    kill_enemy 2
+    kill_ally -100
+    debuff_ally -100
+    buff_ally 10
+    debuff_enemy 2
+    buff_enemy -100
+    damage_self -1
+    heal_self 50
+    buff_self 1
+    debuff_self -1
+    damage_ally_corpse 0
+    damage_enemy_corpse 0
+    revive_ally_corpse 100
+    revive_enemy_corpse -1
+    spawn_object 1
+    spawn_object_distance_to_enemy -.01
+    spawn_object_distance_to_ally .0001
+    negative_weight_scale .99
+    spend_mana_scale .99
+    consider_total_damage true
+    consider_secondary_damage true
+    accurate_knockback false
+    consider_overkill true
+}
+
+// --- THIEF (Voleur / Assassin Mobile) ---
+smart_thief.merge {
+    damage_ally -100
+    damage_enemy 3
+    heal_ally 0
+    heal_enemy -100
+    kill_enemy 15
+    kill_ally -100
+    debuff_ally -100
+    buff_ally 0
+    debuff_enemy 3
+    buff_enemy -100
+    damage_self -1
+    heal_self 2
+    buff_self 2
+    debuff_self -1
+    damage_ally_corpse 0
+    damage_enemy_corpse 5
+    revive_ally_corpse 0
+    revive_enemy_corpse -1
+    spawn_object 1
+    spawn_object_distance_to_enemy -.01
+    spawn_object_distance_to_ally .0001
+    negative_weight_scale .99
+    spend_mana_scale .99
+    consider_total_damage true
+    consider_secondary_damage true
+    accurate_knockback false
+    consider_overkill true
+}
+
+// --- BUTCHER (Boucher / Brutal) ---
+smart_butcher.merge {
+    damage_ally -100
+    damage_enemy 3
+    heal_ally 0
+    heal_enemy -100
+    kill_enemy 10
+    kill_ally -100
+    debuff_ally -100
+    buff_ally 0
+    debuff_enemy 3
+    buff_enemy -100
+    damage_self -1
+    heal_self 3
+    buff_self 2
+    debuff_self -1
+    damage_ally_corpse 0
+    damage_enemy_corpse 5
+    revive_ally_corpse 0
+    revive_enemy_corpse -1
+    spawn_object 1
+    spawn_object_distance_to_enemy -.01
+    spawn_object_distance_to_ally .0001
+    negative_weight_scale .99
+    spend_mana_scale .99
+    consider_total_damage true
+    consider_secondary_damage true
+    accurate_knockback false
+    consider_overkill true
+}
+
+// --- PSYCHIC (Contrôle et Manipulation) ---
+smart_psychic.merge {
+    damage_ally -100
+    damage_enemy 2
+    heal_ally 2
+    heal_enemy -100
+    kill_enemy 5
+    kill_ally -100
+    debuff_ally -100
+    buff_ally 5
+    debuff_enemy 5
+    buff_enemy -100
+    damage_self -1
+    heal_self 1
+    buff_self 2
+    debuff_self -1
+    damage_ally_corpse 0
+    damage_enemy_corpse 0
+    revive_ally_corpse 1
+    revive_enemy_corpse -1
+    spawn_object 1
+    spawn_object_distance_to_enemy -.01
+    spawn_object_distance_to_ally .0001
+    negative_weight_scale .99
+    spend_mana_scale .99
+    consider_total_damage true
+    consider_secondary_damage true
+    accurate_knockback false
+    consider_overkill true
+}
+
+// --- COLLARLESS (Bagarreur Polyvalent / Sans-collier) ---
+smart_collarless.merge {
+    damage_ally -100
+    damage_enemy 2
+    heal_ally 0
+    heal_enemy -100
+    kill_enemy 5
+    kill_ally -100
+    debuff_ally -100
+    buff_ally 1
+    debuff_enemy 1
+    buff_enemy -100
+    damage_self -1
+    heal_self 1
+    buff_self 1
+    debuff_self -1
+    damage_ally_corpse 0
+    damage_enemy_corpse 0
+    revive_ally_corpse 1
+    revive_enemy_corpse -1
+    spawn_object 1
+    spawn_object_distance_to_enemy -.01
+    spawn_object_distance_to_ally .0001
+    negative_weight_scale .99
+    spend_mana_scale .99
+    consider_total_damage true
+    consider_secondary_damage true
+    accurate_knockback false
+    consider_overkill true
+}
+
+// --- JESTER (Bouffon / Soutien Chaotique) ---
+smart_jester.merge {
+    damage_ally -100
+    damage_enemy 1
+    heal_ally 1
+    heal_enemy -100
+    kill_enemy 5
+    kill_ally -100
+    debuff_ally -100
+    buff_ally 4
+    debuff_enemy 4
+    buff_enemy -100
+    damage_self -0.5
+    heal_self 1
+    buff_self 2
+    debuff_self -1
+    damage_ally_corpse 0
+    damage_enemy_corpse 0
+    revive_ally_corpse 1
+    revive_enemy_corpse -1
+    spawn_object 1
+    spawn_object_distance_to_enemy -.01
+    spawn_object_distance_to_ally .0001
+    negative_weight_scale .99
+    spend_mana_scale .99
+    consider_total_damage true
+    consider_secondary_damage true
+    accurate_knockback false
+    consider_overkill true
+}
+
+// --- DRUID (Druide / Nature & Invocations) ---
+smart_druid.merge {
+    damage_ally -100
+    damage_enemy 2
+    heal_ally 5
+    heal_enemy -100
+    kill_enemy 5
+    kill_ally -100
+    debuff_ally -100
+    buff_ally 3
+    debuff_enemy 2
+    buff_enemy -100
+    damage_self -1
+    heal_self 2
+    buff_self 1
+    debuff_self -1
+    damage_ally_corpse 0
+    damage_enemy_corpse 0
+    revive_ally_corpse 1
+    revive_enemy_corpse -1
+    spawn_object 6
+    spawn_object_distance_to_enemy -.01
+    spawn_object_distance_to_ally .0001
+    negative_weight_scale .99
+    spend_mana_scale .99
+    consider_total_damage true
+    consider_secondary_damage true
+    accurate_knockback false
+    consider_overkill true
+}
+
+// --- MONK (Moine / Mêlée Mobile & Survie) ---
+smart_monk.merge {
+    damage_ally -100
+    damage_enemy 3
+    heal_ally 0
+    heal_enemy -100
+    kill_enemy 10
+    kill_ally -100
+    debuff_ally -100
+    buff_ally 1
+    debuff_enemy 2
+    buff_enemy -100
+    damage_self -1
+    heal_self 3
+    buff_self 4
+    debuff_self -1
+    damage_ally_corpse 0
+    damage_enemy_corpse 0
+    revive_ally_corpse 0
+    revive_enemy_corpse -1
+    spawn_object 1
+    spawn_object_distance_to_enemy -.01
+    spawn_object_distance_to_ally .0001
+    negative_weight_scale .99
+    spend_mana_scale .99
+    consider_total_damage true
+    consider_secondary_damage true
+    accurate_knockback false
+    consider_overkill true
+}
+
+// --- NECROMANCER (Nécromancien / Maître des Cadavres) ---
+smart_necromancer.merge {
+    damage_ally -100
+    damage_enemy 2
+    heal_ally 1
+    heal_enemy -100
+    kill_enemy 5
+    kill_ally -100
+    debuff_ally -100
+    buff_ally 1
+    debuff_enemy 3
+    buff_enemy -100
+    damage_self -1
+    heal_self 2
+    buff_self 1
+    debuff_self -1
+    damage_ally_corpse 5
+    damage_enemy_corpse 5
+    revive_ally_corpse 10
+    revive_enemy_corpse 10
+    spawn_object 3
+    spawn_object_distance_to_enemy -.01
+    spawn_object_distance_to_ally .0001
+    negative_weight_scale .99
+    spend_mana_scale .99
+    consider_total_damage true
+    consider_secondary_damage true
+    accurate_knockback false
+    consider_overkill true
+}
+
+// --- TINKERER (Bricoleur / Ingénieur) ---
+smart_tinkerer.merge {
+    damage_ally -100
+    damage_enemy 2
+    heal_ally 0
+    heal_enemy -100
+    kill_enemy 5
+    kill_ally -100
+    debuff_ally -100
+    buff_ally 2
+    debuff_enemy 1
+    buff_enemy -100
+    damage_self -1
+    heal_self 1
+    buff_self 1
+    debuff_self -1
+    damage_ally_corpse 0
+    damage_enemy_corpse 0
+    revive_ally_corpse 0
+    revive_enemy_corpse -1
+    spawn_object 10
+    spawn_object_distance_to_enemy -0.1
+    spawn_object_distance_to_ally .0001
+    negative_weight_scale .99
+    spend_mana_scale .99
+    consider_total_damage true
+    consider_secondary_damage true
+    accurate_knockback false
+    consider_overkill true
+}

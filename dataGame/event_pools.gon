@@ -1,0 +1,8 @@
+common [
+	dead_body.gon
+    monster.gon
+    misc_events.gon
+    npc_events.gon
+    treasure_box.gon
+    legacy_events.gon
+]

@@ -1,0 +1,330 @@
+texture {
+    300 { //Stitches
+        desc "MUTATION_TEXTURE_300_DESC"
+
+        cha -1
+        passives {
+            HealthRegenUp 1
+        }
+    }
+
+    301 { //Fish Scales
+        desc "MUTATION_TEXTURE_301_DESC"
+
+        passives {
+            PassiveWhenAffectedByElement {
+                element water
+                passives {
+                    HealthRegenUp 1
+                    AddManaRegen 1
+                }
+            }
+        }
+    }
+
+    302 { //Conjoined
+        lck 1
+    }
+
+    303 { //Patches
+        desc "MUTATION_TEXTURE_303_DESC"
+
+        passives {
+            RandomStatUp 1
+        }
+    }
+
+    304 { //Confusing Hide
+        desc "MUTATION_TEXTURE_304_DESC"
+
+        passives {
+            RevengeDamage {
+                type status
+                damage 0
+                effects {
+                    Confusion [1, .1]
+                }
+            }
+        }
+    }
+
+    305 { //Robot Hide
+        int 1
+    }
+
+    306 { //Veiny
+        str 1
+    }
+
+    307 { //Eyeballs
+        desc "MUTATION_TEXTURE_307_DESC"
+
+        passives {
+            DodgeChance 5%
+        }
+    }
+
+    308 { //Heart Tattoo
+        cha 1
+    }
+
+    309 {//Tatted Up
+        desc "MUTATION_TEXTURE_309_DESC"
+
+        passives {
+            RevengeDamage {
+                type status
+                damage 0
+                effects {
+                    Fear [1, .05]
+                }
+            }
+
+            AddStatusToBasicAttack {
+                Fear [1, .05]
+            }
+        }
+    }
+
+    310 { //Cash Hide
+        desc "MUTATION_TEXTURE_310_DESC"
+
+        passives {
+            AddLootMultiplier 1
+        }
+    }
+	
+    750 { //skunk Hide
+        desc "MUTATION_TEXTURE_750_DESC"
+
+        passives {
+            PoisonThorns 2
+        }
+    }
+
+       //simple stat mod parts
+    400 {
+        str 2
+        con -1
+    }
+    401 {
+        str 2
+        dex -1
+    }
+    402 {
+        str 2
+        cha -1
+    }
+    403 {
+        str 2
+        int -1
+    }
+    404 {
+        str 2
+        spd -1
+    }
+    405 {
+        str 2
+        lck -1
+    }
+    406 {
+        con 2
+        str -1
+    }
+    407 {
+        con 2
+        dex -1
+    }
+    408 {
+        con 2
+        cha -1
+    }
+    409 {
+        con 2
+        int -1
+    }
+    410 {
+        con 2
+        spd -1
+    }
+    411 {
+        con 2
+        lck -1
+    }
+    412 {
+        dex 2
+        con -1
+    }
+    413 {
+        dex 2
+        str -1
+    }
+    414 {
+        dex 2
+        cha -1
+    }
+    415 {
+        dex 2
+        int -1
+    }
+    416 {
+        dex 2
+        spd -1
+    }
+    417 {
+        dex 2
+        lck -1
+    }
+    418 {
+        int 2
+        con -1
+    }
+    419 {
+        int 2
+        dex -1
+    }
+    420 {
+        int 2
+        cha -1
+    }
+    421 {
+        int 2
+        str -1
+    }
+    422 {
+        int 2
+        spd -1
+    }
+    423 {
+        int 2
+        lck -1
+    }
+    424 {
+        cha 2
+        con -1
+    }
+    425 {
+        cha 2
+        dex -1
+    }
+    426 {
+        cha 2
+        str -1
+    }
+    427 {
+        cha 2
+        int -1
+    }
+    428 {
+        cha 2
+        spd -1
+    }
+    429 {
+        cha 2
+        lck -1
+    }
+    430 {
+        lck 2
+        con -1
+    }
+    431 {
+        lck 2
+        dex -1
+    }
+    432 {
+        lck 2
+        cha -1
+    }
+    433 {
+        lck 2
+        int -1
+    }
+    434 {
+        lck 2
+        spd -1
+    }
+    435 {
+        lck 2
+        str -1
+    }
+    436 {
+        spd 2
+        con -1
+    }
+    437 {
+        spd 2
+        str -1
+    }
+    438 {
+        spd 2
+        cha -1
+    }
+    439 {
+        spd 2
+        int -1
+    }
+    440 {
+        spd 2
+        dex -1
+    }
+    441 {
+        spd 2
+        lck -1
+    }
+
+
+    //Birth Defects
+    700 { //neurofibromatosis
+        tag birth_defect
+        cha -2
+    }
+    701 { //melanocytic nevus
+        tag birth_defect
+        cha -2
+        shield 1
+    }
+	702 { //bleeding
+        desc "MUTATION_TEXTURE_702_DESC"
+        tag birth_defect
+
+        passives {
+            Bleed 1
+        }
+    }
+	703 { //blue spots
+        desc "MUTATION_TEXTURE_703_DESC"
+        tag birth_defect
+        cha -2
+
+        passives {
+            MulticlassLevelUp Mage
+        }
+    }
+	704 { //red dots
+        desc "MUTATION_TEXTURE_704_DESC"
+        tag birth_defect
+        cha -2
+
+        passives {
+            MulticlassLevelUp Fighter
+        }
+    }
+	705 { //jaundice
+        desc "MUTATION_TEXTURE_705_DESC"
+        tag birth_defect
+        cha -2
+
+        passives {
+            MulticlassLevelUp Thief
+        }
+    }
+	706 { //vitiligo
+        desc "MUTATION_TEXTURE_706_DESC"
+        tag birth_defect
+        cha -1
+
+        passives {
+            DodgeChance_Status 10
+        }
+    }
+}

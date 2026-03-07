@@ -1,0 +1,678 @@
+legs {
+    300 { //Frog legs
+        tag animal
+        desc "MUTATION_LEGS_300_DESC"
+
+        passives {
+            PassiveWhenAffectedByElement {
+                element water
+                passives {
+                    AddMovement 1
+                }
+            }
+
+            WaterWalk 1
+        }
+    }
+
+    301 { //Hooves
+        tag animal
+        desc "MUTATION_LEGS_301_DESC"
+
+        spd 1
+        passives {
+            AddStatusToBasicAttack {
+                Stun [1, .05]
+            }
+        }
+    }
+
+    302 { //Tentacles
+        tag animal
+        desc "MUTATION_LEGS_302_DESC"
+
+        passives {
+            KnockbackImmunity 1
+        }
+    }
+
+    303 { //Lobster Claws
+        tag animal
+        desc "MUTATION_LEGS_303_DESC"
+
+        passives {
+            AddStatusToBasicAttack {
+                Immobile [1, .05]
+            }
+        }
+    }
+
+    304 { //Muscular Legs
+        str 1
+    }
+
+    305 { //Tar Legs
+        desc "MUTATION_LEGS_305_DESC"
+
+        passives {
+            DodgeChance 5%
+        }
+    }
+
+    306 { //Bug Legs
+        tag animal
+        dex 1
+    }
+
+    307 { //Tires
+        spd 1
+    }
+
+    308 { //Human Legs
+        lck 1
+    }
+
+    309 { //Knife Legs
+        desc "MUTATION_LEGS_309_DESC"
+
+        passives {
+            AddStatusToBasicAttack {
+                Bleed [3, .1]
+            }
+        }
+    } 
+
+    310 { //Spring Legs
+        desc "MUTATION_LEGS_310_DESC" 
+        override_move BasicJump
+    }
+    
+    311 { //Square Legs
+        con 1
+    }
+
+    312 { //Balloon Legs
+        desc "MUTATION_LEGS_312_DESC" 
+
+        passives {
+            AddStatusToBasicAttack {
+                Knockback 1
+            }
+        }
+    }
+
+    313 { //Snake Legs
+        desc "MUTATION_LEGS_313_DESC"
+        passives { 
+            AddBonusMeleeRange 1 
+        }
+    }
+
+    314 { //Weapon Legs
+        desc "MUTATION_LEGS_314_DESC"
+        passives {
+            BoostWeaponDamage 1
+        }
+    }
+
+    315 { //Socks
+        desc "MUTATION_LEGS_315_DESC"
+        passives {
+            ElementImmune Ice
+        }
+    }
+     
+
+    // For Tyler - didn't see an easy way to do this effect. 
+//    316 { //Hook legs 
+//        passives {
+//            MakeBasicAttackPull 1 
+//        }  
+//    }
+
+    317 { //Raptor Claws
+        desc "MUTATION_LEGS_317_DESC"
+        passives {
+            AddStatusToBasicMeleeAttack {
+                Bleed 1
+            }
+        }
+    }
+
+
+    318 { //Stigmata
+        divine_shield 1
+    }
+
+
+    319 { //High Tops
+        desc "MUTATION_LEGS_319_DESC"
+
+        passives {
+            StatusEachTurnBegin {
+                MoveQuivered [1, 0.1]
+            }
+        }
+    }
+
+
+    320 { //Talons
+        desc "MUTATION_LEGS_320_DESC"
+
+        passives { 
+            StatusEachTurnBegin {
+                Quivered [1, 0.1]
+            }  
+        }
+    }
+
+    321 { //Flippers
+        desc "MUTATION_LEGS_321_DESC"
+
+        passives {
+            FreePathfindElement Water
+        }
+    }
+
+
+    322 { //Bear Claws 
+		str 1
+		con 1
+    }
+
+
+    323 { //Beetle Feet
+        spd 2
+    }
+
+
+    324 { //Branches 
+        con 1
+    }
+
+
+    325 { //Extra Head
+        desc "MUTATION_LEGS_325_DESC"
+        tag extra
+        spd -2
+
+        passives {
+            ClassManaCostReduction {
+                class Colorless
+                reduction 1
+            }
+        }
+    }
+
+
+    326 { //Needle Feet
+        desc "MUTATION_LEGS_326_DESC"
+        passives { 
+            AddStatusToBasicAttack {
+                RandomStatusFromPool {
+                    Poison 1
+                    Burn 1
+                    Bleed 1
+                    Blind 1 
+                    Weakness 1 
+                }
+            } 
+        }
+    }
+
+
+    327 { //Mushroom Legs 
+        desc "MUTATION_LEGS_327_DESC"
+        passives {
+           StatusEachTurnEnd {
+               RandomStatUp 2
+               RandomStatDown 1
+           }
+        }
+    }
+
+    328 { //Glass Bottle 
+        desc "MUTATION_LEGS_328_DESC"
+        passives {
+            EquipTemporaryItem Bottles
+        }
+    }
+
+    329 { //Water Bottle 
+        desc "MUTATION_LEGS_329_DESC"
+        passives {
+            EquipTemporaryItem WaterBottle_Full
+        }
+    }
+
+
+    330 { //Sausage Legs 
+        desc "MUTATION_LEGS_330_DESC"
+        
+        passives {
+            HealthRegenUp 1
+        }
+    }
+
+
+    331 { //Jet Legs 
+        desc "MUTATION_LEGS_331_DESC"
+        override_move BasicJump
+        passives {
+           AddMovement 1
+        }
+    }
+
+
+    332 { //Peg Legs 
+        desc "MUTATION_LEGS_332_DESC"
+        spd -1
+        passives {
+            SpawnEachTurn {
+                object RandomPickup
+                chance 50%
+            }  
+        } 
+    }
+
+    333 { //Wing Legs 
+        desc "MUTATION_LEGS_333_DESC"
+        passives {
+            AddStatusToBasicAttack {
+                Knockback 1
+                VisualFXTile fx_windSpell
+            }
+            AddElementsToBasicAttack Wind
+        }
+    }
+     
+    334 { //Ape Legs 
+        desc "MUTATION_LEGS_334_DESC"
+        str 1
+        passives {
+           AddStatusToBasicMeleeAttack { 
+               KnockUpAndAway {
+                   stacks 3
+                   distance 3
+               }
+           }
+        }
+    }
+     
+    335 { //Glass Legs 
+        desc "MUTATION_LEGS_335_DESC"
+        
+        passives {
+            BleedThorns 1 
+            StatusOnTookDamage {
+                ChangeTilesUnder GlassTile 
+            }
+        } 
+    }
+
+
+    336 { //Crow Legs 
+        desc "MUTATION_LEGS_336_DESC"
+        tag bird
+
+        passives {
+            AddStatusToBasicAttack {
+                SoulLink 1
+            } 
+        }
+    }
+
+
+    337 { //Floating Legs 
+        desc "MUTATION_LEGS_337_DESC"
+        passives {
+            IgnoreTiles 1
+        }
+    }
+
+    //338 missing
+
+    339 { //Wing Legs 2 
+        desc "MUTATION_LEGS_339_DESC"
+        tag bird
+        
+        spd 2
+        passives { 
+            MoveAwayFromDamageSource BasicJump
+        }
+    }
+
+
+    340 { //Lucky Toe 
+        desc "MUTATION_LEGS_340_DESC"
+        passives {
+           StatusOnTookDamage {
+               LuckUp 1
+           }
+        }
+    }
+
+
+    341 { //Whip Legs 
+        desc "MUTATION_LEGS_341_DESC"
+        passives {
+            AddStatusToBasicAttack { 
+                FaceAway 1
+            }
+        }
+    }
+
+    //342 missing
+
+    343 { //Kitten Legs 
+        desc "MUTATION_LEGS_343_DESC"  
+        passives {
+            SpawnOnDowned CharmedKitten
+        }
+    }
+	
+    754 { //Wing Hoof Legs 
+        desc "MUTATION_LEGS_754_DESC"  
+        passives {
+            ReplaceBasicMove ToadJump_BasicMove
+		    AddStatusToBasicAttack {
+                Bruise 1
+            }	
+        }
+    }
+
+    756 { //Sonichu Legs 
+		spd 2
+    }
+	
+    757 { //bigfoot Legs 
+        desc "MUTATION_LEGS_757_DESC"  
+        passives {
+			Trample 3
+        }
+    }
+	
+    758 { //nessie Legs 
+        desc "MUTATION_LEGS_758_DESC"  
+        passives {
+            PassiveWhenAffectedByElement {
+                element water
+                passives {
+                    AllStatsUp 1
+                }
+            }  
+        }
+    }
+	
+    759 { //nessie Legs 
+        desc "MUTATION_LEGS_759_DESC"  
+        passives {
+            PassiveWhenAffectedByElement {
+                element water
+                passives {
+                    AllStatsUp 1
+                }
+            }  
+        }
+    }
+
+    761 { //mothman Legs 
+        desc "MUTATION_LEGS_761_DESC"  
+        passives {
+            ReplaceBasicMove ToadJump_BasicMove
+		    AddStatusToBasicAttack {
+                Bleed 1
+            }	
+        }
+    }
+
+    762 { //slender
+        desc "MUTATION_LEGS_762_DESC"
+
+        passives {
+            IgnoreTiles 1
+            YOffset .25
+        }
+    }
+	
+    763 { //slender
+        desc "MUTATION_LEGS_763_DESC"
+
+        passives {
+            IgnoreTiles 1
+            YOffset .25
+        }
+    }
+	
+
+
+
+    900 { //slender
+        desc "MUTATION_LEGS_900_DESC"
+
+        passives {
+            IgnoreTiles 1
+            YOffset .25
+        }
+    }
+
+        //simple stat mod parts
+    400 {
+        str 2
+        con -1
+    }
+    401 {
+        str 2
+        dex -1
+    }
+    402 {
+        str 2
+        cha -1
+    }
+    403 {
+        str 2
+        int -1
+    }
+    404 {
+        str 2
+        spd -1
+    }
+    405 {
+        str 2
+        lck -1
+    }
+    406 {
+        con 2
+        str -1
+    }
+    407 {
+        con 2
+        dex -1
+    }
+    408 {
+        tag melted
+        con 2
+        cha -1
+    }
+    409 {
+        con 2
+        int -1
+    }
+    410 {
+        con 2
+        spd -1
+    }
+    411 {
+        con 2
+        lck -1
+    }
+    412 {
+        dex 2
+        con -1
+    }
+    413 {
+        dex 2
+        str -1
+    }
+    414 {
+        dex 2
+        cha -1
+    }
+    415 {
+        dex 2
+        int -1
+    }
+    416 {
+        dex 2
+        spd -1
+    }
+    417 {
+        dex 2
+        lck -1
+    }
+    418 {
+        int 2
+        con -1
+    }
+    419 {
+        int 2
+        dex -1
+    }
+    420 {
+        int 2
+        cha -1
+    }
+    421 {
+        int 2
+        str -1
+    }
+    422 {
+        int 2
+        spd -1
+    }
+    423 {
+        int 2
+        lck -1
+    }
+    424 {
+        cha 2
+        con -1
+    }
+    425 {
+        cha 2
+        dex -1
+    }
+    426 {
+        cha 2
+        str -1
+    }
+    427 {
+        cha 2
+        int -1
+    }
+    428 {
+        cha 2
+        spd -1
+    }
+    429 {
+        cha 2
+        lck -1
+    }
+    430 {
+        lck 2
+        con -1
+    }
+    431 {
+        lck 2
+        dex -1
+    }
+    432 {
+        lck 2
+        cha -1
+    }
+    433 {
+        lck 2
+        int -1
+    }
+    434 {
+        lck 2
+        spd -1
+    }
+    435 {
+        lck 2
+        str -1
+    }
+    436 {
+        spd 2
+        con -1
+    }
+    437 {
+        spd 2
+        str -1
+    }
+    438 {
+        spd 2
+        cha -1
+    }
+    439 {
+        spd 2
+        int -1
+    }
+    440 {
+        spd 2
+        dex -1
+    }
+    441 {
+        spd 2
+        lck -1
+    }
+
+    //Birth Defects
+    700 { //lobster claw
+        tag birth_defect
+        str -2
+    }
+    701 { //extra finger
+        tag birth_defect
+        dex -2
+    }
+    702 { //club foot
+        tag birth_defect
+        spd -2
+    }
+    703 { //syndactyly
+        desc "MUTATION_LEGS_703_DESC"
+
+        tag birth_defect
+        spd -2
+
+        passives {
+            WaterWalk 1
+        }
+    }
+	704 { //curled paw
+        tag birth_defect
+        str -1
+    }
+	705 { //club foot2
+        desc "MUTATION_LEGS_705_DESC"
+        tag birth_defect
+        speed -4 
+        passives {
+            Trample 3
+        }
+    }
+	706 { //backwards knees
+        tag birth_defect
+        spd -1
+    }
+	707 { //blob legs
+        desc "MUTATION_LEGS_707_DESC"
+        tag birth_defect
+        str 1
+
+        passives {
+            Slow -1
+        }
+    }
+}

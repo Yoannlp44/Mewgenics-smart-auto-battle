@@ -1,0 +1,617 @@
+HealingAura {
+    name "PASSIVE_HEALINGAURA_NAME"
+    desc "PASSIVE_HEALINGAURA_DESC"
+    class Medic
+
+    1 {
+        passives {
+            ShareHealthRegen 1
+            HealthRegenUp 1
+        }
+    }
+    2 {
+        desc "PASSIVE_HEALINGAURA2_DESC"
+        passives {
+            ShareHealthRegen 1
+            HealthRegenUp 2
+            AllyUncappedHPAura 1
+        }
+    }
+}
+
+NaturalHealer {
+    name "PASSIVE_NATURALHEALER_NAME"
+    desc "PASSIVE_NATURALHEALER_DESC"
+    class Medic
+
+    1 {
+        passives {
+            BoostHeals 2
+        }
+    }
+    2 {
+        desc "PASSIVE_NATURALHEALER2_DESC"
+        passives {
+            BoostHeals 4
+            HealAtStart 100%
+        }
+    }
+}
+
+Eternal {
+    name "PASSIVE_ETERNAL_NAME"
+    desc "PASSIVE_ETERNAL_DESC"
+    class Medic
+
+    1 {
+        passives {
+            Eternal {
+                stacks 1
+                health_percent 50%
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_ETERNAL2_DESC"
+        passives {
+            Eternal {
+                stacks 1
+                health_percent 50%
+                AllStatsUp 2
+                TakeExtraTurn 1
+            }
+        }
+    }
+}
+
+
+Blessed {
+    name "PASSIVE_BLESSED_NAME"
+    desc "PASSIVE_BLESSED_DESC"
+    class Medic
+
+    1 {
+        passives {
+            StatusEachTurnBegin {
+                RandomStatUp 2
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_BLESSED2_DESC"
+        passives {
+            StatusEachTurnBegin {
+                RandomStatUp 3
+            }
+            HealthRegenUp 3
+        }
+    }
+}
+
+EvilPatron {
+    name "PASSIVE_EVILPATRON_NAME"
+    desc "PASSIVE_EVILPATRON_DESC"
+    class Medic
+
+    1 {
+        passives {
+            HealDamagesEnemies 1
+            IncreaseHealingSpellRange 2
+        }
+    }
+    2 {
+        desc "PASSIVE_EVILPATRON2_DESC"
+        passives {
+            HolyDamageMultiplierBonus 1
+            HealDamagesEnemies 1
+            IncreaseHealingSpellRange 2
+        }
+    }
+}
+
+AngelicInspiration {
+    name "PASSIVE_ANGELICINSPIRATION_NAME"
+    desc "PASSIVE_ANGELICINSPIRATION_DESC"
+    class Medic
+
+    1 {
+        passives {
+            HealsAlsoRegenMana 2
+        }
+    }
+    2 {
+        desc "PASSIVE_ANGELICINSPIRATION2_DESC"
+        passives {
+            HealsAlsoRegenMana 50%
+        }
+        stats {
+            cha 1
+            int 1
+        }
+    }
+}
+
+TopOff {
+    name "PASSIVE_TOPOFF_NAME"
+    desc "PASSIVE_TOPOFF_DESC"
+    class Medic
+
+    1 {
+        passives {
+            OverhealGainsBothShield 1
+        }
+    }
+    2 {
+        desc "PASSIVE_TOPOFF2_DESC"
+        passives {
+            OverhealGainsBothShield 2
+        }
+    }
+}
+
+SharingIsCaring {
+    name "PASSIVE_SHARINGISCARING_NAME"
+    desc "PASSIVE_SHARINGISCARING_DESC"
+    class Medic
+
+    1 {
+        passives {
+            SharePickups 1
+        }
+        stats {
+            spd 2
+        }
+    }
+    2 {
+        desc "PASSIVE_SHARINGISCARING2_DESC"
+        passives {
+            SharePickups 1
+            SpawnOnBattleStart {
+                object RandomNonCoinPickup
+                number [2 4]
+            }
+        }
+        stats {
+            spd 4
+        }
+    }
+}
+
+Caretaker {
+    name "PASSIVE_CARETAKER_NAME"
+    desc "PASSIVE_CARETAKER_DESC"
+    class Medic
+
+    1 {
+        passives {
+            Empath 50%
+        }
+    }
+    2 {
+        desc "PASSIVE_CARETAKER2_DESC"
+        passives {
+            Empath 100%
+        }
+    }
+}
+
+MoraleBoost {
+    name "PASSIVE_MORALEBOOST_NAME"
+    desc "PASSIVE_MORALEBOOST_DESC"
+    class Medic
+
+    1 {
+        passives {
+            StatusAlliesOnKill {
+                AllStatsUp 1
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_MORALEBOOST2_DESC"
+        passives {
+            StatusAlliesOnKill {
+                AllStatsUp 1
+            }
+            StatusOnKill {
+                RefreshActPoints 1
+            }
+        }
+    }
+}
+
+RangedMedic {
+    name "PASSIVE_RANGEDMEDIC_NAME"
+    desc "PASSIVE_RANGEDMEDIC_DESC"
+    class Medic
+
+    1 {
+        override_basic_attack BasicMedicRanged 
+        stats {
+            dex 2
+        }
+        passives {
+            ReplaceBasicAttack BasicMedicRanged
+        }
+    }
+    2 {
+        desc "PASSIVE_RANGEDMEDIC2_DESC"
+
+        override_basic_attack BasicMedicRanged 
+        stats {
+            dex 4
+        }
+        passives {
+            AddBonusRange 2
+            ReplaceBasicAttack BasicMedicRanged
+        }
+    }
+}
+
+Godspeed {
+    name "PASSIVE_GODSPEED_NAME"
+    desc "PASSIVE_GODSPEED_DESC"
+    class Medic
+
+    1 {
+        passives {
+            StatusOnHeal {
+                SpeedUp 2
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_GODSPEED2_DESC"
+
+        passives {
+            StatusOnHeal {
+                SpeedUp 4
+                RandomStatUp 1
+            }
+        }
+    }
+}
+
+GodWarrior {
+    name "PASSIVE_GODWARRIOR_NAME"
+    desc "PASSIVE_GODWARRIOR_DESC"
+    class Medic
+
+    1 {
+        passives {
+            StatusOnKillEnemy {
+                DivineShield 1
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_GODWARRIOR2_DESC"
+		stats {
+			str 2
+		}
+        passives {
+            StatusOnKillEnemy {
+                DivineShield 1
+                RefreshMovePoints 1
+            }
+        }
+    }
+}
+
+BreathOfLife {
+    name "PASSIVE_BREATHOFLIFE_NAME"
+    desc "PASSIVE_BREATHOFLIFE_DESC"
+    class Medic
+
+    1 {
+        passives {
+            HealsCanRevive 1
+        }
+    }
+    2 {
+        desc "PASSIVE_BREATHOFLIFE2_DESC"
+
+        passives {
+            HealsCanRevive 3
+        }
+    }
+}
+
+ThouShaltNotKill {
+    name "PASSIVE_THOUSHALTNOTKILL_NAME"
+    desc "PASSIVE_THOUSHALTNOTKILL_DESC"
+    class Medic
+
+    1 {
+        passives {
+            SmiteEnemiesWhoKill {
+                type spell
+                damage 10
+
+                elements [
+                    Holy
+                ]
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_THOUSHALTNOTKILL2_DESC"
+
+        passives {
+            SmiteEnemiesWhoKill {
+                type spell
+                damage 10
+
+                effects {
+                    Stun 1
+                }
+
+                elements [
+                    Holy
+                ]
+            }
+        }
+    }
+}
+
+ThouShaltNotCovet {
+    name "PASSIVE_THOUSHALTNOTCOVET_NAME"
+    desc "PASSIVE_THOUSHALTNOTCOVET_DESC"
+    class Medic
+
+    1 {
+        passives {
+            EnemiesGetPickupsKnockedOut 1
+        }
+    }
+    2 {
+        desc "PASSIVE_THOUSHALTNOTCOVET2_DESC"
+
+        passives {
+            EnemiesGetPickupsKnockedOut 2
+        }
+    }
+}
+
+BlessingOfHolyFire {
+    name "PASSIVE_BLESSINGOFHOLYFIRE_NAME"
+    desc "PASSIVE_BLESSINGOFHOLYFIRE_DESC"
+    class Medic
+
+    1 {
+        passives {
+            PassiveUntilGetKill {
+                HolyDamageBlessing {
+                    damage_multiplier 2
+                    Burn 2
+                }
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_BLESSINGOFHOLYFIRE2_DESC"
+        passives {
+            PassiveUntilGetKill {
+                HolyDamageBlessing {
+                    damage_multiplier 3
+                    Burn 3
+                }
+            }
+        }
+    }
+}
+
+AlmsForThePoor {
+    name "PASSIVE_ALMSFORTHEPOOR_NAME"
+    desc "PASSIVE_ALMSFORTHEPOOR_DESC"
+    class Medic
+
+    1 {
+        passives {
+            StatusAlliesOnGainCoins {
+                LuckUp 1
+                HealthGain 1
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_ALMSFORTHEPOOR2_DESC"
+        passives {
+            StatusAlliesOnGainCoins {
+                scaled true
+                LuckUp 1
+                HealthGain 1
+            }
+            StatusOnGainCoins {
+                DivineShield 1
+            }
+        }
+    }
+}
+
+Purifier {
+    name "PASSIVE_PURIFIER_NAME"
+    desc "PASSIVE_PURIFIER_DESC"
+    class Medic
+
+    1 {
+        passives {
+            AddStatusToBasicAttack {
+                Conditional_Ally {
+                    Cleanse 0
+                }
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_PURIFIER2_DESC"
+        passives {
+            AddStatusToBasicAttack {
+                Conditional_Ally {
+                    Cleanse 0
+                    AllStatsUp 1
+                }
+            }
+        }
+    }
+}
+
+VeneratedTouch {
+    name "PASSIVE_VENERATEDTOUCH_NAME"
+    desc "PASSIVE_VENERATEDTOUCH_DESC"
+    class Medic
+
+    1 {
+        passives {
+            AddStatusToBasicAttack {
+                Conditional_Enemy {
+                    Confusion 2
+                }
+                Conditional_Ally {
+                    Shield 2
+                }
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_VENERATEDTOUCH2_DESC"
+        passives {
+            AddStatusToBasicAttack {
+                Conditional_Enemy {
+                    Confusion 3
+                    Stun [1 .5]
+                }
+                Conditional_Ally {
+                    Shield 3
+                    AllStatsUp [1 .5]
+                }
+            }
+        }
+    }
+}
+
+ProtectTheWeak {
+    name "PASSIVE_PROTECTTHEWEAK_NAME"
+    desc "PASSIVE_PROTECTTHEWEAK_DESC"
+    class Medic
+
+    1 {
+        passives {
+            LowHealthAllyDodgeChanceAura {
+                theshold 5
+                chance 50%
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_PROTECTTHEWEAK2_DESC"
+        passives {
+            LowHealthAllyDodgeChanceAura {
+                theshold 5
+                chance 50%
+            }
+        }
+    }
+}
+
+ThouShaltObey {
+    name "PASSIVE_THOUSHALTOBEY_NAME"
+    desc "PASSIVE_THOUSHALTOBEY_DESC"
+    class Medic
+
+    1 {
+        passives {
+            AutocastEachRound {
+                ability MedicObey
+                force_display_name true
+                //even_if_stunned true
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_THOUSHALTOBEY2_DESC"
+        passives {
+            AutocastEachRound {
+                ability MedicObey2
+                force_display_name true
+                //even_if_stunned true
+            }
+        }
+    }
+}
+
+EnchantedRelic {
+    name "PASSIVE_ENCHANTEDRELIC_NAME"
+    desc "PASSIVE_ENCHANTEDRELIC_DESC"
+    class Medic
+
+    1 {
+        passives {
+            TrinketPassiveMultiplierBonus 1
+            TrinketActiveEffectsMultiplierBonus 1
+        }
+    }
+    2 {
+        desc "PASSIVE_ENCHANTEDRELIC2_DESC"
+        passives {
+            TrinketPassiveMultiplierBonus 2
+            TrinketActiveEffectsMultiplierBonus 2
+        }
+    }
+}
+
+BlessingOfSpirit {
+    name "PASSIVE_BLESSINGOFSPIRIT_NAME"
+    desc "PASSIVE_BLESSINGOFSPIRIT_DESC"
+    class Medic
+
+    1 {
+        passives {
+            PassiveUntilCastSpell {
+                HealAlliesEachTurn {
+                    stacks 2
+                    mana 2
+                    exclude_self false
+                }
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_BLESSINGOFSPIRIT2_DESC"
+        passives {
+            PassiveUntilCastSpell {
+                HealAlliesEachTurn {
+                    stacks 3
+                    mana 3
+                    exclude_self false
+                }
+                StatusAlliesEachTurn {
+                    exclude_self false
+                    RandomStatUp 3
+                }
+            }
+        }
+    }
+}
+
+Heathens {
+    name "PASSIVE_HEATHENS_NAME"
+    desc "PASSIVE_HEATHENS_DESC"
+    class Medic
+
+    1 {
+        keyword_tooltips {Weakness 1}
+
+        passives {
+            AbilityOnBattleStart Heathens
+        }
+    }
+    2 {
+        keyword_tooltips {Weakness 1 MagicWeakness 1}
+
+        desc "PASSIVE_HEATHENS2_DESC"
+        passives {
+            AbilityOnBattleStart Heathens2
+        }
+    }
+}

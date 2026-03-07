@@ -1,0 +1,560 @@
+error {
+    name BOSS_ERROR_NAME
+    frame_label error
+
+    quotes [
+        BOSS_ERROR_QUOTE_1
+    ]
+}
+
+error_miniboss {
+    name BOSS_ERROR_MINIBOSS_NAME
+    frame_label error
+
+    quotes [
+        BOSS_ERROR_MINIBOSS_QUOTE_1
+    ]
+}
+
+pebbles {
+    name BOSS_PEBBLES_NAME
+    frame_label ColorlessCat_Tutorial
+
+    quotes [
+        BOSS_PEBBLES_QUOTE_1
+    ]
+}
+
+radicalrat {
+    name BOSS_RADICALRAT_NAME
+    frame_label radicalrat
+
+    quotes [
+        BOSS_RADICALRAT_QUOTE_1
+        BOSS_RADICALRAT_QUOTE_2
+        BOSS_RADICALRAT_QUOTE_3
+        BOSS_RADICALRAT_QUOTE_4
+        BOSS_RADICALRAT_QUOTE_5
+    ]
+}
+
+queenhippo {
+    name BOSS_QUEENHIPPO_NAME
+    frame_label queenHippo
+
+    quotes [
+        BOSS_QUEENHIPPO_QUOTE_1
+		BOSS_QUEENHIPPO_QUOTE_2
+		BOSS_QUEENHIPPO_QUOTE_3
+		BOSS_QUEENHIPPO_QUOTE_4
+		BOSS_QUEENHIPPO_QUOTE_5
+    ]
+}
+
+boris {
+    name BOSS_BORIS_NAME
+    frame_label boris
+
+    quotes [
+        BOSS_BORIS_QUOTE_1
+        BOSS_BORIS_QUOTE_2
+        BOSS_BORIS_QUOTE_3
+        BOSS_BORIS_QUOTE_4
+        BOSS_BORIS_QUOTE_5
+    ]
+}
+
+chubsandnubs {
+    name BOSS_CHUBSANDNUBS_NAME
+    frame_label chubsandnubs
+
+    quotes [
+        BOSS_CHUBSANDNUBS_QUOTE_1
+        BOSS_CHUBSANDNUBS_QUOTE_2
+        BOSS_CHUBSANDNUBS_QUOTE_3
+        BOSS_CHUBSANDNUBS_QUOTE_4
+        BOSS_CHUBSANDNUBS_QUOTE_5
+    ]
+}
+
+spiderqueen {
+    name BOSS_SPIDERQUEEN_NAME
+    frame_label spiderqueen
+
+    quotes [
+        BOSS_SPIDERQUEEN_QUOTE_1
+        BOSS_SPIDERQUEEN_QUOTE_2
+        BOSS_SPIDERQUEEN_QUOTE_3
+        BOSS_SPIDERQUEEN_QUOTE_4
+        BOSS_SPIDERQUEEN_QUOTE_5
+        BOSS_SPIDERQUEEN_QUOTE_6
+    ]
+}
+spiderkitten {
+    name BOSS_SPIDERKITTEN_NAME
+    frame_label spiderkitten
+
+    quotes [
+        BOSS_SPIDERKITTEN_QUOTE_1
+        BOSS_SPIDERKITTEN_QUOTE_2
+    ]
+}
+
+bumblefoot {
+    name "Bumblefoot"
+    frame_label bumblefoot
+
+    quotes [
+        BOSS_BUMBLEFOOT_QUOTE_1
+        BOSS_BUMBLEFOOT_QUOTE_2
+        BOSS_BUMBLEFOOT_QUOTE_3
+        BOSS_BUMBLEFOOT_QUOTE_4
+    ]
+}
+
+dybbuk {
+    name BOSS_DYBBUK_NAME
+    frame_label dybbuk
+
+    quotes [
+        BOSS_DYBBUK_QUOTE_1
+		BOSS_DYBBUK_QUOTE_2
+		BOSS_DYBBUK_QUOTE_3
+		BOSS_DYBBUK_QUOTE_4
+		BOSS_DYBBUK_QUOTE_5
+    ]
+}
+
+dustdevil {
+    name BOSS_DUSTDEVIL_NAME
+    frame_label dustdevil
+
+    quotes [
+        BOSS_DUSTDEVIL_QUOTE_1
+        BOSS_DUSTDEVIL_QUOTE_2
+        BOSS_DUSTDEVIL_QUOTE_3
+        BOSS_DUSTDEVIL_QUOTE_4
+    ]
+}
+
+zodiac {
+    name BOSS_ZODIAC_NAME
+    frame_label zodiac
+
+    quotes [
+        BOSS_ZODIAC_QUOTE_1
+		BOSS_ZODIAC_QUOTE_2
+		BOSS_ZODIAC_QUOTE_3
+		BOSS_ZODIAC_QUOTE_4
+    ]
+}
+
+gambit {
+    name BOSS_GAMBIT_NAME
+    frame_label gambit
+
+    quotes [
+        BOSS_GAMBIT_QUOTE_1
+		BOSS_GAMBIT_QUOTE_2
+		BOSS_GAMBIT_QUOTE_3
+		BOSS_GAMBIT_QUOTE_4
+		BOSS_GAMBIT_QUOTE_5
+    ]
+}
+
+johnny {
+    name BOSS_JOHNNY_NAME
+    frame_label johnny
+
+    quotes [
+        BOSS_JOHNNY_QUOTE_1
+		BOSS_JOHNNY_QUOTE_2
+		BOSS_JOHNNY_QUOTE_3
+		BOSS_JOHNNY_QUOTE_4
+    ]
+}
+
+alienqueen {
+    name BOSS_ALIENQUEEN_NAME
+    frame_label AlienBeast
+
+    quotes [
+        BOSS_ALIENQUEEN_QUOTE_1
+		BOSS_ALIENQUEEN_QUOTE_2
+    ]
+}
+
+moonhead {
+    name BOSS_MOONHEAD_NAME
+    frame_label MoonHead
+
+    quotes [
+        BOSS_MOONHEAD_QUOTE_1
+		BOSS_MOONHEAD_QUOTE_2
+		BOSS_MOONHEAD_QUOTE_3
+		BOSS_MOONHEAD_QUOTE_4
+    ]
+}
+
+coven {
+    name BOSS_COVEN_NAME
+    frame_label TheCoven
+
+    quotes [
+        BOSS_COVEN_QUOTE_1
+		BOSS_COVEN_QUOTE_2
+		BOSS_COVEN_QUOTE_3
+		BOSS_COVEN_QUOTE_4
+    ]
+}
+
+stacy {
+    name BOSS_STACY_NAME
+    frame_label StacyMutant
+
+    quotes [
+        BOSS_STACY_QUOTE_1
+		BOSS_STACY_QUOTE_2
+		BOSS_STACY_QUOTE_3
+    ]
+}
+
+spewer {
+    name BOSS_SPEWER_NAME
+    frame_label spewer
+
+    quotes [
+        BOSS_SPEWER_QUOTE_1
+		BOSS_SPEWER_QUOTE_2
+		BOSS_SPEWER_QUOTE_3
+		BOSS_SPEWER_QUOTE_4
+    ]
+}
+
+lordbunga {
+    name BOSS_LORDBUNGA_NAME
+    frame_label lordbunga
+
+    quotes [
+        BOSS_LORDBUNGA_QUOTE_1
+		BOSS_LORDBUNGA_QUOTE_2
+    ]
+}
+
+hitler {
+    name BOSS_HITLER_NAME
+    frame_label hitler
+
+    quotes [
+        BOSS_HITLER_QUOTE_1
+		BOSS_HITLER_QUOTE_2
+		BOSS_HITLER_QUOTE_3
+    ]
+}
+
+megadino {
+    name BOSS_MEGADINO_NAME
+    frame_label MegaDino
+
+    quotes [
+        BOSS_MEGADINO_QUOTE_1
+    ]
+}
+
+themother {
+    name BOSS_THEMOTHER_NAME
+    frame_label TheMother
+
+    quotes [
+        BOSS_THEMOTHER_QUOTE_1
+		BOSS_THEMOTHER_QUOTE_2
+		BOSS_THEMOTHER_QUOTE_3
+    ]
+}
+
+//throbbing king
+//scrambled
+//god
+
+throbbingking {
+    name BOSS_THROBBINGKING_NAME
+    frame_label throbbingking
+
+    quotes [
+        BOSS_THROBBINGKING_QUOTE_1
+		BOSS_THROBBINGKING_QUOTE_2
+		BOSS_THROBBINGKING_QUOTE_3
+		BOSS_THROBBINGKING_QUOTE_4
+    ]
+}
+
+chaos {
+    name BOSS_CHAOS_NAME
+    frame_label OGSteven
+
+    quotes [
+        BOSS_CHAOS_QUOTE_1
+    ]
+}
+
+thecreator {
+    name BOSS_THECREATOR_NAME
+    frame_label TheCreator
+
+    quotes [
+        BOSS_THECREATOR_QUOTE_1
+		BOSS_THECREATOR_QUOTE_2
+		BOSS_THECREATOR_QUOTE_3
+    ]
+}
+
+//MINIBOSSES (no quotes needed)
+
+//alley
+fightercat {
+    name BOSS_FIGHTERCAT_NAME
+    frame_label fightercat
+}
+huntercat {
+    name BOSS_HUNTERCAT_NAME
+    frame_label huntercat
+}
+magecat {
+    name BOSS_MAGECAT_NAME
+    frame_label magecat
+}
+tankcat {
+    name BOSS_TANKCAT_NAME
+    frame_label tankcat
+}
+
+//sewers
+flushmaster {
+    name BOSS_FLUSHMASTER_NAME
+    frame_label flushmaster
+}
+ratking {
+    name BOSS_RATKING_NAME
+    frame_label RatKing
+}
+
+//junkyard
+cancreeper {
+    name BOSS_CANCREEPER_NAME
+    frame_label cancreeper
+}
+trampy {
+    name BOSS_TRAMPY_NAME
+    frame_label trampy
+}
+
+//caves
+slime {
+    name BOSS_SLIME_NAME
+    frame_label slime
+}
+
+//boneyard
+mamamaggot {
+    name BOSS_MAMAMAGGOT_NAME
+    frame_label mamamaggot
+}
+
+//desert
+thiefcat {
+    name BOSS_THIEFCAT_NAME
+    frame_label thiefcat
+}
+clericcat {
+    name BOSS_CLERICCAT_NAME
+    frame_label clericcat
+}
+butchercat {
+    name BOSS_BUTCHERCAT_NAME
+    frame_label butchercat
+}
+necrocat {
+    name BOSS_NECROCAT_NAME
+    frame_label necrocat
+}
+
+//crater
+rockybobo {
+    name BOSS_ROCKYBOBO_NAME
+    frame_label rockybobo
+}
+
+infestedduo {
+    name BOSS_INFESTEDDUO_NAME
+    frame_label infestedtwins
+}
+
+
+//bunker
+lenny {
+    name BOSS_LENNY_NAME
+    frame_label lenny
+}
+bumblefoot {
+    name BOSS_BUMBLEFOOT_NAME
+    frame_label bumblefoot
+}
+
+//core
+cerberubs {
+    name BOSS_CERBERUBS_NAME
+    frame_label cerberubs
+}
+
+//moon
+abandonedones {
+    name BOSS_ABANDONEDONES_NAME
+    frame_label abandonedones
+}
+
+//lab
+druidcat {
+    name BOSS_DRUIDCAT_NAME
+    frame_label druidcat
+}
+monkcat {
+    name BOSS_MONKCAT_NAME
+    frame_label monkcat
+}
+psychiccat {
+    name BOSS_PSYCHICCAT_NAME
+    frame_label psycat
+}
+tinkerercat {
+    name BOSS_TINKERERCAT_NAME
+    frame_label tinkerercat
+}
+
+jestercat {
+    name BOSS_JESTERCAT_NAME
+    frame_label jestercat
+}
+
+//iceage
+iceelemental {
+    name BOSS_ICEELEMENTAL_NAME
+    frame_label ice_elemental
+}
+cavecatfamily {
+    name BOSS_CAVECATFAMILY_NAME
+    frame_label cave_family
+}
+
+//jurassic
+dinocouple {
+    name BOSS_DINOCOUPLE_NAME
+    frame_label GirlDino
+}
+
+
+//future
+lightningelemental {
+    name BOSS_LIGHTNINGELEMENTAL_NAME
+    frame_label LightningElemental
+}
+drmangler {
+    name BOSS_DRMANGLER_NAME
+    frame_label DrMangler
+}
+
+//theend
+thebloat {
+    name BOSS_THEBLOAT_NAME
+    frame_label TheBloat
+}
+
+
+//house bosses
+
+
+guillotina_1 {
+    name BOSS_GUILLOTINA_1_NAME
+    frame_label guillotina_1
+
+    quotes [
+        BOSS_GUILLOTINA_1_QUOTE_1
+		BOSS_GUILLOTINA_1_QUOTE_2
+		BOSS_GUILLOTINA_1_QUOTE_3
+		BOSS_GUILLOTINA_1_QUOTE_4
+    ]
+}
+guillotina_2 {
+    name BOSS_GUILLOTINA_2_NAME
+    frame_label guillotina_2
+
+    quotes [
+        BOSS_GUILLOTINA_2_QUOTE_1
+		BOSS_GUILLOTINA_2_QUOTE_2
+		BOSS_GUILLOTINA_2_QUOTE_3
+    ]
+}
+guillotina_3 {
+    name BOSS_GUILLOTINA_3_NAME
+    frame_label guillotina_3
+
+    quotes [
+        BOSS_GUILLOTINA_3_QUOTE_1
+		BOSS_GUILLOTINA_3_QUOTE_2
+		BOSS_GUILLOTINA_3_QUOTE_3
+    ]
+}
+
+pyrophina {
+    name BOSS_PYROPHINA_NAME
+    frame_label pyrophina
+
+    quotes [
+        BOSS_PYROPHINA_QUOTE_1
+		BOSS_PYROPHINA_QUOTE_2
+    ]
+}
+zaratana {
+    name BOSS_ZARATANA_NAME
+    frame_label zaratana
+
+    quotes [
+        BOSS_ZARATANA_QUOTE_1
+		BOSS_ZARATANA_QUOTE_2
+    ]
+}
+pyrophina_vs_zaratana {
+    name BOSS_PYROPHINA_VS_ZARATANA_NAME
+    frame_label pyrophina_vs_zaratana
+
+    quotes [
+        BOSS_PYROPHINA_VS_ZARATANA_QUOTE_1
+    ]
+}
+
+terminator_1 {
+    name BOSS_TERMINATOR_1_NAME
+    frame_label terminator_1
+
+    quotes [
+        BOSS_TERMINATOR_1_QUOTE_1
+		BOSS_TERMINATOR_1_QUOTE_2
+		BOSS_TERMINATOR_1_QUOTE_3
+    ]
+}
+terminator_2 {
+    name BOSS_TERMINATOR_2_NAME
+    frame_label terminator_2
+
+    quotes [
+        BOSS_TERMINATOR_2_QUOTE_1
+    ]
+}
+terminator_3 {
+    name BOSS_TERMINATOR_3_NAME
+    frame_label terminator_3
+
+    quotes [
+		BOSS_TERMINATOR_3_QUOTE_1
+		BOSS_TERMINATOR_3_QUOTE_2
+    ]
+}

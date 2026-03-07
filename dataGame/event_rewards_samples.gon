@@ -1,0 +1,367 @@
+prompt "this shows in the prompt"
+
+set_frame 1
+play_animation resultVeryBad
+play_sound PickupCoin
+hide_cat true
+set_subject deadrat //swaps the main subject frame, use this only in a setup{} block since it wont play a paper pulling 
+
+
+gain_coins 5
+gain_coins [5 10]
+
+gain_food 5
+gain_food [5 10]
+
+get_item Antenna
+get_item_from_pool chapter //random item weighted by rarity
+get_item_from_pool chapter_common
+get_item_from_pool [GutsHeart GutsLiver GutsIntestines]
+get_item_from_pool chapter_specific_item //exlusivly chapter specific items, weighted by rarity
+get_item_from_pool current_chapter_common //random item weighted by rarity
+get_and_equip_item Antenna
+get_and_equip_item_from_pool cursed_items
+get_and_equip_item_from_pool [GutsHeart GutsLiver GutsIntestines]
+get_full_item_set_from_pool common
+
+select_item_from_pool_for_cutscene_only chapter //sets the item for a cutscene but does not add it to your inventory
+
+get_item_from_pool { //reroll if its not a weapon
+    pool chapter_common
+    restrict weapon //restrict can be "weapon", "head", "neck", "face", "trinket", and "armor" (armor = head neck + face)
+}
+
+get_parasite AlluringDoodie //get_parasite is also how you get cursed items
+get_parasite_from_pool parasites
+
+lose_item inventory
+lose_item equipped
+lose_item parasite //only equipped to event cat, will not fallback to losing a different item
+lose_specific_item GuillotinasHead // use for quest event usually, no associated text
+lose_item_from_inventory cat //will not output text unless there is an item to lose, unlike lose_item
+lose_all_equipped_items cat //will lose all items equipped. Will not add text if there are none equipped.
+
+transform_item [CryogenicTimeChamber_Empty CryogenicTimeChamber_Full] //if the cat has the first item equipped, change it into the second item (keeps durability and aux values)
+
+damage 5
+damage [5 10]  //can also do self_damage here
+damage 50%
+
+party_damage 5
+party_damage [5 10]
+party_damage 50%
+
+heal 5
+heal [5 10]  //can also do self_heal here
+heal 50%
+
+full_heal 1 //heals to INT_MAX (will be max after future con gain)
+
+party_heal 5
+party_heal 50%
+
+kill cat //kills the selected cat
+//kill party // (kills the whole party - instant loss) (not implemented yet, since likely not needed)
+
+learn_ability Toss
+learn_ability_from_pool Necromancer
+learn_ability_from_pool [Smack Meow Hiss]
+learn_passive TowerDefense
+learn_passive_from_pool Necromancer
+learn_passive_from_pool [MiniMe SkillShare]
+
+upgrade_ability Toss
+upgrade_ability random
+upgrade_passive TowerDefense
+upgrade_passive random
+
+scramble_abilities all //"all" isnt read here there just arent any parameters for this
+scramble_passives all
+scramble_basic_attack all
+
+gain_disorder Depression
+gain_disorder_from_pool mental_disorders //mental_disorders, physical_disorders, diseases
+gain_disorder_from_pool [Rabies Distemper]
+party_gain_disorder_from_pool mental_disorders //same options as gain_disorder_from_pool
+party_gain_disorder_from_pool_exclude_self mental_disorders //same options as gain_disorder_from_pool
+
+make_old self
+make_old all
+
+set_age 1 //sets a cat to age 1, making them a kitten. can set other ages but its kind of irrelevant? Age 0 would make them stay a kitten for an extra day
+
+injury str
+injury random
+party_injury str
+party_injury random //each cat gets a potentially different random injury
+
+heal_injury 1 //heals 1 random injury
+heal_injury 5 //heals 5 random injuries (if you want to heal *specific* injuries ask, but that seems rare it would ever line up like that)
+party_heal_injury 1 //same options as heal_injury
+
+heal_disorder 1 //heals 1 random disorder
+heal_disorder 2 //heals both disorders
+heal_disorder mental_disorders //heals all disorders in the mental_disorders pool
+heal_disorder [Anxiety Depression] //heals all disorders in the specified pool
+party_heal_disorder mental_disorders //same options as heal_disorder
+
+increment_deja_vu 1 //adds levels to the deja_vu disorder
+
+permanent_stats {
+    str 1
+    con 1
+    random 4 //4 random stats
+}
+party_permanent_stats {
+    str 1
+    con 1
+}
+
+random_mutation_from_set { //gives one
+    tail 1500
+    ears 1500
+    mouth -1  //-1 means pick a random mutation
+    tag birth_defect //if -1 is the frame, "tag" can filter by tag ("none" is default, "any" means anything. birth_defect is the only tag currently)
+}
+mutation { //gives all
+    tail 1500
+    ears 1500
+    mouth 1500
+    tag birth_defect //if -1 is the frame, "tag" can filter by tag ("none" is default, "any" means anything. birth_defect is the only tag currently)
+}
+random_mutation 4 //mutates 4 parts
+
+random_mutation {
+    count 4 //will always select unique parts to mutate (4 unique parts)
+    asymmetric true //if asymmetric is true, the left and right legs/arms/eyes/ears/etc are considered separately
+                    //asymmetric is false by default. There are 10 symmetric parts. There are 15 asymmetric parts
+    tag birth_defect //if -1 is the frame, "tag" can filter by tag ("none" is default, "any" means anything. birth_defect is the only tag currently)
+}
+party_random_mutation 4 //same options as random_mutation
+
+self_status_next_fight {
+    Poison 2
+}
+self_status_next_fight {
+    Fights 1 //optional
+    Poison 2
+}
+party_status_next_fight {
+    Fights 1 //optional
+    Poison 2
+}
+global_effect_next_fight {
+    Fights 1 // optional
+    CharacterTypeGainsStatusAtBattleStart {
+        tag rat
+        Fear 1
+    }
+}
+
+/*chapter_global_effect {
+    Rain 1
+}*/
+add_weather Rain
+
+skip_next_fight 1
+party_skip_next_fight_chance 10%
+leave_party_temporarily {
+    fights_skipped 1
+}
+leave_party_temporarily {
+    fights_skipped 0
+    return_during boss
+    return_as enemy
+}
+
+spawn_unit_next_fight {
+    object [Rat Pinky Leaper]
+    count 2 //can do a range here
+    spawn_side enemies //default "anywhere", options "anywhere", "cats", "enemies"
+    fights 1 //optional
+}
+spawn_reflection_next_fight 1
+spawn_reflection_next_fight {
+    mutation {
+        eyes 442 //apply a specific mutation to the reflection
+    }
+}
+gain_familiar CharmedPooter
+gain_familiar {
+    object CharmedPooter
+    initial_health 10 //optional, default is max hp.
+}
+gain_immortal_familiar CharmedPooter
+gain_cat_familiar 1
+
+next_fight_from_set "special/ratlevels"
+next_fight_from_set putalevelhere.lvl
+next_event_from_set misc_events.gon //this one seems to be a TODO currently
+next_event_from_set CatHole
+next_event_from_set {
+    event Tragedy
+    count 3
+    same_cat true
+}
+
+battle "putalevelhere.lvl"
+ambush putalevelhere.lvl
+event_now Tragedy
+event_now_same_cat Tragedy
+shop_now Shop
+begin_chapter iceage.gon //"win" the current chapter and begin the next one, specifically 
+
+override_end_option_prompt "Overridden Prompt Text" //do IMMEDIATELY BEFORE an effect that pushes an end option (battle, event_now, etc) to change the label on the continue button
+
+ambush_next_basic_fights 1
+ally_ambush_next_fights 1
+
+unlock bonus_path //unused
+
+spin again
+allow skip
+
+level_up self
+level_up all
+
+next_event_bonus 2
+report_luck 2 //-2 to +2 for rare fail to rare success
+
+set_adventure_token CustomTokenString
+
+set_legacy_token WorldEventLegacyToken_CustomTokenString
+increment_legacy_counter WorldEventLegacyCounter_CustomTokenString
+decrement_legacy_counter WorldEventLegacyCounter_CustomTokenString
+
+conditional_reward {
+    requirements {
+        has_token WorldEventLegacyToken_Bar
+        not_has_token WorldEventLegacyToken_Baz
+        counter_minimum [WorldEventLegacyCounter_FooCounter 5]
+        counter_maximum [WorldEventLegacyCounter_FooCounter 10]
+        counter_range [WorldEventLegacyCounter_FooCounter 5 10] //inclusive
+        cat_has_item_equipped FaceCovering
+        cat_has_item_equipped [FaceCovering InfamousMask] //checks for ANY of the equipped items (for all, just check this tag multiple times)
+        not_cat_has_item_equipped Horns
+        has_parasite true
+    }
+    reward {
+        gain_coins 5
+        ambush_next_basic_fights 1
+        level_up self
+    }
+    else {
+        prompt "siphoning life from your team"
+        party_damage 5
+        increment_legacy_counter WorldEventLegacyCounter_FooCounter
+    }
+}
+legacy_token_conditional_reward {} //alias for conditional_reward, kept here cause I changed the name
+
+intro {
+    choose_cat_with_min_health 75% //Supports normal value or percent. Defaults to cat with most hp if no cat meets threshhold.
+}
+
+setup { //runs before the questions are asked
+    conditional_reward {
+        requirements {
+            has_token WorldEventLegacyCounter_FooCounter
+        }
+
+        reward {
+            prompt "EVENT_QUESTION_TEXT" //override the question text
+            set_subject subject_frame //override the base frame
+        }
+    }
+}
+
+unlock_item_quest TinasHead //unlocks the specified quest item next time you return to the house
+complete_item_quest TinasHead //completes the quest associated with the specified quest item
+
+reward {
+    common {
+        prompt "common reward"
+        set_frame 2
+    }
+    rare {
+        prompt "rare reward"
+        set_frame 3
+    }
+}
+
+random_chance {
+    chance 50%
+    prompt "woah"
+    set_frame 5
+}
+
+random_pool [ //can optionally include weights to change probabilities
+    { 
+        weight 10
+        party_heal 5 
+    }
+    { 
+        weight 5
+        get_item_from_pool consumables 
+    }
+    { 
+        weight 1
+        prompt "{Catname} found a delicious feast and healed fully!"
+        full_heal 1 
+    }
+]
+
+random_pool_consider_luck [ //sort BAD to GOOD (best / rarest outcomes at the bottom)
+    { 
+        party_heal 5 
+    }
+    { 
+        get_item_from_pool consumables 
+    }
+    { 
+        prompt "{Catname} found a delicious feast and healed fully!"
+        full_heal 1 
+    }
+]
+
+random_pool_consider_luck [ //weights are by default 1 if not specified
+    { 
+        weight 10
+        party_heal 5 
+    }
+    { 
+        weight 5
+        get_item_from_pool consumables 
+    }
+    { 
+        weight 1
+        prompt "{Catname} found a delicious feast and healed fully!"
+        full_heal 1 
+    }
+]
+
+/*x_unique_from_pool { //select X unique options from the pool
+    count 2
+    pool [
+        { 
+            weight 10
+            party_heal 5 
+        }
+        { 
+            weight 5
+            get_item_from_pool consumables 
+        }
+        { 
+            weight 1
+            prompt "{Catname} found a delicious feast and healed fully!"
+            full_heal 1 
+        }
+    ]
+}*/
+
+cutscene "cutscenename" //plays a cutscene, returns to the event once the cutscene is done then shows the results screen
+
+cutscene {
+    cutscene "time_machine"
+    skip_result_screen true //when cutscene is over, return to the map instead of going to the rewards screen. NOTE this will nullify event rewards that do things on clicking the end button
+}

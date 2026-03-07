@@ -1,0 +1,716 @@
+Flying {
+    name "PASSIVE_FLYING_NAME"
+    desc "PASSIVE_FLYING_DESC"
+    class Psychic
+
+    1 {
+        passives {
+            Flying 1
+            StatusOnUseElementAbility {
+                element Gravity
+                SpeedUp 1
+            }
+            ElementalManaCostReduction {
+                element Gravity
+                reduction 1
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_FLYING2_DESC"
+        passives {
+            Flying 1
+            ExtraMovePoints 1
+            StatusOnUseElementAbility {
+                element Gravity
+                SpeedUp 2
+            }
+            ElementalManaCostReduction {
+                element Gravity
+                reduction 2
+            }
+        }
+    }
+}
+
+
+SoulShatter {
+    name "PASSIVE_SOULSHATTER_NAME"
+    desc "PASSIVE_SOULSHATTER_DESC"
+    class Psychic
+
+    1 {
+        passives {
+            DamageEnemiesOnKill 1
+        }
+    }
+    2 {
+        desc "PASSIVE_SOULSHATTER2_DESC"
+        passives {
+            DamageEnemiesOnKill 2
+        }
+    }
+}
+
+Glow {
+    name "PASSIVE_GLOW_NAME"
+    desc "PASSIVE_GLOW_DESC"
+    class Psychic
+
+    1 {
+        passives {
+            AddStatusToBasicAttack {
+                Blind 1
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_GLOW2_DESC"
+        passives {
+            AddStatusToAllDamage {
+                Blind 1
+            }
+        }
+    }
+}
+
+Blink {
+    name "PASSIVE_BLINK_NAME"
+    desc "PASSIVE_BLINK_DESC"
+    class Psychic
+
+    1 {
+        passives {
+            ChanceToBackflip {
+                ability BlinkDodge
+                chance 33%
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_BLINK2_DESC"
+        passives {
+            ChanceToBackflip {
+                ability BlinkDodge
+                chance 50%
+            }
+        }
+    }
+}
+
+FullPower {
+    name "PASSIVE_FULLPOWER_NAME"
+    desc "PASSIVE_FULLPOWER_DESC"
+    class Psychic
+
+    1 {
+        passives {
+            FullPower 3
+        }
+    }
+    2 {
+        desc "PASSIVE_FULLPOWER2_DESC"
+        passives {
+            FullPower 3
+            BonusAbility GrowHead
+        }
+    }
+}
+
+RealityShatter {
+    name "PASSIVE_REALITYSHATTER_NAME"
+    desc "PASSIVE_REALITYSHATTER_DESC"
+    class Psychic
+
+    1 {
+        passives {
+            AddStatusToElementAbilities {
+                element Gravity
+                ChangeTile FloatingGlassTile
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_REALITYSHATTER2_DESC"
+        passives {
+            AddStatusToElementAbilities {
+                element Gravity
+                ChangeTile FloatingGlassTile
+                Bleed 1
+            }
+        }
+    }
+}
+
+MentalStorm {
+    name "PASSIVE_MENTALSTORM_NAME"
+    desc "PASSIVE_MENTALSTORM_DESC"
+    class Psychic
+
+    1 {
+        passives {
+            StatusOnCastSpell {
+                Charge 1
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_MENTALSTORM2_DESC"
+        passives {
+            StatusOnCastSpell {
+                Charge 2
+            }
+        }
+    }
+}
+
+Wither {
+    name "PASSIVE_WITHER_NAME"
+    desc "PASSIVE_WITHER_DESC"
+    class Psychic
+
+    1 {
+        keyword_tooltips {} //empty keyword tooltips field should prevent them from being automatically scanned
+        passives {
+            AddStatusToElementAbilities {
+                element Gravity
+                Conditional_Enemy {
+                    RandomStatusFromPool {
+                        Poison 1
+                        Burn 1
+                        Bleed 1
+                        Blind 1
+                        Bruise 1
+                        Stun 1
+                        Immobile 1
+                        Freeze 1
+                        Weakness 1
+                        Petrify 1
+                        MagicWeakness 1
+                        Marked 1
+                        Sleep 1
+                        Charmed 1
+                        Slow 1
+                        Madness 1
+                        Fear 1
+                        Confusion 1
+                        Tarred 1
+                    }
+                }
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_WITHER2_DESC"
+        keyword_tooltips {}
+        passives {
+            AmplifyNegativeStatus 1
+
+            AddStatusToElementAbilities {
+                element Gravity
+                Conditional_Enemy {
+                    RandomStatusFromPool {
+                        Poison 1
+                        Burn 1
+                        Bleed 1
+                        Blind 1
+                        Bruise 1
+                        Stun 1
+                        Immobile 1
+                        Freeze 1
+                        Weakness 1
+                        Petrify 1
+                        MagicWeakness 1
+                        Marked 1
+                        Sleep 1
+                        Charmed 1
+                        Slow 1
+                        Madness 1
+                        Fear 1
+                        Confusion 1
+                        Tarred 1
+                        AllStatsUp -1
+                    }
+                }
+            }
+        }
+    }
+}
+
+Flourish {
+    name "PASSIVE_FLOURISH_NAME"
+    desc "PASSIVE_FLOURISH_DESC"
+    class Psychic
+
+    1 {
+        keyword_tooltips {}
+        passives {
+            AddStatusToElementAbilities {
+                element Gravity
+                Conditional_Ally {
+                    ClearNegativeEffects 1
+                    RandomStatusFromPool {
+                        Quivered 1
+                        MoveQuivered 1
+                        Thorns 1
+                        Brace 1
+                        Shield 1
+                        DivineShield 1
+                        BleedThorns 1
+                        KineticSpikes 1
+                        Reflect 1
+                        DiminishingHealthRegen 1
+                        Charge 1
+                        AllStatsUp 1
+                    }
+                }
+            }
+
+            AmplifyPositiveStatus 1
+        }
+    }
+    2 {
+        desc "PASSIVE_FLOURISH2_DESC"
+        keyword_tooltips {}
+        passives {
+            AddStatusToElementAbilities {
+                element Gravity
+                Conditional_Ally {
+                    ClearNegativeEffects 1
+                    RandomStatusFromPool {
+                        Quivered 1
+                        MoveQuivered 1
+                        Thorns 1
+                        Brace 1
+                        Shield 1
+                        DivineShield 1
+                        BleedThorns 1
+                        KineticSpikes 1
+                        Reflect 1
+                        DiminishingHealthRegen 1
+                        Charge 1
+                        AllStatsUp 1
+                    }
+                }
+            }
+
+            AmplifyPositiveStatus 2
+        }
+    }
+}
+
+PsySmack {
+    name "PASSIVE_PSYSMACK_NAME"
+    desc "PASSIVE_PSYSMACK_DESC"
+    class Psychic
+
+    1 {
+        passives {
+            AllyMultiplyKnockbackDamage 2
+        }
+    }
+    2 {
+        desc "PASSIVE_PSYSMACK2_DESC"
+        passives {
+            AllyMultiplyKnockbackDamage 2
+            AllyMultiplyKnockbackDistance 2
+            AllyChainKnockback 1
+        }
+    }
+}
+
+Beckon { //todo: do something with gravity spells as well
+    name "PASSIVE_BECKON_NAME"
+    desc "PASSIVE_BECKON_DESC"
+    class Psychic
+
+    1 {
+        passives {
+            AddStatusToBasicAttack {
+                Knockback 4
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_BECKON2_DESC"
+        passives {
+            AddStatusToBasicAttack {
+                Knockback 4
+                OverrideChainKnockback 0
+                OverrideChainKnockbackDamage 0
+            }
+        }
+    }
+}
+
+MindTempest {
+    name "PASSIVE_MINDTEMPEST_NAME"
+    desc "PASSIVE_MINDTEMPEST_DESC"
+    class Psychic
+
+    1 {
+        passives {
+            StatusEveryXSpellCasts {
+                stacks 6
+                AllStatsUp 1
+                SpellDamageUp 1
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_MINDTEMPEST2_DESC"
+        passives {
+            StatusEveryXSpellCasts {
+                stacks 6
+                AllStatsUp 1
+                ReduceManaCost 1
+                SpellDamageUp 1
+            }
+        }
+    }
+}
+
+Overflow {
+    name "PASSIVE_OVERFLOW_NAME"
+    desc "PASSIVE_OVERFLOW_DESC"
+    class Psychic
+
+    1 {
+        passives {
+            PassiveWhenAtFullMana {
+                Brace 2
+                Flying 1
+            }
+            UncappedMana 1
+        }
+    }
+    2 {
+        desc "PASSIVE_OVERFLOW2_DESC"
+        passives {
+            PassiveWhenAtFullMana {
+                Brace 3
+                Flying 1
+                AddMovement 20
+                ReplaceBasicMove Teleport
+            }
+            UncappedMana 1
+        }
+    }
+}
+
+Omniscience {
+    name "PASSIVE_OMNISCIENCE_NAME"
+    desc "PASSIVE_OMNISCIENCE_DESC"
+    class Psychic
+
+    1 {
+        passives {
+            RemoveLineOfSightRestrictions 1
+            ShowHiddenThings 1
+        }
+    }
+    2 {
+        desc "PASSIVE_OMNISCIENCE2_DESC"
+        passives {
+            RemoveLineOfSightRestrictions 1
+            ShowHiddenThings 1
+        }
+        stats {
+            int 4
+        }
+    }
+}
+
+PsionicRepel {
+    name "PASSIVE_PSIONICREPEL_NAME"
+    desc "PASSIVE_PSIONICREPEL_DESC"
+    class Psychic
+
+    1 {
+        passives {
+            RevengeDamage {
+                knockback 10
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_PSIONICREPEL2_DESC"
+        passives {
+            RevengeDamage {
+                knockback 10
+
+                effects {
+                    Immobile 1
+                }
+            }
+        }
+    }
+}
+
+Enlightened {
+    name "PASSIVE_ENLIGHTENED_NAME"
+    desc "PASSIVE_ENLIGHTENED_DESC"
+    class Psychic
+
+    1 {
+        passives {
+            FreeSpellsAtFullMana 1
+        }
+    }
+    2 {
+        desc "PASSIVE_ENLIGHTENED2_DESC"
+        passives {
+            EachSpellFreeAtFullMana 1
+        }
+    }
+}
+
+MadVisage {
+    name "PASSIVE_MADVISAGE_NAME"
+    desc "PASSIVE_MADVISAGE_DESC"
+    class Psychic
+
+    1 {
+        passives {
+            ForceSpecificInjury cha
+
+            PassiveWhenAtFullMana {
+                AddStatusToBasicAttack {
+                    Madness 1
+                }
+            }
+            PassiveAtStatThreshold {
+                mode less_or_equal
+                threshold {
+                    cha 0
+                }
+                passives {
+                    ExtraBasicAttacks 1
+                }
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_MADVISAGE2_DESC"
+
+        passives {
+            ForceSpecificInjury cha
+
+            PassiveWhenAtFullMana {
+                AddStatusToBasicAttack {
+                    Madness 1
+                }
+            }
+            PassiveAtStatThreshold {
+                mode less_or_equal
+                threshold {
+                    cha 0
+                }
+                passives {
+                    ExtraBasicAttacks 2
+                }
+            }
+            RevengeDamage {
+                effects {
+                    Madness 1
+                }
+            }
+        }
+    }
+}
+
+PowerUp {
+    name "PASSIVE_POWERUP_NAME"
+    desc "PASSIVE_POWERUP_DESC"
+    class Psychic
+
+    1 {
+        passives {
+            StatusOnOverMana {
+                SpellDamageUp 1
+                IntelligenceUp 1
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_POWERUP2_DESC"
+
+        passives {
+            StatusOnOverMana {
+                SpellDamageUp 1
+                IntelligenceUp 1
+                DivineShield 1
+            }
+        }
+    }
+}
+
+TrueSight {
+    name "PASSIVE_TRUESIGHT_NAME"
+    desc "PASSIVE_TRUESIGHT_DESC"
+    class Psychic
+
+    1 {
+        passives {
+            LineOfSightTrueSightAura 0
+        }
+    }
+    2 {
+        desc "PASSIVE_TRUESIGHT2_DESC"
+        passives {
+            LineOfSightTrueSightAura .5
+        }
+    }
+}
+
+Radiation {
+    name "PASSIVE_BRAINGEYSER_NAME"
+    desc "PASSIVE_BRAINGEYSER_DESC"
+    class Psychic
+
+    1 {
+        passives {
+            ScaledStatusOnOverMana {
+                RandomMagicMissile 1
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_BRAINGEYSER2_DESC"
+        passives {
+            ScaledStatusOnOverMana {
+                RandomMagicMissile 1
+                Cleanse 0
+            }
+        }
+    }
+}
+
+GravityWell {
+    name "PASSIVE_GRAVITYWELL_NAME"
+    desc "PASSIVE_GRAVITYWELL_DESC"
+    class Psychic
+
+    1 {
+        passives {
+            GravityWell {
+                damage 0
+                cant_miss true
+                type status
+
+                effects {
+                    Stun 1
+                }
+                elements [
+                    Gravity
+                ]
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_GRAVITYWELL2_DESC"
+        passives {
+            GravityWell {
+                damage 5
+                cant_miss true
+                type status
+
+                effects {
+                    Stun 1
+                }
+                elements [
+                    Gravity
+                ]
+            }
+        }
+    }
+}
+
+Drag {
+    name "PASSIVE_DRAG_NAME"
+    desc "PASSIVE_DRAG_DESC"
+    class Psychic
+
+    1 {
+        passives {
+            StatusThingsKnockedBack {
+                Drag 1
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_DRAG2_DESC"
+        passives {
+            StatusThingsKnockedBack {
+                Drag 2
+            }
+        }
+    }
+}
+
+Twiddle {
+    name "PASSIVE_TWIDDLE_NAME"
+    desc "PASSIVE_TWIDDLE_DESC"
+    class Psychic
+
+    1 {
+        passives {
+            BasicAttackDamageMultiplier 0
+            ExtraBasicAttacks 2
+        }
+    }
+    2 {
+        desc "PASSIVE_TWIDDLE2_DESC"
+        passives {
+            BasicAttackDamageMultiplier 0
+            ExtraBasicAttacks 2
+            Quivered 5
+        }
+    }
+}
+
+RepressedMemories {
+    name "PASSIVE_REPRESSEDMEMORIES_NAME"
+    desc "PASSIVE_REPRESSEDMEMORIES_DESC"
+    class Psychic
+
+    1 {
+        passives {
+            ScaledStatusOnSpendMana {
+                RepressedMemoriesMetronome {
+                    stacks 1
+                    pool Psychic
+                }
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_REPRESSEDMEMORIES2_DESC"
+        passives {
+            ScaledStatusOnSpendMana {
+                RepressedMemoriesMetronome {
+                    stacks 1
+                    pool Jester
+                }
+            }
+        }
+    }
+}
+
+EldritchVisage {
+    name "PASSIVE_ELDRITCHVISAGE_NAME"
+    desc "PASSIVE_ELDRITCHVISAGE_DESC"
+    class Psychic
+
+    1 {
+        passives {
+            AutocastEachTurnBegin MindCrack_EldritchVisage
+        }
+    }
+    2 {
+        desc "PASSIVE_ELDRITCHVISAGE2_DESC"
+        passives {
+            AutocastEachTurnBegin MindCrack_EldritchVisage2
+        }
+    }
+}

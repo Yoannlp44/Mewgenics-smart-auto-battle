@@ -1,0 +1,44 @@
+//default  happy  veryhappy  sad  angry  veryangry
+//questioning  whispering  pondering  mocking
+//inlove  confused  paranoid  shocked  scared  spacedout
+//grossedout bored winking
+
+movieclip BeaniesTimeMachine
+default_npc Beanies
+
+states_and_transitions {
+	states {
+		idle ["idle"]
+	}
+
+	transitions {
+	}
+}
+
+sequences {
+	ending { //dr beanies talks to you after saving you in the time machine.
+		dialog NPC_BEANIES_ENDING_1
+		dialog NPC_BEANIES_ENDING_2
+		dialog NPC_BEANIES_ENDING_3
+		dialog NPC_BEANIES_ENDING_4
+		dialog NPC_BEANIES_ENDING_5
+		dialog NPC_BEANIES_ENDING_6
+		dialog NPC_BEANIES_ENDING_7
+		dialog NPC_BEANIES_ENDING_8
+		dialog NPC_BEANIES_ENDING_9
+		dialog NPC_BEANIES_ENDING_10
+		dialog NPC_BEANIES_ENDING_11
+		dialog NPC_BEANIES_ENDING_12
+		dialog NPC_BEANIES_ENDING_13
+
+		screenshake [1, 30]
+		sfx BeaniesEnding_Banging
+
+		dialog NPC_BEANIES_ENDING_14
+		dialog NPC_BEANIES_ENDING_15
+		dialog NPC_BEANIES_ENDING_16
+		dialog NPC_BEANIES_ENDING_17
+		dialog NPC_BEANIES_ENDING_18
+		dialog NPC_BEANIES_ENDING_19
+	}
+}

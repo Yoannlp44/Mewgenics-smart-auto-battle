@@ -1,0 +1,82 @@
+// Applique automatiquement les AI presets à chaque classe avancée via innate_passives.
+// innate_passives est auto-appliqué à tous les chats de la classe dès le début.
+
+Butcher.merge {
+    innate_passives {
+        ReplaceBrain {
+            brain GenericBrain
+            decision_weights smart_butcher
+            move_weights smart_butcher_move
+        }
+    }
+}
+
+Psychic.merge {
+    innate_passives {
+        ReplaceBrain {
+            brain GenericBrain
+            decision_weights smart_psychic
+            move_weights smart_psychic_move
+        }
+    }
+}
+
+Monk.merge {
+    innate_passives {
+        ReplaceBrain {
+            brain GenericBrain
+            decision_weights smart_monk
+            move_weights smart_monk_move
+        }
+    }
+}
+
+Necromancer.merge {
+    innate_passives {
+        ReplaceBrain {
+            brain GenericBrain
+            decision_weights smart_necromancer
+            move_weights smart_necromancer_move
+        }
+    }
+}
+
+Tinkerer.merge {
+    innate_passives {
+        ReplaceBrain {
+            brain GenericBrain
+            decision_weights smart_tinkerer
+            move_weights smart_tinkerer_move
+        }
+    }
+}
+
+Druid.merge {
+    innate_passives {
+        ReplaceBrain {
+            brain GenericBrain
+            decision_weights smart_druid
+            move_weights smart_druid_move
+        }
+    }
+}
+
+Jester.merge {
+    innate_passives {
+        ReplaceBrain {
+            brain GenericBrain
+            decision_weights smart_jester
+            move_weights smart_jester_move
+        }
+    }
+}
+
+Collarless.merge {
+    innate_passives {
+        ReplaceBrain {
+            brain GenericBrain
+            decision_weights smart_collarless
+            move_weights smart_collarless_move
+        }
+    }
+}

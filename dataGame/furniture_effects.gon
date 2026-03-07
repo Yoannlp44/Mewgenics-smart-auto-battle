@@ -1,0 +1,5177 @@
+//special items
+poop {
+    name FURNITURE_NAME_POOP
+    desc FURNITURE_DESC_POOP
+    special true
+    can_be_rare false
+
+    Comfort -2
+    Health -2
+}
+autofeeder {
+    name FURNITURE_NAME_AUTOFEEDER
+    desc FURNITURE_DESC_AUTOFEEDER
+    special true
+    removed true //deleted from the game
+    can_be_rare false
+    
+   // AutoFeedCat 1
+}
+special_foodbox {
+    name FURNITURE_NAME_SPECIAL_FOODBOX
+    desc FURNITURE_DESC_SPECIAL_FOODBOX
+    special true
+    can_be_rare false
+    
+    FoodStorage 40
+}
+special_comfortidol {
+    name FURNITURE_NAME_SPECIAL_COMFORTIDOL
+    desc FURNITURE_DESC_SPECIAL_COMFORTIDOL
+    special true
+    can_be_rare false
+    
+    Comfort 5
+}
+special_appealidol {
+    name FURNITURE_NAME_SPECIAL_APPEALIDOL
+    desc FURNITURE_DESC_SPECIAL_APPEALIDOL
+    special true
+    can_be_rare false
+    
+    Appeal 5
+}
+special_healthidol {
+    name FURNITURE_NAME_SPECIAL_HEALTHIDOL
+    desc FURNITURE_DESC_SPECIAL_HEALTHIDOL
+    special true
+    can_be_rare false
+    
+    Health 5
+}
+special_evolutionidol {
+    name FURNITURE_NAME_SPECIAL_EVOLUTIONIDOL
+    desc FURNITURE_DESC_SPECIAL_EVOLUTIONIDOL
+    special true
+    can_be_rare false
+    
+    Evolution 5
+}
+special_stimulationidol {
+    name FURNITURE_NAME_SPECIAL_STIMULATIONIDOL
+    desc FURNITURE_DESC_SPECIAL_STIMULATIONIDOL
+    special true
+    can_be_rare false
+    
+    Stimulation 5
+}
+special_fightidol {
+    name FURNITURE_NAME_SPECIAL_FIGHTIDOL
+    desc FURNITURE_DESC_SPECIAL_FIGHTIDOL
+    special true
+    can_be_rare false
+    
+    Comfort -5
+    FightBonusRewards 1
+    FightRisk 2
+}
+special_suppressoridol {
+    name FURNITURE_NAME_SPECIAL_SUPPRESSORIDOL
+    desc FURNITURE_DESC_SPECIAL_SUPPRESSORIDOL
+    special true
+    can_be_rare false
+    
+    Comfort 5
+    BreedSuppression 1
+}
+
+
+
+//general items
+set_spider_candelabra { //frame 0
+    name FURNITURE_NAME_SET_SPIDER_CANDELABRA
+    desc FURNITURE_DESC_SET_SPIDER_CANDELABRA
+    set spider
+    
+    Appeal 2
+}
+
+set_spider_vanity { //frame 1
+    name FURNITURE_NAME_SET_SPIDER_VANITY
+    desc FURNITURE_DESC_SET_SPIDER_VANITY
+    set spider
+    
+    Appeal 2    
+}
+
+set_spider_chair { //frame 2
+    name FURNITURE_NAME_SET_SPIDER_CHAIR
+    desc FURNITURE_DESC_SET_SPIDER_CHAIR
+    set spider
+    
+    Appeal 2 
+}
+
+set_spider_table { //frame 3
+    name FURNITURE_NAME_SET_SPIDER_TABLE
+    desc FURNITURE_DESC_SET_SPIDER_TABLE
+    set spider
+    
+    Appeal 2 
+}
+
+set_spider_dresser { //frame 4
+    name FURNITURE_NAME_SET_SPIDER_DRESSER
+    desc FURNITURE_DESC_SET_SPIDER_DRESSER
+    set spider
+    
+    Appeal 2 
+}
+
+set_spider_tv { //frame 5
+    name FURNITURE_NAME_SET_SPIDER_TV
+    desc FURNITURE_DESC_SET_SPIDER_TV
+    set spider
+    
+    Appeal 1
+    Stimulation 1
+}
+
+set_spider_toilet { //frame 6
+    name FURNITURE_NAME_SET_SPIDER_TOILET
+    desc FURNITURE_DESC_SET_SPIDER_TOILET
+    set spider
+    
+    Appeal 2 
+}
+
+set_spider_shelf { //frame 7
+    name FURNITURE_NAME_SET_SPIDER_SHELF
+    desc FURNITURE_DESC_SET_SPIDER_SHELF
+    set spider
+    
+    Appeal 2 
+}
+
+set_spider_bed { //frame 8
+    name FURNITURE_NAME_SET_SPIDER_BED
+    desc FURNITURE_DESC_SET_SPIDER_BED
+    set spider
+    
+    Appeal 1
+    Comfort 1    
+}
+
+set_spider_sidetable { //frame 9
+    name FURNITURE_NAME_SET_SPIDER_SIDETABLE
+    desc FURNITURE_DESC_SET_SPIDER_SIDETABLE
+    set spider
+    
+    Appeal 2 
+}
+
+set_junk_sidetable { //frame 10
+    name FURNITURE_NAME_SET_JUNK_SIDETABLE
+    desc FURNITURE_DESC_SET_JUNK_SIDETABLE
+    set junk
+
+    Comfort 1
+    Stimulation 1
+}
+
+set_junk_chair { //frame 11
+    name FURNITURE_NAME_SET_JUNK_CHAIR
+    desc FURNITURE_DESC_SET_JUNK_CHAIR
+    set junk
+
+    Comfort 1
+    Stimulation 1
+}
+
+set_junk_shelf { //frame 12
+    name FURNITURE_NAME_SET_JUNK_SHELF
+    desc FURNITURE_DESC_SET_JUNK_SHELF
+    set junk
+
+    Comfort 1
+    Stimulation 1
+}
+
+set_junk_bed { //frame 13
+    name FURNITURE_NAME_SET_JUNK_BED
+    desc FURNITURE_DESC_SET_JUNK_BED
+    set junk
+
+    Comfort 1
+    Stimulation 1
+}
+
+set_junk_cabinet { //frame 14
+    name FURNITURE_NAME_SET_JUNK_CABINET
+    desc FURNITURE_DESC_SET_JUNK_CABINET
+    set junk
+
+    Comfort 1
+    Stimulation 1
+}
+
+set_junk_tv { //frame 15
+    name FURNITURE_NAME_SET_JUNK_TV
+    desc FURNITURE_DESC_SET_JUNK_TV
+    set junk
+
+    Stimulation 2
+}
+
+set_junk_suspendedshelf { //frame 16
+    name FURNITURE_NAME_SET_JUNK_SUSPENDEDSHELF
+    desc FURNITURE_DESC_SET_JUNK_SUSPENDEDSHELF
+    set junk
+
+    Comfort 1
+    Stimulation 1
+}
+
+set_junk_lamp { //frame 17
+    name FURNITURE_NAME_SET_JUNK_LAMP
+    desc FURNITURE_DESC_SET_JUNK_LAMP
+    set junk
+
+    Comfort 1
+    Stimulation 1
+}
+
+set_junk_dresser { //frame 18
+    name FURNITURE_NAME_SET_JUNK_DRESSER
+    desc FURNITURE_DESC_SET_JUNK_DRESSER
+    set junk
+
+    Comfort 1
+    Stimulation 1
+}
+
+set_junk_toilet { //frame 19
+    name FURNITURE_NAME_SET_JUNK_TOILET
+    desc FURNITURE_DESC_SET_JUNK_TOILET
+    set junk
+
+    Comfort 1
+    Stimulation 1
+}
+
+set_sewn_dresser { //frame 20
+    name FURNITURE_NAME_SET_SEWN_DRESSER
+    desc FURNITURE_DESC_SET_SEWN_DRESSER
+    set sewn
+    
+    Appeal 1
+    Comfort 1
+}
+
+set_sewn_sidetable { //frame 21
+    name FURNITURE_NAME_SET_SEWN_SIDETABLE
+    desc FURNITURE_DESC_SET_SEWN_SIDETABLE
+    set sewn
+    
+    Appeal 1
+    Comfort 1
+}
+
+set_sewn_table { //frame 22
+    name FURNITURE_NAME_SET_SEWN_TABLE
+    desc FURNITURE_DESC_SET_SEWN_TABLE
+    set sewn
+    
+    Appeal 1
+    Comfort 1 
+}
+
+set_sewn_couch { //frame 23
+    name FURNITURE_NAME_SET_SEWN_COUCH
+    desc FURNITURE_DESC_SET_SEWN_COUCH
+    set sewn
+    
+    Comfort 2
+}
+
+set_sewn_chair { //frame 24
+    name FURNITURE_NAME_SET_SEWN_CHAIR
+    desc FURNITURE_DESC_SET_SEWN_CHAIR
+    set sewn
+    
+    Comfort 2
+}
+
+set_sewn_stool1 { //frame 25
+    name FURNITURE_NAME_SET_SEWN_STOOL1
+    desc FURNITURE_DESC_SET_SEWN_STOOL1
+    set sewn
+    
+    Comfort 2
+}
+
+set_sewn_toilet { //frame 26
+    name FURNITURE_NAME_SET_SEWN_TOILET
+    desc FURNITURE_DESC_SET_SEWN_TOILET
+    set sewn
+    
+    Comfort 2
+}
+
+set_sewn_tv { //frame 27
+    name FURNITURE_NAME_SET_SEWN_TV
+    desc FURNITURE_DESC_SET_SEWN_TV
+    set sewn
+    
+    Comfort 1
+    Stimulation 1
+}
+
+set_sewn_doll { //frame 28
+    name FURNITURE_NAME_SET_SEWN_DOLL
+    desc FURNITURE_DESC_SET_SEWN_DOLL
+    set sewn
+    
+    Comfort 1
+    Appeal 1
+}
+
+set_sewn_stool2 { //frame 29
+    name FURNITURE_NAME_SET_SEWN_STOOL2
+    desc FURNITURE_DESC_SET_SEWN_STOOL2
+    set sewn
+    
+    Comfort 2
+}
+
+set_cat_shelf { //frame 30
+    name FURNITURE_NAME_SET_CAT_SHELF
+    desc FURNITURE_DESC_SET_CAT_SHELF
+    set cat
+    
+    Appeal 2
+}
+
+set_cat_couch { //frame 31
+    name FURNITURE_NAME_SET_CAT_COUCH
+    desc FURNITURE_DESC_SET_CAT_COUCH
+    set cat
+    
+    Appeal 2
+}
+
+set_cat_chair { //frame 32
+    name FURNITURE_NAME_SET_CAT_CHAIR
+    desc FURNITURE_DESC_SET_CAT_CHAIR
+    set cat
+    
+    Appeal 2
+}
+
+set_cat_bed { //frame 33
+    name FURNITURE_NAME_SET_CAT_BED
+    desc FURNITURE_DESC_SET_CAT_BED
+    set cat
+    
+    Appeal 2
+}
+
+set_cat_table { //frame 34
+    name FURNITURE_NAME_SET_CAT_TABLE
+    desc FURNITURE_DESC_SET_CAT_TABLE
+    set cat
+    
+    Appeal 2
+}
+
+set_cat_tv { //frame 35
+    name FURNITURE_NAME_SET_CAT_TV
+    desc FURNITURE_DESC_SET_CAT_TV
+    set cat
+    
+    Appeal 2
+}
+
+set_cat_bench { //frame 36
+    name FURNITURE_NAME_SET_CAT_BENCH
+    desc FURNITURE_DESC_SET_CAT_BENCH
+    set cat
+    
+    Appeal 2
+}
+
+set_cat_dresser { //frame 37
+    name FURNITURE_NAME_SET_CAT_DRESSER
+    desc FURNITURE_DESC_SET_CAT_DRESSER
+    set cat
+    
+    Appeal 2
+}
+
+set_cat_suspended_shelf { //frame 38
+    name FURNITURE_NAME_SET_CAT_SUSPENDED_SHELF
+    desc FURNITURE_DESC_SET_CAT_SUSPENDED_SHELF
+    set cat
+    
+    Appeal 2
+}
+
+set_cat_table2 { //frame 39
+    name FURNITURE_NAME_SET_CAT_TABLE2
+    desc FURNITURE_DESC_SET_CAT_TABLE2
+    set cat
+    
+    Appeal 2
+}
+
+set_wooden_shelf { //frame 40
+    name FURNITURE_NAME_SET_WOODEN_SHELF
+    desc FURNITURE_DESC_SET_WOODEN_SHELF
+    set wooden
+    
+    Stimulation 1
+    Appeal 1
+}
+
+set_wooden_dresser { //frame 41
+    name FURNITURE_NAME_SET_WOODEN_DRESSER
+    desc FURNITURE_DESC_SET_WOODEN_DRESSER
+    set wooden
+    
+    Stimulation 1
+    Appeal 1
+}
+
+set_wooden_chair { //frame 42
+    name FURNITURE_NAME_SET_WOODEN_CHAIR
+    desc FURNITURE_DESC_SET_WOODEN_CHAIR
+    set wooden
+    
+    Stimulation 1
+    Appeal 1
+}
+
+set_wooden_toilet { //frame 43
+    name FURNITURE_NAME_SET_WOODEN_TOILET
+    desc FURNITURE_DESC_SET_WOODEN_TOILET
+    set wooden
+    
+    Stimulation 1
+    Appeal 1
+}
+
+set_wooden_table { //frame 44
+    name FURNITURE_NAME_SET_WOODEN_TABLE
+    desc FURNITURE_DESC_SET_WOODEN_TABLE
+    set wooden
+    
+    Stimulation 1
+    Appeal 1
+}
+
+set_wooden_sink { //frame 45
+    name FURNITURE_NAME_SET_WOODEN_SINK
+    desc FURNITURE_DESC_SET_WOODEN_SINK
+    set wooden
+    
+    Stimulation 1
+    Appeal 1
+}
+
+set_wooden_lamp { //frame 46
+    name FURNITURE_NAME_SET_WOODEN_LAMP
+    desc FURNITURE_DESC_SET_WOODEN_LAMP
+    set wooden
+    
+    Stimulation 1
+    Appeal 1
+}
+
+set_wooden_tv { //frame 47
+    name FURNITURE_NAME_SET_WOODEN_TV
+    desc FURNITURE_DESC_SET_WOODEN_TV
+    set wooden
+    
+    Stimulation 1
+    Appeal 1
+}
+
+set_wooden_suspendedshelf { //frame 48
+    name FURNITURE_NAME_SET_WOODEN_SUSPENDEDSHELF
+    desc FURNITURE_DESC_SET_WOODEN_SUSPENDEDSHELF
+    set wooden
+    
+    Stimulation 1
+    Appeal 1
+}
+
+set_wooden_shelf2 { //frame 49
+    name FURNITURE_NAME_SET_WOODEN_SHELF2
+    desc FURNITURE_DESC_SET_WOODEN_SHELF2
+    set wooden
+    
+    Stimulation 1
+    Appeal 1
+}
+
+set_sewer_sink { //frame 50
+    name FURNITURE_NAME_SET_SEWER_SINK
+    desc FURNITURE_DESC_SET_SEWER_SINK
+    set sewer
+    
+    Stimulation 1
+    Appeal 1
+	Health -1
+	Evolution 1
+	
+}
+
+set_sewer_shelf { //frame 51
+    name FURNITURE_NAME_SET_SEWER_SHELF
+    desc FURNITURE_DESC_SET_SEWER_SHELF
+    set sewer
+    
+    Stimulation 4
+    Appeal -1
+    Comfort -1
+	Health -1
+	Evolution 1
+}
+
+set_sewer_table { //frame 52
+    name FURNITURE_NAME_SET_SEWER_TABLE
+    desc FURNITURE_DESC_SET_SEWER_TABLE
+    set sewer
+    
+    Stimulation 4
+    Appeal -1
+    Comfort -1
+	Health -1
+	Evolution 1
+}
+
+set_sewer_dresser { //frame 53
+    name FURNITURE_NAME_SET_SEWER_DRESSER
+    desc FURNITURE_DESC_SET_SEWER_DRESSER
+    set sewer
+    
+    Stimulation 4
+    Appeal -1
+    Comfort -1
+	Health -1
+	Evolution 1
+}
+
+set_sewer_chair { //frame 54
+    name FURNITURE_NAME_SET_SEWER_CHAIR
+    desc FURNITURE_DESC_SET_SEWER_CHAIR
+    set sewer
+    
+    Stimulation 4
+    Appeal -1
+    Comfort -1
+	Health -1
+	Evolution 1
+}
+
+set_sewer_suspendedshelf { //frame 55
+    name FURNITURE_NAME_SET_SEWER_SUSPENDEDSHELF
+    desc FURNITURE_DESC_SET_SEWER_SUSPENDEDSHELF
+    set sewer
+    
+    Stimulation 4
+    Appeal -1
+    Comfort -1
+	Health -1
+	Evolution 1
+}
+
+set_sewer_tv { //frame 56
+    name FURNITURE_NAME_SET_SEWER_TV
+    desc FURNITURE_DESC_SET_SEWER_TV
+    set sewer
+    
+    Stimulation 4
+    Appeal -1
+    Comfort -1
+	Health -1
+	Evolution 1
+}
+
+set_sewer_small_table { //frame 57
+    name FURNITURE_NAME_SET_SEWER_SMALL_TABLE
+    desc FURNITURE_DESC_SET_SEWER_SMALL_TABLE
+    set sewer
+    
+    Stimulation 4
+    Appeal -1
+    Comfort -1
+	Health -1
+	Evolution 1
+}
+
+set_sewer_stool { //frame 58
+    name FURNITURE_NAME_SET_SEWER_STOOL
+    desc FURNITURE_DESC_SET_SEWER_STOOL
+    set sewer
+    
+    Stimulation 4
+    Appeal -1
+    Comfort -1
+	Health -1
+	Evolution 1
+}
+
+set_sewer_lamp { //frame 59
+    name FURNITURE_NAME_SET_SEWER_LAMP
+    desc FURNITURE_DESC_SET_SEWER_LAMP
+    set sewer
+    
+    Stimulation 4
+    Appeal -1
+    Comfort -1
+	Health -1
+	Evolution 1
+}
+
+set_bone_shelf { //frame 60
+    name FURNITURE_NAME_SET_BONE_SHELF
+    desc FURNITURE_DESC_SET_BONE_SHELF
+    set bone
+    
+    Stimulation 1
+    Appeal 2
+    Comfort -1
+}
+
+set_bone_sink { //frame 61
+    name FURNITURE_NAME_SET_BONE_SINK
+    desc FURNITURE_DESC_SET_BONE_SINK
+    set bone
+    
+    Stimulation 1
+    Appeal 2
+    Comfort -1
+}
+
+set_bone_sidetable { //frame 62
+    name FURNITURE_NAME_SET_BONE_SIDETABLE
+    desc FURNITURE_DESC_SET_BONE_SIDETABLE
+    set bone
+    
+    Stimulation 1
+    Appeal 2
+    Comfort -1
+}
+
+set_bone_table { //frame 63
+    name FURNITURE_NAME_SET_BONE_TABLE
+    desc FURNITURE_DESC_SET_BONE_TABLE
+    set bone
+    
+    Stimulation 1
+    Appeal 2
+    Comfort -1
+}
+
+set_bone_couch { //frame 64
+    name FURNITURE_NAME_SET_BONE_COUCH
+    desc FURNITURE_DESC_SET_BONE_COUCH
+    set bone
+    
+    Stimulation 1
+    Appeal 2
+    Comfort -1
+}
+
+set_bone_tv { //frame 65
+    name FURNITURE_NAME_SET_BONE_TV
+    desc FURNITURE_DESC_SET_BONE_TV
+    set bone
+    
+    Stimulation 1
+    Appeal 2
+    Comfort -1
+}
+
+set_bone_chandelier { //frame 66
+    name FURNITURE_NAME_SET_BONE_CHANDELIER
+    desc FURNITURE_DESC_SET_BONE_CHANDELIER
+    set bone
+    
+    Stimulation 1
+    Appeal 2
+    Comfort -1
+}
+
+set_bone_lamp { //frame 67
+    name FURNITURE_NAME_SET_BONE_LAMP
+    desc FURNITURE_DESC_SET_BONE_LAMP
+    set bone
+    
+    Stimulation 1
+    Appeal 2
+    Comfort -1
+}
+
+set_bone_chair { //frame 68
+    name FURNITURE_NAME_SET_BONE_CHAIR
+    desc FURNITURE_DESC_SET_BONE_CHAIR
+    set bone
+    
+    Stimulation 1
+    Appeal 2
+    Comfort -1
+}
+
+set_bone_pile { //frame 69
+    name FURNITURE_NAME_SET_BONE_PILE
+    desc FURNITURE_DESC_SET_BONE_PILE
+    set bone
+    
+    Stimulation 1
+    Appeal 2
+    Comfort -1
+}
+
+set_robo_shelf { //frame 70
+    name FURNITURE_NAME_SET_ROBO_SHELF
+    desc FURNITURE_DESC_SET_ROBO_SHELF
+    set robo
+    
+    Stimulation 3
+    Comfort -1
+}
+
+set_robo_sink { //frame 71
+    name FURNITURE_NAME_SET_ROBO_SINK
+    desc FURNITURE_DESC_SET_ROBO_SINK
+    set robo
+
+    Stimulation 3
+    Comfort -1
+}
+
+set_robo_desk { //frame 72
+    name FURNITURE_NAME_SET_ROBO_DESK
+    desc FURNITURE_DESC_SET_ROBO_DESK
+    set robo
+    
+    Stimulation 3
+    Comfort -1
+}
+
+set_robo_table { //frame 73
+    name FURNITURE_NAME_SET_ROBO_TABLE
+    desc FURNITURE_DESC_SET_ROBO_TABLE
+    set robo
+    
+    Stimulation 3
+    Comfort -1
+}
+
+set_robo_dresser { //frame 74
+    name FURNITURE_NAME_SET_ROBO_DRESSER
+    desc FURNITURE_DESC_SET_ROBO_DRESSER
+    set robo
+    
+    Stimulation 3
+    Comfort -1
+}
+
+set_robo_tv { //frame 75
+    name FURNITURE_NAME_SET_ROBO_TV
+    desc FURNITURE_DESC_SET_ROBO_TV
+    set robo
+    
+    Stimulation 3
+    Comfort -1
+}
+
+set_robo_robobody { //frame 76
+    name FURNITURE_NAME_SET_ROBO_ROBOBODY
+    desc FURNITURE_DESC_SET_ROBO_ROBOBODY
+    set robo
+    
+    Stimulation 3
+    Comfort -1
+}
+
+set_robo_robochest { //frame 77
+    name FURNITURE_NAME_SET_ROBO_ROBOCHEST
+    desc FURNITURE_DESC_SET_ROBO_ROBOCHEST
+    set robo
+    
+    Stimulation 3
+    Comfort -1
+}
+
+set_robo_roboarms { //frame 78
+    name FURNITURE_NAME_SET_ROBO_ROBOARMS
+    desc FURNITURE_DESC_SET_ROBO_ROBOARMS
+    set robo
+    
+    Stimulation 3
+    Comfort -1
+}
+
+set_robo_head { //frame 79
+    name FURNITURE_NAME_SET_ROBO_HEAD
+    desc FURNITURE_DESC_SET_ROBO_HEAD
+    set robo
+    
+    Stimulation 3
+    Comfort -1
+}
+
+set_guts_shelf { //frame 80
+    name FURNITURE_NAME_SET_GUTS_SHELF
+    desc FURNITURE_DESC_SET_GUTS_SHELF
+    set guts
+    
+    Appeal -1
+    Stimulation 1
+    Comfort 2
+}
+
+set_guts_table { //frame 81
+    name FURNITURE_NAME_SET_GUTS_TABLE
+    desc FURNITURE_DESC_SET_GUTS_TABLE
+    set guts
+    
+    Appeal -1
+    Stimulation 1
+    Comfort 2
+}
+
+set_guts_sidetable { //frame 82
+    name FURNITURE_NAME_SET_GUTS_SIDETABLE
+    desc FURNITURE_DESC_SET_GUTS_SIDETABLE
+    set guts
+    
+    Appeal -1
+    Stimulation 1
+    Comfort 2
+}
+
+set_guts_sink { //frame 83
+    name FURNITURE_NAME_SET_GUTS_SINK
+    desc FURNITURE_DESC_SET_GUTS_SINK
+    set guts
+    
+    Appeal -1
+    Stimulation 1
+    Comfort 2
+}
+
+set_guts_sidetable2 { //frame 84
+    name FURNITURE_NAME_SET_GUTS_SIDETABLE2
+    desc FURNITURE_DESC_SET_GUTS_SIDETABLE2
+    set guts
+    
+    Appeal -1
+    Stimulation 1
+    Comfort 2
+}
+
+set_guts_toilet { //frame 85
+    name FURNITURE_NAME_SET_GUTS_TOILET
+    desc FURNITURE_DESC_SET_GUTS_TOILET
+    set guts
+    
+    Appeal -1
+    Stimulation 1
+    Comfort 2
+}
+
+set_guts_lamp { //frame 86
+    name FURNITURE_NAME_SET_GUTS_LAMP
+    desc FURNITURE_DESC_SET_GUTS_LAMP
+    set guts
+    
+    Appeal -1
+    Stimulation 1
+    Comfort 2
+}
+
+set_guts_lamp2 { //frame 87
+    name FURNITURE_NAME_SET_GUTS_LAMP2
+    desc FURNITURE_DESC_SET_GUTS_LAMP2
+    set guts
+    
+    Appeal -1
+    Stimulation 1
+    Comfort 2
+}
+
+set_guts_suspendedshelf { //frame 88
+    name FURNITURE_NAME_SET_GUTS_SUSPENDEDSHELF
+    desc FURNITURE_DESC_SET_GUTS_SUSPENDEDSHELF
+    set guts
+    
+    Appeal -1
+    Stimulation 1
+    Comfort 2
+}
+
+set_guts_tv { //frame 89
+    name FURNITURE_NAME_SET_GUTS_TV
+    desc FURNITURE_DESC_SET_GUTS_TV
+    set guts
+    
+    Appeal -1
+    Stimulation 2
+    Comfort 1  
+}
+
+set_crystal_toilet { //frame 90
+    name FURNITURE_NAME_SET_CRYSTAL_TOILET
+    desc FURNITURE_DESC_SET_CRYSTAL_TOILET
+    set crystal
+    
+    Appeal 4
+    Comfort -2
+}
+
+set_crystal_dresser { //frame 91
+    name FURNITURE_NAME_SET_CRYSTAL_DRESSER
+    desc FURNITURE_DESC_SET_CRYSTAL_DRESSER
+    set crystal
+    
+    Appeal 4
+    Comfort -2
+}
+
+set_crystal_lamp { //frame 92
+    name FURNITURE_NAME_SET_CRYSTAL_LAMP
+    desc FURNITURE_DESC_SET_CRYSTAL_LAMP
+    set crystal
+    
+    Appeal 4
+    Comfort -2
+}
+
+set_crystal_table { //frame 93
+    name FURNITURE_NAME_SET_CRYSTAL_TABLE
+    desc FURNITURE_DESC_SET_CRYSTAL_TABLE
+    set crystal
+    
+    Appeal 4
+    Comfort -2
+}
+
+set_crystal_chandelier { //frame 94
+    name FURNITURE_NAME_SET_CRYSTAL_CHANDELIER
+    desc FURNITURE_DESC_SET_CRYSTAL_CHANDELIER
+    set crystal
+    
+    Appeal 4
+    Comfort -2
+}
+
+set_crystal_dresser2 { //frame 95
+    name FURNITURE_NAME_SET_CRYSTAL_DRESSER2
+    desc FURNITURE_DESC_SET_CRYSTAL_DRESSER2
+    set crystal
+    
+    Appeal 4
+    Comfort -2
+}
+
+set_crystal_sidetable { //frame 96
+    name FURNITURE_NAME_SET_CRYSTAL_SIDETABLE
+    desc FURNITURE_DESC_SET_CRYSTAL_SIDETABLE
+    set crystal
+    
+    Appeal 4
+    Comfort -2
+}
+
+set_crystal_couch { //frame 97
+    name FURNITURE_NAME_SET_CRYSTAL_COUCH
+    desc FURNITURE_DESC_SET_CRYSTAL_COUCH
+    set crystal
+    
+    Appeal 4
+    Comfort -2
+}
+
+set_crystal_chair { //frame 98
+    name FURNITURE_NAME_SET_CRYSTAL_CHAIR
+    desc FURNITURE_DESC_SET_CRYSTAL_CHAIR
+    set crystal
+    
+    Appeal 4
+    Comfort -2
+}
+
+set_crystal_shelf { //frame 99
+    name FURNITURE_NAME_SET_CRYSTAL_SHELF
+    desc FURNITURE_DESC_SET_CRYSTAL_SHELF
+    set crystal
+    
+    Appeal 4
+    Comfort -2
+}
+
+set_block_L { //frame 100
+    name FURNITURE_NAME_SET_BLOCK_L
+    desc FURNITURE_DESC_SET_BLOCK_L
+    set block
+    
+    Appeal 1
+    Stimulation 1
+}
+
+set_block_t { //frame 101
+    name FURNITURE_NAME_SET_BLOCK_T
+    desc FURNITURE_DESC_SET_BLOCK_T
+    set block
+    
+    Appeal 1
+    Stimulation 1
+}
+
+set_block_square { //frame 102
+    name FURNITURE_NAME_SET_BLOCK_SQUARE
+    desc FURNITURE_DESC_SET_BLOCK_SQUARE
+    set block
+    
+    Appeal 1
+    Stimulation 1
+}
+
+set_block_7 { //frame 103
+    name FURNITURE_NAME_SET_BLOCK_7
+    desc FURNITURE_DESC_SET_BLOCK_7
+    set block
+    
+    Appeal 1
+    Stimulation 1
+}
+
+set_block_square2 { //frame 104
+    name FURNITURE_NAME_SET_BLOCK_SQUARE2
+    desc FURNITURE_DESC_SET_BLOCK_SQUARE2
+    set block
+    
+    Appeal 1
+    Stimulation 1
+}
+
+set_block_layingl { //frame 105
+    name FURNITURE_NAME_SET_BLOCK_LAYINGL
+    desc FURNITURE_DESC_SET_BLOCK_LAYINGL
+    set block
+    
+    Appeal 1
+    Stimulation 1
+}
+
+set_block_i { //frame 106
+    name FURNITURE_NAME_SET_BLOCK_I
+    desc FURNITURE_DESC_SET_BLOCK_I
+    set block
+    
+    Appeal 1
+    Stimulation 1
+}
+
+set_block_sidet { //frame 107
+    name FURNITURE_NAME_SET_BLOCK_SIDET
+    desc FURNITURE_DESC_SET_BLOCK_SIDET
+    set block
+    
+    Appeal 1
+    Stimulation 1
+}
+
+set_block_downl { //frame 108
+    name FURNITURE_NAME_SET_BLOCK_DOWNL
+    desc FURNITURE_DESC_SET_BLOCK_DOWNL
+    set block
+    
+    Appeal 1
+    Stimulation 1
+}
+
+set_block_sidei { //frame 109
+    name FURNITURE_NAME_SET_BLOCK_SIDEI
+    desc FURNITURE_DESC_SET_BLOCK_SIDEI
+    set block
+    
+    Appeal 1
+    Stimulation 1
+}
+
+set_monster_shelf { //frame 110
+    name FURNITURE_NAME_SET_MONSTER_SHELF
+    desc FURNITURE_DESC_SET_MONSTER_SHELF
+    set monster
+    
+    Appeal -1
+    Stimulation 2
+    Comfort 1
+}
+
+set_monster_dresser { //frame 111
+    name FURNITURE_NAME_SET_MONSTER_DRESSER
+    desc FURNITURE_DESC_SET_MONSTER_DRESSER
+    set monster
+    
+    Appeal -2
+    Stimulation 1
+    Comfort 1
+	Evolution 1
+}
+
+set_monster_table { //frame 112
+    name FURNITURE_NAME_SET_MONSTER_TABLE
+    desc FURNITURE_DESC_SET_MONSTER_TABLE
+    set monster
+    
+    Appeal -2
+    Stimulation 1
+    Comfort 1
+	Evolution 1
+}
+
+set_monster_suspendedshelf { //frame 113
+    name FURNITURE_NAME_SET_MONSTER_SUSPENDEDSHELF
+    desc FURNITURE_DESC_SET_MONSTER_SUSPENDEDSHELF
+    set monster
+    
+    Appeal -2
+    Stimulation 1
+    Comfort 1
+	Evolution 1
+}
+
+set_monster_sidetable { //frame 114
+    name FURNITURE_NAME_SET_MONSTER_SIDETABLE
+    desc FURNITURE_DESC_SET_MONSTER_SIDETABLE
+    set monster
+    
+    Appeal -2
+    Stimulation 1
+    Comfort 1
+	Evolution 1
+}
+
+set_monster_suspendedshelf2 { //frame 115
+    name FURNITURE_NAME_SET_MONSTER_SUSPENDEDSHELF2
+    desc FURNITURE_DESC_SET_MONSTER_SUSPENDEDSHELF2
+    set monster
+    
+    Appeal -2
+    Stimulation 1
+    Comfort 1
+	Evolution 1
+}
+
+set_monster_chair { //frame 116
+    name FURNITURE_NAME_SET_MONSTER_CHAIR
+    desc FURNITURE_DESC_SET_MONSTER_CHAIR
+    set monster
+    
+    Appeal -2
+    Stimulation 1
+    Comfort 1
+	Evolution 1
+}
+
+set_monster_table2 { //frame 117
+    name FURNITURE_NAME_SET_MONSTER_TABLE2
+    desc FURNITURE_DESC_SET_MONSTER_TABLE2
+    set monster
+    
+    Appeal -2
+    Stimulation 1
+    Comfort 1
+	Evolution 1
+}
+
+set_monster_tv { //frame 118
+    name FURNITURE_NAME_SET_MONSTER_TV
+    desc FURNITURE_DESC_SET_MONSTER_TV
+    set monster
+    
+    Appeal -2
+    Stimulation 1
+    Comfort 1
+	Evolution 1
+}
+
+set_monster_lamp { //frame 119
+    name FURNITURE_NAME_SET_MONSTER_LAMP
+    desc FURNITURE_DESC_SET_MONSTER_LAMP
+    set monster
+    
+    Appeal -2
+    Stimulation 1
+    Comfort 1
+	Evolution 1
+}
+
+set_angelic_bed { //frame 120
+    name FURNITURE_NAME_SET_ANGELIC_BED
+    desc FURNITURE_DESC_SET_ANGELIC_BED
+    set angelic
+    
+    Appeal 2
+    Comfort 1
+    Stimulation -2
+	Health 1
+}
+
+set_angelic_shelf { //frame 121
+    name FURNITURE_NAME_SET_ANGELIC_SHELF
+    desc FURNITURE_DESC_SET_ANGELIC_SHELF
+    set angelic
+    
+    Appeal 2
+    Comfort 1
+    Stimulation -2
+	Health 1
+}
+
+set_angelic_chair { //frame 122
+    name FURNITURE_NAME_SET_ANGELIC_CHAIR
+    desc FURNITURE_DESC_SET_ANGELIC_CHAIR
+    set angelic
+    
+    Appeal 2
+    Comfort 1
+    Stimulation -2
+	Health 1
+}
+
+set_angelic_dresser { //frame 123
+    name FURNITURE_NAME_SET_ANGELIC_DRESSER
+    desc FURNITURE_DESC_SET_ANGELIC_DRESSER
+    set angelic
+    
+    Appeal 2
+    Comfort 1
+    Stimulation -2
+	Health 1
+}
+
+set_angelic_sidetable { //frame 124
+    name FURNITURE_NAME_SET_ANGELIC_SIDETABLE
+    desc FURNITURE_DESC_SET_ANGELIC_SIDETABLE
+    set angelic
+    
+    Appeal 2
+    Comfort 1
+    Stimulation -2
+	Health 1
+}
+
+set_angelic_toilet { //frame 125
+    name FURNITURE_NAME_SET_ANGELIC_TOILET
+    desc FURNITURE_DESC_SET_ANGELIC_TOILET
+    set angelic
+    
+    Appeal 2
+    Comfort 1
+    Stimulation -2
+	Health 1
+}
+
+set_angelic_table { //frame 126
+    name FURNITURE_NAME_SET_ANGELIC_TABLE
+    desc FURNITURE_DESC_SET_ANGELIC_TABLE
+    set angelic
+    
+    Appeal 2
+    Comfort 1
+    Stimulation -2
+	Health 1
+}
+
+set_angelic_table2 { //frame 127
+    name FURNITURE_NAME_SET_ANGELIC_TABLE2
+    desc FURNITURE_DESC_SET_ANGELIC_TABLE2
+    set angelic
+    
+    Appeal 2
+    Comfort 1
+    Stimulation -2
+	Health 1
+}
+
+set_angelic_suspendedshelf { //frame 128
+    name FURNITURE_NAME_SET_ANGELIC_SUSPENDEDSHELF
+    desc FURNITURE_DESC_SET_ANGELIC_SUSPENDEDSHELF
+    set angelic
+    
+    Appeal 2
+    Comfort 1
+    Stimulation -2
+	Health 1
+}
+
+set_angelic_lamp { //frame 129
+    name FURNITURE_NAME_SET_ANGELIC_LAMP
+    desc FURNITURE_DESC_SET_ANGELIC_LAMP
+    set angelic
+    
+    Appeal 2
+    Comfort 1
+    Stimulation -2
+	Health 1
+}
+
+set_atomic_stove { //frame 130
+    name FURNITURE_NAME_SET_ATOMIC_STOVE
+    desc FURNITURE_DESC_SET_ATOMIC_STOVE
+    set atomic
+    
+    Appeal 1
+    Stimulation 1
+}
+
+set_atomic_frige { //frame 131
+    name FURNITURE_NAME_SET_ATOMIC_FRIGE
+    desc FURNITURE_DESC_SET_ATOMIC_FRIGE
+    set atomic
+    
+    Appeal 1
+    Stimulation 1
+}
+
+set_atomic_couch { //frame 132
+    name FURNITURE_NAME_SET_ATOMIC_COUCH
+    desc FURNITURE_DESC_SET_ATOMIC_COUCH
+    set atomic
+    
+    Appeal 1
+    Comfort 1
+}
+
+set_atomic_tv { //frame 133
+    name FURNITURE_NAME_SET_ATOMIC_TV
+    desc FURNITURE_DESC_SET_ATOMIC_TV
+    set atomic
+    
+    Appeal 1
+    Stimulation 1
+}
+
+set_atomic_table { //frame 134
+    name FURNITURE_NAME_SET_ATOMIC_TABLE
+    desc FURNITURE_DESC_SET_ATOMIC_TABLE
+    set atomic
+    
+    Appeal 1
+    Stimulation 1
+}
+
+set_atomic_sidetable { //frame 135
+    name FURNITURE_NAME_SET_ATOMIC_SIDETABLE
+    desc FURNITURE_DESC_SET_ATOMIC_SIDETABLE
+    set atomic
+    
+    Appeal 1
+    Stimulation 1
+}
+
+set_atomic_radio { //frame 136
+    name FURNITURE_NAME_SET_ATOMIC_RADIO
+    desc FURNITURE_DESC_SET_ATOMIC_RADIO
+    set atomic
+    
+    Appeal 1
+    Stimulation 1
+}
+
+set_atomic_lamp { //frame 137
+    name FURNITURE_NAME_SET_ATOMIC_LAMP
+    desc FURNITURE_DESC_SET_ATOMIC_LAMP
+    set atomic
+    
+    Appeal 1
+    Stimulation 1
+}
+
+set_atomic_shelf { //frame 138
+    name FURNITURE_NAME_SET_ATOMIC_SHELF
+    desc FURNITURE_DESC_SET_ATOMIC_SHELF
+    set atomic
+    
+    Appeal 1
+    Stimulation 1
+}
+
+set_atomic_chair { //frame 139
+    name FURNITURE_NAME_SET_ATOMIC_CHAIR
+    desc FURNITURE_DESC_SET_ATOMIC_CHAIR
+    set atomic
+    
+    Appeal 1
+    Comfort 1
+}
+
+set_elegant_table { //frame 140
+    name FURNITURE_NAME_SET_ELEGANT_TABLE
+    desc FURNITURE_DESC_SET_ELEGANT_TABLE
+    set elegant
+    
+    Appeal 2
+}
+
+set_elegant_bed { //frame 141
+    name FURNITURE_NAME_SET_ELEGANT_BED
+    desc FURNITURE_DESC_SET_ELEGANT_BED
+    set elegant
+    
+    Appeal 1
+    Comfort 1
+}
+
+set_elegant_desk { //frame 142
+    name FURNITURE_NAME_SET_ELEGANT_DESK
+    desc FURNITURE_DESC_SET_ELEGANT_DESK
+    set elegant
+    
+    Appeal 2
+}
+
+set_elegant_dresser { //frame 143
+    name FURNITURE_NAME_SET_ELEGANT_DRESSER
+    desc FURNITURE_DESC_SET_ELEGANT_DRESSER
+    set elegant
+    
+    Appeal 2
+}
+
+set_elegant_dresser2 { //frame 144
+    name FURNITURE_NAME_SET_ELEGANT_DRESSER2
+    desc FURNITURE_DESC_SET_ELEGANT_DRESSER2
+    set elegant
+    
+    Appeal 2
+}
+
+set_elegant_sidetable { //frame 145
+    name FURNITURE_NAME_SET_ELEGANT_SIDETABLE
+    desc FURNITURE_DESC_SET_ELEGANT_SIDETABLE
+    set elegant
+    
+    Appeal 2
+}
+
+set_elegant_sidetable2 { //frame 146
+    name FURNITURE_NAME_SET_ELEGANT_SIDETABLE2
+    desc FURNITURE_DESC_SET_ELEGANT_SIDETABLE2
+    set elegant
+    
+    Appeal 2
+}
+
+set_elegant_chair { //frame 147
+    name FURNITURE_NAME_SET_ELEGANT_CHAIR
+    desc FURNITURE_DESC_SET_ELEGANT_CHAIR
+    set elegant
+    
+    Appeal 1
+    Comfort 1
+}
+
+set_elegant_shelf { //frame 148
+    name FURNITURE_NAME_SET_ELEGANT_SHELF
+    desc FURNITURE_DESC_SET_ELEGANT_SHELF
+    set elegant
+    
+    Appeal 2
+}
+
+set_elegant_lamp { //frame 149
+    name FURNITURE_NAME_SET_ELEGANT_LAMP
+    desc FURNITURE_DESC_SET_ELEGANT_LAMP
+    set elegant
+    
+    Appeal 2
+}
+
+set_modern_bed { //frame 150
+    name FURNITURE_NAME_SET_MODERN_BED
+    desc FURNITURE_DESC_SET_MODERN_BED
+    set modern
+    
+    Comfort 2
+}
+
+set_modern_frige { //frame 151
+    name FURNITURE_NAME_SET_MODERN_FRIGE
+    desc FURNITURE_DESC_SET_MODERN_FRIGE
+    set modern
+    
+    Comfort 1
+    Appeal 1
+}
+
+set_modern_stove { //frame 152
+    name FURNITURE_NAME_SET_MODERN_STOVE
+    desc FURNITURE_DESC_SET_MODERN_STOVE
+    set modern
+    
+    Comfort 1
+    Appeal 1
+}
+
+set_modern_couch { //frame 153
+    name FURNITURE_NAME_SET_MODERN_COUCH
+    desc FURNITURE_DESC_SET_MODERN_COUCH
+    set modern
+    
+    Comfort 1
+    Appeal 1
+}
+
+set_modern_chair { //frame 154
+    name FURNITURE_NAME_SET_MODERN_CHAIR
+    desc FURNITURE_DESC_SET_MODERN_CHAIR
+    set modern
+    
+    Comfort 1
+    Appeal 1
+}
+
+set_modern_dresser { //frame 155
+    name FURNITURE_NAME_SET_MODERN_DRESSER
+    desc FURNITURE_DESC_SET_MODERN_DRESSER
+    set modern
+    
+    Comfort 1
+    Appeal 1
+}
+
+set_modern_sidetable { //frame 156
+    name FURNITURE_NAME_SET_MODERN_SIDETABLE
+    desc FURNITURE_DESC_SET_MODERN_SIDETABLE
+    set modern
+    
+    Comfort 1
+    Appeal 1
+}
+
+set_modern_table { //frame 157
+    name FURNITURE_NAME_SET_MODERN_TABLE
+    desc FURNITURE_DESC_SET_MODERN_TABLE
+    set modern
+    
+    Comfort 1
+    Appeal 1
+}
+
+set_modern_desk { //frame 158
+    name FURNITURE_NAME_SET_MODERN_DESK
+    desc FURNITURE_DESC_SET_MODERN_DESK
+    set modern
+    
+    Comfort 1
+    Appeal 1
+}
+
+set_modern_tv { //frame 159
+    name FURNITURE_NAME_SET_MODERN_TV
+    desc FURNITURE_DESC_SET_MODERN_TV
+    set modern
+    
+    Stimulation 1
+    Appeal 1
+}
+
+set_80s_couch { //frame 160
+    name FURNITURE_NAME_SET_80S_COUCH
+    desc FURNITURE_DESC_SET_80S_COUCH
+    set 80s
+    
+    Comfort 2
+}
+
+set_80s_bed { //frame 161
+    name FURNITURE_NAME_SET_80S_BED
+    desc FURNITURE_DESC_SET_80S_BED
+    set 80s
+    
+    Comfort 2
+}
+
+set_80s_dresser { //frame 162
+    name FURNITURE_NAME_SET_80S_DRESSER
+    desc FURNITURE_DESC_SET_80S_DRESSER
+    set 80s
+    
+    Comfort 2
+}
+
+set_80s_chair { //frame 163
+    name FURNITURE_NAME_SET_80S_CHAIR
+    desc FURNITURE_DESC_SET_80S_CHAIR
+    set 80s
+    
+    Comfort 2
+}
+
+set_80s_stove { //frame 164
+    name FURNITURE_NAME_SET_80S_STOVE
+    desc FURNITURE_DESC_SET_80S_STOVE
+    set 80s
+    
+    Comfort 2
+}
+
+set_80s_frige { //frame 165
+    name FURNITURE_NAME_SET_80S_FRIGE
+    desc FURNITURE_DESC_SET_80S_FRIGE
+    set 80s
+    
+    Comfort 2
+}
+
+set_80s_shelf { //frame 166
+    name FURNITURE_NAME_SET_80S_SHELF
+    desc FURNITURE_DESC_SET_80S_SHELF
+    set 80s
+    
+    Comfort 2
+}
+
+set_80s_tv { //frame 167
+    name FURNITURE_NAME_SET_80S_TV
+    desc FURNITURE_DESC_SET_80S_TV
+    set 80s
+    
+    Comfort 1
+    Stimulation 1
+}
+
+set_80s_table { //frame 168
+    name FURNITURE_NAME_SET_80S_TABLE
+    desc FURNITURE_DESC_SET_80S_TABLE
+    set 80s
+    
+    Comfort 2
+}
+
+set_80s_sidetable { //frame 169
+    name FURNITURE_NAME_SET_80S_SIDETABLE
+    desc FURNITURE_DESC_SET_80S_SIDETABLE
+    set 80s
+    
+    Comfort 2
+}
+
+set_retro_bed { //frame 170
+    name FURNITURE_NAME_SET_RETRO_BED
+    desc FURNITURE_DESC_SET_RETRO_BED
+    set retro
+    
+    Comfort 1
+    Appeal 1
+}
+
+set_retro_stove { //frame 171
+    name FURNITURE_NAME_SET_RETRO_STOVE
+    desc FURNITURE_DESC_SET_RETRO_STOVE
+    set retro
+    
+    Comfort 1
+    Appeal 1
+}
+
+set_retro_frige { //frame 172
+    name FURNITURE_NAME_SET_RETRO_FRIGE
+    desc FURNITURE_DESC_SET_RETRO_FRIGE
+    set retro
+    
+    Comfort 1
+    Appeal 1
+}
+
+set_retro_couch { //frame 173
+    name FURNITURE_NAME_SET_RETRO_COUCH
+    desc FURNITURE_DESC_SET_RETRO_COUCH
+    set retro
+    
+    Comfort 1
+    Appeal 1
+}
+
+set_retro_chair { //frame 174
+    name FURNITURE_NAME_SET_RETRO_CHAIR
+    desc FURNITURE_DESC_SET_RETRO_CHAIR
+    set retro
+    
+    Comfort 1
+    Appeal 1
+}
+
+set_retro_dresser { //frame 175
+    name FURNITURE_NAME_SET_RETRO_DRESSER
+    desc FURNITURE_DESC_SET_RETRO_DRESSER
+    set retro
+    
+    Comfort 1
+    Appeal 1
+}
+
+set_retro_dresser2 { //frame 176
+    name FURNITURE_NAME_SET_RETRO_DRESSER2
+    desc FURNITURE_DESC_SET_RETRO_DRESSER2
+    set retro
+    
+    Comfort 1
+    Appeal 1
+}
+
+set_retro_dresser3 { //frame 177
+    name FURNITURE_NAME_SET_RETRO_DRESSER3
+    desc FURNITURE_DESC_SET_RETRO_DRESSER3
+    set retro
+    
+    Comfort 1
+    Appeal 1
+}
+
+set_retro_sidetable { //frame 178
+    name FURNITURE_NAME_SET_RETRO_SIDETABLE
+    desc FURNITURE_DESC_SET_RETRO_SIDETABLE
+    set retro
+    
+    Comfort 1
+    Appeal 1
+}
+
+set_retro_lamp { //frame 179
+    name FURNITURE_NAME_SET_RETRO_LAMP
+    desc FURNITURE_DESC_SET_RETRO_LAMP
+    set retro
+    
+    Comfort 1
+    Appeal 1
+}
+
+set_90s_bed { //frame 180
+    name FURNITURE_NAME_SET_90S_BED
+    desc FURNITURE_DESC_SET_90S_BED
+    set 90s
+    
+    Comfort 1
+    Stimulation 1
+}
+
+set_90s_cabinet { //frame 181
+    name FURNITURE_NAME_SET_90S_CABINET
+    desc FURNITURE_DESC_SET_90S_CABINET
+    set 90s
+    
+    Comfort 1
+    Stimulation 1
+}
+
+set_90s_cabinet2 { //frame 182
+    name FURNITURE_NAME_SET_90S_CABINET2
+    desc FURNITURE_DESC_SET_90S_CABINET2
+    set 90s
+    
+    Comfort 1
+    Stimulation 1
+}
+
+set_90s_sink { //frame 183
+    name FURNITURE_NAME_SET_90S_SINK
+    desc FURNITURE_DESC_SET_90S_SINK
+    set 90s
+    
+    Comfort 1
+    Stimulation 1
+}
+
+set_90s_stove { //frame 184
+    name FURNITURE_NAME_SET_90S_STOVE
+    desc FURNITURE_DESC_SET_90S_STOVE
+    set 90s
+    
+    Comfort 1
+    Stimulation 1
+}
+
+set_90s_frige { //frame 185
+    name FURNITURE_NAME_SET_90S_FRIGE
+    desc FURNITURE_DESC_SET_90S_FRIGE
+    set 90s
+    
+    Comfort 1
+    Stimulation 1
+}
+
+set_90s_shelf { //frame 186
+    name FURNITURE_NAME_SET_90S_SHELF
+    desc FURNITURE_DESC_SET_90S_SHELF
+    set 90s
+    
+    Comfort 1
+    Stimulation 1
+}
+
+set_90s_suspendedshelf { //frame 187
+    name FURNITURE_NAME_SET_90S_SUSPENDEDSHELF
+    desc FURNITURE_DESC_SET_90S_SUSPENDEDSHELF
+    set 90s
+    
+    Comfort 1
+    Stimulation 1
+}
+
+set_90s_chair { //frame 188
+    name FURNITURE_NAME_SET_90S_CHAIR
+    desc FURNITURE_DESC_SET_90S_CHAIR
+    set 90s
+    
+    Comfort 1
+    Stimulation 1
+}
+
+set_90s_stool { //frame 189
+    name FURNITURE_NAME_SET_90S_STOOL
+    desc FURNITURE_DESC_SET_90S_STOOL
+    set 90s
+    
+    Comfort 1
+    Stimulation 1
+}
+
+set_mushroom_table1 { //frame 190
+    name FURNITURE_NAME_SET_MUSHROOM_TABLE1
+    desc FURNITURE_DESC_SET_MUSHROOM_TABLE1
+    set mushroom
+    
+    Comfort 3
+    Stimulation -1
+}
+
+set_mushroom_stool { //frame 191
+    name FURNITURE_NAME_SET_MUSHROOM_STOOL
+    desc FURNITURE_DESC_SET_MUSHROOM_STOOL
+    set mushroom
+    
+    Comfort 3
+    Stimulation -1
+}
+
+set_mushroom_stool2 { //frame 192
+    name FURNITURE_NAME_SET_MUSHROOM_STOOL2
+    desc FURNITURE_DESC_SET_MUSHROOM_STOOL2
+    set mushroom
+	
+	Comfort 3
+    Stimulation -1
+}
+
+set_mushroom_chair { //frame 193
+    name FURNITURE_NAME_SET_MUSHROOM_CHAIR
+    desc FURNITURE_DESC_SET_MUSHROOM_CHAIR
+    set mushroom
+    
+    Comfort 3
+    Stimulation -1
+}
+
+set_mushroom_table { //frame 194
+    name FURNITURE_NAME_SET_MUSHROOM_TABLE
+    desc FURNITURE_DESC_SET_MUSHROOM_TABLE
+    set mushroom
+    
+    Comfort 3
+    Stimulation -1
+}
+
+set_mushroom_toilet { //frame 195
+    name FURNITURE_NAME_SET_MUSHROOM_TOILET
+    desc FURNITURE_DESC_SET_MUSHROOM_TOILET
+    set mushroom
+    
+    Comfort 3
+    Stimulation -1
+}
+
+set_mushroom_shelf { //frame 196
+    name FURNITURE_NAME_SET_MUSHROOM_SHELF
+    desc FURNITURE_DESC_SET_MUSHROOM_SHELF
+    set mushroom
+    
+    Comfort 3
+    Stimulation -1
+}
+
+set_mushroom_suspendedshelf { //frame 197
+    name FURNITURE_NAME_SET_MUSHROOM_SUSPENDEDSHELF
+    desc FURNITURE_DESC_SET_MUSHROOM_SUSPENDEDSHELF
+    set mushroom
+    
+    Comfort 3
+    Stimulation -1
+}
+
+set_mushroom_suspendedshelf2 { //frame 198
+    name FURNITURE_NAME_SET_MUSHROOM_SUSPENDEDSHELF2
+    desc FURNITURE_DESC_SET_MUSHROOM_SUSPENDEDSHELF2
+    set mushroom
+    
+    Comfort 3
+    Stimulation -1
+}
+
+set_mushroom_stool3 { //frame 199
+    name FURNITURE_NAME_SET_MUSHROOM_STOOL3
+    desc FURNITURE_DESC_SET_MUSHROOM_STOOL3
+    set mushroom
+    
+    Comfort 3
+    Stimulation -1
+}
+
+set_rustic_dresser { //frame 200
+    name FURNITURE_NAME_SET_RUSTIC_DRESSER
+    desc FURNITURE_DESC_SET_RUSTIC_DRESSER
+    set rustic
+    
+    Appeal 2
+}
+
+set_rustic_shelf { //frame 201
+    name FURNITURE_NAME_SET_RUSTIC_SHELF
+    desc FURNITURE_DESC_SET_RUSTIC_SHELF
+    set rustic
+    
+    Appeal 2
+}
+
+set_rustic_suspendedshelf { //frame 202
+    name FURNITURE_NAME_SET_RUSTIC_SUSPENDEDSHELF
+    desc FURNITURE_DESC_SET_RUSTIC_SUSPENDEDSHELF
+    set rustic
+    
+    Appeal 2
+}
+
+set_rustic_sidetable { //frame 203
+    name FURNITURE_NAME_SET_RUSTIC_SIDETABLE
+    desc FURNITURE_DESC_SET_RUSTIC_SIDETABLE
+    set rustic
+    
+    Appeal 2
+}
+
+set_rustic_suspendedshelf2 { //frame 204
+    name FURNITURE_NAME_SET_RUSTIC_SUSPENDEDSHELF2
+    desc FURNITURE_DESC_SET_RUSTIC_SUSPENDEDSHELF2
+    set rustic
+    
+    Appeal 2
+}
+
+set_rustic_chair { //frame 205
+    name FURNITURE_NAME_SET_RUSTIC_CHAIR
+    desc FURNITURE_DESC_SET_RUSTIC_CHAIR
+    set rustic
+    
+    Appeal 2
+}
+
+set_rustic_desk { //frame 206
+    name FURNITURE_NAME_SET_RUSTIC_DESK
+    desc FURNITURE_DESC_SET_RUSTIC_DESK
+    set rustic
+    
+    Appeal 2
+}
+
+set_rustic_bench { //frame 207
+    name FURNITURE_NAME_SET_RUSTIC_BENCH
+    desc FURNITURE_DESC_SET_RUSTIC_BENCH
+    set rustic
+    
+    Appeal 2
+}
+
+set_rustic_table { //frame 208
+    name FURNITURE_NAME_SET_RUSTIC_TABLE
+    desc FURNITURE_DESC_SET_RUSTIC_TABLE
+    set rustic
+    
+    Appeal 2
+}
+
+set_rustic_stool { //frame 209
+    name FURNITURE_NAME_SET_RUSTIC_STOOL
+    desc FURNITURE_DESC_SET_RUSTIC_STOOL
+    set rustic
+    
+    Appeal 2
+}
+
+set_cute_dresser { //frame 210
+    name FURNITURE_NAME_SET_CUTE_DRESSER
+    desc FURNITURE_DESC_SET_CUTE_DRESSER
+    set cute
+    
+    Appeal 1
+    Comfort 1
+}
+
+set_cute_sidetable { //frame 211
+    name FURNITURE_NAME_SET_CUTE_SIDETABLE
+    desc FURNITURE_DESC_SET_CUTE_SIDETABLE
+    set cute
+    
+    Appeal 1
+    Comfort 1
+}
+
+set_cute_shelf { //frame 212
+    name FURNITURE_NAME_SET_CUTE_SHELF
+    desc FURNITURE_DESC_SET_CUTE_SHELF
+    set cute
+    
+    Appeal 1
+    Comfort 1
+}
+
+set_cute_dresser2 { //frame 213
+    name FURNITURE_NAME_SET_CUTE_DRESSER2
+    desc FURNITURE_DESC_SET_CUTE_DRESSER2
+    set cute
+    
+    Appeal 1
+    Comfort 1
+}
+
+set_cute_couch { //frame 214
+    name FURNITURE_NAME_SET_CUTE_COUCH
+    desc FURNITURE_DESC_SET_CUTE_COUCH
+    set cute
+    
+    Appeal 1
+    Comfort 1
+}
+
+set_cute_bed { //frame 215
+    name FURNITURE_NAME_SET_CUTE_BED
+    desc FURNITURE_DESC_SET_CUTE_BED
+    set cute
+    
+    Appeal 1
+    Comfort 1
+}
+
+set_cute_chair { //frame 216
+    name FURNITURE_NAME_SET_CUTE_CHAIR
+    desc FURNITURE_DESC_SET_CUTE_CHAIR
+    set cute
+    
+    Appeal 1
+    Comfort 1
+}
+
+set_cute_stool { //frame 217
+    name FURNITURE_NAME_SET_CUTE_STOOL
+    desc FURNITURE_DESC_SET_CUTE_STOOL
+    set cute
+    
+    Appeal 1
+    Comfort 1
+}
+
+set_cute_table2 { //frame 218
+    name FURNITURE_NAME_SET_CUTE_TABLE2
+    desc FURNITURE_DESC_SET_CUTE_TABLE2
+    set cute
+    
+    Appeal 1
+    Comfort 1
+}
+
+set_cute_sidetable2 { //frame 219
+    name FURNITURE_NAME_SET_CUTE_SIDETABLE2
+    desc FURNITURE_DESC_SET_CUTE_SIDETABLE2
+    set cute
+    
+    Appeal 1
+    Comfort 1
+}
+
+object_wood_table { //frame 221
+    name FURNITURE_NAME_OBJECT_WOOD_TABLE
+    desc FURNITURE_DESC_OBJECT_WOOD_TABLE
+	
+	Comfort 2
+}
+
+object_statue_lion { //frame 449
+    name FURNITURE_NAME_OBJECT_STATUE_LION
+    desc FURNITURE_DESC_OBJECT_STATUE_LION
+    
+    Appeal 2
+    Stimulation 2
+    Comfort -2
+}
+
+object_statue_Jesus { //frame 450
+    name FURNITURE_NAME_OBJECT_STATUE_JESUS
+    desc FURNITURE_DESC_OBJECT_STATUE_JESUS
+    
+    Appeal 2
+    Health 2
+    Comfort -2
+}
+
+object_statue_devil { //frame 451
+    name FURNITURE_NAME_OBJECT_STATUE_DEVIL
+    desc FURNITURE_DESC_OBJECT_STATUE_DEVIL
+    
+    Appeal 6
+    Comfort -6
+}
+
+object_statue_mermaid { //frame 452
+    name FURNITURE_NAME_OBJECT_STATUE_MERMAID
+    desc FURNITURE_DESC_OBJECT_STATUE_MERMAID
+    
+    Appeal 2
+    Stimulation 2
+    Comfort -2
+}
+
+object_statue_lotus { //frame 453
+    name FURNITURE_NAME_OBJECT_STATUE_LOTUS
+    desc FURNITURE_DESC_OBJECT_STATUE_LOTUS
+    
+    Appeal 2
+    Stimulation 2
+    Comfort -2
+}
+
+object_statue_buddah { //frame 454
+    name FURNITURE_NAME_OBJECT_STATUE_BUDDAH
+    desc FURNITURE_DESC_OBJECT_STATUE_BUDDAH
+    
+    Appeal 2
+    Stimulation 2
+    Comfort -2
+}
+
+object_statue_luckycat { //frame 455
+    name FURNITURE_NAME_OBJECT_STATUE_LUCKYCAT
+    desc FURNITURE_DESC_OBJECT_STATUE_LUCKYCAT
+    
+    Appeal 1
+    Stimulation 1
+    Comfort -1
+}
+
+object_statue_bast { //frame 456
+    name FURNITURE_NAME_OBJECT_STATUE_BAST
+    desc FURNITURE_DESC_OBJECT_STATUE_BAST
+    
+    Appeal 1
+    Stimulation 1
+    Comfort -1
+}
+
+object_statue_daruma { //frame 457
+    name FURNITURE_NAME_OBJECT_STATUE_DARUMA
+    desc FURNITURE_DESC_OBJECT_STATUE_DARUMA
+    
+    Appeal 1
+    Stimulation 1
+    Comfort -1
+}
+
+object_statue_easterislandsmall { //frame 458
+    name FURNITURE_NAME_OBJECT_STATUE_EASTERISLANDSMALL
+    desc FURNITURE_DESC_OBJECT_STATUE_EASTERISLANDSMALL
+    
+    Appeal 1
+    Stimulation 1
+    Comfort -1
+}
+
+object_statue_easterislandmedium { //frame 459
+    name FURNITURE_NAME_OBJECT_STATUE_EASTERISLANDMEDIUM
+    desc FURNITURE_DESC_OBJECT_STATUE_EASTERISLANDMEDIUM
+
+    Appeal 2
+    Stimulation 2
+    Comfort -2    
+}
+
+object_statue_easterislandlarge { //frame 460
+    name FURNITURE_NAME_OBJECT_STATUE_EASTERISLANDLARGE
+    desc FURNITURE_DESC_OBJECT_STATUE_EASTERISLANDLARGE
+    
+    Appeal 3
+    Stimulation 3
+    Comfort -4
+}
+
+object_vase_large { //frame 461
+    name FURNITURE_NAME_OBJECT_VASE_LARGE
+    desc FURNITURE_DESC_OBJECT_VASE_LARGE
+    
+    Appeal 1
+    Comfort 1
+    Stimulation -1
+}
+
+object_plant_tentacle { //frame 462
+    name FURNITURE_NAME_OBJECT_PLANT_TENTACLE
+    desc FURNITURE_DESC_OBJECT_PLANT_TENTACLE
+    
+    Appeal 1
+    Comfort 1
+    Stimulation -1
+}
+
+object_plant_monstera { //frame 463
+    name FURNITURE_NAME_OBJECT_PLANT_MONSTERA
+    desc FURNITURE_DESC_OBJECT_PLANT_MONSTERA
+    
+    Appeal 1
+    Comfort 1
+    Stimulation -1
+}
+
+object_plant_spikey { //frame 464
+    name FURNITURE_NAME_OBJECT_PLANT_SPIKEY
+    desc FURNITURE_DESC_OBJECT_PLANT_SPIKEY
+    
+    Appeal 1
+    Comfort 1
+    Stimulation -1
+}
+
+object_plant_bush { //frame 465
+    name FURNITURE_NAME_OBJECT_PLANT_BUSH
+    desc FURNITURE_DESC_OBJECT_PLANT_BUSH
+    
+    Appeal 1
+    Comfort 1
+    Stimulation -1
+}
+
+object_plant_potato { //frame 466
+    name FURNITURE_NAME_OBJECT_PLANT_POTATO
+    desc FURNITURE_DESC_OBJECT_PLANT_POTATO
+    
+    Appeal 1
+    Comfort 1
+    Stimulation -1
+}
+
+object_plant_flowers { //frame 467
+    name FURNITURE_NAME_OBJECT_PLANT_FLOWERS
+    desc FURNITURE_DESC_OBJECT_PLANT_FLOWERS
+    
+    Appeal 1
+    Comfort 1
+    Stimulation -1
+}
+
+object_plant_orchid { //frame 468
+    name FURNITURE_NAME_OBJECT_PLANT_ORCHID
+    desc FURNITURE_DESC_OBJECT_PLANT_ORCHID
+    
+    Appeal 1
+    Comfort 1
+    Stimulation -1
+}
+
+object_plant_daisy { //frame 469
+    name FURNITURE_NAME_OBJECT_PLANT_DAISY
+    desc FURNITURE_DESC_OBJECT_PLANT_DAISY
+    
+    Appeal 1
+    Comfort 1
+    Stimulation -1
+}
+
+object_plant_rafflesia { //frame 470
+    name FURNITURE_NAME_OBJECT_PLANT_RAFFLESIA
+    desc FURNITURE_DESC_OBJECT_PLANT_RAFFLESIA
+    
+    Appeal 1
+    Comfort 1
+    Stimulation -1
+}
+
+object_plant_piranhasplant { //frame 471
+    name FURNITURE_NAME_OBJECT_PLANT_PIRANHASPLANT
+    desc FURNITURE_DESC_OBJECT_PLANT_PIRANHASPLANT
+    
+    Appeal 1
+    Comfort -1
+    Stimulation 1
+}
+
+object_plant_cactus { //frame 472
+    name FURNITURE_NAME_OBJECT_PLANT_CACTUS
+    desc FURNITURE_DESC_OBJECT_PLANT_CACTUS
+    
+    Appeal 1
+    Comfort -1
+    Stimulation 1
+}
+
+object_fishtank_blowfish { //frame 473
+    name FURNITURE_NAME_OBJECT_FISHTANK_BLOWFISH
+    desc FURNITURE_DESC_OBJECT_FISHTANK_BLOWFISH
+    
+    Stimulation 1
+    Appeal 1
+    Comfort -1
+}
+
+object_fishtank_catfish { //frame 474
+    name FURNITURE_NAME_OBJECT_FISHTANK_CATFISH
+    desc FURNITURE_DESC_OBJECT_FISHTANK_CATFISH
+    
+    Stimulation 1
+    Appeal 1
+    Comfort -1
+}
+
+object_fishtank_booze { //frame 475
+    name FURNITURE_NAME_OBJECT_FISHTANK_BOOZE
+    desc FURNITURE_DESC_OBJECT_FISHTANK_BOOZE
+    
+    Stimulation 1
+    Appeal 1
+    Comfort -1
+}
+
+object_fishtank_tadpoles { //frame 476
+    name FURNITURE_NAME_OBJECT_FISHTANK_TADPOLES
+    desc FURNITURE_DESC_OBJECT_FISHTANK_TADPOLES
+    
+    Stimulation 1
+    Appeal 1
+    Comfort -1
+}
+
+object_fishtank_mermaid { //frame 477
+    name FURNITURE_NAME_OBJECT_FISHTANK_MERMAID
+    desc FURNITURE_DESC_OBJECT_FISHTANK_MERMAID
+    
+    Stimulation 1
+    Comfort -3
+	Evolution 1
+}
+
+object_fishtank_whale { //frame 478
+    name FURNITURE_NAME_OBJECT_FISHTANK_WHALE
+    desc FURNITURE_DESC_OBJECT_FISHTANK_WHALE
+    
+    Stimulation 1
+    Appeal 1
+    Comfort -1
+}
+
+object_fishtank_small_tadpoles { //frame 479
+    name FURNITURE_NAME_OBJECT_FISHTANK_SMALL_TADPOLES
+    desc FURNITURE_DESC_OBJECT_FISHTANK_SMALL_TADPOLES
+    
+    Stimulation 1
+}
+
+object_fishtank_small_poop { //frame 480
+    name FURNITURE_NAME_OBJECT_FISHTANK_SMALL_POOP
+    desc FURNITURE_DESC_OBJECT_FISHTANK_SMALL_POOP
+    
+    Stimulation 1
+}
+
+object_fishtank_small_skull { //frame 481
+    name FURNITURE_NAME_OBJECT_FISHTANK_SMALL_SKULL
+    desc FURNITURE_DESC_OBJECT_FISHTANK_SMALL_SKULL
+    
+    Stimulation 1
+}
+
+object_fishtank_small_fish { //frame 482
+    name FURNITURE_NAME_OBJECT_FISHTANK_SMALL_FISH
+    desc FURNITURE_DESC_OBJECT_FISHTANK_SMALL_FISH
+    
+    Stimulation 1
+}
+
+object_fishtank_small_lilfish { //frame 483
+    name FURNITURE_NAME_OBJECT_FISHTANK_SMALL_LILFISH
+    desc FURNITURE_DESC_OBJECT_FISHTANK_SMALL_LILFISH
+    
+    Stimulation 1
+}
+
+object_fishtank_small_lilfishes { //frame 484
+    name FURNITURE_NAME_OBJECT_FISHTANK_SMALL_LILFISHES
+    desc FURNITURE_DESC_OBJECT_FISHTANK_SMALL_LILFISHES
+    
+    Stimulation 1
+}
+
+object_radio_30s { //frame 485
+    name FURNITURE_NAME_OBJECT_RADIO_30S
+    desc FURNITURE_DESC_OBJECT_RADIO_30S
+    
+    Stimulation 2
+    Comfort -1
+}
+
+object_radio_40s { //frame 486
+    name FURNITURE_NAME_OBJECT_RADIO_40S
+    desc FURNITURE_DESC_OBJECT_RADIO_40S
+    
+    Stimulation 2
+    Comfort -1
+}
+
+object_radio_50s { //frame 487
+    name FURNITURE_NAME_OBJECT_RADIO_50S
+    desc FURNITURE_DESC_OBJECT_RADIO_50S
+    
+    Stimulation 2
+    Comfort -1
+}
+
+object_radio_80s { //frame 488
+    name FURNITURE_NAME_OBJECT_RADIO_80S
+    desc FURNITURE_DESC_OBJECT_RADIO_80S
+    
+    Stimulation 2
+    Comfort -1
+}
+
+object_radio_atomic { //frame 489
+    name FURNITURE_NAME_OBJECT_RADIO_ATOMIC
+    desc FURNITURE_DESC_OBJECT_RADIO_ATOMIC
+    
+    Stimulation 2
+    Comfort -1
+}
+
+object_radio_70s { //frame 490
+    name FURNITURE_NAME_OBJECT_RADIO_70S
+    desc FURNITURE_DESC_OBJECT_RADIO_70S
+    
+    Stimulation 2
+    Comfort -1
+}
+
+object_radio_90s { //frame 491
+    name FURNITURE_NAME_OBJECT_RADIO_90S
+    desc FURNITURE_DESC_OBJECT_RADIO_90S
+    
+    Stimulation 2
+    Comfort -1
+}
+
+object_radio_60s { //frame 492
+    name FURNITURE_NAME_OBJECT_RADIO_60S
+    desc FURNITURE_DESC_OBJECT_RADIO_60S
+    
+    Stimulation 2
+    Comfort -1
+}
+
+object_taxidermy_pig { //frame 493
+    name FURNITURE_NAME_OBJECT_TAXIDERMY_PIG
+    desc FURNITURE_DESC_OBJECT_TAXIDERMY_PIG
+    
+    Appeal -1
+    Health -2
+	Evolution 1
+}
+
+object_taxidermy_bat { //frame 494
+    name FURNITURE_NAME_OBJECT_TAXIDERMY_BAT
+    desc FURNITURE_DESC_OBJECT_TAXIDERMY_BAT
+    
+    Appeal -1
+    Health -2
+	Evolution 1
+}
+
+object_taxidermy_fish { //frame 495
+    name FURNITURE_NAME_OBJECT_TAXIDERMY_FISH
+    desc FURNITURE_DESC_OBJECT_TAXIDERMY_FISH
+    
+    Appeal -1
+    Health -2
+	Evolution 1
+}
+
+object_taxidermy_bird { //frame 496
+    name FURNITURE_NAME_OBJECT_TAXIDERMY_BIRD
+    desc FURNITURE_DESC_OBJECT_TAXIDERMY_BIRD
+    
+    Appeal -1
+    Health -2
+	Evolution 1
+}
+
+object_taxidermy_turtle { //frame 497
+    name FURNITURE_NAME_OBJECT_TAXIDERMY_TURTLE
+    desc FURNITURE_DESC_OBJECT_TAXIDERMY_TURTLE
+    
+    Appeal -1
+    Health -2
+	Evolution 1
+}
+
+object_taxidermy_lizard { //frame 498
+    name FURNITURE_NAME_OBJECT_TAXIDERMY_LIZARD
+    desc FURNITURE_DESC_OBJECT_TAXIDERMY_LIZARD
+    
+    Appeal -1
+    Health -2
+	Evolution 1
+}
+
+object_taxidermy_snake { //frame 499
+    name FURNITURE_NAME_OBJECT_TAXIDERMY_SNAKE
+    desc FURNITURE_DESC_OBJECT_TAXIDERMY_SNAKE
+    
+    Appeal -1
+    Health -2
+	Evolution 1
+}
+
+object_taxidermy_squirrel { //frame 500
+    name FURNITURE_NAME_OBJECT_TAXIDERMY_SQUIRREL
+    desc FURNITURE_DESC_OBJECT_TAXIDERMY_SQUIRREL
+    
+    Appeal -1
+    Health -2
+	Evolution 1
+}
+
+object_taxidermy_mouse { //frame 501
+    name FURNITURE_NAME_OBJECT_TAXIDERMY_MOUSE
+    desc FURNITURE_DESC_OBJECT_TAXIDERMY_MOUSE
+    
+    Appeal -1
+    Health -2
+	Evolution 1
+	Stimulation 1
+}
+
+object_taxidermy_gopher { //frame 502
+    name FURNITURE_NAME_OBJECT_TAXIDERMY_GOPHER
+    desc FURNITURE_DESC_OBJECT_TAXIDERMY_GOPHER
+    
+    Appeal -1
+    Health -2
+	Evolution 1
+}
+
+object_taxidermy_crow { //frame 503
+    name FURNITURE_NAME_OBJECT_TAXIDERMY_CROW
+    desc FURNITURE_DESC_OBJECT_TAXIDERMY_CROW
+    
+    Appeal -1
+    Health -2
+	Evolution 1
+}
+
+object_taxidermy_rat { //frame 504
+    name FURNITURE_NAME_OBJECT_TAXIDERMY_RAT
+    desc FURNITURE_DESC_OBJECT_TAXIDERMY_RAT
+    
+    Appeal -1
+    Health -2
+	Evolution 1
+}
+
+object_electronics_monitor { //frame 505
+    name FURNITURE_NAME_OBJECT_ELECTRONICS_MONITOR
+    desc FURNITURE_DESC_OBJECT_ELECTRONICS_MONITOR
+    
+    Stimulation 1
+}
+
+object_electronics_pc { //frame 506
+    name FURNITURE_NAME_OBJECT_ELECTRONICS_PC
+    desc FURNITURE_DESC_OBJECT_ELECTRONICS_PC
+    
+    Stimulation 1
+}
+
+object_electronics_printer { //frame 507
+    name FURNITURE_NAME_OBJECT_ELECTRONICS_PRINTER
+    desc FURNITURE_DESC_OBJECT_ELECTRONICS_PRINTER
+    
+    Stimulation 1
+}
+
+object_electronics_laptop { //frame 508
+    name FURNITURE_NAME_OBJECT_ELECTRONICS_LAPTOP
+    desc FURNITURE_DESC_OBJECT_ELECTRONICS_LAPTOP
+    
+    Stimulation 1
+}
+
+object_electronics_vhs { //frame 509
+    name FURNITURE_NAME_OBJECT_ELECTRONICS_VHS
+    desc FURNITURE_DESC_OBJECT_ELECTRONICS_VHS
+    
+    Stimulation 1
+}
+
+object_electronics_dvdplayer { //frame 510
+    name FURNITURE_NAME_OBJECT_ELECTRONICS_DVDPLAYER
+    desc FURNITURE_DESC_OBJECT_ELECTRONICS_DVDPLAYER
+    
+    Stimulation 1
+}
+
+object_electronics_speaker { //frame 511
+    name FURNITURE_NAME_OBJECT_ELECTRONICS_SPEAKER
+    desc FURNITURE_DESC_OBJECT_ELECTRONICS_SPEAKER
+    
+    Stimulation 1
+}
+
+object_books1 { //frame 512
+    name FURNITURE_NAME_OBJECT_BOOKS1
+    desc FURNITURE_DESC_OBJECT_BOOKS1
+    
+    Stimulation 2
+    Appeal -1    
+}
+
+object_books2 { //frame 513
+    name FURNITURE_NAME_OBJECT_BOOKS2
+    desc FURNITURE_DESC_OBJECT_BOOKS2
+    
+    Stimulation 2
+    Appeal -1  
+}
+
+object_books3 { //frame 514
+    name FURNITURE_NAME_OBJECT_BOOKS3
+    desc FURNITURE_DESC_OBJECT_BOOKS3
+    
+    Stimulation 2
+    Appeal -1  
+}
+
+object_books4 { //frame 515
+    name FURNITURE_NAME_OBJECT_BOOKS4
+    desc FURNITURE_DESC_OBJECT_BOOKS4
+    
+    Stimulation 2
+    Appeal -1  
+}
+
+object_books5 { //frame 516
+    name FURNITURE_NAME_OBJECT_BOOKS5
+    desc FURNITURE_DESC_OBJECT_BOOKS5
+    
+    Stimulation 2
+    Appeal -1  
+}
+
+object_books6 { //frame 517
+    name FURNITURE_NAME_OBJECT_BOOKS6
+    desc FURNITURE_DESC_OBJECT_BOOKS6
+    
+    Stimulation 2
+    Appeal -1  
+}
+
+object_books7 { //frame 518
+    name FURNITURE_NAME_OBJECT_BOOKS7
+    desc FURNITURE_DESC_OBJECT_BOOKS7
+    
+    Stimulation 2
+    Appeal -1  
+}
+
+object_books8 { //frame 519
+    name FURNITURE_NAME_OBJECT_BOOKS8
+    desc FURNITURE_DESC_OBJECT_BOOKS8
+    
+    Stimulation 2
+    Appeal -1  
+}
+
+object_books9 { //frame 520
+    name FURNITURE_NAME_OBJECT_BOOKS9
+    desc FURNITURE_DESC_OBJECT_BOOKS9
+    
+    Stimulation 2
+    Appeal -1  
+}
+
+object_books10 { //frame 521
+    name FURNITURE_NAME_OBJECT_BOOKS10
+    desc FURNITURE_DESC_OBJECT_BOOKS10
+    
+    Stimulation 2
+    Appeal -1  
+}
+
+object_books11 { //frame 522
+    name FURNITURE_NAME_OBJECT_BOOKS11
+    desc FURNITURE_DESC_OBJECT_BOOKS11
+    
+    Stimulation 2
+    Appeal -1  
+}
+
+object_books12 { //frame 523
+    name FURNITURE_NAME_OBJECT_BOOKS12
+    desc FURNITURE_DESC_OBJECT_BOOKS12
+    
+    Stimulation 2
+    Appeal -1  
+}
+
+object_plant_cutecactus { //frame 524
+    name FURNITURE_NAME_OBJECT_PLANT_CUTECACTUS
+    desc FURNITURE_DESC_OBJECT_PLANT_CUTECACTUS
+    
+    Appeal 1
+}
+
+object_plant_sunflower { //frame 525
+    name FURNITURE_NAME_OBJECT_PLANT_SUNFLOWER
+    desc FURNITURE_DESC_OBJECT_PLANT_SUNFLOWER
+    
+    Appeal 1
+}
+
+object_plant_mushroom { //frame 526
+    name FURNITURE_NAME_OBJECT_PLANT_MUSHROOM
+    desc FURNITURE_DESC_OBJECT_PLANT_MUSHROOM
+    
+    Appeal 1
+}
+
+object_plant_mushrooms { //frame 527
+    name FURNITURE_NAME_OBJECT_PLANT_MUSHROOMS
+    desc FURNITURE_DESC_OBJECT_PLANT_MUSHROOMS
+    
+    Appeal 1
+}
+
+object_plant_bulb1 { //frame 528
+    name FURNITURE_NAME_OBJECT_PLANT_BULB1
+    desc FURNITURE_DESC_OBJECT_PLANT_BULB1
+    
+    Appeal 1
+}
+
+object_plant_bulb2 { //frame 529
+    name FURNITURE_NAME_OBJECT_PLANT_BULB2
+    desc FURNITURE_DESC_OBJECT_PLANT_BULB2
+    
+    Appeal 1
+}
+
+object_plant_bulb3 { //frame 530
+    name FURNITURE_NAME_OBJECT_PLANT_BULB3
+    desc FURNITURE_DESC_OBJECT_PLANT_BULB3
+    
+    Appeal 1
+}
+
+object_plant_flytrap { //frame 531
+    name FURNITURE_NAME_OBJECT_PLANT_FLYTRAP
+    desc FURNITURE_DESC_OBJECT_PLANT_FLYTRAP
+    
+    Appeal 1
+}
+
+object_vase_dasiy { //frame 532
+    name FURNITURE_NAME_OBJECT_VASE_DASIY
+    desc FURNITURE_DESC_OBJECT_VASE_DASIY
+    
+    Appeal 1
+}
+
+object_vase_sticks { //frame 533
+    name FURNITURE_NAME_OBJECT_VASE_STICKS
+    desc FURNITURE_DESC_OBJECT_VASE_STICKS
+    
+    Appeal 1
+}
+
+object_telephone_10s { //frame 534
+    name FURNITURE_NAME_OBJECT_TELEPHONE_10S
+    desc FURNITURE_DESC_OBJECT_TELEPHONE_10S
+    
+    Stimulation 1
+}
+
+object_coffen { //frame 535
+    name FURNITURE_NAME_OBJECT_COFFEN
+    desc FURNITURE_DESC_OBJECT_COFFEN
+    
+	Health -2
+}
+
+object_barrel { //frame 536
+    name FURNITURE_NAME_OBJECT_BARREL
+    desc FURNITURE_DESC_OBJECT_BARREL
+    
+    Appeal 1
+}
+
+object_toxicwaste { //frame 537
+    name FURNITURE_NAME_OBJECT_TOXICWASTE
+    desc FURNITURE_DESC_OBJECT_TOXICWASTE
+    
+    Comfort -4
+	Evolution 2
+}
+
+object_crate { //frame 538
+    name FURNITURE_NAME_OBJECT_CRATE
+    desc FURNITURE_DESC_OBJECT_CRATE
+    
+    Comfort 1
+}
+
+object_chest { //frame 539
+    name FURNITURE_NAME_OBJECT_CHEST
+    desc FURNITURE_DESC_OBJECT_CHEST
+    
+    Comfort 1
+}
+
+object_box { //frame 540
+    name FURNITURE_NAME_OBJECT_BOX
+    desc FURNITURE_DESC_OBJECT_BOX
+    
+    Comfort 1
+}
+
+object_electronics_microwave { //frame 541
+    name FURNITURE_NAME_OBJECT_ELECTRONICS_MICROWAVE
+    desc FURNITURE_DESC_OBJECT_ELECTRONICS_MICROWAVE
+    
+    Comfort 1
+}
+
+object_electronics_microwave2 { //frame 542
+    name FURNITURE_NAME_OBJECT_ELECTRONICS_MICROWAVE2
+    desc FURNITURE_DESC_OBJECT_ELECTRONICS_MICROWAVE2
+    
+    Comfort 1
+}
+
+object_electronics_microwave3 { //frame 543
+    name FURNITURE_NAME_OBJECT_ELECTRONICS_MICROWAVE3
+    desc FURNITURE_DESC_OBJECT_ELECTRONICS_MICROWAVE3
+    
+    Comfort 1
+}
+
+object_cinderblock1 { //frame 544
+    name FURNITURE_NAME_OBJECT_CINDERBLOCK1
+    desc FURNITURE_DESC_OBJECT_CINDERBLOCK1
+    
+    Comfort 1
+}
+
+object_cinderblock2 { //frame 545
+    name FURNITURE_NAME_OBJECT_CINDERBLOCK2
+    desc FURNITURE_DESC_OBJECT_CINDERBLOCK2
+    
+    Comfort 1
+}
+
+object_rock { //frame 546
+    name FURNITURE_NAME_OBJECT_ROCK
+    desc FURNITURE_DESC_OBJECT_ROCK
+    
+    Appeal 1
+}
+
+object_smallrock { //frame 547
+    name FURNITURE_NAME_OBJECT_SMALLROCK
+    desc FURNITURE_DESC_OBJECT_SMALLROCK
+    
+    Appeal 1
+}
+
+object_diamond { //frame 548
+    name FURNITURE_NAME_OBJECT_DIAMOND
+    desc FURNITURE_DESC_OBJECT_DIAMOND
+    
+    Appeal 1
+}
+
+object_electronics_orb { //frame 549
+    name FURNITURE_NAME_OBJECT_ELECTRONICS_ORB
+    desc FURNITURE_DESC_OBJECT_ELECTRONICS_ORB
+    
+    Stimulation 1
+}
+
+object_crystalball { //frame 550
+    name FURNITURE_NAME_OBJECT_CRYSTALBALL
+    desc FURNITURE_DESC_OBJECT_CRYSTALBALL
+    
+    Stimulation 1
+}
+
+object_electronics_lavalamp { //frame 551
+    name FURNITURE_NAME_OBJECT_ELECTRONICS_LAVALAMP
+    desc FURNITURE_DESC_OBJECT_ELECTRONICS_LAVALAMP
+    
+    Appeal 1
+}
+
+object_electronics_fan { //frame 552
+    name FURNITURE_NAME_OBJECT_ELECTRONICS_FAN
+    desc FURNITURE_DESC_OBJECT_ELECTRONICS_FAN
+    
+    Comfort 1
+}
+
+object_jar_empty { //frame 553
+    name FURNITURE_NAME_OBJECT_JAR_EMPTY
+    desc FURNITURE_DESC_OBJECT_JAR_EMPTY
+    
+    Comfort 1
+}
+
+object_jar_head1 { //frame 554
+    name FURNITURE_NAME_OBJECT_JAR_HEAD1
+    desc FURNITURE_DESC_OBJECT_JAR_HEAD1
+    
+    Stimulation 1
+}
+
+object_jar_head2 { //frame 555
+    name FURNITURE_NAME_OBJECT_JAR_HEAD2
+    desc FURNITURE_DESC_OBJECT_JAR_HEAD2
+    
+    Stimulation 1
+}
+
+object_jar_eggs { //frame 556
+    name FURNITURE_NAME_OBJECT_JAR_EGGS
+    desc FURNITURE_DESC_OBJECT_JAR_EGGS
+    
+    Comfort 1    
+}
+
+object_jar_cat { //frame 557
+    name FURNITURE_NAME_OBJECT_JAR_CAT
+    desc FURNITURE_DESC_OBJECT_JAR_CAT
+    
+    Appeal 1
+}
+
+object_jar_fetus { //frame 558
+    name FURNITURE_NAME_OBJECT_JAR_FETUS
+    desc FURNITURE_DESC_OBJECT_JAR_FETUS
+    
+    Stimulation 1
+}
+
+object_log { //frame 559
+    name FURNITURE_NAME_OBJECT_LOG
+    desc FURNITURE_DESC_OBJECT_LOG
+    
+    Comfort 1
+}
+
+object_food_ham { //frame 560
+    name FURNITURE_NAME_OBJECT_FOOD_HAM
+    desc FURNITURE_DESC_OBJECT_FOOD_HAM
+    
+    Comfort 1
+}
+
+object_food_turkey { //frame 561
+    name FURNITURE_NAME_OBJECT_FOOD_TURKEY
+    desc FURNITURE_DESC_OBJECT_FOOD_TURKEY
+    
+    Comfort 1
+}
+
+object_bug_cenipede { //frame 562
+    name FURNITURE_NAME_OBJECT_BUG_CENIPEDE
+    desc FURNITURE_DESC_OBJECT_BUG_CENIPEDE
+    
+    Stimulation 1
+    Appeal 1
+    Comfort -1
+}
+
+object_bug_pillbug { //frame 563
+    name FURNITURE_NAME_OBJECT_BUG_PILLBUG
+    desc FURNITURE_DESC_OBJECT_BUG_PILLBUG
+    
+    Stimulation 1
+    Appeal 1
+    Comfort -1
+}
+
+object_bug_spider { //frame 564
+    name FURNITURE_NAME_OBJECT_BUG_SPIDER
+    desc FURNITURE_DESC_OBJECT_BUG_SPIDER
+    
+    Stimulation 1
+    Appeal 1
+    Comfort -1
+}
+
+object_fishtank_chameleon { //frame 565
+    name FURNITURE_NAME_OBJECT_FISHTANK_CHAMELEON
+    desc FURNITURE_DESC_OBJECT_FISHTANK_CHAMELEON
+    
+    Stimulation 1
+    Appeal 1
+    Comfort -1
+}
+
+object_gastank { //frame 566
+    name FURNITURE_NAME_OBJECT_GASTANK
+    desc FURNITURE_DESC_OBJECT_GASTANK
+    
+    Stimulation 1
+}
+
+object_electronics_arcade1 { //frame 567
+    name FURNITURE_NAME_OBJECT_ELECTRONICS_ARCADE1
+    desc FURNITURE_DESC_OBJECT_ELECTRONICS_ARCADE1
+    
+    Appeal 1
+    Stimulation 1
+}
+
+object_electronics_arcade2 { //frame 568
+    name FURNITURE_NAME_OBJECT_ELECTRONICS_ARCADE2
+    desc FURNITURE_DESC_OBJECT_ELECTRONICS_ARCADE2
+    
+    Appeal 1
+    Stimulation 1
+}
+
+object_fortuneteller { //frame 569
+    name FURNITURE_NAME_OBJECT_FORTUNETELLER
+    desc FURNITURE_DESC_OBJECT_FORTUNETELLER
+    
+    Appeal 1
+    Stimulation 1
+}
+
+object_electronics_cranegame { //frame 570
+    name FURNITURE_NAME_OBJECT_ELECTRONICS_CRANEGAME
+    desc FURNITURE_DESC_OBJECT_ELECTRONICS_CRANEGAME
+    
+    Appeal 1
+    Stimulation 1
+}
+
+object_outhouse { //frame 571
+    name FURNITURE_NAME_OBJECT_OUTHOUSE
+    desc FURNITURE_DESC_OBJECT_OUTHOUSE
+    
+    Comfort 3
+    Appeal -1
+}
+
+object_potopotty { //frame 572
+    name FURNITURE_NAME_OBJECT_POTOPOTTY
+    desc FURNITURE_DESC_OBJECT_POTOPOTTY
+    
+    Comfort 3
+    Appeal -1
+}
+
+object_icechest { //frame 573
+    name FURNITURE_NAME_OBJECT_ICECHEST
+    desc FURNITURE_DESC_OBJECT_ICECHEST
+    
+    Comfort 1
+}
+
+object_fishtank_octocat { //frame 574
+    name FURNITURE_NAME_OBJECT_FISHTANK_OCTOCAT
+    desc FURNITURE_DESC_OBJECT_FISHTANK_OCTOCAT
+    
+    Appeal 3
+    Stimulation 2
+    Comfort -1
+}
+
+object_taxidermy_bear { //frame 575
+    name FURNITURE_NAME_OBJECT_TAXIDERMY_BEAR
+    desc FURNITURE_DESC_OBJECT_TAXIDERMY_BEAR
+    
+    Appeal 1
+    Health -2
+	Evolution 2
+}
+
+object_bath1 { //frame 576
+    name FURNITURE_NAME_OBJECT_BATH1
+    desc FURNITURE_DESC_OBJECT_BATH1
+    
+    Comfort 2
+}
+
+object_bath2 { //frame 577
+    name FURNITURE_NAME_OBJECT_BATH2
+    desc FURNITURE_DESC_OBJECT_BATH2
+    
+    Comfort 2
+}
+
+object_shower { //frame 578
+    name FURNITURE_NAME_OBJECT_SHOWER
+    desc FURNITURE_DESC_OBJECT_SHOWER
+    
+    Comfort 2
+}
+
+object_bbq { //frame 579
+    name FURNITURE_NAME_OBJECT_BBQ
+    desc FURNITURE_DESC_OBJECT_BBQ
+    
+    Comfort 2
+}
+
+object_oldstove { //frame 580
+    name FURNITURE_NAME_OBJECT_OLDSTOVE
+    desc FURNITURE_DESC_OBJECT_OLDSTOVE
+    
+    Comfort 2
+}
+
+object_easel { //frame 581
+    name FURNITURE_NAME_OBJECT_EASEL
+    desc FURNITURE_DESC_OBJECT_EASEL
+    
+    Comfort 1
+}
+
+object_birdcage { //frame 582
+    name FURNITURE_NAME_OBJECT_BIRDCAGE
+    desc FURNITURE_DESC_OBJECT_BIRDCAGE
+    
+    Stimulation 1
+}
+
+object_dollhouse { //frame 583
+    name FURNITURE_NAME_OBJECT_DOLLHOUSE
+    desc FURNITURE_DESC_OBJECT_DOLLHOUSE
+    
+    Stimulation 1
+}
+
+object_safe { //frame 584
+    name FURNITURE_NAME_OBJECT_SAFE
+    desc FURNITURE_DESC_OBJECT_SAFE
+    
+    Appeal 1
+}
+
+object_bed { //frame 585
+    name FURNITURE_NAME_OBJECT_BED
+    desc FURNITURE_DESC_OBJECT_BED
+    
+    Comfort 1
+}
+
+object_watertower { //frame 586
+    name FURNITURE_NAME_OBJECT_WATERTOWER
+    desc FURNITURE_DESC_OBJECT_WATERTOWER
+    
+    Comfort 1
+}
+
+object_visibleman { //frame 587
+    name FURNITURE_NAME_OBJECT_VISIBLEMAN
+    desc FURNITURE_DESC_OBJECT_VISIBLEMAN
+    
+    Stimulation 1
+}
+
+object_statue_stonehead { //frame 588
+    name FURNITURE_NAME_OBJECT_STATUE_STONEHEAD
+    desc FURNITURE_DESC_OBJECT_STATUE_STONEHEAD
+    
+    Appeal 2
+}
+
+object_clock { //frame 589
+    name FURNITURE_NAME_OBJECT_CLOCK
+    desc FURNITURE_DESC_OBJECT_CLOCK
+    
+    Comfort 1
+}
+
+object_iv { //frame 590
+    name FURNITURE_NAME_OBJECT_IV
+    desc FURNITURE_DESC_OBJECT_IV
+    
+	Health 1
+}
+
+object_fireplace { //frame 591
+    name FURNITURE_NAME_OBJECT_FIREPLACE
+    desc FURNITURE_DESC_OBJECT_FIREPLACE
+    
+    Comfort 2
+}
+
+object_dryer { //frame 592
+    name FURNITURE_NAME_OBJECT_DRYER
+    desc FURNITURE_DESC_OBJECT_DRYER
+    
+    Comfort 2
+}
+
+object_washer { //frame 593
+    name FURNITURE_NAME_OBJECT_WASHER
+    desc FURNITURE_DESC_OBJECT_WASHER
+    
+    Comfort 2
+}
+
+object_filingcabinet { //frame 594
+    name FURNITURE_NAME_OBJECT_FILINGCABINET
+    desc FURNITURE_DESC_OBJECT_FILINGCABINET
+    
+    Comfort 1
+    Stimulation 1
+}
+
+object_cattree1 { //frame 595
+    name FURNITURE_NAME_OBJECT_CATTREE1
+    desc FURNITURE_DESC_OBJECT_CATTREE1
+    
+    Stimulation 1
+}
+
+object_cattree2 { //frame 596
+    name FURNITURE_NAME_OBJECT_CATTREE2
+    desc FURNITURE_DESC_OBJECT_CATTREE2
+    
+    Stimulation 1
+}
+
+object_cattree3 { //frame 597
+    name FURNITURE_NAME_OBJECT_CATTREE3
+    desc FURNITURE_DESC_OBJECT_CATTREE3
+    
+    Stimulation 1
+}
+
+object_punchy { //frame 598
+    name FURNITURE_NAME_OBJECT_PUNCHY
+    desc FURNITURE_DESC_OBJECT_PUNCHY
+    
+    Stimulation 1
+}
+
+object_sink { //frame 599
+    name FURNITURE_NAME_OBJECT_SINK
+    desc FURNITURE_DESC_OBJECT_SINK
+    
+    Comfort 1
+}
+
+object_toolchest { //frame 600
+    name FURNITURE_NAME_OBJECT_TOOLCHEST
+    desc FURNITURE_DESC_OBJECT_TOOLCHEST
+    
+    Stimulation 1
+}
+
+object_ironingboard { //frame 601
+    name FURNITURE_NAME_OBJECT_IRONINGBOARD
+    desc FURNITURE_DESC_OBJECT_IRONINGBOARD
+    
+    Comfort 1
+}
+
+object_broom { //frame 602
+    name FURNITURE_NAME_OBJECT_BROOM
+    desc FURNITURE_DESC_OBJECT_BROOM
+    
+    Comfort 1
+}
+
+object_vacuum { //frame 603
+    name FURNITURE_NAME_OBJECT_VACUUM
+    desc FURNITURE_DESC_OBJECT_VACUUM
+    
+    Comfort 1
+}
+
+object_gnome { //frame 604
+    name FURNITURE_NAME_OBJECT_GNOME
+    desc FURNITURE_DESC_OBJECT_GNOME
+    
+    Comfort 1
+    Appeal 1
+}
+
+wallmounted_picture_blueboy { //frame 650
+    name FURNITURE_NAME_WALLMOUNTED_PICTURE_BLUEBOY
+    desc FURNITURE_DESC_WALLMOUNTED_PICTURE_BLUEBOY
+    
+    Appeal 1
+    Comfort 1
+}
+
+wallmounted_picture_frida { //frame 651
+    name FURNITURE_NAME_WALLMOUNTED_PICTURE_FRIDA
+    desc FURNITURE_DESC_WALLMOUNTED_PICTURE_FRIDA
+    
+    Appeal 1
+    Comfort 1
+}
+
+wallmounted_picture_god { //frame 652
+    name FURNITURE_NAME_WALLMOUNTED_PICTURE_GOD
+    desc FURNITURE_DESC_WALLMOUNTED_PICTURE_GOD
+    
+    Appeal 2
+    Comfort 1
+	Health 1
+}
+
+wallmounted_picture_lisa { //frame 653
+    name FURNITURE_NAME_WALLMOUNTED_PICTURE_LISA
+    desc FURNITURE_DESC_WALLMOUNTED_PICTURE_LISA
+    
+    Appeal 1
+    Comfort 1
+}
+
+wallmounted_picture_scream { //frame 654
+    name FURNITURE_NAME_WALLMOUNTED_PICTURE_SCREAM
+    desc FURNITURE_DESC_WALLMOUNTED_PICTURE_SCREAM
+    
+    Appeal 1
+    Comfort 1
+}
+
+wallmounted_picture_night { //frame 655
+    name FURNITURE_NAME_WALLMOUNTED_PICTURE_NIGHT
+    desc FURNITURE_DESC_WALLMOUNTED_PICTURE_NIGHT
+    
+    Appeal 1
+    Comfort 1
+}
+
+wallmounted_picture_gothic { //frame 656
+    name FURNITURE_NAME_WALLMOUNTED_PICTURE_GOTHIC
+    desc FURNITURE_DESC_WALLMOUNTED_PICTURE_GOTHIC
+    
+    Appeal 1
+    Comfort 1
+}
+
+wallmounted_picture_picasso { //frame 657
+    name FURNITURE_NAME_WALLMOUNTED_PICTURE_PICASSO
+    desc FURNITURE_DESC_WALLMOUNTED_PICTURE_PICASSO
+    
+    Appeal 1
+    Comfort 1
+}
+
+wallmounted_picture_keith { //frame 658
+    name FURNITURE_NAME_WALLMOUNTED_PICTURE_KEITH
+    desc FURNITURE_DESC_WALLMOUNTED_PICTURE_KEITH
+    
+    Appeal 1
+    Comfort 1
+}
+
+wallmounted_picture_pearl { //frame 659
+    name FURNITURE_NAME_WALLMOUNTED_PICTURE_PEARL
+    desc FURNITURE_DESC_WALLMOUNTED_PICTURE_PEARL
+    
+    Appeal 1
+    Comfort 1
+}
+
+wallmounted_picture_rosie { //frame 660
+    name FURNITURE_NAME_WALLMOUNTED_PICTURE_ROSIE
+    desc FURNITURE_DESC_WALLMOUNTED_PICTURE_ROSIE
+    
+    Appeal 1
+    Comfort 1
+}
+
+wallmounted_picture_ufo { //frame 661
+    name FURNITURE_NAME_WALLMOUNTED_PICTURE_UFO
+    desc FURNITURE_DESC_WALLMOUNTED_PICTURE_UFO
+    
+    Appeal 1
+    Comfort 1
+}
+
+wallmounted_picture_che { //frame 662
+    name FURNITURE_NAME_WALLMOUNTED_PICTURE_CHE
+    desc FURNITURE_DESC_WALLMOUNTED_PICTURE_CHE
+    
+    Appeal 1
+    Comfort 1
+}
+
+wallmounted_picture_obey { //frame 663
+    name FURNITURE_NAME_WALLMOUNTED_PICTURE_OBEY
+    desc FURNITURE_DESC_WALLMOUNTED_PICTURE_OBEY
+    
+    Appeal 1
+    Comfort 1
+}
+
+wallmounted_picture_hang { //frame 664
+    name FURNITURE_NAME_WALLMOUNTED_PICTURE_HANG
+    desc FURNITURE_DESC_WALLMOUNTED_PICTURE_HANG
+    
+    Appeal 1
+    Comfort 1
+}
+
+wallmounted_picture_jaws { //frame 665
+    name FURNITURE_NAME_WALLMOUNTED_PICTURE_JAWS
+    desc FURNITURE_DESC_WALLMOUNTED_PICTURE_JAWS
+    
+    Appeal 1
+    Comfort 1
+}
+
+wallmounted_picture_scarface { //frame 666
+    name FURNITURE_NAME_WALLMOUNTED_PICTURE_SCARFACE
+    desc FURNITURE_DESC_WALLMOUNTED_PICTURE_SCARFACE
+    
+    Appeal 1
+    Comfort 1
+}
+
+wallmounted_picture_lambs { //frame 667
+    name FURNITURE_NAME_WALLMOUNTED_PICTURE_LAMBS
+    desc FURNITURE_DESC_WALLMOUNTED_PICTURE_LAMBS
+    
+    Appeal 1
+    Comfort 1
+}
+
+wallmounted_picture_orange { //frame 668
+    name FURNITURE_NAME_WALLMOUNTED_PICTURE_ORANGE
+    desc FURNITURE_DESC_WALLMOUNTED_PICTURE_ORANGE
+    
+    Appeal 1
+    Comfort 1
+}
+
+wallmounted_picture_eraser { //frame 669
+    name FURNITURE_NAME_WALLMOUNTED_PICTURE_ERASER
+    desc FURNITURE_DESC_WALLMOUNTED_PICTURE_ERASER
+    
+    Appeal 1
+    Comfort 1
+}
+
+wallmounted_sewn_clock { //frame 670
+    name FURNITURE_NAME_WALLMOUNTED_SEWN_CLOCK
+    desc FURNITURE_DESC_WALLMOUNTED_SEWN_CLOCK
+    
+    Appeal 1
+    Comfort 1
+}
+
+wallmounted_clock { //frame 671
+    name FURNITURE_NAME_WALLMOUNTED_CLOCK
+    desc FURNITURE_DESC_WALLMOUNTED_CLOCK
+    
+    Appeal 1
+}
+
+wallmounted_wooden_clock { //frame 672
+    name FURNITURE_NAME_WALLMOUNTED_WOODEN_CLOCK
+    desc FURNITURE_DESC_WALLMOUNTED_WOODEN_CLOCK
+    
+    Appeal 1
+}
+
+wallmounted_atomic_clock { //frame 673
+    name FURNITURE_NAME_WALLMOUNTED_ATOMIC_CLOCK
+    desc FURNITURE_DESC_WALLMOUNTED_ATOMIC_CLOCK
+    
+    Appeal 1
+}
+
+wallmounted_ghost1 { //frame 674
+    name FURNITURE_NAME_WALLMOUNTED_GHOST1
+    desc FURNITURE_DESC_WALLMOUNTED_GHOST1
+    
+    Appeal 1
+    Stimulation 1
+    Comfort -1
+}
+
+wallmounted_ghost2 { //frame 675
+    name FURNITURE_NAME_WALLMOUNTED_GHOST2
+    desc FURNITURE_DESC_WALLMOUNTED_GHOST2
+    
+    Appeal 1
+    Stimulation 1
+    Comfort -1
+}
+
+wallmounted_ghost3 { //frame 676
+    name FURNITURE_NAME_WALLMOUNTED_GHOST3
+    desc FURNITURE_DESC_WALLMOUNTED_GHOST3
+    
+    Appeal 1
+    Stimulation 1
+    Comfort -1
+}
+
+wallmounted_mask_bunny { //frame 677
+    name FURNITURE_NAME_WALLMOUNTED_MASK_BUNNY
+    desc FURNITURE_DESC_WALLMOUNTED_MASK_BUNNY
+    
+    Appeal 1
+}
+
+wallmounted_mask_tonetta { //frame 678
+    name FURNITURE_NAME_WALLMOUNTED_MASK_TONETTA
+    desc FURNITURE_DESC_WALLMOUNTED_MASK_TONETTA
+    
+    Appeal 1
+}
+
+wallmounted_mask_hocky { //frame 679
+    name FURNITURE_NAME_WALLMOUNTED_MASK_HOCKY
+    desc FURNITURE_DESC_WALLMOUNTED_MASK_HOCKY
+    
+    Appeal 1
+}
+
+wallmounted_picture_sailboat { //frame 680
+    name FURNITURE_NAME_WALLMOUNTED_PICTURE_SAILBOAT
+    desc FURNITURE_DESC_WALLMOUNTED_PICTURE_SAILBOAT
+    
+    Appeal 1
+}
+
+wallmounted_picture_magazine { //frame 681
+    name FURNITURE_NAME_WALLMOUNTED_PICTURE_MAGAZINE
+    desc FURNITURE_DESC_WALLMOUNTED_PICTURE_MAGAZINE
+    
+    Comfort 1
+}
+
+wallmounted_picture_poem { //frame 682
+    name FURNITURE_NAME_WALLMOUNTED_PICTURE_POEM
+    desc FURNITURE_DESC_WALLMOUNTED_PICTURE_POEM
+    
+    Comfort 1
+}
+
+wallmounted_picture_photo { //frame 683
+    name FURNITURE_NAME_WALLMOUNTED_PICTURE_PHOTO
+    desc FURNITURE_DESC_WALLMOUNTED_PICTURE_PHOTO
+    
+    Comfort 1
+}
+
+wallmounted_picture_photo2 { //frame 684
+    name FURNITURE_NAME_WALLMOUNTED_PICTURE_PHOTO2
+    desc FURNITURE_DESC_WALLMOUNTED_PICTURE_PHOTO2
+    
+    Comfort 1
+}
+
+wallmounted_picture_photo3 { //frame 685
+    name FURNITURE_NAME_WALLMOUNTED_PICTURE_PHOTO3
+    desc FURNITURE_DESC_WALLMOUNTED_PICTURE_PHOTO3
+    
+    Comfort 1
+}
+
+wallmounted_wooden_boards1 { //frame 686
+    name FURNITURE_NAME_WALLMOUNTED_WOODEN_BOARDS1
+    desc FURNITURE_DESC_WALLMOUNTED_WOODEN_BOARDS1
+    
+    Comfort 1
+}
+
+wallmounted_wooden_boards2 { //frame 687
+    name FURNITURE_NAME_WALLMOUNTED_WOODEN_BOARDS2
+    desc FURNITURE_DESC_WALLMOUNTED_WOODEN_BOARDS2
+    
+    Comfort 1
+}
+
+wallmounted_wooden_boards3 { //frame 688
+    name FURNITURE_NAME_WALLMOUNTED_WOODEN_BOARDS3
+    desc FURNITURE_DESC_WALLMOUNTED_WOODEN_BOARDS3
+    
+    Comfort 1
+}
+
+wallmounted_wooden_boards4 { //frame 689
+    name FURNITURE_NAME_WALLMOUNTED_WOODEN_BOARDS4
+    desc FURNITURE_DESC_WALLMOUNTED_WOODEN_BOARDS4
+    
+    Comfort 1
+}
+
+wallmounted_switch { //frame 690
+    name FURNITURE_NAME_WALLMOUNTED_SWITCH
+    desc FURNITURE_DESC_WALLMOUNTED_SWITCH
+    
+    Comfort 1
+}
+
+wallmounted_outlet { //frame 691
+    name FURNITURE_NAME_WALLMOUNTED_OUTLET
+    desc FURNITURE_DESC_WALLMOUNTED_OUTLET
+    
+    Comfort 1
+}
+
+wallmounted_robo_plate1 { //frame 692
+    name FURNITURE_NAME_WALLMOUNTED_ROBO_PLATE1
+    desc FURNITURE_DESC_WALLMOUNTED_ROBO_PLATE1
+    
+    Stimulation 1
+}
+
+wallmounted_robo_plate2 { //frame 693
+    name FURNITURE_NAME_WALLMOUNTED_ROBO_PLATE2
+    desc FURNITURE_DESC_WALLMOUNTED_ROBO_PLATE2
+    
+    Stimulation 1
+}
+
+wallmounted_robo_plate3 { //frame 694
+    name FURNITURE_NAME_WALLMOUNTED_ROBO_PLATE3
+    desc FURNITURE_DESC_WALLMOUNTED_ROBO_PLATE3
+    
+    Stimulation 1
+}
+
+wallmounted_furnace { //frame 695
+    name FURNITURE_NAME_WALLMOUNTED_FURNACE
+    desc FURNITURE_DESC_WALLMOUNTED_FURNACE
+    
+    Comfort 1
+}
+
+wallmounted_robo_plate4 { //frame 696
+    name FURNITURE_NAME_WALLMOUNTED_ROBO_PLATE4
+    desc FURNITURE_DESC_WALLMOUNTED_ROBO_PLATE4
+    
+    Stimulation 1
+}
+
+wallmounted_tv { //frame 697
+    name FURNITURE_NAME_WALLMOUNTED_TV
+    desc FURNITURE_DESC_WALLMOUNTED_TV
+    
+    Stimulation 1
+}
+
+wallmounted_balloon { //frame 698
+    name FURNITURE_NAME_WALLMOUNTED_BALLOON
+    desc FURNITURE_DESC_WALLMOUNTED_BALLOON
+    
+    Comfort 1
+}
+
+wallmounted_balloon2 { //frame 699
+    name FURNITURE_NAME_WALLMOUNTED_BALLOON2
+    desc FURNITURE_DESC_WALLMOUNTED_BALLOON2
+    
+    Comfort 1
+}
+
+wallmounted_balloon3 { //frame 700
+    name FURNITURE_NAME_WALLMOUNTED_BALLOON3
+    desc FURNITURE_DESC_WALLMOUNTED_BALLOON3
+    
+    Comfort 1
+}
+
+wallmounted_sewer_pipes1 { //frame 701
+    name FURNITURE_NAME_WALLMOUNTED_SEWER_PIPES1
+    desc FURNITURE_DESC_WALLMOUNTED_SEWER_PIPES1
+    
+    Comfort 1
+}
+
+wallmounted_sewer_pipes2 { //frame 702
+    name FURNITURE_NAME_WALLMOUNTED_SEWER_PIPES2
+    desc FURNITURE_DESC_WALLMOUNTED_SEWER_PIPES2
+    
+    Comfort 1
+}
+
+wallmounted_sewer_pipes3 { //frame 703
+    name FURNITURE_NAME_WALLMOUNTED_SEWER_PIPES3
+    desc FURNITURE_DESC_WALLMOUNTED_SEWER_PIPES3
+    
+    Comfort 1
+}
+
+wallmounted_balloon4 { //frame 704
+    name FURNITURE_NAME_WALLMOUNTED_BALLOON4
+    desc FURNITURE_DESC_WALLMOUNTED_BALLOON4
+    
+    Comfort 1
+}
+
+wallmounted_mirror { //frame 705
+    name FURNITURE_NAME_WALLMOUNTED_MIRROR
+    desc FURNITURE_DESC_WALLMOUNTED_MIRROR
+    
+    Comfort 1
+}
+
+wallmounted_junk_paper1 { //frame 706
+    name FURNITURE_NAME_WALLMOUNTED_JUNK_PAPER1
+    desc FURNITURE_DESC_WALLMOUNTED_JUNK_PAPER1
+    
+    Appeal 1
+}
+
+wallmounted_picture_drawing { //frame 707
+    name FURNITURE_NAME_WALLMOUNTED_PICTURE_DRAWING
+    desc FURNITURE_DESC_WALLMOUNTED_PICTURE_DRAWING
+    
+    Appeal 1
+}
+
+wallmounted_cowskull { //frame 708
+    name FURNITURE_NAME_WALLMOUNTED_COWSKULL
+    desc FURNITURE_DESC_WALLMOUNTED_COWSKULL
+    
+    Appeal 1
+}
+
+wallmounted_taxidermy_deerhead { //frame 709
+    name FURNITURE_NAME_WALLMOUNTED_TAXIDERMY_DEERHEAD
+    desc FURNITURE_DESC_WALLMOUNTED_TAXIDERMY_DEERHEAD
+    
+    Appeal -1
+    Health -1
+	Evolution 1
+}
+
+wallmounted_taxidermy_guppy { //frame 710
+    name FURNITURE_NAME_WALLMOUNTED_TAXIDERMY_GUPPY
+    desc FURNITURE_DESC_WALLMOUNTED_TAXIDERMY_GUPPY
+    
+    Appeal 1
+	Evolution 1
+}
+
+wallmounted_jollyroger { //frame 711
+    name FURNITURE_NAME_WALLMOUNTED_JOLLYROGER
+    desc FURNITURE_DESC_WALLMOUNTED_JOLLYROGER
+    
+    Appeal 1
+}
+
+wallmounted_taxidermy_bugs { //frame 712
+    name FURNITURE_NAME_WALLMOUNTED_TAXIDERMY_BUGS
+    desc FURNITURE_DESC_WALLMOUNTED_TAXIDERMY_BUGS
+    
+    Appeal 1
+}
+
+wallmounted_taxidermy_fish { //frame 713
+    name FURNITURE_NAME_WALLMOUNTED_TAXIDERMY_FISH
+    desc FURNITURE_DESC_WALLMOUNTED_TAXIDERMY_FISH
+    
+    Appeal 1
+}
+
+wallmounted_mask_infamy { //frame 714
+    name FURNITURE_NAME_WALLMOUNTED_MASK_INFAMY
+    desc FURNITURE_DESC_WALLMOUNTED_MASK_INFAMY
+    
+    Appeal 1
+}
+
+wallmounted_safe { //frame 715
+    name FURNITURE_NAME_WALLMOUNTED_SAFE
+    desc FURNITURE_DESC_WALLMOUNTED_SAFE
+    
+    Appeal 1
+}
+
+wallmounted_bricks1 { //frame 716
+    name FURNITURE_NAME_WALLMOUNTED_BRICKS1
+    desc FURNITURE_DESC_WALLMOUNTED_BRICKS1
+    
+    Comfort 1
+}
+
+wallmounted_bricks2 { //frame 717
+    name FURNITURE_NAME_WALLMOUNTED_BRICKS2
+    desc FURNITURE_DESC_WALLMOUNTED_BRICKS2
+    
+    Comfort 1
+}
+
+wallmounted_bricks3 { //frame 718
+    name FURNITURE_NAME_WALLMOUNTED_BRICKS3
+    desc FURNITURE_DESC_WALLMOUNTED_BRICKS3
+    
+    Comfort 1
+}
+
+wallmounted_bricks4 { //frame 719
+    name FURNITURE_NAME_WALLMOUNTED_BRICKS4
+    desc FURNITURE_DESC_WALLMOUNTED_BRICKS4
+    
+    Comfort 1
+}
+
+wallmounted_junk_paper2 { //frame 720
+    name FURNITURE_NAME_WALLMOUNTED_JUNK_PAPER2
+    desc FURNITURE_DESC_WALLMOUNTED_JUNK_PAPER2
+    
+    Comfort 1
+}
+
+wallmounted_crack { //frame 721
+    name FURNITURE_NAME_WALLMOUNTED_CRACK
+    desc FURNITURE_DESC_WALLMOUNTED_CRACK
+    
+    Comfort 1
+}
+
+wallmounted_torch { //frame 722
+    name FURNITURE_NAME_WALLMOUNTED_TORCH
+    desc FURNITURE_DESC_WALLMOUNTED_TORCH
+    
+    Comfort 1
+}
+
+wallmounted_shrunkinhead { //frame 723
+    name FURNITURE_NAME_WALLMOUNTED_SHRUNKINHEAD
+    desc FURNITURE_DESC_WALLMOUNTED_SHRUNKINHEAD
+    
+    Health -5
+	Evolution 1
+}
+
+wallmounted_cloud { //frame 724
+    name FURNITURE_NAME_WALLMOUNTED_CLOUD
+    desc FURNITURE_DESC_WALLMOUNTED_CLOUD
+    
+    Comfort 1
+}
+
+wallmounted_block1 { //frame 725
+    name FURNITURE_NAME_WALLMOUNTED_BLOCK1
+    desc FURNITURE_DESC_WALLMOUNTED_BLOCK1
+    
+    Comfort 1
+}
+
+wallmounted_block2 { //frame 726
+    name FURNITURE_NAME_WALLMOUNTED_BLOCK2
+    desc FURNITURE_DESC_WALLMOUNTED_BLOCK2
+    
+    Comfort 1
+}
+
+wallmounted_block3 { //frame 727
+    name FURNITURE_NAME_WALLMOUNTED_BLOCK3
+    desc FURNITURE_DESC_WALLMOUNTED_BLOCK3
+    
+    Comfort 1
+}
+
+wallmounted_balloon5 { //frame 728
+    name FURNITURE_NAME_WALLMOUNTED_BALLOON5
+    desc FURNITURE_DESC_WALLMOUNTED_BALLOON5
+    
+    Comfort 1
+}
+
+wallmounted_balloon6 { //frame 729
+    name FURNITURE_NAME_WALLMOUNTED_BALLOON6
+    desc FURNITURE_DESC_WALLMOUNTED_BALLOON6
+    
+    Comfort 1
+}
+
+wallmounted_balloon7 { //frame 730
+    name FURNITURE_NAME_WALLMOUNTED_BALLOON7
+    desc FURNITURE_DESC_WALLMOUNTED_BALLOON7
+    
+    Comfort 1
+}
+
+hanging_fish { //frame 800
+    name FURNITURE_NAME_HANGING_FISH
+    desc FURNITURE_DESC_HANGING_FISH
+    
+    Comfort 1
+}
+
+hanging_cathead { //frame 801
+    name FURNITURE_NAME_HANGING_CATHEAD
+    desc FURNITURE_DESC_HANGING_CATHEAD
+    
+    Comfort 1
+}
+
+hanging_airfreshiner { //frame 802
+    name FURNITURE_NAME_HANGING_AIRFRESHINER
+    desc FURNITURE_DESC_HANGING_AIRFRESHINER
+    
+    Comfort 1
+}
+
+ceiling_fan { //frame 803
+    name FURNITURE_NAME_CEILING_FAN
+    desc FURNITURE_DESC_CEILING_FAN
+    
+    Comfort 1
+}
+
+ceiling_discoball { //frame 804
+    name FURNITURE_NAME_CEILING_DISCOBALL
+    desc FURNITURE_DESC_CEILING_DISCOBALL
+    
+    Comfort 1
+}
+
+ceiling_cage { //frame 805
+    name FURNITURE_NAME_CEILING_CAGE
+    desc FURNITURE_DESC_CEILING_CAGE
+    
+    Stimulation 1
+}
+
+small_candle_black1 { //frame 950
+    name FURNITURE_NAME_SMALL_CANDLE_BLACK1
+    desc FURNITURE_DESC_SMALL_CANDLE_BLACK1
+    
+    Comfort 1
+}
+
+small_candle_black2 { //frame 951
+    name FURNITURE_NAME_SMALL_CANDLE_BLACK2
+    desc FURNITURE_DESC_SMALL_CANDLE_BLACK2
+    
+    Comfort 1
+}
+
+small_candle_black3 { //frame 952
+    name FURNITURE_NAME_SMALL_CANDLE_BLACK3
+    desc FURNITURE_DESC_SMALL_CANDLE_BLACK3
+    
+    Comfort 1
+}
+
+Small_candle_black4 { //frame 953
+    name FURNITURE_NAME_SMALL_CANDLE_BLACK4
+    desc FURNITURE_DESC_SMALL_CANDLE_BLACK4
+    
+    Comfort 1
+}
+
+Small_candle_white1 { //frame 954
+    name FURNITURE_NAME_SMALL_CANDLE_WHITE1
+    desc FURNITURE_DESC_SMALL_CANDLE_WHITE1
+    
+    Comfort 1
+}
+
+Small_candle_white2 { //frame 955
+    name FURNITURE_NAME_SMALL_CANDLE_WHITE2
+    desc FURNITURE_DESC_SMALL_CANDLE_WHITE2
+    
+    Comfort 1
+}
+
+Small_candle_white3 { //frame 956
+    name FURNITURE_NAME_SMALL_CANDLE_WHITE3
+    desc FURNITURE_DESC_SMALL_CANDLE_WHITE3
+    
+    Comfort 1
+}
+
+Small_candle_white4 { //frame 957
+    name FURNITURE_NAME_SMALL_CANDLE_WHITE4
+    desc FURNITURE_DESC_SMALL_CANDLE_WHITE4
+    
+    Comfort 1
+}
+
+small_vase1 { //frame 958
+    name FURNITURE_NAME_SMALL_VASE1
+    desc FURNITURE_DESC_SMALL_VASE1
+    
+    Comfort 1
+}
+
+small_vase2 { //frame 959
+    name FURNITURE_NAME_SMALL_VASE2
+    desc FURNITURE_DESC_SMALL_VASE2
+    
+    Comfort 1
+}
+
+small_vase3 { //frame 960
+    name FURNITURE_NAME_SMALL_VASE3
+    desc FURNITURE_DESC_SMALL_VASE3
+    
+    Comfort 1
+}
+
+small_trash_eggs { //frame 961
+    name FURNITURE_NAME_SMALL_TRASH_EGGS
+    desc FURNITURE_DESC_SMALL_TRASH_EGGS
+    
+    Comfort 1
+}
+
+small_trash_apple { //frame 962
+    name FURNITURE_NAME_SMALL_TRASH_APPLE
+    desc FURNITURE_DESC_SMALL_TRASH_APPLE
+    
+    Comfort 1
+}
+
+small_trash_bone { //frame 963
+    name FURNITURE_NAME_SMALL_TRASH_BONE
+    desc FURNITURE_DESC_SMALL_TRASH_BONE
+    
+    Comfort 1
+}
+
+small_trash_banana { //frame 964
+    name FURNITURE_NAME_SMALL_TRASH_BANANA
+    desc FURNITURE_DESC_SMALL_TRASH_BANANA
+    
+    Comfort 1
+}
+
+small_trash_cans { //frame 965
+    name FURNITURE_NAME_SMALL_TRASH_CANS
+    desc FURNITURE_DESC_SMALL_TRASH_CANS
+    
+    Comfort 1
+}
+
+small_trash_bread { //frame 966
+    name FURNITURE_NAME_SMALL_TRASH_BREAD
+    desc FURNITURE_DESC_SMALL_TRASH_BREAD
+    
+    Comfort -1
+	Health 1
+}
+
+small_trash_cup { //frame 967
+    name FURNITURE_NAME_SMALL_TRASH_CUP
+    desc FURNITURE_DESC_SMALL_TRASH_CUP
+
+    Comfort 1
+}
+
+small_trash_cheese { //frame 968
+    name FURNITURE_NAME_SMALL_TRASH_CHEESE
+    desc FURNITURE_DESC_SMALL_TRASH_CHEESE
+    
+    Comfort -1
+	Health 1
+}
+
+small_trash_brokenbottle { //frame 969
+    name FURNITURE_NAME_SMALL_TRASH_BROKENBOTTLE
+    desc FURNITURE_DESC_SMALL_TRASH_BROKENBOTTLE
+    
+    Comfort 1
+}
+
+small_trash_milk { //frame 970
+    name FURNITURE_NAME_SMALL_TRASH_MILK
+    desc FURNITURE_DESC_SMALL_TRASH_MILK
+    
+    Comfort 1
+}
+
+small_trash_can2 { //frame 971
+    name FURNITURE_NAME_SMALL_TRASH_CAN2
+    desc FURNITURE_DESC_SMALL_TRASH_CAN2
+    
+    Comfort 1
+}
+
+small_meds_mysterybottle { //frame 972
+    name FURNITURE_NAME_SMALL_MEDS_MYSTERYBOTTLE
+    desc FURNITURE_DESC_SMALL_MEDS_MYSTERYBOTTLE
+    
+    Comfort -1
+    Stimulation 1
+    Appeal -1
+	Evolution 1
+}
+
+small_meds_coughsyrup { //frame 973
+    name FURNITURE_NAME_SMALL_MEDS_COUGHSYRUP
+    desc FURNITURE_DESC_SMALL_MEDS_COUGHSYRUP
+    
+    Comfort 1
+    Appeal -1
+	Health 1
+}
+
+small_meds_pills1 { //frame 974
+    name FURNITURE_NAME_SMALL_MEDS_PILLS1
+    desc FURNITURE_DESC_SMALL_MEDS_PILLS1
+    
+    Comfort 1
+	Health 1
+    Appeal -1
+}
+
+small_meds_pills2 { //frame 975
+    name FURNITURE_NAME_SMALL_MEDS_PILLS2
+    desc FURNITURE_DESC_SMALL_MEDS_PILLS2
+    
+    Comfort 1
+    Health 1
+    Appeal -1
+}
+
+small_meds_mystery2 { //frame 976
+    name FURNITURE_NAME_SMALL_MEDS_MYSTERY2
+    desc FURNITURE_DESC_SMALL_MEDS_MYSTERY2
+    
+    Comfort 1
+    Stimulation 1
+    Appeal -1
+}
+
+small_meds_fishoil { //frame 977
+    name FURNITURE_NAME_SMALL_MEDS_FISHOIL
+    desc FURNITURE_DESC_SMALL_MEDS_FISHOIL
+    
+    Comfort 1
+    Health 1
+    Appeal -1
+}
+
+small_meds_cathearts { //frame 978
+    name FURNITURE_NAME_SMALL_MEDS_CATHEARTS
+    desc FURNITURE_DESC_SMALL_MEDS_CATHEARTS
+    
+    Comfort 1
+    Stimulation 1
+    Appeal -1
+}
+
+small_bottle_empty { //frame 979
+    name FURNITURE_NAME_SMALL_BOTTLE_EMPTY
+    desc FURNITURE_DESC_SMALL_BOTTLE_EMPTY
+    
+    Comfort 1
+    Stimulation 1
+    Appeal -1
+}
+
+small_bottle_full { //frame 980
+    name FURNITURE_NAME_SMALL_BOTTLE_FULL
+    desc FURNITURE_DESC_SMALL_BOTTLE_FULL
+    
+    Comfort 1
+    Stimulation 1
+    Appeal -1
+}
+
+small_bottle_2bottles { //frame 981
+    name FURNITURE_NAME_SMALL_BOTTLE_2BOTTLES
+    desc FURNITURE_DESC_SMALL_BOTTLE_2BOTTLES
+    
+    Comfort 1
+    Stimulation 1
+    Appeal -1
+}
+
+small_bobble_darkcat { //frame 982
+    name FURNITURE_NAME_SMALL_BOBBLE_DARKCAT
+    desc FURNITURE_DESC_SMALL_BOBBLE_DARKCAT
+    
+    Comfort 1
+    Stimulation -1
+    Appeal 1
+}
+
+small_bobble_guppy { //frame 983
+    name FURNITURE_NAME_SMALL_BOBBLE_GUPPY
+    desc FURNITURE_DESC_SMALL_BOBBLE_GUPPY
+    
+    Comfort 1
+    Stimulation -1
+    Appeal 1
+}
+
+small_bobble_mad { //frame 984
+    name FURNITURE_NAME_SMALL_BOBBLE_MAD
+    desc FURNITURE_DESC_SMALL_BOBBLE_MAD
+    
+    Comfort 1
+    Stimulation -1
+    Appeal 1
+}
+
+small_bobble_money { //frame 985
+    name FURNITURE_NAME_SMALL_BOBBLE_MONEY
+    desc FURNITURE_DESC_SMALL_BOBBLE_MONEY
+    
+    Comfort 1
+    Stimulation -1
+    Appeal 1
+}
+
+small_bobble_happy { //frame 986
+    name FURNITURE_NAME_SMALL_BOBBLE_HAPPY
+    desc FURNITURE_DESC_SMALL_BOBBLE_HAPPY
+    
+    Comfort 1
+    Stimulation -1
+    Appeal 1
+}
+
+small_bobble_dan { //frame 987
+    name FURNITURE_NAME_SMALL_BOBBLE_DAN
+    desc FURNITURE_DESC_SMALL_BOBBLE_DAN
+    
+    Comfort 1
+    Stimulation -1
+    Appeal 1
+}
+
+small_bobble_zombie { //frame 988
+    name FURNITURE_NAME_SMALL_BOBBLE_ZOMBIE
+    desc FURNITURE_DESC_SMALL_BOBBLE_ZOMBIE
+    
+    Comfort 1
+    Stimulation -1
+    Appeal 1
+}
+
+small_bobble_grump { //frame 989
+    name FURNITURE_NAME_SMALL_BOBBLE_GRUMP
+    desc FURNITURE_DESC_SMALL_BOBBLE_GRUMP
+    
+    Comfort 1
+    Stimulation -1
+    Appeal 1
+}
+
+small_bobble_alone { //frame 990
+    name FURNITURE_NAME_SMALL_BOBBLE_ALONE
+    desc FURNITURE_DESC_SMALL_BOBBLE_ALONE
+    
+    Comfort 1
+    Stimulation -1
+    Appeal 1
+}
+
+small_bobble_spots { //frame 991
+    name FURNITURE_NAME_SMALL_BOBBLE_SPOTS
+    desc FURNITURE_DESC_SMALL_BOBBLE_SPOTS
+    
+    Comfort 1
+    Stimulation -1
+    Appeal 1
+}
+
+small_bobble_devil { //frame 992
+    name FURNITURE_NAME_SMALL_BOBBLE_DEVIL
+    desc FURNITURE_DESC_SMALL_BOBBLE_DEVIL
+    
+    Comfort 1
+    Stimulation -1
+    Appeal 1
+}
+
+small_lab_tank1 { //frame 993
+    name FURNITURE_NAME_SMALL_LAB_TANK1
+    desc FURNITURE_DESC_SMALL_LAB_TANK1
+    
+    Comfort -1
+    Evolution 1
+    Appeal -1
+}
+
+small_lab_tank2 { //frame 994
+    name FURNITURE_NAME_SMALL_LAB_TANK2
+    desc FURNITURE_DESC_SMALL_LAB_TANK2
+    
+    Comfort -1
+    Evolution 1
+    Appeal -1
+}
+
+small_lab_jug1 { //frame 995
+    name FURNITURE_NAME_SMALL_LAB_JUG1
+    desc FURNITURE_DESC_SMALL_LAB_JUG1
+    
+    Comfort -1
+    Evolution 1
+    Appeal -1
+}
+
+small_lab_jug2 { //frame 996
+    name FURNITURE_NAME_SMALL_LAB_JUG2
+    desc FURNITURE_DESC_SMALL_LAB_JUG2
+    
+    Comfort -1
+    Evolution 1
+    Appeal -1
+}
+
+small_lab_jug3 { //frame 997
+    name FURNITURE_NAME_SMALL_LAB_JUG3
+    desc FURNITURE_DESC_SMALL_LAB_JUG3
+    
+    Comfort -1
+    Stimulation 3
+    Appeal -1
+}
+
+small_lab_testtube { //frame 998
+    name FURNITURE_NAME_SMALL_LAB_TESTTUBE
+    desc FURNITURE_DESC_SMALL_LAB_TESTTUBE
+    
+    Comfort -1
+    Evolution 1
+    Appeal -1
+}
+
+small_lab_testtube2 { //frame 999
+    name FURNITURE_NAME_SMALL_LAB_TESTTUBE2
+    desc FURNITURE_DESC_SMALL_LAB_TESTTUBE2
+    
+    Comfort -1
+    Evolution 1
+    Appeal -1
+}
+
+small_lab_flask { //frame 1000
+    name FURNITURE_NAME_SMALL_LAB_FLASK
+    desc FURNITURE_DESC_SMALL_LAB_FLASK
+    
+    Comfort -1
+    Evolution 1
+    Appeal -1
+}
+
+small_lab_flask2 { //frame 1001
+    name FURNITURE_NAME_SMALL_LAB_FLASK2
+    desc FURNITURE_DESC_SMALL_LAB_FLASK2
+    
+    Comfort -1
+    Evolution 1
+    Appeal -1
+}
+
+small_lab_flask3 { //frame 1002
+    name FURNITURE_NAME_SMALL_LAB_FLASK3
+    desc FURNITURE_DESC_SMALL_LAB_FLASK3
+    
+    Comfort -1
+    Evolution 1
+    Appeal -1
+}
+
+small_lab_flask4 { //frame 1003
+    name FURNITURE_NAME_SMALL_LAB_FLASK4
+    desc FURNITURE_DESC_SMALL_LAB_FLASK4
+    
+    Comfort -1
+    Evolution 1
+    Appeal -1
+}
+
+small_food_root { //frame 1004
+    name FURNITURE_NAME_SMALL_FOOD_ROOT
+    desc FURNITURE_DESC_SMALL_FOOD_ROOT
+    
+    Health 1
+}
+
+small_food_lemon { //frame 1005
+    name FURNITURE_NAME_SMALL_FOOD_LEMON
+    desc FURNITURE_DESC_SMALL_FOOD_LEMON
+    
+    Health 1
+}
+
+small_food_orange { //frame 1006
+    name FURNITURE_NAME_SMALL_FOOD_ORANGE
+    desc FURNITURE_DESC_SMALL_FOOD_ORANGE
+    
+    Health 1
+}
+
+small_food_radish { //frame 1007
+    name FURNITURE_NAME_SMALL_FOOD_RADISH
+    desc FURNITURE_DESC_SMALL_FOOD_RADISH
+    
+    Health 1
+}
+
+small_food_onion { //frame 1008
+    name FURNITURE_NAME_SMALL_FOOD_ONION
+    desc FURNITURE_DESC_SMALL_FOOD_ONION
+    
+    Health 1
+}
+
+small_food_apple { //frame 1009
+    name FURNITURE_NAME_SMALL_FOOD_APPLE
+    desc FURNITURE_DESC_SMALL_FOOD_APPLE
+    
+    Health 1
+}
+
+small_food_squash { //frame 1010
+    name FURNITURE_NAME_SMALL_FOOD_SQUASH
+    desc FURNITURE_DESC_SMALL_FOOD_SQUASH
+    
+    Health 1
+}
+
+small_food_eggplant { //frame 1011
+    name FURNITURE_NAME_SMALL_FOOD_EGGPLANT
+    desc FURNITURE_DESC_SMALL_FOOD_EGGPLANT
+    
+    Health 1
+}
+
+small_food_broccoli { //frame 1012
+    name FURNITURE_NAME_SMALL_FOOD_BROCCOLI
+    desc FURNITURE_DESC_SMALL_FOOD_BROCCOLI
+    
+    Health 1
+}
+
+small_food_pumpkin { //frame 1013
+    name FURNITURE_NAME_SMALL_FOOD_PUMPKIN
+    desc FURNITURE_DESC_SMALL_FOOD_PUMPKIN
+    
+    Health 1
+}
+
+small_food_pineapple { //frame 1014
+    name FURNITURE_NAME_SMALL_FOOD_PINEAPPLE
+    desc FURNITURE_DESC_SMALL_FOOD_PINEAPPLE
+    
+    Health 1
+}
+
+small_food_potato { //frame 1015
+    name FURNITURE_NAME_SMALL_FOOD_POTATO
+    desc FURNITURE_DESC_SMALL_FOOD_POTATO
+    
+    Health 1
+}
+
+small_doll_stacy { //frame 1016
+    name FURNITURE_NAME_SMALL_DOLL_STACY
+    desc FURNITURE_DESC_SMALL_DOLL_STACY
+    
+    Comfort 1
+}
+
+small_doll_aether { //frame 1017
+    name FURNITURE_NAME_SMALL_DOLL_AETHER
+    desc FURNITURE_DESC_SMALL_DOLL_AETHER
+    
+    Comfort 1
+}
+
+small_doll_duke { //frame 1018
+    name FURNITURE_NAME_SMALL_DOLL_DUKE
+    desc FURNITURE_DESC_SMALL_DOLL_DUKE
+    
+    Comfort 1
+}
+
+small_doll_guppy { //frame 1019
+    name FURNITURE_NAME_SMALL_DOLL_GUPPY
+    desc FURNITURE_DESC_SMALL_DOLL_GUPPY
+    
+    Comfort 1
+}
+
+small_doll_gish { //frame 1020
+    name FURNITURE_NAME_SMALL_DOLL_GISH
+    desc FURNITURE_DESC_SMALL_DOLL_GISH
+    
+    Comfort 1
+}
+
+small_doll_isaac { //frame 1021
+    name FURNITURE_NAME_SMALL_DOLL_ISAAC
+    desc FURNITURE_DESC_SMALL_DOLL_ISAAC
+    
+    Comfort 1
+}
+
+small_doll_steven { //frame 1022
+    name FURNITURE_NAME_SMALL_DOLL_STEVEN
+    desc FURNITURE_DESC_SMALL_DOLL_STEVEN
+    
+    Comfort 1
+}
+
+small_electronics_gamesystem { //frame 1023
+    name FURNITURE_NAME_SMALL_ELECTRONICS_GAMESYSTEM
+    desc FURNITURE_DESC_SMALL_ELECTRONICS_GAMESYSTEM
+    
+    Stimulation 1
+}
+
+small_electronics_gamepad { //frame 1024
+    name FURNITURE_NAME_SMALL_ELECTRONICS_GAMEPAD
+    desc FURNITURE_DESC_SMALL_ELECTRONICS_GAMEPAD
+    
+    Stimulation 1
+}
+
+small_electronics_speaker { //frame 1025
+    name FURNITURE_NAME_SMALL_ELECTRONICS_SPEAKER
+    desc FURNITURE_DESC_SMALL_ELECTRONICS_SPEAKER
+    
+    Stimulation 1
+}
+
+small_electronics_mouse { //frame 1026
+    name FURNITURE_NAME_SMALL_ELECTRONICS_MOUSE
+    desc FURNITURE_DESC_SMALL_ELECTRONICS_MOUSE
+    
+    Stimulation 1
+}
+
+small_electronics_phone1 { //frame 1027
+    name FURNITURE_NAME_SMALL_ELECTRONICS_PHONE1
+    desc FURNITURE_DESC_SMALL_ELECTRONICS_PHONE1
+    
+    Stimulation 1
+}
+
+small_electronics_phone2 { //frame 1028
+    name FURNITURE_NAME_SMALL_ELECTRONICS_PHONE2
+    desc FURNITURE_DESC_SMALL_ELECTRONICS_PHONE2
+    
+    Stimulation 1
+}
+
+small_electronics_phone3 { //frame 1029
+    name FURNITURE_NAME_SMALL_ELECTRONICS_PHONE3
+    desc FURNITURE_DESC_SMALL_ELECTRONICS_PHONE3
+    
+    Stimulation 1
+}
+
+small_electronics_oldphone { //frame 1030
+    name FURNITURE_NAME_SMALL_ELECTRONICS_OLDPHONE
+    desc FURNITURE_DESC_SMALL_ELECTRONICS_OLDPHONE
+    
+    Stimulation 1
+}
+
+small_electronics_oldphone2 { //frame 1031
+    name FURNITURE_NAME_SMALL_ELECTRONICS_OLDPHONE2
+    desc FURNITURE_DESC_SMALL_ELECTRONICS_OLDPHONE2
+    
+    Stimulation 1
+}
+
+small_electronics_oldphone3 { //frame 1032
+    name FURNITURE_NAME_SMALL_ELECTRONICS_OLDPHONE3
+    desc FURNITURE_DESC_SMALL_ELECTRONICS_OLDPHONE3
+    
+    Stimulation 1
+}
+
+small_electronics_lipphone { //frame 1033
+    name FURNITURE_NAME_SMALL_ELECTRONICS_LIPPHONE
+    desc FURNITURE_DESC_SMALL_ELECTRONICS_LIPPHONE
+    
+    Stimulation 1
+}
+
+small_electronics_duckphone { //frame 1034
+    name FURNITURE_NAME_SMALL_ELECTRONICS_DUCKPHONE
+    desc FURNITURE_DESC_SMALL_ELECTRONICS_DUCKPHONE
+    
+    Stimulation 1
+}
+
+small_electronics_cellphone { //frame 1035
+    name FURNITURE_NAME_SMALL_ELECTRONICS_CELLPHONE
+    desc FURNITURE_DESC_SMALL_ELECTRONICS_CELLPHONE
+    
+    Stimulation 1
+}
+
+small_electronics_handradio { //frame 1036
+    name FURNITURE_NAME_SMALL_ELECTRONICS_HANDRADIO
+    desc FURNITURE_DESC_SMALL_ELECTRONICS_HANDRADIO
+    
+    Stimulation 1
+}
+
+small_electronics_handradio2 { //frame 1037
+    name FURNITURE_NAME_SMALL_ELECTRONICS_HANDRADIO2
+    desc FURNITURE_DESC_SMALL_ELECTRONICS_HANDRADIO2
+    
+    Stimulation 1
+}
+
+small_electronics_walkytalky { //frame 1038
+    name FURNITURE_NAME_SMALL_ELECTRONICS_WALKYTALKY
+    desc FURNITURE_DESC_SMALL_ELECTRONICS_WALKYTALKY
+    
+    Stimulation 1
+}
+
+small_electronics_brain { //frame 1039
+    name FURNITURE_NAME_SMALL_ELECTRONICS_BRAIN
+    desc FURNITURE_DESC_SMALL_ELECTRONICS_BRAIN
+    
+    Evolution 4
+    Appeal -4
+}
+
+small_electronics_mysteriousskull { //frame 1040
+    name FURNITURE_NAME_SMALL_ELECTRONICS_MYSTERIOUSSKULL
+    desc FURNITURE_DESC_SMALL_ELECTRONICS_MYSTERIOUSSKULL
+    
+    Evolution 4
+    Appeal -4
+}
+
+small_electronics_moon { //frame 1041
+    name FURNITURE_NAME_SMALL_ELECTRONICS_MOON
+    desc FURNITURE_DESC_SMALL_ELECTRONICS_MOON
+    
+    Stimulation 2
+    Appeal -1
+}
+
+small_electronics_ooze { //frame 1042
+    name FURNITURE_NAME_SMALL_ELECTRONICS_OOZE
+    desc FURNITURE_DESC_SMALL_ELECTRONICS_OOZE
+
+    Health -1
+	Evolution 2
+    Appeal -1
+}
+
+small_jar_diseases { //frame 1043
+    name FURNITURE_NAME_SMALL_JAR_DISEASES
+    desc FURNITURE_DESC_SMALL_JAR_DISEASES
+    
+    Stimulation 2
+    Health -6
+}
+
+small_jar_eyeballs { //frame 1044
+    name FURNITURE_NAME_SMALL_JAR_EYEBALLS
+    desc FURNITURE_DESC_SMALL_JAR_EYEBALLS
+    
+    Stimulation 2
+    Appeal -1
+}
+
+small_jar_heart { //frame 1045
+    name FURNITURE_NAME_SMALL_JAR_HEART
+    desc FURNITURE_DESC_SMALL_JAR_HEART
+    
+    Stimulation 2
+    Appeal -1
+}
+
+small_jar_spider { //frame 1046
+    name FURNITURE_NAME_SMALL_JAR_SPIDER
+    desc FURNITURE_DESC_SMALL_JAR_SPIDER
+    
+    Stimulation 2
+    Appeal -1
+}
+
+small_jar_fish { //frame 1047
+    name FURNITURE_NAME_SMALL_JAR_FISH
+    desc FURNITURE_DESC_SMALL_JAR_FISH
+    
+    Stimulation 2
+    Appeal -1
+}
+
+small_jar_flys { //frame 1048
+    name FURNITURE_NAME_SMALL_JAR_FLYS
+    desc FURNITURE_DESC_SMALL_JAR_FLYS
+    
+    Stimulation 2
+    Appeal -1
+}
+
+small_jar_fairy { //frame 1049
+    name FURNITURE_NAME_SMALL_JAR_FAIRY
+    desc FURNITURE_DESC_SMALL_JAR_FAIRY
+    
+    Health 2
+    Comfort 1
+}
+
+small_jar_coins { //frame 1050
+    name FURNITURE_NAME_SMALL_JAR_COINS
+    desc FURNITURE_DESC_SMALL_JAR_COINS
+    
+    Comfort 1
+}
+
+small_jar_nails { //frame 1051
+    name FURNITURE_NAME_SMALL_JAR_NAILS
+    desc FURNITURE_DESC_SMALL_JAR_NAILS
+    
+    Stimulation 2
+    Appeal -1
+}
+
+small_jar_ghost { //frame 1052
+    name FURNITURE_NAME_SMALL_JAR_GHOST
+    desc FURNITURE_DESC_SMALL_JAR_GHOST
+    
+    Stimulation 2
+    Appeal -1
+}
+
+small_jar_empty { //frame 1053
+    name FURNITURE_NAME_SMALL_JAR_EMPTY
+    desc FURNITURE_DESC_SMALL_JAR_EMPTY
+    
+    Stimulation 2
+    Appeal -1
+}
+
+small_jar_empty2 { //frame 1054
+    name FURNITURE_NAME_SMALL_JAR_EMPTY2
+    desc FURNITURE_DESC_SMALL_JAR_EMPTY2
+    
+    Stimulation 2
+    Appeal -1
+}
+
+small_jar_empty3 { //frame 1055
+    name FURNITURE_NAME_SMALL_JAR_EMPTY3
+    desc FURNITURE_DESC_SMALL_JAR_EMPTY3
+    
+    Stimulation 2
+    Appeal -1
+}
+
+small_gem { //frame 1056
+    name FURNITURE_NAME_SMALL_GEM
+    desc FURNITURE_DESC_SMALL_GEM
+    
+    Appeal 2
+}
+
+small_lotion { //frame 1057
+    name FURNITURE_NAME_SMALL_LOTION
+    desc FURNITURE_DESC_SMALL_LOTION
+    
+    Comfort 1
+}
+
+small_tissues { //frame 1058
+    name FURNITURE_NAME_SMALL_TISSUES
+    desc FURNITURE_DESC_SMALL_TISSUES
+    
+    Comfort 1
+}
+
+small_picture_spoon { //frame 1059
+    name FURNITURE_NAME_SMALL_PICTURE_SPOON
+    desc FURNITURE_DESC_SMALL_PICTURE_SPOON
+    
+    Comfort 1
+}
+
+small_picture_cat { //frame 1060
+    name FURNITURE_NAME_SMALL_PICTURE_CAT
+    desc FURNITURE_DESC_SMALL_PICTURE_CAT
+    
+    Comfort 1
+}
+
+small_picture_can { //frame 1061
+    name FURNITURE_NAME_SMALL_PICTURE_CAN
+    desc FURNITURE_DESC_SMALL_PICTURE_CAN
+    
+    Comfort 1
+}
+
+small_alarmclock1 { //frame 1062
+    name FURNITURE_NAME_SMALL_ALARMCLOCK1
+    desc FURNITURE_DESC_SMALL_ALARMCLOCK1
+    
+    Comfort 1
+}
+
+small_alarmclock2 { //frame 1063
+    name FURNITURE_NAME_SMALL_ALARMCLOCK2
+    desc FURNITURE_DESC_SMALL_ALARMCLOCK2
+    
+    Comfort 1
+}
+
+small_pillbottle { //frame 1064
+    name FURNITURE_NAME_SMALL_PILLBOTTLE
+    desc FURNITURE_DESC_SMALL_PILLBOTTLE
+    
+    Health 1
+}
+
+small_waterbottle { //frame 1065
+    name FURNITURE_NAME_SMALL_WATERBOTTLE
+    desc FURNITURE_DESC_SMALL_WATERBOTTLE
+    
+    Health 1
+}
+
+small_milk { //frame 1066
+    name FURNITURE_NAME_SMALL_MILK
+    desc FURNITURE_DESC_SMALL_MILK
+    
+    Health 1
+}
+
+small_kettle { //frame 1067
+    name FURNITURE_NAME_SMALL_KETTLE
+    desc FURNITURE_DESC_SMALL_KETTLE
+    
+    Comfort 1
+}
+
+small_bowlingball { //frame 1068
+    name FURNITURE_NAME_SMALL_BOWLINGBALL
+    desc FURNITURE_DESC_SMALL_BOWLINGBALL
+    
+    Appeal 1
+}
+
+small_pin { //frame 1069
+    name FURNITURE_NAME_SMALL_PIN
+    desc FURNITURE_DESC_SMALL_PIN
+    
+    Appeal 1
+}
+
+small_mug { //frame 1070
+    name FURNITURE_NAME_SMALL_MUG
+    desc FURNITURE_DESC_SMALL_MUG
+    
+    Comfort 1
+}
+
+small_pencup { //frame 1071
+    name FURNITURE_NAME_SMALL_PENCUP
+    desc FURNITURE_DESC_SMALL_PENCUP
+    
+    Comfort 1
+}
+
+small_food_sausage { //frame 1072
+    name FURNITURE_NAME_SMALL_FOOD_SAUSAGE
+    desc FURNITURE_DESC_SMALL_FOOD_SAUSAGE
+    
+    Comfort 1
+	Health 1
+}
+
+small_deadrat { //frame 1073
+    name FURNITURE_NAME_SMALL_DEADRAT
+    desc FURNITURE_DESC_SMALL_DEADRAT
+    
+    Stimulation 3
+	Health -1
+    
+}
+
+small_blackbox { //frame 1074
+    name FURNITURE_NAME_SMALL_BLACKBOX
+    desc FURNITURE_DESC_SMALL_BLACKBOX
+    
+    Evolution 1
+}
+
+small_eyeball { //frame 1075
+    name FURNITURE_NAME_SMALL_EYEBALL
+    desc FURNITURE_DESC_SMALL_EYEBALL
+    
+    Comfort 1
+}
+
+small_perfume { //frame 1076
+    name FURNITURE_NAME_SMALL_PERFUME
+    desc FURNITURE_DESC_SMALL_PERFUME
+    
+    Comfort 1
+}
+
+small_jar_tadpole { //frame 1077
+    name FURNITURE_NAME_SMALL_JAR_TADPOLE
+    desc FURNITURE_DESC_SMALL_JAR_TADPOLE
+    
+    Comfort 1
+}
+
+small_jug { //frame 1078
+    name FURNITURE_NAME_SMALL_JUG
+    desc FURNITURE_DESC_SMALL_JUG
+    
+    Comfort 1
+}
+
+small_couch { //frame 1079
+    name FURNITURE_NAME_SMALL_COUCH
+    desc FURNITURE_DESC_SMALL_COUCH
+    
+    Comfort 1
+}
+
+small_frige { //frame 1080
+    name FURNITURE_NAME_SMALL_FRIGE
+    desc FURNITURE_DESC_SMALL_FRIGE
+    Comfort 1
+}
+
+small_sink { //frame 1081
+    name FURNITURE_NAME_SMALL_SINK
+    desc FURNITURE_DESC_SMALL_SINK
+    
+    Comfort 1
+}
+
+small_stove { //frame 1082
+    name FURNITURE_NAME_SMALL_STOVE
+    desc FURNITURE_DESC_SMALL_STOVE
+    
+    Comfort 1
+}
+
+small_crate { //frame 1083
+    name FURNITURE_NAME_SMALL_CRATE
+    desc FURNITURE_DESC_SMALL_CRATE
+    
+    Comfort 1
+}
+
+small_bed { //frame 1084
+    name FURNITURE_NAME_SMALL_BED
+    desc FURNITURE_DESC_SMALL_BED
+    
+    Comfort 1
+}
+
+small_sidetable { //frame 1085
+    name FURNITURE_NAME_SMALL_SIDETABLE
+    desc FURNITURE_DESC_SMALL_SIDETABLE
+    
+    Comfort 1
+}
+
+small_shelf { //frame 1086
+    name FURNITURE_NAME_SMALL_SHELF
+    desc FURNITURE_DESC_SMALL_SHELF
+    
+    Comfort 1
+}
+
+small_piggybank { //frame 1087
+    name FURNITURE_NAME_SMALL_PIGGYBANK
+    desc FURNITURE_DESC_SMALL_PIGGYBANK
+    
+    Comfort 1
+}
+
+small_food_cupcake { //frame 1088
+    name FURNITURE_NAME_SMALL_FOOD_CUPCAKE
+    desc FURNITURE_DESC_SMALL_FOOD_CUPCAKE
+    
+    Comfort 1
+}
+
+small_food_cupcake2 { //frame 1089
+    name FURNITURE_NAME_SMALL_FOOD_CUPCAKE2
+    desc FURNITURE_DESC_SMALL_FOOD_CUPCAKE2
+    
+    Comfort 1
+}
+
+small_mug2 { //frame 1090
+    name FURNITURE_NAME_SMALL_MUG2
+    desc FURNITURE_DESC_SMALL_MUG2
+    
+    Comfort 1
+}
+
+small_electronics_joystick { //frame 1091
+    name FURNITURE_NAME_SMALL_ELECTRONICS_JOYSTICK
+    desc FURNITURE_DESC_SMALL_ELECTRONICS_JOYSTICK
+    
+    Stimulation 1
+}
+
+small_bell { //frame 1092
+    name FURNITURE_NAME_SMALL_BELL
+    desc FURNITURE_DESC_SMALL_BELL
+    
+    Stimulation 1
+}
+
+small_iron { //frame 1093
+    name FURNITURE_NAME_SMALL_IRON
+    desc FURNITURE_DESC_SMALL_IRON
+    
+    Comfort 1
+}
+
+small_snowglobe { //frame 1094
+    name FURNITURE_NAME_SMALL_SNOWGLOBE
+    desc FURNITURE_DESC_SMALL_SNOWGLOBE
+    
+    Comfort 1
+}
+
+small_shell { //frame 1095
+    name FURNITURE_NAME_SMALL_SHELL
+    desc FURNITURE_DESC_SMALL_SHELL
+    
+    Comfort 1
+}
+
+small_bigegg { //frame 1096
+    name FURNITURE_NAME_SMALL_BIGEGG
+    desc FURNITURE_DESC_SMALL_BIGEGG
+    
+    Comfort 1
+}
+
+small_letterblock1 { //frame 1097
+    name FURNITURE_NAME_SMALL_LETTERBLOCK1
+    desc FURNITURE_DESC_SMALL_LETTERBLOCK1
+    
+    Comfort 1
+}
+
+small_letterblock2 { //frame 1098
+    name FURNITURE_NAME_SMALL_LETTERBLOCK2
+    desc FURNITURE_DESC_SMALL_LETTERBLOCK2
+    
+    Comfort 1
+}
+
+small_letterblock3 { //frame 1099
+    name FURNITURE_NAME_SMALL_LETTERBLOCK3
+    desc FURNITURE_DESC_SMALL_LETTERBLOCK3
+    
+    Comfort 1
+}
+
+small_letterblock4 { //frame 1100
+    name FURNITURE_NAME_SMALL_LETTERBLOCK4
+    desc FURNITURE_DESC_SMALL_LETTERBLOCK4
+    
+    Comfort 1
+}
+
+small_letterblock5 { //frame 1101
+    name FURNITURE_NAME_SMALL_LETTERBLOCK5
+    desc FURNITURE_DESC_SMALL_LETTERBLOCK5
+    
+    Comfort 1
+}
+
+small_letterblock6 { //frame 1102
+    name FURNITURE_NAME_SMALL_LETTERBLOCK6
+    desc FURNITURE_DESC_SMALL_LETTERBLOCK6
+    
+    Comfort 1
+}
+
+small_letterblock7 { //frame 1103
+    name FURNITURE_NAME_SMALL_LETTERBLOCK7
+    desc FURNITURE_DESC_SMALL_LETTERBLOCK7
+    
+    Comfort 1
+}
+
+small_letterblock8 { //frame 1104
+    name FURNITURE_NAME_SMALL_LETTERBLOCK8
+    desc FURNITURE_DESC_SMALL_LETTERBLOCK8
+    
+    Comfort 1
+}
+
+small_rubberduck { //frame 1105
+    name FURNITURE_NAME_SMALL_RUBBERDUCK
+    desc FURNITURE_DESC_SMALL_RUBBERDUCK
+    
+    Comfort 1
+}
+
+small_wobblebird { //frame 1106
+    name FURNITURE_NAME_SMALL_WOBBLEBIRD
+    desc FURNITURE_DESC_SMALL_WOBBLEBIRD
+    
+    Comfort 1
+}
+
+small_90sphone { //frame 1107
+    name FURNITURE_NAME_SMALL_90SPHONE
+    desc FURNITURE_DESC_SMALL_90SPHONE
+    
+    Comfort 1
+}
+
+small_90sphone2 { //frame 1108
+    name FURNITURE_NAME_SMALL_90SPHONE2
+    desc FURNITURE_DESC_SMALL_90SPHONE2
+    
+    Comfort 1
+}
+
+small_knocker { //frame 1109
+    name FURNITURE_NAME_SMALL_KNOCKER
+    desc FURNITURE_DESC_SMALL_KNOCKER
+    
+    Comfort 1
+}

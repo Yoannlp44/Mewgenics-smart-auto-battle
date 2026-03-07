@@ -1,0 +1,78 @@
+graphics Map_Crater
+chapter_id crater
+tileset crater
+world_name_frame crater
+area_name AREA_NAME_CRATER
+intro_cutscene crater
+act 2
+chapter 2
+version 1
+
+levels {
+    folder crater
+    easy [easy]
+    hard [easy]
+    rare [rare]
+    boss [boss]
+    miniboss [miniboss]
+    special [special]
+}
+
+music crater
+ambience amb_crater.ogg
+
+
+events {
+    normal [
+        common
+        crater_events.gon
+    ]
+}
+
+enemy_pools { //for effects that need to spawn a "chapter enemy" of some sort
+    small [Amoeba]
+    medium [GeoLad BrambleBaby Hemlock Nettle Birthwort Tremblo Infested RockHead NoHead CraterCreeper]
+    large [Carnibulb]
+}
+
+item_pools {
+    chapter_item_pool crateritems
+}
+
+
+minibosses {
+    rockybobo auto
+    infestedduo auto
+}
+
+
+nodes {
+    #include "standard_nodes.gon"
+
+    //exits
+    exit0 {
+        type exit
+        next_map moon.gon
+        locked true
+        override_art MapNodeExit_Moon
+    }
+
+    //special
+    boss {
+        type boss
+        boss_cutscene alienqueen
+    }
+
+    weather_event {
+        type special_event
+        level CraterWeatherEvent
+    }
+}
+
+flags {
+    MoonUnlocked {
+        exit0 {
+            locked false
+        }
+    }
+}

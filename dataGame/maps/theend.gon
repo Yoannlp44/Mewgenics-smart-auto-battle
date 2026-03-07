@@ -1,0 +1,88 @@
+graphics Map_TheEnd
+chapter_id theend
+tileset theend
+world_name_frame theend
+area_name AREA_NAME_THEEND
+act 3
+chapter 3
+version 1
+
+levels {
+    folder theend
+    easy [easy]
+    hard [easy]
+    rare [rare]
+    boss [boss]
+    miniboss [miniboss]
+    special [special]
+}
+
+music theend
+ambience amb_theend.ogg
+
+events {
+    normal [
+        common
+        theend_events.gon
+    ]
+}
+
+enemy_pools { //for effects that need to spawn a "chapter enemy" of some sort
+    small []
+    medium [BoyShade GirlShade Gasper Floast TumorBarrier Husk ConjoinedHusk CancerCat CollectiveCat ShadeCat]
+    large [Slag]
+    //extra_large [Gorger] //this one is 3x3 so it probably needs its own pool?
+}
+
+item_pools {
+    chapter_item_pool theenditems
+}
+
+minibosses {
+    thebloat auto
+}
+
+
+
+nodes {
+    #include "standard_nodes.gon"
+
+    //exits
+    exit0 {
+        type exit
+        next_map endoftime.gon
+        hidden true
+        override_art MapNodeExit_Infinite
+    }
+
+    //special
+    boss {
+        type boss
+        boss_cutscene themother
+    }
+
+    quest_event {
+        type special_event
+        level Quest_Orb
+        override_art MapNode_Orb
+    }
+
+    time_machine {
+        type special_event
+        level Quest_TimeMachineTheEnd
+        override_art MapNode_TimeMachine
+    }
+}
+
+flags {
+    VolcanoAntennaAttached {
+        quest_event {
+            override_art MapNode_OrbAntenna
+        }
+    }
+    EndOfTimeUnlocked {
+        exit0 {
+            hidden false
+        }
+    }
+}

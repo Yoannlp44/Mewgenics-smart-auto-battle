@@ -1,0 +1,71 @@
+graphics Map_Bunker
+chapter_id bunker
+tileset bunker
+world_name_frame bunker
+area_name AREA_NAME_BUNKER
+intro_cutscene bunker
+act 2
+chapter 2
+version 1
+
+levels {
+    folder bunker
+    easy [easy]
+    hard [easy]
+    rare [rare]
+    boss [boss]
+    miniboss [miniboss]
+    special [special]
+}
+
+music bunker
+ambience amb_bunker.ogg
+
+events {
+    normal [
+        common
+        bunker_events.gon
+    ]
+}
+
+enemy_pools { //for effects that need to spawn a "chapter enemy" of some sort
+    small []
+    medium [AtomicKitten RoboTom CatCultist Cultist CultistZealot CultistMutant CultistBishop BishopHat LoveBot SecurityBot Hive FloatingHive]
+    large [KillDozer]
+}
+
+item_pools {
+    chapter_item_pool bunkeritems
+}
+
+
+minibosses {
+    lenny auto
+    bumblefoot auto
+}
+
+nodes {
+    #include "standard_nodes.gon"
+
+    //exits
+    exit0 {
+        type exit
+        next_map core.gon
+        locked true
+        override_art MapNodeExit_Core
+    }
+
+    //special
+    boss {
+        type boss
+        boss_cutscene johnny
+    }
+}
+
+flags {
+    CoreUnlocked {
+        exit0 {
+            locked false
+        }
+    }
+}

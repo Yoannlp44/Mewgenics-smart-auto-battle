@@ -1,0 +1,283 @@
+default_unlocked_classes [ //classes are a whitelist instead of a blacklist
+    Colorless
+	Fighter
+	Hunter
+	Mage
+	Tank
+]
+
+//everything else is a blacklist
+
+locked_abilities [
+    //Path of the XXX cycle
+	PathOfTheMage
+    PathOfTheHunter
+    PathOfTheThief
+    PathOfTheFighter
+    PathOfTheTank
+    PathOfTheCleric
+    PathOfTheButcher
+    PathOfThePsychic
+    PathOfTheTinkerer
+    PathOfTheMonk
+    PathOfTheDruid
+    PathOfTheNecromancer
+    PathOfTheJester
+    PathOfTheVoid
+
+
+    //unlockable class actives
+    Pawbreaker
+    BallOfSpiders
+    HyperBeam
+    Ethereal
+    NailFlurry
+    Suplex
+    SummonShade
+    Supernova
+    MechSuit
+    SliceAndDice
+    SummonBear
+    HundredHandSlap
+    Metronome
+
+    //jester actives
+    SmartMetronome
+    RNGCannon
+    Bump
+    PowerUp
+]
+
+locked_passives [
+    //class soul cycle
+    FightersSoul
+    MagesSoul
+    TanksSoul
+    HuntersSoul
+    ThiefsSoul
+    ClericsSoul
+    NecromancersSoul
+    TinkerersSoul
+    DruidsSoul
+    MonksSoul
+    ButchersSoul
+    PsychicsSoul
+    JestersSoul
+    VoidSoul
+
+    //unlockable class passives
+    DualWield
+    ThrillOfTheHunt
+    EnergyStorm
+    EvilPatron
+    AlphaStrike
+    Bouncer
+    DeathIncarnate
+    GravityWell
+    ArmorSpecialist
+    Indigestion
+    SuicideSquad
+    Unstoppable
+    SkillShare
+
+
+    //jester passives
+    SuperLuck
+    Goofball
+]
+
+locked_items [
+    //class items (put them in this order for organization)
+    //head (throbbing king)
+    //face (chaos boss)
+    //neck (god boss)
+    //weapon (jurassic)
+    //trinket (the end)
+    //trinket 2 (???)
+
+
+    //class item cycle
+    //fighter
+    FighterHelm
+    FighterScar
+    FighterShoulderPad
+    BattleAxe
+    RageJuice
+    Steroids
+
+    //hunter
+    HunterCap
+    HunterMonocle
+    HunterQuiver
+    InfinityArrow
+    HuntersFlute
+    BagOfSeeds
+
+    //mage
+    MageHat
+    MageRobe
+    MageScarf
+    StaffOfFlame
+    RingOfFrost
+    SpellBook
+
+    //cleric
+    ClericHat
+    ClericTears
+    ClericRelic
+    AnointingOil
+    HolyWater
+    PrayerCard
+
+    //thief
+    ThiefHood
+    ThiefTattoo
+    ThiefCloak
+    LacedNeedle
+    LuckyCoinPurse
+    BagOfBags
+
+    //tank
+    TankHelmet
+    TankTattoo
+    TankPads
+    Girder
+    TankJuice
+    TankToy
+    
+    //necro
+    SpiderHat
+    DeathMask
+    LeechNecklace
+    UnderworldStaff
+    SatanicBible
+    CambionConception
+
+    //psychic
+    TinfoilHat
+    MysticEye
+    DivinersCloth
+    BentSpoon
+    TarotDeck
+    FriendshipBracelet
+
+    //tinkerer
+    ScrappersHat
+    ScrappersMask
+    ScrappersBackpack
+    BallPeenHammer
+    ScrapBag
+    Fireworks
+
+    //butcher
+    FleshShroud
+    IronJaw
+    HookedNecklace
+    ButchersCleaver
+    Cookbook
+    SackOfMeat
+
+    //druid
+    MushroomHat
+    GreenmanMask
+    RingOfMushrooms
+    RainStaff
+    DruidsWhistle
+    TinyCage
+
+    //monk
+    HeadBrand
+    FaceBrand
+    PrayerBeads
+    Bo
+    EmptyHand
+    TinyPebble
+
+    //collarless
+    CatEars
+    CatWhiskers
+    CatCollar
+    LilKitty
+    BallOfYarn
+    SkillSplit
+
+    //jester
+    CapAndBells
+    ClownMakeup
+    Ruffle
+    NinnyStick
+    ToyGun
+    JokerCard
+	
+	//allcollerless
+	CopycatHat                   
+	CopycatMask                  
+	CopycatScarf  
+	
+	//boxes
+    TheBoxCardboard
+	TheBoxChest                  
+	TheBox                       
+	TheBlackBox 
+
+    //items unlocked from events
+    MomsKnife
+
+    //steven unlocks
+
+    //hard
+    ThrobbingCrown
+    CrownOfChaos
+    ChildsCrown
+    TinasBellyButton
+    TinasLarynx
+    TinasFriend
+    PyrophinasToenail
+    ZaratanaTurd
+    ScorchedEarth
+    RoboticArm
+    LiquidMetal
+    HitlersToupe
+
+    //crazy
+    StevensGobbler
+    StevensFartFace
+    StevensShotgun
+    StevensMustache
+    StevensGristle
+    StevensBagofRocks
+    StevensHelmet
+    StevensFriend
+    StevenStone
+    StevenMarrow
+    StevensBottle
+    StevensHat
+
+    //impossible
+    StevenHat1
+    StevenMask1
+    StevenNeck1
+    StevenTrinket1
+    StevenWeapon1
+    StevensConsumable1
+    StevenHat2
+    StevenMask2
+    StevenNeck2
+    StevenTrinket2
+    StevenWeapon2
+    StevensConsumable2
+]
+
+locked_bosses [
+    queenhippo
+    jestercat
+
+    gambit
+    ratking
+    bumblefoot
+    infestedduo
+]
+
+locked_levelgroups [
+    bigsharklevels
+]

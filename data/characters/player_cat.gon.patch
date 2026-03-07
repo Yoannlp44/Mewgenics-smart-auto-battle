@@ -1,0 +1,5 @@
+PlayerCat.merge {
+    ai {
+        brain GenericBrain
+    }
+}

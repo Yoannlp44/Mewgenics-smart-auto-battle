@@ -1,0 +1,313 @@
+ movieclip StevenOffice
+default_npc Steven
+
+states_and_transitions {
+	states {
+		idle ["idle"]
+	}
+
+	transitions {
+	}
+}
+
+sequences {
+
+	unknown {
+		dialog NPC_STEVEN_UNKNOWN_1
+		get npc_reward
+	}
+
+	also {
+		dialog NPC_STEVEN_ALSO_1
+	}
+	
+	unprompted {
+		do_random_sequence [unprompted_a, unprompted_b, unprompted_c, unprompted_d, unprompted_e, unprompted_f, unprompted_g, unprompted_h, unprompted_i]
+	}
+
+	unprompted_a {
+		dialog NPC_STEVEN_UNPROMPTED_A_1
+		dialog NPC_STEVEN_UNPROMPTED_A_2
+	}
+	unprompted_b {
+		dialog NPC_STEVEN_UNPROMPTED_B_1
+	}
+	unprompted_c {
+		dialog NPC_STEVEN_UNPROMPTED_C_1
+	}
+	unprompted_d {
+		dialog NPC_STEVEN_UNPROMPTED_D_1
+		dialog NPC_STEVEN_UNPROMPTED_D_2
+	}
+	unprompted_e {
+		dialog NPC_STEVEN_UNPROMPTED_E_1
+	}
+	unprompted_f {
+		dialog NPC_STEVEN_UNPROMPTED_F_1
+	}
+	unprompted_g {
+		dialog NPC_STEVEN_UNPROMPTED_G_1
+	}
+	unprompted_h {
+		dialog NPC_STEVEN_UNPROMPTED_H_1
+	}
+	unprompted_i {
+		dialog NPC_STEVEN_UNPROMPTED_I_1
+	}
+
+	steven_milliontrashed {
+		set_state talking
+		dialog NPC_STEVEN_STEVEN_MILLIONTRASHED_1
+		set_state closeup
+		dialog NPC_STEVEN_STEVEN_MILLIONTRASHED_2
+		set_state talking
+		dialog NPC_STEVEN_STEVEN_MILLIONTRASHED_3
+		dialog NPC_STEVEN_STEVEN_MILLIONTRASHED_4
+		set_state verycloseup
+		dialog NPC_STEVEN_STEVEN_MILLIONTRASHED_5
+		get npc_reward
+	}
+	
+	steven_introduction { //Steven is unlocked after time travel
+		lock_controls 1
+		set_state closeup
+		dialog NPC_STEVEN_STEVEN_INTRODUCTION_1
+		set_state verycloseup
+		dialog NPC_STEVEN_STEVEN_INTRODUCTION_2
+		set_state closeup
+		dialog NPC_STEVEN_STEVEN_INTRODUCTION_3
+		dialog NPC_STEVEN_STEVEN_INTRODUCTION_4
+		set_state talking
+		dialog NPC_STEVEN_STEVEN_INTRODUCTION_5
+		set_state verycloseup
+		dialog NPC_STEVEN_STEVEN_INTRODUCTION_6
+		set_state idle
+		dialog NPC_STEVEN_STEVEN_INTRODUCTION_7
+		dialog NPC_STEVEN_STEVEN_INTRODUCTION_8
+		dialog NPC_STEVEN_STEVEN_INTRODUCTION_9
+		set_state blocking
+		dialog NPC_STEVEN_STEVEN_INTRODUCTION_10
+		set_state idlenoani
+		dialog NPC_STEVEN_STEVEN_INTRODUCTION_11
+		dialog NPC_STEVEN_STEVEN_INTRODUCTION_12
+		set_state closeup
+		dialog NPC_STEVEN_STEVEN_INTRODUCTION_13
+		set_state idlenoani
+		dialog NPC_STEVEN_STEVEN_INTRODUCTION_14
+		set_state blocking
+		dialog NPC_STEVEN_STEVEN_INTRODUCTION_15
+		set_state verycloseup
+		dialog NPC_STEVEN_STEVEN_INTRODUCTION_16
+		dialog NPC_STEVEN_STEVEN_INTRODUCTION_17
+		dialog NPC_STEVEN_STEVEN_INTRODUCTION_18
+		blocking idlenoani
+		dialog NPC_STEVEN_STEVEN_INTRODUCTION_19
+		set_state idlenoani
+		unlock_controls 1
+	}
+
+	steven_resummon { //this is triggered after beating the final boss, when you unlock the ability to resummon house bosses
+		lock_controls 1
+		dialog NPC_STEVEN_STEVEN_RESUMMON_1
+		unlock_controls 1
+	}
+
+	steven_postendgame { //what steven says after you have beaten the game and seen the final ending.
+		lock_controls 1
+		set_state blocking
+		set_state verycloseup
+		dialog NPC_STEVEN_STEVEN_POSTENDGAME_1
+		set_state closeup
+		dialog NPC_STEVEN_STEVEN_POSTENDGAME_2
+		dialog NPC_STEVEN_STEVEN_POSTENDGAME_3
+		set_state talking
+		dialog NPC_STEVEN_STEVEN_POSTENDGAME_4
+		dialog NPC_STEVEN_STEVEN_POSTENDGAME_5
+		dialog NPC_STEVEN_STEVEN_POSTENDGAME_6
+		dialog NPC_STEVEN_STEVEN_POSTENDGAME_7
+		set_state closeup
+		dialog NPC_STEVEN_STEVEN_POSTENDGAME_8
+		//dialog "OK, I've been here the whole time, but I only really showed up when you broke the rules!"
+		dialog NPC_STEVEN_STEVEN_POSTENDGAME_9
+		set_state verycloseup
+		dialog NPC_STEVEN_STEVEN_POSTENDGAME_10
+		set_state closeup
+		dialog NPC_STEVEN_STEVEN_POSTENDGAME_11
+		dialog NPC_STEVEN_STEVEN_POSTENDGAME_12
+		dialog NPC_STEVEN_STEVEN_POSTENDGAME_13
+		set_state verycloseup
+		dialog NPC_STEVEN_STEVEN_POSTENDGAME_14
+		set_state talking
+		dialog NPC_STEVEN_STEVEN_POSTENDGAME_15
+		set_state idle
+		unlock_controls 1
+	}
+
+	steven_100 { //what steven says when you 100% the game.
+		lock_controls 1
+		set_state blocking
+		dialog NPC_STEVEN_STEVEN_100_1
+		set_state closeup
+		dialog NPC_STEVEN_STEVEN_100_2
+		dialog NPC_STEVEN_STEVEN_100_3
+		set_state idle
+		unlock_controls 1
+	}
+
+
+	//steven act difficulty unlocks
+	//steven_unlock_act1_hard { //this one is unnecessary as you get this the first time you meet steven
+	//}
+	steven_unlock_act1_crazy { //you get this one when you beat act 1 + its house bosses on hard
+		lock_controls 1
+		set_state blocking
+		
+		set_state closeup
+		dialog NPC_STEVEN_STEVEN_UNLOCK_ACT1_CRAZY_1
+		set_state verycloseup
+		dialog NPC_STEVEN_STEVEN_UNLOCK_ACT1_CRAZY_2
+		set_state closeup
+		dialog NPC_STEVEN_STEVEN_UNLOCK_ACT1_CRAZY_3
+		set_state talking
+		dialog NPC_STEVEN_STEVEN_UNLOCK_ACT1_CRAZY_4
+		set_state verycloseup
+		dialog NPC_STEVEN_STEVEN_UNLOCK_ACT1_CRAZY_5
+		set_state blocking
+		dialog NPC_STEVEN_STEVEN_UNLOCK_ACT1_CRAZY_6
+
+		set_state idle
+		unlock_controls 1
+	}
+	steven_unlock_act1_impossible { //you get this one when you beat act 1 house bosses on crazy
+		lock_controls 1
+		set_state closeup
+		
+		dialog NPC_STEVEN_STEVEN_UNLOCK_ACT1_IMPOSSIBLE_1
+		set_state talking
+		dialog NPC_STEVEN_STEVEN_UNLOCK_ACT1_IMPOSSIBLE_2
+		dialog NPC_STEVEN_STEVEN_UNLOCK_ACT1_IMPOSSIBLE_3
+		set_state closeup
+		dialog NPC_STEVEN_STEVEN_UNLOCK_ACT1_IMPOSSIBLE_4
+		dialog NPC_STEVEN_STEVEN_UNLOCK_ACT1_IMPOSSIBLE_5
+
+		set_state idle
+		unlock_controls 1
+	}
+	steven_unlock_act2_hard { //you get this one when you beat act 2 for the first time
+		lock_controls 1
+		set_state closeup
+
+		dialog NPC_STEVEN_STEVEN_UNLOCK_ACT2_HARD_1
+		set_state verycloseup
+		dialog NPC_STEVEN_STEVEN_UNLOCK_ACT2_HARD_2
+		set_state talking
+		dialog NPC_STEVEN_STEVEN_UNLOCK_ACT2_HARD_3
+		dialog NPC_STEVEN_STEVEN_UNLOCK_ACT2_HARD_4
+		dialog NPC_STEVEN_STEVEN_UNLOCK_ACT2_HARD_5
+
+		set_state idle
+		unlock_controls 1
+	}
+	steven_unlock_act2_crazy {
+		lock_controls 1
+		set_state blocking
+
+		dialog NPC_STEVEN_STEVEN_UNLOCK_ACT2_CRAZY_1
+		dialog NPC_STEVEN_STEVEN_UNLOCK_ACT2_CRAZY_2
+		dialog NPC_STEVEN_STEVEN_UNLOCK_ACT2_CRAZY_3
+		set_state closeup
+		dialog NPC_STEVEN_STEVEN_UNLOCK_ACT2_CRAZY_4
+		set_state verycloseup
+		dialog NPC_STEVEN_STEVEN_UNLOCK_ACT2_CRAZY_5
+		set_state talking
+		dialog NPC_STEVEN_STEVEN_UNLOCK_ACT2_CRAZY_6
+
+		set_state idle
+		unlock_controls 1
+	}
+	steven_unlock_act2_impossible {
+		lock_controls 1
+		set_state talking
+
+		dialog NPC_STEVEN_STEVEN_UNLOCK_ACT2_IMPOSSIBLE_1
+		dialog NPC_STEVEN_STEVEN_UNLOCK_ACT2_IMPOSSIBLE_2
+		dialog NPC_STEVEN_STEVEN_UNLOCK_ACT2_IMPOSSIBLE_3
+		set_state verycloseup
+		dialog NPC_STEVEN_STEVEN_UNLOCK_ACT2_IMPOSSIBLE_4
+		set_state talking
+		dialog NPC_STEVEN_STEVEN_UNLOCK_ACT2_IMPOSSIBLE_5
+		dialog NPC_STEVEN_STEVEN_UNLOCK_ACT2_IMPOSSIBLE_6
+
+		set_state idle
+		unlock_controls 1
+	}
+	steven_unlock_act3_hard { //you get this one when you beat act 3 for the first time
+		lock_controls 1
+		set_state verycloseup
+
+		dialog NPC_STEVEN_STEVEN_UNLOCK_ACT3_HARD_1
+		set_state closeup
+		dialog NPC_STEVEN_STEVEN_UNLOCK_ACT3_HARD_2
+		dialog NPC_STEVEN_STEVEN_UNLOCK_ACT3_HARD_3
+		set_state verycloseup
+		dialog NPC_STEVEN_STEVEN_UNLOCK_ACT3_HARD_4
+		set_state blocking
+		dialog NPC_STEVEN_STEVEN_UNLOCK_ACT3_HARD_5
+		dialog NPC_STEVEN_STEVEN_UNLOCK_ACT3_HARD_6
+		set_state closeup
+		dialog NPC_STEVEN_STEVEN_UNLOCK_ACT3_HARD_7
+		set_state verycloseup
+		dialog NPC_STEVEN_STEVEN_UNLOCK_ACT3_HARD_8
+		set_state talking
+		dialog NPC_STEVEN_STEVEN_UNLOCK_ACT3_HARD_9
+		dialog NPC_STEVEN_STEVEN_UNLOCK_ACT3_HARD_10
+
+		set_state idle
+		unlock_controls 1
+	}
+	steven_unlock_act3_crazy {
+		lock_controls 1
+		set_state blocking
+
+		dialog NPC_STEVEN_STEVEN_UNLOCK_ACT3_CRAZY_1
+		set_state closeup
+		dialog NPC_STEVEN_STEVEN_UNLOCK_ACT3_CRAZY_2
+		dialog NPC_STEVEN_STEVEN_UNLOCK_ACT3_CRAZY_3
+		set_state blocking
+		dialog NPC_STEVEN_STEVEN_UNLOCK_ACT3_CRAZY_4
+		dialog NPC_STEVEN_STEVEN_UNLOCK_ACT3_CRAZY_5
+		dialog NPC_STEVEN_STEVEN_UNLOCK_ACT3_CRAZY_6
+		dialog NPC_STEVEN_STEVEN_UNLOCK_ACT3_CRAZY_7
+
+		set_state idle
+		unlock_controls 1
+	}
+	steven_unlock_act3_impossible {
+		lock_controls 1
+		set_state closeup
+
+		dialog NPC_STEVEN_STEVEN_UNLOCK_ACT3_IMPOSSIBLE_1
+		set_state verycloseup
+		dialog NPC_STEVEN_STEVEN_UNLOCK_ACT3_IMPOSSIBLE_2
+		set_state blocking
+		dialog NPC_STEVEN_STEVEN_UNLOCK_ACT3_IMPOSSIBLE_3
+		dialog NPC_STEVEN_STEVEN_UNLOCK_ACT3_IMPOSSIBLE_4
+		dialog NPC_STEVEN_STEVEN_UNLOCK_ACT3_IMPOSSIBLE_5
+		set_state closeup
+		dialog NPC_STEVEN_STEVEN_UNLOCK_ACT3_IMPOSSIBLE_6
+		set_state talking
+		dialog NPC_STEVEN_STEVEN_UNLOCK_ACT3_IMPOSSIBLE_7
+
+		set_state idle
+		unlock_controls 1
+	}
+	
+}
+
+
+
+
+//default  happy  veryhappy  sad  angry  veryangry
+//questioning  whispering  pondering  mocking
+//inlove  confused  paranoid  shocked  scared  spacedout
+//grossedout bored winking

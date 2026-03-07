@@ -1,0 +1,568 @@
+mouth {
+    300 { //Sabertoothed  
+        tag animal
+        str 1
+    }
+    301 { //Hippo Teeth
+        tag animal
+        desc "MUTATION_MOUTH_301_DESC"
+
+        passives {
+            FlatHealWhenDealDamage 1
+        }
+    }
+    302 { //Flesh Kid  
+        desc "MUTATION_MOUTH_302_DESC"        
+
+        passives {
+            HealthRegenUp 1
+        }
+    }
+    303 { //Delerious  
+        tag melted
+        int 1
+    }
+    304 { //Spider
+        tag animal  
+        desc "MUTATION_MOUTH_304_DESC"
+
+        passives {
+            AddStatusToBasicAttack {
+                Poison 1
+            }
+        }
+    }
+    305 { //Ash  
+        desc "MUTATION_MOUTH_305_DESC"
+        passives {
+            AddCorpseHealth 100
+        }
+    }
+    306 { //Famine  
+        desc "MUTATION_MOUTH_306_DESC"
+
+        passives {
+            SpawnThingOnDamage {
+                object Fly
+                good false //good relative to the thing attacking, for luck calculations
+                chance 10%
+            }
+        }
+    }
+    307 { //Alien Chomp  
+        desc "MUTATION_MOUTH_307_DESC"
+
+        passives {
+            AddStatusToBasicAttack {
+                Instakill [25, .01]
+            }
+        }
+    }
+    308 { //Licky  
+        desc "MUTATION_MOUTH_308_DESC"
+
+        passives {
+            HealthRegenUp 1
+        }
+    }
+    309 { //Jacko  
+        desc "MUTATION_MOUTH_309_DESC"
+
+        passives {
+            AddStatusToBasicAttack {
+                Fear [1 .1]
+            }
+        }
+    }
+    310 { //Lip Fillers 
+        cha 1
+    }
+
+    311 { //Leech Mouth
+        desc "MUTATION_MOUTH_311_DESC"
+
+        passives {
+            AddStatusToBasicAttack {
+                Leeches 1
+            }
+        }
+    }
+
+    312 { //Bear Trap Mouth
+        desc "MUTATION_MOUTH_312_DESC"
+        str 1
+        passives {
+            AddStatusToBasicMeleeAttack {
+                Immobile [1, .1]
+            }
+        }
+    }
+
+    313 { //Full Mouth
+         desc "MUTATION_MOUTH_313_DESC"
+
+         passives {
+             StatusEachRoundEnd {
+                UseAbility Spit
+             }
+         }
+    }
+
+
+    314 { //Gold Tooth
+         desc "MUTATION_MOUTH_314_DESC"
+
+         passives {
+             StatusOnDie {
+                 ScatterCoins 5
+                 ScatterCoins [1 .5]
+                 ScatterCoins [1 .5]
+                 ScatterCoins [1 .5]
+                 ScatterCoins [1 .5]
+                 ScatterCoins [1 .5]
+             }
+         }
+    }
+
+
+    315 { //Double Mouth
+        desc "MUTATION_MOUTH_315_DESC"
+
+        passives { 
+            StatusEachTurnBegin {
+                Quivered [1, 0.1]
+            }  
+        }
+    }
+
+
+    316 { //Horse Face
+         desc "MUTATION_MOUTH_316_DESC"
+         cha -1
+         passives{
+            AddStatusToBasicAttack {
+                Bruise 1
+            }
+         }
+    } 
+
+    317 { //Glass Teeth
+        desc "MUTATION_MOUTH_317_DESC"
+        passives {   
+            BleedThorns 1 
+            StatusOnTookDamage {
+                ChangeTilesUnder GlassTile 
+            }
+        } 
+    }
+
+
+    318 { //mole mouth
+        desc "MUTATION_MOUTH_318_DESC"
+        passives {
+            ReplaceBasicMove_Mutation BasicDig
+        }
+    }
+
+
+    319 { //Catfish Mouth
+        desc "MUTATION_MOUTH_319_DESC"
+        passives {
+            PassiveWhenAffectedByElement {
+                element water
+                passives {
+                    HealthRegenUp 1 
+                }
+            } 
+            WaterWalk 1
+        }
+    }
+
+    // for Tyler - BirdChance() right? Seems like you'll need to do something to modify this from a mutation. Also, by how much?
+//   320 { //Bird Beak
+//        desc "Double the odds of birds appearing."
+//   }
+
+
+    321 { //Zipper Mouth 
+         shield 3
+    }
+
+
+    322 { //Shark Mouth
+        desc "MUTATION_MOUTH_322_DESC"
+        passives{
+            AddStatusToBasicAttack {
+                Bleed 1
+            }
+        }
+    }
+
+
+    323 { //Gills
+        desc "MUTATION_MOUTH_323_DESC"
+        passives {
+            PassiveWhenAffectedByElement {
+                element water
+                passives {
+                    HealthRegenUp 2 
+                }
+            }  
+        }
+    }
+
+
+    324 { //Eyeball
+        desc "MUTATION_MOUTH_324_DESC"      
+        passives {
+            AddBonusRange 1
+        }
+    }
+
+    // For Tyler - Add a new  ReplaceBasicAttack_Mutation I guess 
+//    325 { //Wide Mouth
+//         desc "Your melee attack hits 3 tiles in front of you"
+//    }
+
+
+    326 { //Double Mouth 2
+        desc "MUTATION_MOUTH_326_DESC"
+        passives { 
+            StatusOnEatFood {
+                HealthRegenUp 1 
+            }
+        }
+    } 
+
+    327 { //Clown Lips
+        desc "MUTATION_MOUTH_327_DESC"
+        passives { 
+            AddLevelUpRerolls 1
+        }
+    }
+
+    328 { //Bandage Mouth
+        desc "MUTATION_MOUTH_328_DESC"
+        passives { 
+            HealthRegenUp 2
+
+            Vegan 1
+            HouseFoodRequirementMultiplier 0
+            DisableAbilitiesWithTag consumable
+            DisableAbilitiesWithTag musical
+            BlacklistPickupType food
+            BlacklistPickupType catnip
+        }
+    }
+	
+    750 { //beaver teeth
+        desc "MUTATION_MOUTH_750_DESC"
+        passives { 
+			AddStatusToBasicAttack {
+                ChangeTile DirtTile
+				VaporizeInanimate 1
+            }	
+        }
+    }
+	
+    751 { //pig snout
+		con 2
+    }
+	
+    752 { //Dog tongue
+        desc "MUTATION_MOUTH_752_DESC"
+        passives {
+            AddStatusToBasicAttack {
+                ChangeTile WaterTile
+            }
+            AddElementsToBasicAttack Water 
+        } 
+    }
+	
+    754 { //Isaacs mouth
+        desc "MUTATION_MOUTH_754_DESC"
+		passives {
+			DepressionAura 1
+		}
+    }
+	
+    755 { //Edmund beard
+        desc "MUTATION_MOUTH_755_DESC"
+		passives {
+			ElementImmune Ice
+		}
+    }
+	
+    756 { //Tylers beard
+		int 1
+    }
+
+    757 { //Mermaid mouth
+        desc "MUTATION_MOUTH_757_DESC"
+		passives {
+			AddStatusToBasicAttack {
+				Bleed 1
+			}
+		}
+    }
+	
+    760 { //bigfoot mouth
+        desc "MUTATION_MOUTH_760_DESC"
+        passives {
+            AbilityWhenTaggedCharacterMovesNear {
+                ability move
+                tag food
+                range 2
+            }
+        }
+    }
+
+    900 { //Slender
+        desc "MUTATION_MOUTH_900_DESC"
+
+        passives {
+            AddStatusToBasicAttack {
+                Fear [1 .1]
+            }
+        }
+    }
+
+
+    1500 { //rat mouth
+        tag animal
+        desc "MUTATION_MOUTH_1500_DESC"
+
+        passives {
+            AddStatusToBasicAttack {
+                Poison 1
+            }
+        }
+    }
+
+    1026 { //spider mouth
+        tag animal
+        desc "MUTATION_MOUTH_1026_DESC"
+
+        passives {
+            AddStatusToBasicAttack {
+                Webbed [1 .1]
+            }
+        }
+    }
+
+
+    //simple stat mod parts
+    400 {
+        str 2
+        con -1
+    }
+    401 {
+        str 2
+        dex -1
+    }
+    402 {
+        str 2
+        cha -1
+    }
+    403 {
+        str 2
+        int -1
+    }
+    404 {
+        str 2
+        spd -1
+    }
+    405 {
+        str 2
+        lck -1
+    }
+    406 {
+        con 2
+        str -1
+    }
+    407 {
+        con 2
+        dex -1
+    }
+    408 {
+        con 2
+        cha -1
+    }
+    409 {
+        con 2
+        int -1
+    }
+    410 {
+        con 2
+        spd -1
+    }
+    411 {
+        con 2
+        lck -1
+    }
+    412 {
+        dex 2
+        con -1
+    }
+    413 {
+        dex 2
+        str -1
+    }
+    414 {
+        dex 2
+        cha -1
+    }
+    415 {
+        dex 2
+        int -1
+    }
+    416 {
+        dex 2
+        spd -1
+    }
+    417 {
+        dex 2
+        lck -1
+    }
+    418 {
+        int 2
+        con -1
+    }
+    419 {
+        int 2
+        dex -1
+    }
+    420 {
+        int 2
+        cha -1
+    }
+    421 {
+        int 2
+        str -1
+    }
+    422 {
+        int 2
+        spd -1
+    }
+    423 {
+        int 2
+        lck -1
+    }
+    424 {
+        cha 2
+        con -1
+    }
+    425 {
+        cha 2
+        dex -1
+    }
+    426 {
+        cha 2
+        str -1
+    }
+    427 {
+        cha 2
+        int -1
+    }
+    428 {
+        cha 2
+        spd -1
+    }
+    429 {
+        cha 2
+        lck -1
+    }
+    430 {
+        lck 2
+        con -1
+    }
+    431 {
+        lck 2
+        dex -1
+    }
+    432 {
+        lck 2
+        cha -1
+    }
+    433 {
+        lck 2
+        int -1
+    }
+    434 {
+        lck 2
+        spd -1
+    }
+    435 {
+        lck 2
+        str -1
+    }
+    436 {
+        spd 2
+        con -1
+    }
+    437 {
+        spd 2
+        str -1
+    }
+    438 {
+        spd 2
+        cha -1
+    }
+    439 {
+        spd 2
+        int -1
+    }
+    440 {
+        spd 2
+        dex -1
+    }
+    441 {
+        spd 2
+        lck -1
+    }
+
+
+    //Birth Defects
+    700 { //cleft pallet
+        tag birth_defect
+        cha -2
+    }
+    701 { //anodontia
+        tag birth_defect
+        str -1
+        dex -1
+    }
+	-2 { //no mouth (frame 702)
+        desc "MUTATION_MOUTH_M2_DESC"
+        tag birth_defect
+        
+        passives {
+            Vegan 1
+            HouseFoodRequirementMultiplier 0
+            DisableAbilitiesWithTag consumable
+            DisableAbilitiesWithTag musical
+            BlacklistPickupType food
+            BlacklistPickupType catnip
+        }
+    }
+	703 { //underbite
+        tag birth_defect
+        int -2
+		con 1
+    }
+	704 { //overbite
+        tag birth_defect
+        cha -2
+		str 1
+    }
+
+    705 { // Fetus Mouth
+        desc "MUTATION_MOUTH_705_DESC"
+
+        attack FetusSpit
+        passives {
+            ExtraBasicAttacks 2
+            ReplaceBasicAttack_Mutation FetusSpit
+        }
+    }
+}

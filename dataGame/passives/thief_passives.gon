@@ -1,0 +1,646 @@
+Backstabber {
+    name "PASSIVE_BACKSTABBER_NAME"
+    desc "PASSIVE_BACKSTABBER_DESC"
+    class Thief
+
+    1 {
+        passives {
+            BackstabCritChance 1
+        }
+    }
+    2 {
+        desc "PASSIVE_BACKSTABBER2_DESC"
+        passives {
+            BackstabCritChance 1
+            StatusOnCrit {
+                RandomStatUp 1
+            }
+        }
+    }
+}
+
+GoldenClaws {
+    name "PASSIVE_GOLDENCLAWS_NAME"
+    desc "PASSIVE_GOLDENCLAWS_DESC"
+    class Thief
+
+    1 {
+        passives {
+            CoinsAddDamage 1
+        }
+    }
+    2 {
+        desc "PASSIVE_GOLDENCLAWS2_DESC"
+        passives {
+            CoinsAddDamage 2
+        }
+    }
+}
+
+Shadow {
+    name "PASSIVE_STEALTHED_NAME"
+    desc "PASSIVE_STEALTHED_DESC"
+    class Thief
+
+    1 {
+        passives {
+            Stealth 1
+        }
+    }
+    2 {
+        desc "PASSIVE_STEALTHED2_DESC"
+        passives {
+            Stealth 1
+
+            StatusOnKill {
+                Stealth 1
+            }
+        }
+    }
+}
+
+PoisonTips {
+    name "PASSIVE_POISONTIPS_NAME"
+    desc "PASSIVE_POISONTIPS_DESC"
+    class Thief
+
+    1 {
+        passives {
+            AddStatusToBasicAttack {
+                Poison 1
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_POISONTIPS2_DESC"
+        passives {
+            AddStatusToBasicAttack {
+                Poison 1
+            }
+            PoisonMultiplier 2
+        }
+    }
+}
+
+Burgle {
+    name "PASSIVE_BURGLE_NAME"
+    desc "PASSIVE_BURGLE_DESC"
+    class Thief
+
+    1 {
+        passives {
+            AddStatusToBasicAttack {
+                BurgleCoin 1
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_BURGLE2_DESC"
+        passives {
+            AddStatusToBasicAttack {
+                BurgleCoin 1
+                KnockOutCoin 1
+                KnockOutCoin [1 .5]
+            }
+        }
+    }
+}
+
+SwiftKiller {
+    name "PASSIVE_SWIFTKILLER_NAME"
+    desc "PASSIVE_SWIFTKILLER_DESC"
+    class Thief
+
+    1 {
+        passives {
+            StatusOnKill {
+                RefreshMovePoints 1
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_SWIFTKILLER2_DESC"
+        passives {
+            StatusOnKill {
+                RefreshMovePoints 1
+                RefreshActPoints 1
+            }
+        }
+    }
+}
+
+LongStrider { //CUT
+    name "PASSIVE_LONGSTRIDER_NAME"
+    desc "PASSIVE_LONGSTRIDER_DESC"
+    class Thief
+
+    1 {
+        passives {
+            AddMovement 1
+        }
+    }
+    2 {
+        desc "PASSIVE_LONGSTRIDER2_DESC"
+        passives {
+            AddMovement 2
+            ArmorDodgeChance 10%
+        }
+    }
+}
+
+DoubleThrow {
+    name "PASSIVE_DOUBLETHROW_NAME"
+    desc "PASSIVE_DOUBLETHROW_DESC"
+    class Thief
+
+    1 {
+        passives {
+            AddTemporaryEffectsToBasicAttack {
+                CastAgain 1
+            }
+            BasicAttackDamageMultiplier 50%
+        }
+    }
+    2 {
+        desc "PASSIVE_DOUBLETHROW2_DESC"
+        passives {
+            AddTemporaryEffectsToBasicAttack {
+                CastAgain 2
+            }
+            BasicAttackDamageMultiplier 33.333334%
+
+            //BasicAttackMultiplicity 1
+        }
+        
+    }
+}
+
+BountyHunter {
+    name "PASSIVE_BOUNTYHUNTER_NAME"
+    desc "PASSIVE_BOUNTYHUNTER_DESC"
+    class Thief
+
+    1 {
+        passives {
+            ApplyStatusesToRandomEnemiesEachTurn {
+                Bounty 1
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_BOUNTYHUNTER2_DESC"
+        passives {
+            ApplyStatusesToRandomEnemiesEachTurn {
+                count 2
+
+                Bounty 3
+            }
+        }
+    }
+}
+
+RazorClaws {
+    name "PASSIVE_RAZORCLAWS_NAME"
+    desc "PASSIVE_RAZORCLAWS_DESC"
+    class Thief
+
+    1 {
+        passives {
+            AddStatusToBasicAttack {
+                Bleed 1
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_RAZORCLAWS2_DESC"
+        passives {
+            AddStatusToBasicAttack {
+                Bleed 1
+            }
+            AddStatusToAllDamageAbilities {
+                Bleed 1
+            }
+        }
+    }
+}
+
+Looter {
+    name "PASSIVE_SWIFTLOOTER_NAME"
+    desc "PASSIVE_SWIFTLOOTER_DESC"
+    class Thief
+
+    1 {
+        passives {
+            StatusOnPickupCoins {
+                RefreshMovePoints 1
+            }
+            SpawnOnBattleStartRandomEmptyTile {
+                object Coin
+                number [1 2]
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_SWIFTLOOTER2_DESC"
+        passives {
+            StatusOnPickupCoins {
+                RefreshMovePoints 1
+                DexterityUp 1
+                SpeedUp 1
+            }
+            SpawnOnBattleStartRandomEmptyTile {
+                object Coin
+                number [2 3]
+            }
+        }
+    }
+}
+
+AlphaStrike {
+    name "PASSIVE_ALPHASTRIKE_NAME"
+    desc "PASSIVE_ALPHASTRIKE_DESC"
+    class Thief
+
+    1 {
+        passives {
+            AlphaTurns 1
+        }
+    }
+    2 {
+        desc "PASSIVE_ALPHASTRIKE2_DESC"
+        passives {
+            AlphaTurns 1
+            AllDamageCrits 1
+        }
+    }
+}
+
+Zip {
+    name "PASSIVE_ZIP_NAME"
+    desc "PASSIVE_ZIP_DESC"
+    class Thief
+
+    1 {
+        passives {
+            ReplaceBasicMove Shadowstep
+        }
+    }
+    2 {
+        desc "PASSIVE_ZIP2_DESC"
+        passives {
+            ReplaceBasicMove Shadowstep
+            ExtraMovePoints 1
+        }
+    }
+}
+
+WeakSpot {
+    name "PASSIVE_WEAKSPOT_NAME"
+    desc "PASSIVE_WEAKSPOT_DESC"
+    class Thief
+
+    1 {
+        passives {
+            AddStatusToBasicAttack {
+                Weakness 1
+                Piercing 1
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_WEAKSPOT2_DESC"
+        passives {
+            CritChanceUp 25
+			AddStatusToAllDamageAbilities {
+				Weakness 2
+				Piercing 1
+			}
+        }
+    }
+}
+
+Penetrate {
+    name "PASSIVE_PENETRATE_NAME"
+    desc "PASSIVE_PENETRATE_DESC"
+    class Thief
+
+    1 {
+        passives {
+            AddBonusRange 1
+            AddBonusMeleeRange 1
+            MakeBasicAttackPassThroughThings 1
+            AddStatusToBasicAttack {
+                Piercing 1
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_PENETRATE2_DESC"
+        passives {
+            AddBonusRange 10
+            AddBonusMeleeRange 10
+            MakeBasicAttackPassThroughThings 1
+            AddStatusToBasicAttack {
+                Piercing 1
+            }
+        }
+    }
+}
+
+AfterImage {
+    name "PASSIVE_AFTERIMAGE_NAME"
+    desc "PASSIVE_AFTERIMAGE_DESC"
+    class Thief
+
+    1 {
+        passives {
+            AfterImage PlayerCat_ThiefShade
+        }
+    }
+    2 {
+        desc "PASSIVE_AFTERIMAGE2_DESC"
+        passives {
+            AfterImage PlayerCat_ThiefShade2
+            ReplaceSpawnedObjects [PlayerCat_ThiefShade PlayerCat_ThiefShade2]
+        }
+    }
+}
+
+Shiv {
+    name "PASSIVE_SHIV_NAME"
+    desc "PASSIVE_SHIV_DESC"
+    class Thief
+
+    1 {
+        passives {
+            AddStatusToBasicAttack {
+                Conditional_Adjacent {
+                    BonusDamage 2
+                    Bleed 1
+                    BonusCritChance 25
+                }
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_SHIV2_DESC"
+        passives {
+            AddStatusToBasicAttack {
+                Conditional_Adjacent {
+                    BonusDamage 3
+                    Bleed 2
+                    BonusCritChance 50
+                }
+            }
+        }
+    }
+}
+
+Critical {
+    name "PASSIVE_CRITICAL_NAME"
+    desc "PASSIVE_CRITICAL_DESC"
+    class Thief
+
+    1 {
+        passives {
+            AddCritMultiplier 100%
+            StatusOnCrit {
+                LuckUp 1
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_CRITICAL2_DESC"
+
+        passives {
+            AddCritMultiplier 100%
+            StatusOnCrit {
+                LuckUp 1
+            }
+
+            CritsApplyStatus {
+                Bleed 1
+                Weakness 1
+            }
+        }
+    }
+}
+
+LootHoarder {
+    name "PASSIVE_LOOTHOARDER_NAME"
+    desc "PASSIVE_LOOTHOARDER_DESC"
+    class Thief
+
+    1 {
+        passives {
+            CollectPickupsOnBattleEnd 1
+        }
+    }
+    2 {
+        desc "PASSIVE_LOOTHOARDER2_DESC"
+
+        passives {
+            CollectPickupsOnBattleEnd {
+                pop_corpses true
+            }
+        }
+    }
+}
+
+Cripple {
+    name "PASSIVE_CRIPPLE_NAME"
+    desc "PASSIVE_CRIPPLE_DESC"
+    class Thief
+
+    1 {
+        passives {
+            CritsApplyStatus {
+                Immobile 1
+                Weakness 2
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_CRIPPLE2_DESC"
+
+        passives {
+            CritsApplyStatus {
+                Stun 1
+                Weakness 2
+            }
+        }
+    }
+}
+
+Agile {
+    name "PASSIVE_AGILE_NAME"
+    desc "PASSIVE_AGILE_DESC"
+    class Thief
+
+    1 {
+        passives {
+            SplittableMove 1
+            AddMovement 2
+        }
+    }
+    2 {
+        desc "PASSIVE_AGILE2_DESC"
+
+        passives {
+            SplittableMove 3
+            AddMovement 4
+        }
+    }
+}
+
+Shank {
+    name "PASSIVE_SHANK_NAME"
+    desc "PASSIVE_SHANK_DESC"
+    class Thief
+
+    1 {
+        passives {
+            ReplaceBasicAttackWhenCastable Shank
+        }
+    }
+    2 {
+        desc "PASSIVE_SHANK2_DESC"
+
+        passives {
+            ReplaceBasicAttackWhenCastable Shank2
+        }
+    }
+}
+
+FlipACoin {
+    name "PASSIVE_FLIPACOIN_NAME"
+    desc "PASSIVE_FLIPACOIN_DESC"
+    class Thief
+
+    1 {
+        passives {
+            StatusOnGainCoins {
+                RandomStatusFromPool {
+                    SpawnCoinAnywhere 1
+                    StatusGroup {
+                        SpeedUp 2
+                        LuckUp 2
+                    }
+                }
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_FLIPACOIN2_DESC"
+
+        passives {
+            StatusOnGainCoins {
+                RandomStatusFromPool {
+                    StatusGroup {
+                        SpawnCoinAnywhere 1
+                        SpawnCoinAnywhere 1
+                    }
+                    StatusGroup {
+                        SpeedUp 2
+                        LuckUp 2
+                        DexterityUp 2
+                    }
+                }
+            }
+        }
+    }
+}
+
+ShakeDown {
+    name "PASSIVE_SHAKEDOWN_NAME"
+    desc "PASSIVE_SHAKEDOWN_DESC"
+    class Thief
+
+    1 {
+        passives {
+            CritsApplyStatus {
+                ObjectOnHitCharacter Coin
+                ObjectOnHitCharacter RandomPickup
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_SHAKEDOWN2_DESC"
+
+        passives {
+            CritChanceUp 25
+
+            CritsApplyStatus {
+                ObjectOnHitCharacter Coin
+                ObjectOnHitCharacter RandomPickup
+                ObjectOnHitCharacter RandomPickup
+            }
+        }
+    }
+}
+
+SweetSpot {
+    name "PASSIVE_SWEETSPOT_NAME"
+    desc "PASSIVE_SWEETSPOT_DESC"
+    class Thief
+
+    1 {
+        passives {
+            AddBonusRange 1
+
+            AddStatusToBasicAttack {
+                DistanceBonusDamage {
+                    stacks 1
+                    min_range 1
+                }
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_SWEETSPOT2_DESC"
+
+        passives {
+            AddBonusRange 6
+
+            AddStatusToBasicAttack {
+                DistanceBonusDamage {
+                    stacks 1
+                    min_range 1
+                }
+            }
+        }
+    }
+}
+
+Pinpoint {
+    name "PASSIVE_PINPOINT_NAME"
+    desc "PASSIVE_PINPOINT_DESC"
+    class Thief
+
+    1 {
+        passives {
+            CritsApplyStatus {
+                Conditional_HasStatus {
+                    status Marked
+                } Else {
+                    Marked 1
+                }
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_PINPOINT2_DESC"
+
+        passives {
+            CritsApplyStatus {
+                Conditional_HasStatus {
+                    status Marked
+                } Else {
+                    Marked 1
+                }
+            }
+
+            AddCritMultiplier 100%
+        }
+    }
+}

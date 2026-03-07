@@ -1,0 +1,727 @@
+eyes {
+    300 { //Button Eyes
+        desc "MUTATION_EYES_300_DESC"
+
+        passives {
+            AddStatusToBasicAttack {
+                Fear [1 .1]
+            }
+        }
+    }
+    301 { //Demon Eyes  
+        dex 1
+    }
+    302 { //Pop Eyes 
+        desc "MUTATION_EYES_302_DESC"
+        passives {
+            Thorns 1
+        }
+    }
+    303 { //Gem Eyes  
+        int 1
+        cha 1
+    }
+    304 { //Holes  
+        desc "MUTATION_EYES_304_DESC"
+        passives {
+            AddInitiative -20
+        }
+    }
+    305 { //Zen Eyes  
+        str -1
+        dex -1
+        int 3
+    }
+
+    306 { //Confusing Eyes
+        desc "MUTATION_EYES_306_DESC"
+        passives {
+            AddStatusToBasicAttack {
+                Confusion [3, .1]
+            }
+        }
+    }
+    307 { //Half Moon Eyes
+        desc "MUTATION_EYES_307_DESC"
+        passives {
+            GainManaWhenAnythingDies 1
+        }
+    }
+    308 { //Spider Eyes
+        tag animal
+        desc "MUTATION_EYES_308_DESC"
+        passives {
+            DodgeChance 5%
+        }
+    }
+    309 { //Doll Eyes
+        desc "MUTATION_EYES_309_DESC"
+        passives {
+            AddCorpseHealth 2
+        }
+    }
+    310 { //Octo Eyes
+        tag animal
+        desc "MUTATION_EYES_310_DESC"
+        passives {
+            HealthRegenUp 1
+        }
+    }
+    311 { //gecko eye
+        tag animal
+        desc "MUTATION_EYES_311_DESC"
+        passives {
+            BackstabImmunity 1
+        }
+    }
+
+    312 { // Metal Eyes
+        desc "MUTATION_EYES_312_DESC"
+        shield 1
+        passives {
+            Brace 1
+        }
+    }
+
+    313 { // Issac's Eyes
+        desc "MUTATION_EYES_313_DESC"
+		divine_shield 1
+        passives {
+            AddStatusToBasicAttack {
+                ChangeTile WaterTile
+            }
+            AddElementsToBasicAttack Water 
+        } 
+    }
+
+    314 { // Dead Eyes
+        desc "MUTATION_EYES_314_DESC"
+        passives {
+            SpawnOnDowned CharmedFly
+            SpawnOnDowned CharmedFly
+            SpawnOnDowned CharmedFly
+            AddCorpseHealth 2
+        }
+    }
+   
+    315 { // Kinetic eyes
+        desc "MUTATION_EYES_315_DESC"
+        passives {
+            KineticSpikes 1
+        }
+    }
+   
+    316 { // Lightning eyes
+        desc "MUTATION_EYES_316_DESC"
+        passives { 
+            CounterAttack {
+                chance 15%
+                ability ChainLightning
+            }
+        }
+    }
+
+    317 { // Dice Eyes
+        desc "MUTATION_EYES_317_DESC"
+        passives { 
+            StatusEachTurnEnd {
+                RandomStatUp 1
+            } 
+        }
+    }
+  
+    318 { // Goat Eyes
+        tag animal
+        desc "MUTATION_EYES_318_DESC"
+        passives {
+            ShowHiddenThings 1
+            AddKnockbackDamage 1
+        }
+    }
+
+    319 { // Horn Eyes
+        desc "MUTATION_EYES_319_DESC"
+        passives {
+            Blind -1  
+            Thorns 1
+            DamageUp 1
+        }
+    }
+   
+    //320{ // Odd Eyes
+    //    desc ""
+    //    passives {
+    //
+    //    }
+    //}
+    //   
+    //321{ // Robo Eyes
+    //    desc ""
+    //    passives {
+    //
+    //    }
+    //}
+    //
+    //   
+    //323{ // Alien Eyes
+    //    desc ""
+    //    passives {
+    //
+    //    }
+    //}
+
+    324 { // Treasure Eyes
+        desc "MUTATION_EYES_324_DESC"
+        passives {
+            SpawnOnBattleStartRandomEmptyTile {
+                object Coin
+                number 2
+            }
+        }
+    }
+
+    325 { // Nail Eyes
+        desc "MUTATION_EYES_325_DESC"
+        passives {
+            Thorns 1
+        }
+    }
+
+    326 { // 4 Eyes
+        desc "MUTATION_EYES_326_DESC"
+        passives {
+            StatusEveryXSpellCasts {
+                stacks 4
+                Charge 2
+            }
+        }
+    }
+
+    327 { // Baby Blue Eyes
+        cha 2 
+    }
+
+    328 { // Bull's Eye'
+        tag animal
+        desc "MUTATION_EYES_328_DESC"
+        
+        passives {
+            CritChanceUp 10
+        }
+    }
+
+    329 { // Spinning Eyes
+        desc "MUTATION_EYES_329_DESC"
+        passives {
+            AddStatusToBasicAttack {
+                Confusion [1, .15]
+            }
+        }
+    }
+
+    //330 { // Crow Eyes
+    //    desc "10% chance lethal damage only brings you to 1 hp"
+    //    passives {
+    //        
+    //    }
+    //}
+
+    331 { // Glassy Eyes
+        desc "MUTATION_EYES_331_DESC"
+        passives {
+            EquipRandomTemporaryItemFromPool pills
+        }
+    }
+
+    332 { // Bleeding Eyes
+        desc "MUTATION_EYES_332_DESC"
+        passives {
+            Bleed 1  
+            StatusOnTookDamage {
+                Charge 1
+            }
+        }
+    }
+    
+    333 { // Huge Eyes
+        desc "MUTATION_EYES_333_DESC"
+        passives {
+            BasicAttackCantMiss 1
+        }
+    }
+
+    334 { // Infested Eyes
+        desc "MUTATION_EYES_334_DESC"
+        passives {
+            Blind -1
+            SpawnThingOnDamage {
+                object CharmedFlea
+                good false //good relative to the thing attacking, for luck calculations
+                chance 100%
+            }
+        }
+    } 
+        
+    335 { // Fake Eyelashes
+        desc "MUTATION_EYES_335_DESC"
+        passives {
+            AddStatusToBasicAttack {
+                Charmed [1, .10]  
+            }
+        }
+    }
+            
+    336 { // Bolt Eyes
+        desc "MUTATION_EYES_336_DESC" 
+        passives { 
+            AddElementsToBasicAttack Electric
+            AddStatusToBasicAttack {
+                Stun [1 .05]
+            }
+        }
+    }
+        
+    337 { // Ice Eyes
+        desc "MUTATION_EYES_337_DESC"
+        passives {
+            AddStatusToBasicAttack {
+                Slow 1
+            }
+            AddElementsToBasicAttack Ice
+        }
+    }
+
+    338 { // Fire Eyes
+        desc "MUTATION_EYES_338_DESC"
+        passives {
+            AddStatusToBasicAttack {
+                Burn 1
+            }
+            AddElementsToBasicAttack Fire
+        }
+    }
+
+    339 { // Water Eyes
+        desc "MUTATION_EYES_339_DESC"
+        passives {
+            AddElementsToBasicAttack Water  
+            PassiveWhenAffectedByElement {
+                element water
+                passives {
+                    HealthRegenUp 1
+                } 
+            } 
+        }
+    }
+
+    340 { // Leech Eyes
+        desc "MUTATION_EYES_340_DESC"
+        passives {
+            AddStatusToBasicAttack {
+                Leeches 1
+            }
+        }
+    }
+
+    
+    341 { // Flower Eyes
+        desc "MUTATION_EYES_341_DESC"
+        passives {
+            StatusOnEndMove {
+                Conditional_FirstApplicationThisTurn {
+                    Charge 1
+                }
+            }
+        }
+    }
+
+    342 { // Poison Eyes
+        desc "MUTATION_EYES_342_DESC"
+        passives { 
+            AddStatusToBasicAttack {
+                Poison 1
+            } 
+            Poison 1
+        }
+    }
+
+    343 { // Clown Eyes
+        desc "MUTATION_EYES_343_DESC"
+        passives { 
+            RevengeDamage {
+                effects {
+                    Fear [1, .05]
+                }
+            }
+        }
+    }
+    
+    344 { // Sun Eyes
+        desc "MUTATION_EYES_344_DESC"
+        passives { 
+            RevengeDamage {
+                effects {
+                    Blind [1, .10]
+                }
+            }
+        }
+    }
+
+    345 { // Evil Eyes
+        desc "MUTATION_EYES_345_DESC"
+        passives { 
+            MeleeRevengeDamage {
+                effects {
+                    RandomStatusFromPool {
+                        Poison 1
+                        Burn 1
+                        Bleed 1
+                        Blind 1 
+                        Weakness 1 
+                    }
+                } 
+            }
+        }
+    }
+    
+    346 { // Rock Eyes
+        desc "MUTATION_EYES_346_DESC" 
+        shield 1
+        passives { 
+            SpawnThingOnDamage {
+                object SmallRock
+                good false //good relative to the thing attacking, for luck calculations
+                chance 100%
+            } 
+        }
+    }
+
+    347 { // Hypno Eyes
+        desc "MUTATION_EYES_347_DESC"
+        passives {
+            AddStatusToBasicAttack {
+                Confusion [2, .15]
+            }
+        }
+    }
+    
+    348 { // Pop Eyes
+        desc "MUTATION_EYES_348_DESC" 
+        passives {
+            AddBonusRange 1
+            AddBonusMeleeRange 1 
+        }
+    } 
+
+    349 { // 8 Eyes
+        desc "MUTATION_EYES_349_DESC"
+        passives {
+            StatusEveryXSpellCasts {
+                stacks 8
+                RandomMagicMissile 4
+            }
+        }
+    }
+    351 { // Chaos Eyes
+        desc "MUTATION_EYES_351_DESC"
+        passives {
+            ConjureBonusAbility random
+        }
+    }
+    352 { // Runny Mascara
+        desc "MUTATION_EYES_352_DESC"
+
+        passives {
+            PassiveWhileHasStatus {
+                status Bleed
+                passives {
+                    AllStatsUp 1  
+                } 
+            }
+        }
+    }
+   
+    353 { // Chameleon Eyes
+        tag animal
+        desc "MUTATION_EYES_353_DESC"
+        passives {
+            BackstabImmunity 1 
+        }
+    }
+   
+   
+     //mirror eyes
+    442 {
+        desc "MUTATION_EYES_442_DESC"
+        passives {
+            ReflectProjectiles 10%
+        }
+    }
+	
+    750 {//glasses
+		int 1
+    }
+	
+    754 {//alien eyes
+        desc "MUTATION_EYES_754_DESC"
+        passives {
+			AddBonusRange 1
+            AddElementsToBasicAttack Gravity
+        } 
+    }
+	
+    755 {//mothman eyes
+        desc "MUTATION_EYES_755_DESC"
+		passives {
+			AddStatusToBasicAttack {
+				Fear [1 .15]
+			}
+		}
+    }
+   
+   
+   
+    900 { //slender
+        desc "MUTATION_EYES_900_DESC"
+   
+        passives {
+            AddStatusToBasicAttack {
+                Slow [1 .1]
+            }
+        }
+    }
+   
+   
+   
+    //simple stat mod parts
+    400 {
+        str 2
+        con -1
+    }
+    401 {
+        str 2
+        dex -1
+    }
+    402 {
+        str 2
+        cha -1
+    }
+    403 {
+        str 2
+        int -1
+    }
+    404 {
+        str 2
+        spd -1
+    }
+    405 {
+        str 2
+        lck -1
+    }
+    406 {
+        con 2
+        str -1
+    }
+    407 {
+        con 2
+        dex -1
+    }
+    408 {
+        con 2
+        cha -1
+    }
+    409 {
+        con 2
+        int -1
+    }
+    410 {
+        con 2
+        spd -1
+    }
+    411 {
+        con 2
+        lck -1
+    }
+    412 {
+        dex 2
+        con -1
+    }
+    413 {
+        dex 2
+        str -1
+    }
+    414 {
+        dex 2
+        cha -1
+    }
+    415 {
+        dex 2
+        int -1
+    }
+    416 {
+        dex 2
+        spd -1
+    }
+    417 {
+        dex 2
+        lck -1
+    }
+    418 {
+        int 2
+        con -1
+    }
+    419 {
+        int 2
+        dex -1
+    }
+    420 {
+        int 2
+        cha -1
+    }
+    421 {
+        int 2
+        str -1
+    }
+    422 {
+        int 2
+        spd -1
+    }
+    423 {
+        int 2
+        lck -1
+    }
+    424 {
+        cha 2
+        con -1
+    }
+    425 {
+        cha 2
+        dex -1
+    }
+    426 {
+        cha 2
+        str -1
+    }
+    427 {
+        cha 2
+        int -1
+    }
+    428 {
+        cha 2
+        spd -1
+    }
+    429 {
+        cha 2
+        lck -1
+    }
+    430 {
+        lck 2
+        con -1
+    }
+    431 {
+        lck 2
+        dex -1
+    }
+    432 {
+        lck 2
+        cha -1
+    }
+    433 {
+        lck 2
+        int -1
+    }
+    434 {
+        lck 2
+        spd -1
+    }
+    435 {
+        lck 2
+        str -1
+    }
+    436 {
+        spd 2
+        con -1
+    }
+    437 {
+        spd 2
+        str -1
+    }
+    438 {
+        spd 2
+        cha -1
+    }
+    439 {
+        spd 2
+        int -1
+    }
+    440 {
+        spd 2
+        dex -1
+    }
+    441 {
+        spd 2
+        lck -1
+    }
+   
+    //Birth Defects
+    700 { //graves disease
+        tag birth_defect
+        cha -2
+    }
+   
+    701 { //anophthalmia
+        tag birth_defect
+        lck -2
+    }
+   
+    //Human eyes
+    702 {
+        cha 1
+        int 1
+        con -2
+    }
+    -2 { //no eyes (frame 703, but completely missing parts are special and keyed in on -2)
+        desc "MUTATION_EYES_M2_DESC"
+        tag birth_defect
+   
+        passives {
+            Blind -1
+        }
+    }
+    704 { //lazy eye
+        desc "MUTATION_EYES_704_DESC"
+        tag birth_defect
+   
+        passives {
+            MissChance 10
+        }
+   
+    }
+    705 { //cataracts
+        tag birth_defect
+        desc "MUTATION_EYES_705_DESC"
+   
+        passives {
+            StatusEachTurnBegin {
+                MissChance 5
+            }
+        }
+   
+    }
+    706 { //crossed eyes
+        desc "MUTATION_EYES_706_DESC"
+        tag birth_defect
+   
+        passives {
+            Confusion 2
+        }
+    }
+   
+    1029 { //spider eye
+        desc "MUTATION_EYES_1029_DESC"
+   
+        passives {
+            CritChanceUp 5
+        }
+    }
+}

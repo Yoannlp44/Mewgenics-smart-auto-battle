@@ -1,0 +1,600 @@
+tail {
+
+    300 { //Extra Paw
+        tag extra    
+        str 1
+    }
+
+    301 { //Turtle Head
+        tag animal
+        desc "MUTATION_TAIL_301_DESC"
+
+        passives {
+            PoopWhenHit Poop
+        }
+    }
+
+    302 { //Scorpion Tail
+        tag animal
+        desc "MUTATION_TAIL_302_DESC"
+
+        passives {
+            AddStatusToBasicAttack {
+                Poison 1
+            }
+        }
+    }
+
+    303 { //Rock Tail
+        desc "MUTATION_TAIL_303_DESC"
+
+        passives {
+            AddStatusToBasicAttack {
+                Stun [1, .05]
+            }
+        }
+    }
+
+    304 { //Monkey Tail
+        tag animal
+        dex 1
+    }
+
+    305 { //Cacuts Tail
+        desc "MUTATION_TAIL_305_DESC"
+
+        passives {
+            Thorns 1
+        }
+    }
+
+    306 { //Big Lump Tail
+        con 1
+    }
+
+    307 { //Antenna Tail
+        spd 1
+    }
+
+    308 { //Baby Tail
+        desc "MUTATION_TAIL_308_DESC"
+
+        lck 1
+        passives {
+            DodgeChance 5%
+        }
+    }
+    
+    309 { //Baboon's' Ass
+        tag animal
+        cha 1
+    }
+    
+    310 { //Hand Tail
+        desc "MUTATION_TAIL_310_DESC"
+
+        passives {
+            AddTemporaryEffectsToBasicAttack {
+                Fury 10
+            }
+        }
+    }
+    
+    311 { //Thorn Tail 
+        desc "MUTATION_TAIL_311_DESC" 
+        passives {        
+            Thorns 1 
+        } 
+    }
+    
+    312 { //Holy Tail 
+        divine_shield 1
+    } 
+
+    313 { //Hose Tail
+        desc "MUTATION_TAIL_313_DESC" 
+        passives {
+            AddStatusToBasicAttack {
+                ChangeTile WaterTile
+            }
+            AddElementsToBasicAttack Water 
+        } 
+    } 
+
+    314 { //Bone Tail
+        desc "MUTATION_TAIL_314_DESC"
+
+        passives { 
+            StatusKilledCharacters {
+                Conditional_RandomChance {
+                    odds 10%
+                    AutoReanimate 50%
+                }
+            } 
+        }
+    }
+
+    315 { //Maggot Tail
+        desc "MUTATION_TAIL_315_DESC"  
+        passives {
+            SpawnThingOnDamage {
+                object Maggot
+                good false //good relative to the thing attacking, for luck calculations
+                chance 20%
+            }
+        }
+    }
+
+    316 { //Grass Tail
+        desc "MUTATION_TAIL_316_DESC" 
+        passives {     
+            StatusOnEndMove {
+                Conditional_GoodRoll {
+                    odds 25%
+                    ChangeTilesUnder TallGrassTile
+                }
+            }
+        } 
+    }
+
+    317 { //Skunk Tail
+        desc "MUTATION_TAIL_317_DESC" 
+        passives {
+            AbilityReaction SkunkTail
+        }
+    }
+
+    318 { //Rattle
+        desc "MUTATION_TAIL_318_DESC" 
+        passives {
+            AddStatusToBasicAttack {
+                Poison 1
+            }
+        } 
+    }
+
+    319 { //Snake Tail
+        desc "MUTATION_TAIL_319_DESC" 
+        passives {
+            PoisonThorns 1
+        } 
+    }
+
+    320 { //Glass Tail
+        desc "MUTATION_TAIL_320_DESC" 
+        passives {
+            Bleed 1 
+            BleedThorns 2                
+        } 
+    }
+
+    321 { //Extra Head
+        tag extra
+        int 1
+    }
+    
+    322 { //Exhaust Pipe
+        desc "MUTATION_TAIL_322_DESC" 
+        passives {     
+            StatusEachTurnBegin {
+                SpeedUp 1
+            }
+        } 
+    }
+
+    323 { //Jetpack Tail
+        desc "MUTATION_TAIL_323_DESC" 
+        passives {
+            ReplaceBasicMove_Mutation BasicJump
+        } 
+    }
+
+    324 { //Wing Tail
+        spd 2 
+    }
+    
+    325 { //Spring Tail
+        desc "MUTATION_TAIL_325_DESC" 
+        passives {
+            MeleeRevengeDamage {
+                knockback 2
+            }
+        } 
+    }
+
+    326 { //Eyeball Tail
+        desc "MUTATION_TAIL_326_DESC" 
+        passives {
+            Bruise 1
+            DodgeChance 10%
+
+        }
+    }
+
+    327 { //Tree Branch Tail
+        desc "MUTATION_TAIL_327_DESC" 
+        passives {
+            StatusIfDidntMove {
+                Charge 3
+            }
+        } 
+    }
+
+    //328 missing?
+
+    329 { //Mr. Worm
+        desc "MUTATION_TAIL_329_DESC" 
+        passives {   
+            CanRemoveCursedItems 1
+        } 
+    }
+
+    //330 missing
+
+    331 { //Dice Tail
+        desc "MUTATION_TAIL_331_DESC"
+        passives { 
+            AddLevelUpRerolls 1
+        } 
+    }
+
+    332 { //Tennis Racket
+        desc "MUTATION_TAIL_332_DESC"
+        passives { 
+            ReflectProjectiles 25%
+        }
+    }
+
+    //333 missing
+
+    334 { //Fire Flower Tail
+        desc "MUTATION_TAIL_334_DESC"
+        passives {
+            AddStatusToBasicAttack {
+                Burn 1 
+            }
+            AddElementsToBasicAttack Fire
+        } 
+    }
+
+    //335 missing
+
+    336 { //Horn Tail
+        desc "MUTATION_TAIL_336_DESC"
+        passives {
+            Thorns 1
+        }
+    }
+
+    337 { //Tail Feather
+        desc "MUTATION_TAIL_337_DESC"
+        tag bird
+
+        passives {
+            AddStatusToBasicAttack {
+                Knockback 1
+                VisualFXTile fx_windSpell
+            }
+            AddElementsToBasicAttack Wind
+        }
+    }
+
+    338 { //Flame Tail
+        desc "MUTATION_TAIL_338_DESC"
+
+        passives {
+            AddStatusToBasicAttack {
+                Burn 1 
+            }
+            AddElementsToBasicAttack Fire
+        } 
+    }
+
+    339 { //Light Bulb
+        desc "MUTATION_TAIL_339_DESC"
+
+        passives {
+            PassiveWhenAtFullMana {
+                DamageUp 2
+            }
+        }
+    }
+
+    //340 missing
+
+    341 { //Tongue Tail
+        desc "MUTATION_TAIL_341_DESC" 
+        passives {
+            StatusOnTookDamage {
+                Charge 1
+            }
+        } 
+    }
+    342 { //Kitten Tail
+        desc "MUTATION_TAIL_342_DESC"  
+        passives {
+            SpawnOnDowned CharmedKitten
+        }
+    }
+
+	750 { //Bunny Tail*
+		cha 1
+    }
+
+	751 { //Beaver Tail*
+        desc "MUTATION_TAIL_751_DESC"  
+        passives {
+			Brace 1
+        }
+    }
+	
+	752 { //Pig Tail*
+		con 1
+    }
+	
+	/*753 { //Skunk Tail 2*
+        passives {
+
+        }
+    }*/
+	
+	754 { //Spiked Tail*
+        desc "MUTATION_TAIL_754_DESC"  
+        passives {
+			Thorns 1
+        }
+    }
+	
+	755 { //mermaid Tail*
+        desc "MUTATION_TAIL_755_DESC"  
+        passives {
+            WaterWalk 1
+        }
+    }
+	
+	756 { //Devil Tail*
+        desc "MUTATION_TAIL_756_DESC"  
+        passives {
+			BleedThorns 1
+        }
+    }
+	
+	757 { //sonichu Tail*
+        desc "MUTATION_TAIL_757_DESC"  
+        passives {
+            ReplaceBasicMove Shadowstep
+        }
+    }
+	
+	759 { //slender Tail*
+        desc "MUTATION_TAIL_759_DESC"  
+		passives {
+			Quivered 1
+		}
+    }
+      
+	760 { //human head tail
+        desc "MUTATION_TAIL_760_DESC"  
+        passives {
+            BackflipWhenTargeted {
+                stacks 2
+                ability BackflipDodge
+            }
+        }
+    }
+      
+
+    900 { //slender
+        spd 1
+    }
+
+    1500 { //rat tail
+        tag animal
+        dex 1
+    }
+
+        //simple stat mod parts
+    400 {
+        str 2
+        con -1
+    }
+    401 {
+        str 2
+        dex -1
+    }
+    402 {
+        str 2
+        cha -1
+    }
+    403 {
+        str 2
+        int -1
+    }
+    404 {
+        str 2
+        spd -1
+    }
+    405 {
+        str 2
+        lck -1
+    }
+    406 {
+        con 2
+        str -1
+    }
+    407 {
+        con 2
+        dex -1
+    }
+    408 {
+        con 2
+        cha -1
+    }
+    409 {
+        con 2
+        int -1
+    }
+    410 {
+        tag melted
+        con 2
+        spd -1
+    }
+    411 {
+        con 2
+        lck -1
+    }
+    412 {
+        dex 2
+        con -1
+    }
+    413 {
+        dex 2
+        str -1
+    }
+    414 {
+        dex 2
+        cha -1
+    }
+    415 {
+        dex 2
+        int -1
+    }
+    416 {
+        dex 2
+        spd -1
+    }
+    417 {
+        dex 2
+        lck -1
+    }
+    418 {
+        int 2
+        con -1
+    }
+    419 {
+        int 2
+        dex -1
+    }
+    420 {
+        int 2
+        cha -1
+    }
+    421 {
+        int 2
+        str -1
+    }
+    422 {
+        int 2
+        spd -1
+    }
+    423 {
+        int 2
+        lck -1
+    }
+    424 {
+        cha 2
+        con -1
+    }
+    425 {
+        cha 2
+        dex -1
+    }
+    426 {
+        cha 2
+        str -1
+    }
+    427 {
+        cha 2
+        int -1
+    }
+    428 {
+        cha 2
+        spd -1
+    }
+    429 {
+        cha 2
+        lck -1
+    }
+    430 {
+        lck 2
+        con -1
+    }
+    431 {
+        lck 2
+        dex -1
+    }
+    432 {
+        lck 2
+        cha -1
+    }
+    433 {
+        lck 2
+        int -1
+    }
+    434 {
+        lck 2
+        spd -1
+    }
+    435 {
+        lck 2
+        str -1
+    }
+    436 {
+        spd 2
+        con -1
+    }
+    437 {
+        spd 2
+        str -1
+    }
+    438 {
+        spd 2
+        cha -1
+    }
+    439 {
+        spd 2
+        int -1
+    }
+    440 {
+        spd 2
+        dex -1
+    }
+    441 {
+        spd 2
+        lck -1
+    }
+
+
+    //Birth Defects
+    700 { //kinked tail
+        tag birth_defect
+        lck -2
+    }
+    701 { //lipoma
+        tag birth_defect
+        spd -1
+        cha -1
+    }
+	-2 { //no tail (702)
+        tag birth_defect
+        dex -1
+    }
+	703 { //heavy tail
+        desc "MUTATION_TAIL_703_DESC"
+        tag birth_defect
+        con 1
+
+        passives {
+            Immobile 1
+        }
+    }
+	704 { //forked tail
+        desc "MUTATION_TAIL_704_DESC"
+        tag birth_defect
+        lck -2
+
+        passives {
+            MulticlassLevelUp Hunter
+        }
+    }
+}

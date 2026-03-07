@@ -1,0 +1,41 @@
+BasicAttackPool [
+    BasicMelee
+    BasicRanged
+]
+
+CatAbilityPool [
+    RangedHeal
+    Surf
+    Bolt
+    Fireball
+    Dash
+    Spin
+    FreezeRay
+    MagicMissile
+    ExtraMeleeAttack
+    Block
+    WindSlash
+
+]
+
+
+CatGenAbilityPool [ //excludes class abilities
+    Surf
+    Bolt
+    Fireball
+    Dash
+    FreezeRay
+    ExtraMeleeAttack
+    BoostBackstab
+    WindSlash
+]
+
+
+ColorlessAbilities [
+    WindSlash
+    ExtraMeleeAttack
+    Block
+    MoveAgain
+    Rest
+    Brace
+]

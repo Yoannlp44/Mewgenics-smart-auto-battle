@@ -1,0 +1,739 @@
+SuperCrow {
+    name "PASSIVE_SUPERCROW_NAME"
+    desc "PASSIVE_SUPERCROW_DESC"
+    class Druid
+
+    1 {
+        passives {
+            ReplaceSpawnedObjects [Crow2 Crow3] //in case you get it twice it should get you to crow3
+            ReplaceSpawnedObjects [Crow Crow2]
+        }
+    }
+    2 {
+        desc "PASSIVE_SUPERCROW2_DESC"
+        passives {
+            ReplaceSpawnedObjects [Crow2 Crow3]
+            ReplaceSpawnedObjects [Crow Crow3]
+        }
+    }
+}
+
+NaturesGuidance {
+    name "PASSIVE_NATUREGUIDANCE_NAME"
+    desc "PASSIVE_NATUREGUIDANCE_DESC"
+    class Druid
+
+    1 {
+        passives {
+            FamiliarSecondaryDamageImmunity 1
+        }
+    }
+    2 {
+        desc "PASSIVE_NATUREGUIDANCE2_DESC"
+        passives {
+            FamiliarSecondaryDamageImmunity 1
+            AddPassivesToMinions {
+                DivineShield 1
+            }
+        }
+    }
+}
+
+PoisonIvy {
+    name "PASSIVE_POISONIVY_NAME"
+    desc "PASSIVE_POISONIVY_DESC"
+    class Druid
+
+    1 {
+        passives {
+            PoisonThorns 1
+            AddPassivesToMinions {
+                PoisonThorns 1
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_POISONIVY2_DESC"
+        passives {
+            PoisonThorns 2
+            AddPassivesToMinions {
+                PoisonThorns 2
+            }
+        }
+        stats {
+            con 2
+        }
+    }
+}
+
+Pathfinder {
+    name "PASSIVE_PATHFINDER_NAME"
+    desc "PASSIVE_PATHFINDER_DESC"
+    class Druid
+
+    1 {
+        passives {
+            FreePathfindElement Grass
+            TileTrail GrassTile
+            AddPassivesToMinions {
+                FreePathfindElement Grass
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_PATHFINDER2_DESC"
+        passives {
+            FreePathfindElement Grass
+            GrassTileHealing 1
+            TileTrail GrassTile
+            AddPassivesToMinions {
+                FreePathfindElement Grass
+                GrassTileHealing 1
+            }
+        }
+    }
+}
+
+EmptyVessels {
+    name "PASSIVE_EMPTYVESSEL_NAME"
+    desc "PASSIVE_EMPTYVESSEL_DESC"
+    class Druid
+
+    1 {
+        passives {
+            AddPassivesToMinions {
+                HealthRegenUp 3
+                AddMaxHealth 10
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_EMPTYVESSEL2_DESC"
+        passives {
+            AddPassivesToMinions {
+                HealthRegenUp 3
+                UncappedHP 1
+            }
+        }
+    }
+}
+
+WildAnimals {
+    name "PASSIVE_WILDANIMALS_NAME"
+    desc "PASSIVE_WILDANIMALS_DESC"
+    class Druid
+
+    1 {
+        passives {
+            AddPassivesToMinions {
+                ForceAttack 1
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_WILDANIMALS2_DESC"
+        passives {
+            AddPassivesToMinions {
+                ForceAttack 1
+                TakeExtraTurn 1
+            }
+        }
+    }
+}
+
+BarkSkin {
+    name "PASSIVE_BARKSKIN_NAME"
+    desc "PASSIVE_BARKSKIN_DESC"
+    class Druid
+
+    1 {
+        passives {
+            Brace 1
+            StatusOnTookDamage {
+                Temporary {
+                    status Brace 
+                    stacks 1
+                    expires_on_begin_turn true
+                }
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_BARKSKIN2_DESC"
+        passives {
+            Brace 1
+            StatusOnTookDamage {
+                Temporary {
+                    status Brace 
+                    stacks 2
+                    expires_on_begin_turn true
+                }
+                Temporary {
+                    status Thorns 
+                    stacks 2
+                    expires_on_begin_turn true
+                }
+            }
+        }
+    }
+}
+
+SoothingSong {
+    name "PASSIVE_LOVESONG_NAME"
+    desc "PASSIVE_LOVESONG_DESC"
+    class Druid
+
+    1 {
+        passives {
+            BasicAttackAOEBonus 2
+            AddDamageToBasicAttack 1
+        }
+    }
+    2 {
+        desc "PASSIVE_LOVESONG2_DESC"
+        passives {
+            BasicAttackAOEBonus 2
+            AddDamageToBasicAttack 2
+
+            BasicAttackStatusSwap [TempDamageUp DamageUp]
+        }
+    }
+}
+
+Teamwork {
+    name "PASSIVE_TEAMWORK_NAME"
+    desc "PASSIVE_TEAMWORK_DESC"
+    class Druid
+
+    1 {
+        passives {
+            AddPassivesToMinions {
+                StatusAlliesOnKill {
+                    DamageUp 1
+                }
+                StatusOnKill {
+                    DamageUp 1
+                }
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_TEAMWORK2_DESC"
+        passives {
+            AddPassivesToMinions {
+                StatusAlliesOnKill {
+                    DamageUp 1
+                    HealthGain 5
+                }
+                StatusOnKill {
+                    DamageUp 1
+                    HealthGain 5
+                }
+            }
+        }
+    }
+}
+
+Bouquet {
+    name "PASSIVE_BOUQUET_NAME"
+    desc "PASSIVE_BOUQUET_DESC"
+    class Druid
+
+    1 {
+        passives {
+            FlowersOnEndTurn 3
+        }
+    }
+    2 {
+        desc "PASSIVE_BOUQUET2_DESC"
+        passives {
+            FlowersOnEndTurn 4
+        }
+    }
+}
+
+GoodVibrations {
+    name "PASSIVE_GOODVIBRATIONS_NAME"
+    desc "PASSIVE_GOODVIBRATIONS_DESC"
+    class Druid
+
+    1 {
+        passives {
+            AllyHealthRegenAura {
+                stacks 1
+                range global
+            }
+            AllyManaRegenAura {
+                stacks 1
+                range global
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_GOODVIBRATIONS2_DESC"
+        passives {
+            AllyHealthRegenAura {
+                stacks 2
+                range global
+            }
+            AllyManaRegenAura {
+                stacks 2
+                range global
+            }
+        }
+    }
+}
+
+VersatileVocalist { //TODO: do this in a way that isnt an ability swap
+    name "PASSIVE_VERSATILEVOLCALIST_NAME"
+    desc "PASSIVE_VERSATILEVOLCALIST_DESC"
+    class Druid
+
+    1 {
+        override_basic_attack BasicDruidAbilityVersatile 
+        passives {
+            BasicAttackStatusCarefulness 1
+            ReplaceBasicAttack BasicDruidAbilityVersatile
+        }
+    }
+    2 {
+        desc "PASSIVE_VERSATILEVOLCALIST2_DESC"
+
+        override_basic_attack BasicDruidAbilityVersatile 
+        passives {
+            BasicAttackAOEBonus 1
+            BasicAttackStatusCarefulness 1
+            ReplaceBasicAttack BasicDruidAbilityVersatile
+        }
+    }
+}
+
+LikeAFish {
+    name "PASSIVE_LIKEAFISH_NAME"
+    desc "PASSIVE_LIKEAFISH_DESC"
+    class Druid
+
+    1 {
+        passives {
+            WaterWalk 1
+            PassiveWhenAffectedByElement {
+                element water
+                passives {
+                    StatusEachTurnEnd {
+                        NonStackingDivineShield 1
+                    }
+                }
+            }
+
+            AddPassivesToMinions {
+                WaterWalk 1
+                PassiveWhenAffectedByElement {
+                    element water
+                    passives {
+                        StatusEachTurnEnd {
+                            NonStackingDivineShield 1
+                        }
+                    }
+                }
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_LIKEAFISH2_DESC"
+
+        passives {
+            WaterWalk 1
+            FreePathfindElement Water
+            PassiveWhenAffectedByElement {
+                element water
+                passives {
+                    StatusEachTurnEnd {
+                        NonStackingDivineShield 1
+                    }
+                    HealthRegenUp 1
+                    AddManaRegen 1
+                }
+            }
+
+            AddPassivesToMinions {
+                WaterWalk 1
+                FreePathfindElement Water
+                PassiveWhenAffectedByElement {
+                    element water
+                    passives {
+                        StatusEachTurnEnd {
+                            NonStackingDivineShield 1
+                        }
+                        HealthRegenUp 1
+                        AddManaRegen 1
+                    }
+                }
+            }
+        }
+    }
+}
+
+Encore {
+    name "PASSIVE_ENCORE_NAME"
+    desc "PASSIVE_ENCORE_DESC"
+    class Druid
+
+    1 {
+        passives {
+            StatusOnUseAbilityWithTag {
+                tag musical
+                exclude_basicattack true
+
+                RefreshActPoints 1
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_ENCORE2_DESC"
+
+        passives {
+            StatusOnUseAbilityWithTag {
+                tag musical
+                exclude_basicattack true
+
+                RefreshActPoints 1
+            }
+
+            ManaCostReductionTagged {
+                tag musical
+                reduction 1
+            }
+        }
+        stats {
+            cha 2
+        }
+    }
+}
+
+SpecialFriends {
+    name "PASSIVE_SUPERFRIENDS_NAME"
+    desc "PASSIVE_SUPERFRIENDS_DESC"
+    class Druid
+
+    1 {
+        passives {
+            SpecialFriends {
+                AllStatsUp 2
+                HealthGain 8 //fill up the blank max health
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_SUPERFRIENDS2_DESC"
+
+        passives {
+            SpecialFriends {
+                AllStatsUp 2
+                HealthGain 8 //fill up the blank max health
+            }
+
+            ManaCostReductionTagged {
+                tag summon
+                reduction 50%
+            }
+        }
+    }
+}
+
+SneakAttack {
+    name "PASSIVE_SNEAKATTACK_NAME"
+    desc "PASSIVE_SNEAKATTACK_DESC"
+    class Druid
+
+    1 {
+        passives {
+            AddPassivesToSummonAbilityMinions {
+                DamageUp 2
+                MovementUp 2
+                Doomed 1
+            }
+            ManaCostReductionTagged {
+                tag summon
+                reduction 3
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_SNEAKATTACK2_DESC"
+
+        passives {
+            AddPassivesToSummonAbilityMinions {
+                DamageUp 4
+                MovementUp 4
+                Doomed 1
+            }
+            ManaCostReductionTagged {
+                tag summon
+                reduction 3
+            }
+        }
+    }
+}
+
+WildStyle {
+    name "PASSIVE_WILDSTYLE_NAME"
+    desc "PASSIVE_WILDSTYLE_DESC"
+    class Druid
+
+    1 {
+        passives {
+            StatusOnUseAbilityWithTag {
+                tag shapeshift
+
+                Conditional_FirstApplicationThisTurn {
+                    TakeExtraTurn 1
+                }
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_WILDSTYLE2_DESC"
+
+        passives {
+            StatusOnUseAbilityWithTag {
+                tag shapeshift
+
+                Conditional_FirstApplicationThisTurn {
+                    TakeExtraTurn 1
+                    AllStatsUp 1
+                }
+            }
+        }
+    }
+}
+
+BuddySystem {
+    name "PASSIVE_BUDDYSYSTEM_NAME"
+    desc "PASSIVE_BUDDYSYSTEM_DESC"
+    class Druid
+
+    1 {
+        divine_shield 1
+
+        passives {
+            HolyShieldTransferToTaggedMinions crow
+
+            AddPassivesToMinions {
+                tag_filter crow
+
+                HolyShieldTransferToSpawner 1
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_BUDDYSYSTEM2_DESC"
+
+        divine_shield 1
+
+        passives {
+            HolyShieldTransferToTaggedMinions any
+
+            AddPassivesToMinions {
+                tag_filter crow
+
+                HolyShieldTransferToSpawner 1
+            }
+        }
+    }
+}
+
+FlowerPower {
+    name "PASSIVE_FLOWERPOWER_NAME"
+    desc "PASSIVE_FLOWERPOWER_DESC"
+    class Druid
+
+    1 {
+        passives {
+            FlowerPowerAuraStrength 1
+            FlowerPowerAuraBrace 1
+
+            LimitedTileTrail FlowerTile
+        }
+    }
+    2 {
+        desc "PASSIVE_FLOWERPOWER2_DESC"
+
+        passives {
+            FlowerPowerAuraStrength 1
+            FlowerPowerAuraBrace 1
+
+            TileTrail FlowerTile
+        }
+    }
+}
+
+SuicideSquad {
+    name "PASSIVE_SUICIDESQUAD_NAME"
+    desc "PASSIVE_SUICIDESQUAD_DESC"
+    class Druid
+
+    1 {
+        passives {
+            AddPassivesToMinions {
+                FamiliarBonusAbility FamiliarSelfDestruct
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_SUICIDESQUAD2_DESC"
+        passives {
+            AddPassivesToMinions {
+                FamiliarBonusAbility FamiliarSelfDestruct2
+            }
+        }
+    }
+}
+
+Feral {
+    name "PASSIVE_FERAL_NAME"
+    desc "PASSIVE_FERAL_DESC"
+    class Druid
+
+    1 {
+        passives {
+            BonusAbility FeralMelee
+        }
+        stats {
+            str 3
+            con 1
+        }
+    }
+    2 {
+        desc "PASSIVE_FERAL2_DESC"
+        passives {
+            BonusAbility FeralMelee
+        }
+        stats {
+            str 4
+            con 2
+            spd 2
+        }
+    }
+}
+
+RapGod {
+    name "PASSIVE_RAPGOD_NAME"
+    desc "PASSIVE_RAPGOD_DESC"
+    class Druid
+
+    1 {
+        passives {
+            AddStatusToBasicAttack {
+                Conditional_SourceHasTag {
+                    tag crow
+
+                    Conditional_Ally {
+                        TempSpeedUp 4
+                    }
+                } Else {
+                    TempSpeedUp 4
+                }
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_RAPGOD2_DESC"
+        passives {
+            AddStatusToBasicAttack {
+                Conditional_Ally {
+                    TempSpeedUp 4
+                }
+                Conditional_Enemy {
+                    Confusion 2
+                }
+            }
+        }
+    }
+}
+
+Animalistic {
+    name "PASSIVE_ANIMALISTIC_NAME"
+    desc "PASSIVE_ANIMALISTIC_DESC"
+    class Druid
+
+    1 {
+        passives {
+            AddPassivesToMinions {
+                DamageUp 2
+            }
+            StatusOnUseAbilityWithTag {
+                tag shapeshift
+
+                DamageUp 1
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_ANIMALISTIC2_DESC"
+        passives {
+            AddPassivesToMinions {
+                DamageUp 2
+                Quivered 1
+            }
+            StatusOnUseAbilityWithTag {
+                tag shapeshift
+
+                DamageUp 1
+                RefreshActPoints 1
+            }
+        }
+    }
+}
+
+Maestro {
+    name "PASSIVE_MAESTRO_NAME"
+    desc "PASSIVE_MAESTRO_DESC"
+    class Druid
+
+    1 {
+        passives {
+            ManaCostReductionTagged {
+                tag musical
+                reduction 50%
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_MAESTRO2_DESC"
+
+        passives {
+            ManaCostReductionTagged {
+                tag musical
+                reduction 50%
+            }
+            StatusOnUseAbilityWithTag {
+                tag musical
+
+                RandomStatUp 1
+                HealthGain 1
+            }
+        }
+    }
+}
+
+MegaMinions {
+    name "PASSIVE_MEGAMINIONS_NAME"
+    desc "PASSIVE_MEGAMINIONS_DESC"
+    class Druid
+
+    1 {
+        passives {
+            MegaMinions 3
+        }
+    }
+    2 {
+        desc "PASSIVE_MEGAMINIONS2_DESC"
+
+        passives {
+            MegaMinions {
+                stacks 3
+                cycle_start 3
+            }
+        }
+    }
+}

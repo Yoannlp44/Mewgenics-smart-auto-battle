@@ -1,0 +1,62 @@
+graphics Map_EndOfTime
+chapter_id endoftime
+tileset theinfinite
+world_name_frame theinfinite
+use_text_fallback_for_nonenglish false
+area_name AREA_NAME_ENDOFTIME
+act 3
+chapter 4
+
+version 1
+
+
+levels {
+    folder theinfinite
+    easy [easy]
+    hard [easy] //switch this to "hard" in the brackets if we get specific hard levels in!
+    rare [rare]
+    boss [boss]
+    miniboss [miniboss]
+    special [special]
+}
+
+music endoftime
+ambience amb_endoftime.ogg
+
+events {
+    normal [
+        common
+    ]
+}
+
+enemy_pools { //for effects that need to spawn a "chapter enemy" of some sort
+    small []
+    medium [Cherubim Seraphim Gatekeeper AngelicKitten AngelicCat]
+    large []
+}
+
+item_pools {
+    chapter_item_pool theinfiniteitems
+}
+
+
+nodes {
+    #include "standard_nodes.gon"
+
+    boss {
+        tileset finalboss
+        type boss
+        boss_cutscene thecreator
+        override_music finalboss
+    }
+
+    quest_event {
+        type special_event
+        level Quest_DeadGod
+        override_art MapNode_DeadChild
+    }
+}
+
+flags {
+
+}

@@ -1,0 +1,3071 @@
+Taunt { //CUT
+    template self_buff
+    
+    meta {
+        name "Taunt"
+        desc "Enemies will attack you if possible"
+        class Tank
+        type_icon "misc"
+    }
+
+    graphics {
+        animation tauntwiggle
+    }
+    
+    cost {
+        infcantrip true
+        mana 3
+    }
+    
+    damage_instance {
+        effects {
+            Taunting 1
+        }
+    }
+}
+Taunt2 {
+    variant_of Taunt
+
+    meta {
+        desc "Enemies will attack you if possible (lower mana)"
+    }
+
+    cost {
+        mana 1
+    }
+}
+
+HeadButt {
+    template melee_attack
+    
+    meta {
+        name "ABILITY_HEADBUTT_NAME"
+        desc "ABILITY_HEADBUTT_DESC"
+        class Tank
+        type_icon "defense"
+    }
+
+    graphics {
+        animation headbutt
+    }
+    
+    cost {
+        infcantrip true
+        mana 8
+    }
+    
+    damage_instance {
+        damage 1
+
+        effects {
+            Stun 1
+        }
+    }
+}
+HeadButt2 {
+    variant_of HeadButt
+
+    meta {
+        desc "ABILITY_HEADBUTT2_DESC"
+    }
+
+    cost {
+        mana 6
+    }
+    
+    damage_instance {
+        damage 5+bonus_melee_ability_damage
+
+        effects {
+            Stun 1
+        }
+    }
+}
+
+ThrowShield {
+    template lobbed_attack
+    
+    meta {
+        name "ABILITY_THROWSCRAP_NAME"
+        desc "ABILITY_THROWSCRAP_DESC"
+        class Tank
+        type_icon "defense"
+    }
+
+    graphics {
+        projectile ArmorPickup
+        animation throwobject
+    }
+
+    cost {
+        mana 5
+        infcantrip true
+    }
+
+    target {
+        min_range 1
+        max_range 2+level
+    }
+
+    damage_instance {
+        damage 0
+
+        effects {
+            Shield 3
+            ObjectOnHitFullyEmpty RandomArmorPickup
+        }
+    }
+}
+ThrowShield2 {
+    variant_of ThrowShield
+
+    meta {
+        desc "ABILITY_THROWSCRAP2_DESC"
+    }
+
+    target {
+        min_range 0
+        max_aoe 1
+    }
+}
+
+
+ChewCud {
+    template self_buff
+    
+    meta {
+        name "ABILITY_CHEWCUD_NAME"
+        desc "ABILITY_CHEWCUD_DESC"
+        class Tank
+    }
+
+    graphics {
+        animation gulp
+    }
+    
+    cost {
+        mana 3
+        infcantrip true
+    }
+    
+    damage_instance {
+        heal 3
+    }
+}
+ChewCud2 {
+    variant_of ChewCud
+
+    meta {
+        desc "ABILITY_CHEWCUD2_DESC"
+    }
+
+    damage_instance {
+        heal 6
+    }
+}
+
+AssBlast {
+    template melee_attack
+    
+    meta {
+        name "ABILITY_ASSBLAST_NAME"
+        desc "ABILITY_ASSBLAST_DESC"
+        class Tank
+        type_icon "defense"
+    }
+
+    graphics {
+        animation poopfart
+    }
+    
+    cost {
+        mana 4
+        infcantrip true
+    }
+    
+    target {
+        aoe_mode standard
+        max_aoe 2
+        aoe_excludes_self true
+        knockback_mode character_to_tile
+    }
+    
+    damage_instance {
+        type spell
+        damage 0
+        knockback 2
+        incidentally_collects_pickups false
+
+        elements [
+            Explosion
+        ]
+    }
+}
+AssBlast2 {
+    variant_of AssBlast
+
+    meta {
+        desc "ABILITY_ASSBLAST2_DESC"
+    }
+
+    target {
+        max_aoe 3
+    }
+
+    damage_instance {
+        knockback 10
+    }
+}
+
+
+Chew {
+    template melee_attack
+    
+    meta {
+        name "ABILITY_CHEW_NAME"
+        desc "ABILITY_CHEW_DESC"
+        class Tank
+    }
+
+    graphics {
+	    animation dashbite
+    }
+
+    cost {
+        infcantrip true
+        mana 5
+    }
+
+    damage_instance {
+        damage 5+bonus_melee_ability_damage
+        type melee
+
+        effects {
+            Leech 1
+        }
+    }
+}
+Chew2 {
+    variant_of Chew
+
+    meta {
+        desc "ABILITY_CHEW2_DESC"
+    }
+
+    damage_instance {
+        piercing true
+
+        effects {
+            Bleed 2
+        }
+    }
+}
+
+
+BatterUp {
+    template melee_attack
+    
+    meta {
+        name "ABILITY_BATTERUP_NAME"
+        desc "ABILITY_BATTERUP_DESC"
+        class Tank
+        type_icon "melee"
+        icon_damage_display_eq 3+bonus_melee_ability_damage
+        icon_shell_frame attack
+    }
+
+    graphics {
+        animation knockswatatk
+    }
+
+    cost {
+        infcantrip true
+        mana 5
+    }
+    sounds {
+        oncastpoint Batterup_Swing_Castpoint
+    }
+
+    damage_instance {
+        damage 0
+        type melee
+        knockback 10
+
+        effects {
+            OverrideKnockbackDamage 3+bonus_melee_ability_damage
+            SoundEventOnHit Batterup_Connect
+        }
+    }
+}
+BatterUp2 {
+    variant_of BatterUp
+
+    meta {
+        desc "ABILITY_BATTERUP2_DESC"
+    }
+    damage_instance {
+        effects {
+            OverrideChainKnockback 10
+            OverrideChainKnockbackDamage 3+bonus_melee_ability_damage
+        }
+    }
+}
+
+BackBreaker {
+    template melee_attack
+    
+    meta {
+        name "ABILITY_BACKBREAKER_NAME"
+        desc "ABILITY_BACKBREAKER_DESC"
+        class Tank
+    }
+
+    graphics {
+        animation throwbigelement
+    }
+
+    cost {
+        infcantrip true
+        mana 6
+    }
+
+    damage_instance {
+        damage 3+bonus_melee_ability_damage
+        type melee
+
+        effects {
+            Immobile 1
+        }
+    }
+}
+BackBreaker2 {
+    variant_of BackBreaker
+
+    meta {
+        desc "ABILITY_BACKBREAKER2_DESC"
+    }
+
+    damage_instance {
+        damage 3+bonus_melee_ability_damage
+        effects {
+            Immobile 1
+            SpeedUp -2
+        }
+    }
+}
+
+Suplex {
+    template melee_attack
+    class SuplexAbility
+    
+    meta {
+        name "ABILITY_SUPLEX_NAME"
+        desc "ABILITY_SUPLEX_DESC"
+        class Tank
+    }
+
+    graphics {
+        animation suplex
+    }
+
+    cost {
+        infcantrip true
+        mana 5
+    }
+
+    target {
+        knockback_mode zero
+        aoe_considers_character_size false
+        
+        target_mode tile
+        restrictions [aoe_must_be_displaceable must_have_character]
+        range_mode standard
+        aoe_mode standard
+        min_range 1
+        max_range 1
+        min_aoe 0 
+        max_aoe 0 
+    }
+
+    damage_instance {
+        damage 3+bonus_melee_ability_damage
+        type melee
+        blocked_multiplier 2
+        makes_contact false
+    }
+}
+Suplex2 {
+    variant_of Suplex
+
+    meta {
+        desc "ABILITY_SUPLEX2_DESC"
+    }
+
+    damage_instance {
+        effects {
+            Bruise 3
+            Immobile 1
+        }
+    }
+}
+
+
+Intimidate {
+    template melee_attack
+    
+    meta {
+        name "ABILITY_INTIMIDATE_NAME"
+        desc "ABILITY_INTIMIDATE_DESC"
+        class Tank
+        type_icon "defense"
+    }
+
+    graphics {
+        animation angry
+    }
+    
+    cost {
+        infcantrip true
+        mana 5
+    }
+    
+    damage_instance {
+        damage 0
+        type status_spell
+        makes_contact false
+        incidentally_collects_pickups false
+
+        effects {
+            Fear 1
+        }
+    }
+}
+Intimidate2 {
+    variant_of Intimidate
+
+    meta {
+        desc "ABILITY_INTIMIDATE2_DESC"
+    }
+
+    target {
+        target_mode tile
+        max_range 5
+    }
+}
+
+Toss {
+    template throw_attack
+    
+    meta {
+        name "ABILITY_TOSS_NAME"
+        desc "ABILITY_TOSS_DESC"
+        class Tank
+        type_icon "defense"
+    }
+
+    graphics {
+        animation knockupatk
+    }
+
+    cost {
+        mana 3
+        infcantrip true
+    }
+    
+    target {
+        max_range 3+2*level
+    }
+    
+    damage_instance {
+        damage 1
+
+        blocked_damage 5+bonus_melee_ability_damage
+    }
+}
+Toss2 {
+    variant_of Toss
+
+    meta {
+        desc "ABILITY_TOSS2_DESC"
+    }
+
+    target {
+        restrictions none
+    }
+}
+
+BonusToss { //bonus ability for Wrestlemania
+    template throw_attack
+    
+    meta {
+        name "ABILITY_TOSS_NAME"
+        desc "ABILITY_WRESTLETOSS_DESC"
+        class Tank
+        type_icon "defense"
+        ability_icon "Toss"
+    }
+
+    graphics {
+        animation knockupatk
+    }
+
+    cost {
+        mana 0
+        cantrip true
+    }
+    
+    target {
+        max_range 5
+    }
+    
+    damage_instance {
+        damage 1
+
+        blocked_damage 5+bonus_melee_ability_damage
+    }
+}
+BonusToss2 { //bonus ability for Wrestlemania
+    variant_of BonusToss
+
+    meta {
+        desc "ABILITY_WRESTLETOSS2_DESC"
+    }
+
+    target {
+        restrictions none
+    }
+    
+    damage_instance {
+        damage 1
+
+        blocked_damage 5+bonus_melee_ability_damage
+    }
+}
+NubbyToss { //bonus ability for MyLeg
+    template throw_attack
+    
+    meta {
+        name "ABILITY_TOSS_NAME"
+        desc "ABILITY_NUBBYTOSS_DESC"
+        class Tank
+        type_icon "defense"
+        ability_icon "Toss"
+    }
+
+    graphics {
+        animation knockupatk
+    }
+
+    cost {
+        mana 0
+        cantrip true
+    }
+    
+    target {
+        max_range 20
+        restrictions none
+        force_no_contact true
+        prioritize_throw_target_with_passive NubbyTossPriority
+    }
+    
+    damage_instance {
+        damage 1
+    }
+}
+
+
+BellyFlop {
+    template jump_attack
+
+    meta {
+        name "ABILITY_BELLYFLOP_NAME"
+        desc "ABILITY_BELLYFLOP_DESC"
+        class Tank
+    }
+
+    graphics {
+        jump_start_animation bellyflopStart
+        air_animation bellyflop_air
+        jump_attack_animation bellyflopEnd
+        land_animation none
+    }
+
+    cost {
+        mana 6
+        infcantrip true
+    }
+    
+    target {
+        max_range 3
+
+        aoe_mode occupied_tiles
+        min_aoe 0
+        max_aoe 0
+        aoe_excludes_self false
+        restrictions none
+    }
+
+    damage_instance {
+        damage 1+bonus_melee_ability_damage
+
+        effects {
+            IgnoreSelf 1
+            Immobile 1
+        }
+    }
+}
+BellyFlop2 {
+    variant_of BellyFlop
+
+    meta {
+        desc "ABILITY_BELLYFLOP2_DESC"
+    }
+
+    target {
+        max_range 5
+        max_aoe 1
+    }
+
+    splash_damage {
+        damage 1+bonus_melee_ability_damage
+
+        effects {
+            IgnoreSelf 1
+            Immobile 1
+        }
+    }
+}
+
+ToadJump_BasicMove {
+    template jump_attack
+
+    meta {
+        name "ABILITY_JUMP_NAME"
+        desc "ABILITY_TOADJUMP_DESC"
+        animate_name false
+    }
+
+    graphics {
+        jump_attack_animation land
+    }
+
+    cost {
+        move_points 1
+        act_points 0
+    }
+    
+    target {
+        min_range 1
+        max_range mov
+        
+        aoe_mode occupied_tiles
+        min_aoe 0
+        max_aoe 0
+        aoe_excludes_self false
+        restrictions none
+    }
+
+    damage_instance {
+        damage 1+bonus_melee_ability_damage
+
+        effects {
+            IgnoreSelf 1
+        }
+    }
+}
+
+BellyFlop_BasicMove {
+    template jump_attack
+
+    meta {
+        name "ABILITY_JUMP_NAME"
+        desc "ABILITY_BELLYJUMP_DESC"
+        animate_name false
+    }
+
+    graphics {
+        jump_attack_animation land
+    }
+
+    cost {
+        move_points 1
+        act_points 0
+    }
+    
+    target {
+        min_range 1
+        max_range mov
+        
+        aoe_mode occupied_tiles
+        min_aoe 0
+        max_aoe 0
+        aoe_excludes_self false
+        restrictions none
+    }
+
+    damage_instance {
+        damage 5+bonus_melee_ability_damage
+
+        effects {
+            IgnoreSelf 1
+        }
+    }
+}
+
+TankTrample {
+    template trample_dash
+    
+    meta {
+        name "ABILITY_TRAMPLEDASH_NAME"
+        desc "ABILITY_TRAMPLEDASH_DESC"
+        class Tank
+        type_icon "melee"
+    }
+    
+    graphics {
+        dash_start_animation dashstart
+        dash_animation dash
+        dash_end_animation dashend
+    }
+    
+    cost {
+        mana 6
+        infcantrip true
+    }
+    
+    target {
+
+    }
+
+    temporary_effects {
+        Trample 3
+    }
+    
+    damage_instance {
+        damage 3
+    }
+
+    self_damage {
+        damage 0
+        effects {
+            SpawnRock 1
+        }
+    }
+}
+TankTrample2 {
+    variant_of TankTrample
+
+    meta {
+        desc "ABILITY_TRAMPLEDASH2_DESC"
+    }
+
+    damage_instance {
+        damage 5+bonus_melee_ability_damage
+
+        effects {
+            Stun [1, .2]
+        }
+    }
+}
+
+
+TankSwap {
+    template swap
+    
+    meta {
+        name "ABILITY_TANKSWAP_NAME"
+        desc "ABILITY_TANKSWAP_DESC"
+        animate_name true
+        class Tank
+    }
+
+    graphics {
+    }
+
+    cost {
+        mana 5
+        infcantrip true
+    }
+
+    target {
+        max_range 20
+        restrictions [must_be_swappable aoe_must_exist]
+        aoe_restrictions [allies_only]
+    }
+}
+TankSwap2 {
+    variant_of TankSwap
+
+    meta {
+        desc "ABILITY_TANKSWAP2_DESC"
+    }
+
+    cost {
+        mana 3
+    }
+    target {
+        aoe_restrictions none
+    }
+}
+
+
+
+ToTheRescue {
+    template jump_attack
+
+    meta {
+        name "ABILITY_TOTHERESCUE_NAME"
+        desc "ABILITY_TOTHERESCUE_DESC"
+        class Tank
+        type_icon "movement"
+    }
+
+    graphics {
+        jump_attack_animation land
+    }
+
+    cost {
+        mana 5
+        infcantrip true
+    }
+    
+    target {
+        max_range 20
+
+        min_aoe 0
+        max_aoe 0
+        aoe_excludes_self false
+        restrictions [must_be_adjacent_to_ally]
+    }
+
+    damage_instance {
+        damage 5+bonus_melee_ability_damage
+
+        effects {
+            IgnoreSelf 1
+        }
+    }
+}
+ToTheRescue2 {
+    variant_of ToTheRescue
+
+    meta {
+        desc "ABILITY_TOTHERESCUE2_DESC"
+    }
+
+    cost {
+        mana 3
+        infcantrip true
+    }
+
+    target {
+        max_aoe 1
+        aoe_restrictions [exclude_allies]
+    }
+
+    splash_damage {
+        damage 5+bonus_melee_ability_damage
+
+        knockback 1
+    }
+}
+
+
+
+
+TankTantrum {
+    template melee_attack
+    
+    meta {
+        name "ABILITY_TANKTANTRUM_NAME"
+        desc "ABILITY_TANKTANTRUM_DESC"
+        class Tank
+    }
+
+    graphics {
+        animation spinAttack
+    }
+    
+    cost {
+        infcantrip true
+        mana 3
+    }
+    
+    target {
+        target_mode none
+        aoe_mode cross
+        knockback_mode character_to_tile
+    }
+    
+    damage_instance {
+        damage 1+bonus_melee_ability_damage
+
+        elements [
+            Earth
+        ]
+    }
+
+    self_damage {
+        damage 0
+        effects {
+            SpawnRock 1
+        }
+    }
+}
+TankTantrum2 {
+    variant_of TankTantrum
+
+    meta {
+        desc "ABILITY_TANKTANTRUM2_DESC"
+    }
+
+    target {
+        aoe_mode square
+    }
+    damage_instance {
+        damage 3+bonus_melee_ability_damage
+    }
+}
+
+Earthquake {
+    template spell
+
+    meta {
+        name "ABILITY_EARTHQUAKE_NAME"
+        desc "ABILITY_EARTHQUAKE_DESC"
+        class Tank
+    }
+
+    graphics {
+        animation earthquakeSlam
+        delay 3
+        particle Earthquake
+    }
+    
+    cost {
+        mana 7
+        infcantrip true
+    }
+
+    target {
+        target_mode direction
+
+        aoe_mode cone
+        min_aoe 1
+        max_aoe 4
+    }
+
+    
+    damage_instance {
+        damage 2
+
+        effects {
+            SpawnRock [1, .20]
+            Petrify [1, .1]
+        }
+
+        elements [
+            Earth
+        ]
+    }
+}
+
+Earthquake2 {
+    meta {
+        desc "ABILITY_EARTHQUAKE2_DESC"
+    }
+
+    variant_of Earthquake
+    damage_instance {
+        damage 5
+
+        effects {
+            Petrify [1, .20]
+        }
+    }
+}
+
+
+
+RockToss {
+    template lobbed_attack
+
+    meta {
+        name "ABILITY_ROCKTOSS_NAME"
+        desc "ABILITY_ROCKTOSS_DESC"
+        class Tank
+    }
+
+    graphics {
+        projectile SmallRock
+        animation throwobject
+    }
+    
+    cost {
+        mana 5
+        infcantrip true
+    }
+    
+    target {
+        min_range 1
+        max_range 3+bonus_range
+    }
+    
+    damage_instance {
+        damage 2+bonus_ranged_damage
+
+        effects {
+            Stun [1, .10]
+            BounceObject SmallRock
+        }
+
+        elements [
+            Rock
+        ]
+    }
+}
+
+RockToss2 {
+    variant_of RockToss
+
+    graphics {
+        lob_height -1
+    }
+
+    meta {
+        desc "ABILITY_ROCKTOSS2_DESC"
+    }
+
+    target {
+        min_range 1
+        max_range 5+bonus_range
+        restrictions none
+    }
+
+    damage_instance {
+        damage 4+bonus_ranged_damage
+
+        effects {
+            Stun [1, .33]
+        }
+    }
+}
+
+
+BarbedWire {
+    template lobbed_attack
+    
+    meta {
+        name "ABILITY_BARBEDWIRE_NAME"
+        desc "ABILITY_BARBEDWIRE_DESC"
+        class Tank
+        type_icon "buff"
+    }
+
+    graphics {
+        projectile barbedwire
+        animation throwobject
+    }
+
+    cost {
+        mana 3
+        infcantrip true
+    }
+
+    target {
+        min_range 0
+        max_range 5
+        max_aoe 0
+    }
+
+    damage_instance {
+        damage 0
+
+        effects {
+            Temporary {
+                status Thorns
+                stacks 5
+                turns 1
+                expires_on_appliers_turn true
+            }
+        }
+    }
+}
+BarbedWire2 {
+    template spell
+    
+    meta {
+        name "ABILITY_BARBEDWIRE_NAME"
+        desc "ABILITY_BARBEDWIRE2_DESC"
+        class Tank
+        type_icon "buff"
+    }
+
+    graphics {
+		particle none
+    }
+
+    cost {
+        mana 3
+        infcantrip true
+    }
+
+    target {
+        min_range 0
+        max_range 20
+        max_aoe 0
+    }
+
+    damage_instance {
+        damage 0
+
+        effects {
+            CanApplyToInanimate {
+                Temporary {
+                    status Thorns
+                    stacks 5
+                    turns 1
+                    expires_on_appliers_turn true
+                }
+            }
+        }
+    }
+}
+
+DrawAttention {
+    template spell
+
+    meta {
+        name "ABILITY_TANKMOCK_NAME"
+        desc "ABILITY_TANKMOCK_DESC"
+        class Tank
+        type_icon "misc"
+    }
+    graphics {
+        animation howl
+        particle none
+    }
+    
+    cost {
+        mana 3
+        infcantrip true
+    }
+
+    
+    target {
+        min_range 1
+        max_range 6
+        max_aoe 0
+
+        restrictions must_have_enemy
+    }
+
+    damage_instance {
+        damage 0
+        
+        effects {
+            ForceMoveTowards 1
+        }
+    }
+}
+DrawAttention2 {
+    variant_of DrawAttention
+
+    meta {
+        desc "ABILITY_TANKMOCK2_DESC"
+    }
+
+    cost {
+        mana 2
+    }
+
+    target {
+        max_range 20
+    }
+}
+
+
+BowlOver {
+    template move
+    
+    meta {
+        name "ABILITY_BOWLOVER_NAME"
+        desc "ABILITY_BOWLOVER_DESC"
+        class Tank
+        animate_name true
+    }
+
+    graphics {
+        sync_speed 22
+        max_tiles_single_loop 5
+        ignore_slowtiles true
+        move_start_animation startroll
+        animation roll
+        move_end_animation endroll
+    }
+
+    cost {
+        infcantrip true
+        mana 2
+    }
+
+    temporary_effects {
+        Trample 3
+    }
+
+    target {
+        range_mode diagcross
+        max_range 1
+        restrictions [must_be_moveable must_move]
+        straight_shot true
+        allow_diagonals true
+    }
+}
+BowlOver2 {
+    variant_of BowlOver
+
+    meta {
+        desc "ABILITY_BOWLOVER2_DESC"
+    }
+
+    target {
+        max_range 2
+    }
+
+    damage_instance {
+        override_trample_damage true
+        damage 3
+        effects {
+            Stun [1 .1]
+        }
+    }
+}
+
+Clap {
+    template melee_attack
+    
+    meta {
+        name "ABILITY_CLAP_NAME"
+        desc "ABILITY_CLAP_DESC"
+        class Tank
+        type_icon "melee"
+    }
+
+    tags [musical]
+
+    graphics {
+        animation clapTogether
+    }
+    
+    cost {
+        infcantrip true
+        mana 3
+    }
+    
+    target {
+        aoe_mode custom
+        custom_aoe [ [1, 1], [1, -1] ]
+        range_display_include_direction true
+
+        knockback_mode perp_towards_facing
+    }
+    
+    damage_instance {
+        damage 0
+        knockback 1
+    }
+}
+Clap2 {
+    variant_of Clap
+
+    meta {
+        desc "ABILITY_CLAP2_DESC"
+    }
+
+    damage_instance {
+        effects {
+            BonusKnockbackDamage 2
+        }
+    }
+}
+
+TankRockSong {
+    template spell
+
+    meta {
+        name "ABILITY_ROCKSONG_NAME"
+        desc "ABILITY_ROCKSONG_DESC"
+        class Tank
+        type_icon "misc"
+    }
+
+    tags [musical]
+    
+    graphics {
+        particle none
+        animation howl
+    }
+    
+    cost {
+        mana 6
+        infcantrip true
+    }
+    
+    target {
+        target_mode none
+        aoe_mode all
+    }
+
+    damage_instance {
+        type none
+        damage 0
+
+        effects {
+            //RockSeekEnemies 1
+            Conditional_HasTag {
+                tag rock
+                FloatingRockTrap 1
+            }
+        }
+    }
+}
+TankRockSong2 {
+    variant_of TankRockSong
+
+    meta {
+        desc "ABILITY_ROCKSONG2_DESC"
+    }
+
+    cost {
+        mana 3
+    }
+}
+
+RockCrusher {
+    template jump_attack
+
+    meta {
+        name "ABILITY_ROCKCRUSHER_NAME"
+        desc "ABILITY_ROCKCRUSHER_DESC"
+        class Tank
+    }
+
+    keyword_tooltips {}
+
+    graphics {
+        jump_start_animation bellyflopStart
+        air_animation bellyflop_air
+        jump_attack_animation bellyflopEnd
+        land_animation none
+    }
+
+    cost {
+        mana 4
+        infcantrip true
+    }
+    
+    target {
+        max_range 20
+        min_range 1
+
+        min_aoe 0
+        max_aoe 0
+        aoe_excludes_self false
+        restrictions [must_have_tag]
+        target_requires_tag rock
+    }
+
+    damage_instance {
+        damage 0
+        override_trample_damage true
+
+        effects {
+            IgnoreSelf 1
+
+            Conditional_HasTag {
+                tag rock
+
+                Conditional_NotBoss {
+                    ExplodeCharacter_RockCrusher 5
+                }
+                Conditional_Boss {
+                    RemoveStatus Petrify
+
+                    Conditional_HasStatus {
+                        status Petrify
+                        BonusDamage 20
+                    } Else {
+                        BonusDamage 5
+                    }
+
+                    ExplodeCharacter_RockCrusher_PetrifyBreak 5
+                }
+            }
+        }
+
+        elements [
+            Earth,
+        ]
+    }
+}
+RockCrusher2 {
+    variant_of RockCrusher
+
+    meta {
+        desc "ABILITY_ROCKCRUSHER2_DESC"
+    }
+
+    damage_instance {
+        effects {
+            Conditional_HasTag {
+                Conditional_NotBoss {
+                    ExplodeCharacter_RockCrusher 9
+                }
+                Conditional_Boss {
+                    RemoveStatus Petrify
+
+                    Conditional_HasStatus {
+                        status Petrify
+                        BonusDamage 20
+                    } Else {
+                        BonusDamage 5
+                    }
+
+                    ExplodeCharacter_RockCrusher_PetrifyBreak 9
+                }
+            }
+        }
+    }
+}
+
+BodyGuard {
+    template self_buff
+    
+    meta {
+        name "ABILITY_BODYGUARD_NAME"
+        desc "ABILITY_BODYGUARD_DESC"
+        class Tank
+    }
+
+    graphics {
+    }
+    
+    cost {
+        mana 2
+        infcantrip true
+    }
+    
+    damage_instance {
+        effects {
+            BodyGuard {
+                stacks 1
+                ability BodyGuardSwap
+            }
+        }
+    }
+}
+BodyGuard2 {
+    variant_of BodyGuard
+
+    meta {
+        desc "ABILITY_BODYGUARD2_DESC"
+    }
+
+    damage_instance {
+        effects {
+            BodyGuard {
+                stacks 1
+                ability BodyGuardSwap2
+            }
+        }
+    }
+}
+
+BodyGuardSwap { //util ability for BodyGuard
+    template swap
+    
+    meta {
+        name "ABILITY_SWAP_NAME"
+        desc "ABILITY_SWAP_DESC"
+        animate_name true
+    }
+
+    graphics {
+        animation_out shadowStepOut
+        animation_in shadowStepIn
+
+        mode yeet //yeet or overlay
+    }
+}
+BodyGuardSwap2 { //util ability for BodyGuard2
+    template swap
+    
+    meta {
+        name "ABILITY_SWAP_NAME"
+        desc "ABILITY_SWAP_DESC"
+        animate_name true
+    }
+
+    graphics {
+        animation_out shadowStepOut
+        animation_in shadowStepIn
+
+        mode yeet //yeet or overlay
+    }
+
+    
+    self_damage {
+        effects {
+            Shield 4
+        }
+    }
+}
+
+
+Gore {
+    template dash_attack
+    
+    meta {
+        name "ABILITY_GORE_NAME"
+        desc "ABILITY_GORE_DESC"
+        class Tank
+    }
+    
+    graphics {
+        dash_start_animation headbuttdashStart
+        dash_animation headbuttdash
+        dash_attack_animation headbuttUppercut
+    }
+    
+    cost {
+        infcantrip true
+        mana 5
+    }
+    
+    target {
+        max_range 3
+    }
+    
+    damage_instance {
+        damage 2+bonus_melee_ability_damage
+        makes_contact true
+
+        effects {
+            DisplaceToOriginalPosition 1
+            Bruise 1
+        }
+    }
+}
+Gore2 {
+    variant_of Gore
+
+    meta {
+        desc "ABILITY_GORE2_DESC"
+    }
+
+    target {
+        max_range 10
+    }
+
+    damage_instance {
+        damage 4+bonus_melee_ability_damage
+        makes_contact true
+
+        effects {
+            DisplaceToOriginalPosition 1
+            Bruise 1
+        }
+    }
+}
+
+RockBlast_AI {
+    template melee_attack
+    
+    target { 
+        max_aoe 10
+        aoe_restrictions must_have_line_of_sight
+    }
+    damage_instance {
+        damage 5
+    }
+}
+
+RockBlast { //TODO: make less janky
+    template melee_attack
+    ai_ability RockBlast_AI
+    
+    meta {
+        name "ABILITY_ROCKBLAST_NAME"
+        desc "ABILITY_ROCKBLAST_DESC"
+        class Tank
+        type_icon "melee"
+    }
+
+    graphics {
+    }
+
+    cost {
+        infcantrip true
+        mana 6
+    }
+
+    target {
+        aoe_restrictions must_be_empty
+        restrictions aoe_must_exist
+    }
+
+    damage_instance {
+        damage 0
+        type melee
+        incidentally_collects_pickups false
+
+        effects {
+            SendRock 1
+        }
+
+        elements [
+        ]
+    }
+}
+RockBlast2 {
+    variant_of RockBlast
+
+    meta {
+        desc "ABILITY_ROCKBLAST2_DESC"
+    }
+
+    cost {
+        mana 3
+    }
+
+    damage_instance {
+        effects {
+            OverrideChainKnockback 1
+        }
+    }
+}
+
+RockTomb {
+    template spell
+    
+    meta {
+        name "ABILITY_ROCKTOMB_NAME"
+        desc "ABILITY_ROCKTOMB_DESC"
+        class Tank
+    }
+
+    graphics {
+        animation floatingmagic
+        particle Earthquake
+        //affected_particle PetrifyCube
+        //fx_is_placeholder_animation true
+    }
+
+    cost {
+        mana 8
+        infcantrip true
+    }
+
+    target {
+        min_range 0
+        max_range 3
+        max_aoe 0
+    }
+
+    damage_instance {
+        damage 3
+
+        effects {
+            Petrify 1
+        }
+    }
+}
+RockTomb2 {
+    variant_of RockTomb
+
+    meta {
+       desc "ABILITY_ROCKTOMB2_DESC"
+    }
+
+    cost {
+        mana 6
+    }
+    target {
+        max_range 5
+    }
+}
+
+SwapPositions_WideLoad { //util ability for WideLoad
+    template swap
+
+    target {
+        max_range 1
+        restrictions [must_be_swappable aoe_must_exist]
+    }
+}
+SwapPositions_WideLoad2 {
+    variant_of TankSwap
+
+    target {
+        max_range 3
+    }
+
+    self_damage {
+        effects {
+            Temporary {
+                status Thorns
+                stacks 1
+                turns 1
+                expires_on_begin_turn true
+            }
+            Temporary {
+                status Brace
+                stacks 1
+                turns 1
+                expires_on_begin_turn true
+            }
+        }
+    }
+}
+
+BearHug {
+    template melee_attack
+    
+    meta {
+        name "ABILITY_GRAB_NAME"
+        desc "ABILITY_GRAB_DESC"
+        class Tank
+    }
+
+    graphics {
+
+    }
+    
+    cost {
+        infcantrip true
+        mana 3
+    }
+
+    target {
+        max_aoe 2
+        knockback_mode tile_to_character
+        aoe_restrictions must_have_line_of_sight_unpurgable
+    }
+
+    temporary_effects {
+        KnockbackImmunity 1
+    }
+    
+    damage_instance {
+        damage 0
+        knockback 10
+    }
+}
+BearHug2 {
+    variant_of BearHug
+
+    meta {
+        desc "ABILITY_GRAB2_DESC"
+    }
+
+    target {
+       max_aoe 4
+    }
+    
+    damage_instance {
+        effects {
+            Grappled 1
+        }
+    }
+}
+
+Fissure {
+    template spell
+
+    meta {
+        name "ABILITY_FISSURE_NAME"
+        desc "ABILITY_FISSURE_DESC"
+        class Tank
+    }
+    
+    cost {
+        infcantrip true
+        mana 5
+    }
+
+    graphics {
+		animation groundpound
+        particle Earthquake
+    }
+    
+    target {
+        target_mode direction
+
+        aoe_mode custom
+        custom_aoe [
+                     [1, 1], [2, 1], [3, 1], [4, 1], [5, 1], [6, 1], [7, 1], [8, 1], [9, 1], [10, 1]
+                     [1, 0], [2, 0], [3, 0], [4, 0], [5, 0], [6, 0], [7, 0], [8, 0], [9, 0], [10, 0]
+                     [1,-1], [2,-1], [3,-1], [4,-1], [5,-1], [6,-1], [7,-1], [8,-1], [9,-1], [10,-1]
+                   ]
+
+        knockback_mode perp_towards_facing_middle_pull
+        
+    }
+    
+    damage_instance {
+        damage 0
+        knockback 1
+        custom_additional_ai_weight magnetize_favorlineup
+        
+        effects {
+            Petrify [1 .1]
+        }
+
+        elements [
+            Earth
+        ]
+    }
+}
+Fissure2 {
+    variant_of Fissure
+
+    meta {
+        desc "ABILITY_FISSURE2_DESC"
+    }
+
+    damage_instance {
+        effects {
+            Petrify [1 .15]
+            LeaveBehindRockOnKnockback 1
+        }
+    }
+}
+
+BigRock {
+    template spawn
+
+    meta {
+        name "ABILITY_BIGROCK_NAME"
+        desc "ABILITY_BIGROCK_DESC"
+        class Tank
+        type_icon "melee"
+        icon_shell_frame damage
+    }
+    
+    graphics {
+        lob true
+        animation shoot
+    }
+
+    cost {
+        infcantrip true
+        mana 7
+    }
+    
+    target {
+        min_range 1
+        max_range 1
+        max_aoe 0
+
+        range_excludes_blocking false
+        restrictions aoe_must_be_displaceable
+        aoe_restrictions none
+    }
+
+    spawn {
+        object Boulder
+    }
+
+    damage_instance {
+        damage 5+bonus_melee_ability_damage
+        type melee
+        force_no_contact true
+    }
+}
+BigRock2 {
+    variant_of BigRock
+
+    meta {
+        desc "ABILITY_BIGROCK2_DESC"
+    }
+
+    damage_instance {
+        effects {
+            Stun 1
+        }
+    }
+}
+
+FlipFlop {
+    template jump_attack
+
+    meta {
+        name "ABILITY_FLIPFLOP_NAME"
+        desc "ABILITY_FLIPFLOP_DESC"
+        class Tank
+    }
+
+    graphics {
+        jump_attack_animation land
+    }
+
+    cost {
+        mana spd
+        move_points 0
+        act_points 0
+        charge "1-clamp(spd,0,1)"
+        initial_charge 1
+    }
+    
+    target {
+        max_range 3
+
+        aoe_mode occupied_tiles
+        min_aoe 0
+        max_aoe 0
+        aoe_excludes_self false
+        restrictions none
+    }
+
+    self_damage {
+        effects {
+            SpeedUp -1
+        }
+    }
+
+    damage_instance {
+        damage 3+bonus_melee_ability_damage
+
+        effects {
+            IgnoreSelf 1
+        }
+    }
+}
+FlipFlop2 {
+    variant_of FlipFlop
+
+    meta {
+        desc "ABILITY_FLIPFLOP2_DESC"
+    }
+
+    target {
+        max_range "4+(1-clamp(spd,0,1))*2"
+    }
+
+    damage_instance {
+        damage "4+(1-clamp(spd,0,1))*2+bonus_melee_ability_damage"
+
+        effects {
+            IgnoreSelf 1
+        }
+    }
+}
+
+Lunge {
+    template dash_attack
+    
+    meta {
+        name "ABILITY_LUNGE_NAME"
+        desc "ABILITY_LUNGE_DESC"
+        class Tank
+    }
+
+    graphics {
+        dash_start_animation headbuttdashStart
+        dash_animation headbuttdash
+        dash_attack_animation headbuttdashEnd
+    }
+
+    cost {
+        mana 0
+        act_points 0
+        move_points 1
+        charge 0
+    }
+
+    target { 
+        max_range 1+bonus_range
+        max_aoe 1
+        aoe_restrictions must_have_line_of_sight_unpurgable
+    }
+
+    damage_instance {
+        damage 5+bonus_melee_damage
+        knockback 1
+    }
+}
+Lunge2 {
+    variant_of Lunge
+
+    meta {
+        desc "ABILITY_LUNGE2_DESC"
+    }
+
+    damage_instance {
+        effects {
+            Stun 1
+        }
+    }
+}
+
+Nudge {
+    template melee_attack
+    
+    meta {
+        name "ABILITY_NUDGE_NAME"
+        desc "ABILITY_NUDGE_DESC"
+        class Tank
+        type_icon "melee"
+    }
+
+    graphics {
+        animation bigkick
+    }
+
+    cost {
+        infcantrip true
+        mana 3
+    }
+    bonus_passives {
+        FreeFirstCast 1
+    }
+
+    damage_instance {
+        damage 0
+        type melee
+        knockback 1
+    }
+}
+Nudge2 {
+    variant_of Nudge
+
+    meta {
+        desc "ABILITY_NUDGE2_DESC"
+    }
+
+    damage_instance {
+        knockback 10
+    }
+}
+
+StoneGaze {
+    template spell
+
+    meta {
+        name "ABILITY_STONEBREATH_NAME"
+        desc "ABILITY_STONEBREATH_DESC"
+        class Tank
+        type_icon "magic" //needs wind element
+    }
+
+    graphics {
+        particle fx_windSpell
+        //affected_particle Earthquake
+    }
+    
+    cost {
+        infcantrip true
+        mana 6
+    }
+    
+    target {
+        target_mode direction
+        aoe_mode line
+        
+        max_aoe 10
+        
+        aoe_considers_character_size true
+        aoe_excludes_self true
+        knockback_mode character_to_tile
+        aoe_restrictions must_have_line_of_sight
+    }
+    
+    damage_instance {
+        damage 0
+        
+        effects {
+            Petrify 1
+        }
+	    elements [
+            Wind,
+        ]
+    }
+}
+StoneGaze2 {
+    variant_of StoneGaze
+
+    meta {
+        desc "ABILITY_STONEBREATH2_DESC"
+    }
+
+    cost {
+        mana 6
+    }
+
+    damage_instance {
+        knockback 10
+        effects {
+            OverrideKnockbackDamage 5 //hack since Petrify is supposed to make things deal 5 knockback damage
+        }
+    }
+}
+
+Medusa {
+    template spell
+    
+    meta {
+        name "ABILITY_MEDUSA_NAME"
+        desc "ABILITY_MEDUSA_DESC"
+        class Tank
+    }
+
+    graphics {
+        particle none
+    }
+    
+    cost {
+        infcantrip true
+        mana 10
+    }
+    
+    target {
+        aoe_mode all
+        target_mode none
+        aoe_excludes_self true
+        aoe_restrictions must_have_line_of_sight
+    }
+    
+    damage_instance {
+        damage 0
+
+        effects {
+            Petrify 1
+        }
+    }
+}
+Medusa2 {
+    variant_of Medusa
+
+    meta {
+        desc "ABILITY_MEDUSA2_DESC"
+    }
+
+    cost {
+        mana 8
+    }
+}
+
+Anchor {
+    template self_buff
+    
+    meta {
+        name "ABILITY_ANCHOR_NAME"
+        desc "ABILITY_ANCHOR_DESC"
+        class Tank
+    }
+
+    graphics {
+	    animation block
+    }
+    
+    cost {
+        mana 6
+        infcantrip true
+    }
+    
+    damage_instance {
+        effects {
+            Temporary {
+                status Brace
+                stacks 4
+                turns 1
+                expires_on_move true
+            }
+        }
+    }
+}
+Anchor2 {
+    variant_of Anchor
+
+    meta {
+        desc "ABILITY_ANCHOR2_DESC"
+    }
+
+    bonus_passives {
+        KnockbackImmunity 1
+    }
+}
+
+EatRock {
+    template tile_targeted_melee_attack
+
+    meta {
+        name "ABILITY_EATROCK_NAME"
+        desc "ABILITY_EATROCK_DESC"
+        class Tank
+    }
+
+    keyword_tooltips {Shield 5}
+
+    graphics {
+        animation biteattack
+    }
+
+    cost {
+        mana 1
+        infcantrip true
+    }
+    
+    target {
+        restrictions [must_have_tag]
+        target_requires_tag rock
+    }
+
+    damage_instance {
+        damage 0
+
+        effects {
+            IgnoreSelf 1
+
+            Conditional_HasTag {
+                tag rock
+
+                Conditional_NotBoss {
+                    Vaporize 1
+                }
+                Conditional_Boss {
+                    RemoveStatus Petrify
+
+                    Conditional_HasStatus {
+                        status Petrify
+                        BonusDamage 20
+                    } Else {
+                        BonusDamage 5
+                    }
+                }
+
+                ApplyToSource {
+                    Shield 5
+                    StrengthUp 1
+                }
+            }
+        }
+    }
+}
+EatRock2 {
+    template tile_targeted_melee_attack
+
+    meta {
+        name "ABILITY_EATROCK_NAME"
+        desc "ABILITY_EATROCK2_DESC"
+        class Tank
+    }
+
+    keyword_tooltips {Shield 5}
+
+    graphics {
+        animation biteattack
+    }
+
+    cost {
+        mana 1
+        infcantrip true
+    }
+    
+    target {
+        restrictions [must_have_tag]
+        target_requires_tag rock
+    }
+
+    damage_instance {
+        damage 0
+
+        effects {
+            IgnoreSelf 1
+
+            Conditional_HasTag {
+                tag rock
+
+                Conditional_NotBoss {
+                    Vaporize 1
+                }
+                Conditional_Boss {
+                    RemoveStatus Petrify
+
+                    Conditional_HasStatus {
+                        status Petrify
+                        BonusDamage 20
+                    } Else {
+                        BonusDamage 5
+                    }
+                }
+
+                ApplyToSource {
+                    Shield 5
+                    AllStatsUp 1
+                }
+            }
+        }
+    }
+}
+
+PlantFeet {
+    template self_buff
+    
+    meta {
+        name "ABILITY_PLANTFEET_NAME"
+        desc "ABILITY_PLANTFEET_DESC"
+        class Tank
+    }
+
+    graphics {
+	    animation bruise
+    }
+    
+    cost {
+        mana 0
+        cantrip true
+    }
+    
+    damage_instance {
+        effects {
+            Conditional_FormulaIsPositive {
+                formula spd
+                SpeedUp -1
+                Shield 5
+            } Else {
+                Cleanse 0
+            }
+        }
+    }
+}
+PlantFeet2 {
+    variant_of PlantFeet
+
+    meta {
+        desc "ABILITY_PLANTFEET2_DESC"
+    }
+
+    damage_instance {
+        effects {
+            Conditional_FormulaIsPositive {
+                Shield 6
+            } Else {
+                AllStatsUp 1
+            }
+        }
+    }
+}
+
+IronHead {   //todo: this is a weird one, lets update it later
+    template dash_attack
+    
+    meta {
+        name "ABILITY_IRONHEAD_NAME"
+        desc "ABILITY_IRONHEAD_DESC"
+        class Tank
+    }
+
+    graphics {
+        dash_start_animation dashstart
+        dash_animation dash
+        dash_attack_animation block
+    }
+
+    cost {
+        mana 6
+        infcantrip true
+    }
+
+    target { 
+        max_range 3
+        min_range 1
+
+        target_mode tile
+        range_mode cross
+
+        aoe_mode standard
+        min_aoe 1
+        max_aoe 1
+        knockback_mode character_to_tile
+
+        aoe_considers_character_size true
+        aoe_excludes_self true
+    }
+
+    self_damage {
+        effects {
+            Shield 4
+        }
+    }
+    damage_instance {
+        damage 0
+        knockback 1
+    }
+}
+IronHead2 {
+    variant_of IronHead
+    
+    meta {
+        desc "ABILITY_IRONHEAD2_DESC"
+    }
+
+    target { 
+        max_range 10
+    }
+
+    damage_instance {
+        effects {
+            OverrideKnockbackDamage 5
+        }
+    }
+}
+
+GangUp {
+    template throw_attack
+    
+    meta {
+        name "ABILITY_GANGUP_NAME"
+        desc "ABILITY_GANGUP_DESC"
+        class Tank
+        type_icon "attack"
+    }
+
+    graphics {
+        animation knockupatk
+    }
+
+    cost {
+        mana 9
+        infcantrip true
+    }
+    
+    target {
+        max_range 3
+    }
+    
+    damage_instance {
+        damage 0
+
+        effects {
+            MassAttackThis 1
+        }
+    }
+}
+GangUp2 {
+    variant_of GangUp
+
+    meta {
+        desc "ABILITY_GANGUP2_DESC"
+    }
+
+    target {
+        max_range 6
+    }
+
+    damage_instance {
+        effects {
+            Bruise 1
+        }
+    }
+}
+
+Aftershock {
+    template spell
+
+    meta {
+        name "ABILITY_AFTERSHOCK_NAME"
+        desc "ABILITY_AFTERSHOCK_DESC"
+        class Tank
+    }
+
+    graphics {
+        animation earthquakeSlam
+        particle Earthquake
+        delay 3
+    }
+
+    cost {
+        mana 4
+        infcantrip true
+    }
+
+    target {
+        target_mode none
+        aoe_mode all
+        
+        aoe_restrictions [tile_must_have_element]
+        aoe_tile_requires_element Earth
+    }
+
+    damage_instance {
+        damage 5
+
+        effects {
+            TwisterDisplaceWithDamage {
+                damage inherit
+                max_dist 2
+            }
+        }
+
+        elements [
+            Earth
+        ]
+    }
+}
+Aftershock2 {
+    variant_of Aftershock
+
+    meta {
+        desc "ABILITY_AFTERSHOCK2_DESC"
+    }
+
+    bonus_passives {
+        AddElementsToSpells Earth
+    }
+}
+
+SteelSkin {
+    template self_buff
+
+    meta {
+        name "ABILITY_STEELSKIN_NAME"
+        desc "ABILITY_STEELSKIN_DESC"
+        class Tank
+    }
+	
+    keyword_tooltips { Brace 1 } //disable Reload tooltip
+
+    graphics {
+        animation earthquakeSlam
+        particle Earthquake
+    }
+    
+    cost {
+        mana 0
+        requires_reload true
+        start_reloaded true
+    }
+
+    bonus_passives {
+        ReloadOnTotalDamageReceived 25
+    }
+    
+    target {
+        min_range 1
+        max_range 4
+        max_aoe 0
+    }
+
+    damage_instance {
+        damage 0
+        
+        effects {
+            Temporary {
+                status Brace
+                stacks 99
+                turns 1
+                expires_on_begin_turn true
+            }
+        }
+    }
+}
+SteelSkin2 {
+    variant_of SteelSkin
+
+    meta {
+        desc "ABILITY_STEELSKIN2_DESC"
+    }
+    
+    cost {
+        mana 0
+    }
+
+    bonus_passives {
+        ReloadOnTotalDamageReceived 15
+    }
+}
+FaultLine {
+    template spell
+
+    meta {
+        name "ABILITY_FAULTLINE_NAME"
+        desc "ABILITY_FAULTLINE_DESC"
+        class Tank
+    }
+
+    graphics {
+        animation earthquakeSlam
+        particle Earthquake
+        delay 3
+    }
+    
+    cost {
+        mana 5
+        infcantrip true
+    }
+
+    target {
+        target_mode direction
+
+        aoe_mode line
+        min_aoe 1
+        max_aoe 10
+    }
+    
+    damage_instance {
+        damage 2
+
+        effects {
+            TwisterDisplaceWithDamage {
+                damage inherit
+                max_dist 2
+            }
+        }
+
+        elements [
+            Earth
+        ]
+    }
+}
+FaultLine2 {
+    variant_of FaultLine
+
+    meta {
+        desc "ABILITY_FAULTLINE2_DESC"
+    }
+
+    damage_instance {
+        damage 5
+    }
+}
+
+Demolish {
+    template melee_attack
+
+    meta {
+        name "ABILITY_DEMOLISH_NAME"
+        desc "ABILITY_DEMOLISH_DESC"
+        class Tank
+    }
+	
+    graphics {
+        animation earthquakeSlam
+        particle Earthquake
+    }
+
+    target {
+        knockback_mode zero
+    }
+
+    cost {
+        mana 3
+        infcantrip true
+    }
+
+    damage_instance {
+        damage 0
+
+        effects {
+            ChangeTile DirtTile
+            VaporizeInanimate 1
+
+            Conditional_Object {
+                Conditional_HasTag {
+                    tag rock
+                } Else {
+                    CanApplyToInanimate {
+                        BreakIntoRocks SmallRock
+                    }
+                }
+            }
+        }
+
+        elements [
+            Earth
+        ]
+    }
+}
+Demolish2 {
+    variant_of Demolish
+
+    meta {
+        desc "ABILITY_DEMOLISH2_DESC"
+    }
+
+    target {
+        aoe_mode custom
+        custom_aoe [ [1, 1], [1, 0], [1, -1] ]
+    }
+
+    damage_instance {
+        effects {
+            Conditional_Object {
+                Conditional_HasTag {
+                    tag rock
+                } Else {
+                    CanApplyToInanimate {
+                        BreakIntoRocks SmallRock
+                    }
+                }
+            } Else {
+                Immobile 1
+            }
+        }
+    }
+}
+
+FollowUpDash { //util ability for Follow Up passive, does not need an icon
+    template dash_attack
+
+    graphics {
+        dash_start_animation dashstart
+        dash_animation dash
+        dash_attack_animation none
+    }
+
+    cost {
+        mana 0
+        act_points 0
+        move_points 1
+    }
+
+    target { 
+        max_range 10
+        max_aoe 0
+        aoe_restrictions must_have_line_of_sight_unpurgable
+        consider_trample true
+    }
+
+    damage_instance {
+        damage 0
+        type none
+    }
+}
+FollowUpDash2 {
+    variant_of FollowUpDash
+
+    graphics {
+        dash_attack_animation dashatk
+    }
+
+    target { 
+        max_aoe 1
+    }
+
+    damage_instance {
+        damage 5+bonus_melee_damage
+        type melee
+    }
+}
+
+CatapultJump {
+    variant_of BasicJump
+
+    meta {
+        name "ABILITY_CATAPULT_NAME"
+        desc "ABILITY_CATAPULT_DESC"
+        animate_name false
+        is_move true
+    }
+
+    cost {
+        mana 0
+        cantrip true
+    }
+
+    target { 
+        min_range 1
+        max_range 4
+        aoe_excludes_self false
+        restrictions none
+    }
+    damage_instance {
+        damage 5+bonus_melee_ability_damage
+
+        effects {
+            IgnoreSelf 1
+        }
+    }
+}
+CatapultJump2 {
+    variant_of CatapultJump
+
+    meta {
+        desc "ABILITY_CATAPULT2_DESC"
+    }
+
+    target {
+        max_range 20
+    }
+}
+
+PushThrough {
+    template move
+    
+    meta {
+        name "ABILITY_PUSHTHROUGH_NAME"
+        desc "ABILITY_PUSHTHROUGH_DESC"
+        class Tank
+        animate_name true
+    }
+    
+    cost {
+        mana 4
+        infcantrip true
+    }
+    
+    target {
+        range_mode cross
+        max_range 2
+        restrictions [must_move must_not_be_knockback_immune_animate_character]
+        straight_shot true
+    }
+
+    temporary_effects {
+        Trample 3
+    }
+    
+    damage_instance {
+        damage 3
+        override_trample_damage true
+
+        effects {
+            VaporizeInanimate 1
+        }
+    }
+}
+PushThrough2 {
+    variant_of PushThrough
+
+    meta {
+        desc "ABILITY_PUSHTHROUGH2_DESC"
+    }
+
+    target {
+        max_range 4
+    }
+
+    damage_instance {
+        effects {
+            Bruise 1
+        }
+    }
+}
+
+Spur {
+    template self_buff
+    
+    meta {
+        name "ABILITY_PINCUSHION_NAME"
+        desc "ABILITY_PINCUSHION_DESC"
+        class Tank
+    }
+
+    cost {
+        mana 0
+        act_points 0
+        move_points 1
+        charge 0
+    }
+
+    damage_instance {
+        effects {
+            Thorns 3
+        }
+    }
+}
+Spur2 {
+    variant_of Spur
+
+    meta {
+        desc "ABILITY_PINCUSHION2_DESC"
+    }
+
+    damage_instance {
+        effects {
+            Thorns 3
+            Brace 1
+        }
+    }
+}
+
+Supper {
+    template self_buff
+    
+    meta {
+        name "ABILITY_SUPPER_NAME"
+        desc "ABILITY_SUPPER_DESC"
+        class Tank
+    }
+
+    graphics {
+        animation gulp
+    }
+    
+    cost {
+        infcantrip true
+        mana 0
+        once_per_fight true
+    }
+    
+    damage_instance {
+        heal 15
+        effects {
+            SpeedUp -2
+        }
+    }
+}
+Supper2 {
+    variant_of Supper
+
+    meta {
+        desc "ABILITY_SUPPER2_DESC"
+    }
+
+    damage_instance {
+        effects {
+            HealthRegenUp 5
+        }
+    }
+}
+
+FullForce {
+    template jump_attack
+
+    meta {
+        name "ABILITY_FULLFORCE_NAME"
+        desc "ABILITY_FULLFORCE_DESC"
+        class Tank
+    }
+
+    graphics {
+        jump_start_animation bellyflopStart
+        air_animation bellyflop_air
+        jump_attack_animation bellyflopEnd
+        land_animation none
+        fixed_jump_height 1
+        fixed_jump_speed 2
+    }
+
+    cost {
+        mana 8
+        infcantrip true
+    }
+    
+    target {
+        max_range 1
+
+        aoe_mode occupied_tiles
+        min_aoe 0
+        max_aoe 0
+        aoe_excludes_self false
+        restrictions none
+    }
+
+    temporary_effects {
+        DisableTrample 1
+    }
+
+    damage_instance {
+        damage con
+
+        effects {
+            Stun 1
+            Conditional_IsSelf {
+                OverrideDamage 0
+            } Else {
+            }
+        }
+    }
+}
+FullForce2 {
+    variant_of FullForce
+
+    meta {
+        desc "ABILITY_FULLFORCE2_DESC"
+    }
+
+    damage_instance {
+        effects {
+            Conditional_IsSelf {
+            } Else {
+                Bruise 4
+            }
+        }
+    }
+}
+
+Sandstorm {
+    template self_buff
+
+    meta {
+        name "ABILITY_SANDSTORM_NAME"
+        desc "ABILITY_SANDSTORM_DESC"
+        class Tank
+    }
+
+    cost {
+        mana 4
+        infcantrip true
+    }
+
+    damage_instance {
+        effects {
+            StackingSandstorm 1
+        }
+    }
+}
+Sandstorm2 {
+    variant_of Sandstorm
+
+    meta {
+        desc "ABILITY_SANDSTORM2_DESC"
+    }
+
+    cost {
+        mana 4
+    }
+    bonus_passives {
+        FreeFirstCast 4
+    }
+}
+
+Thicken {
+    template self_buff
+
+    meta {
+        name "ABILITY_THICKEN_NAME"
+        desc "ABILITY_THICKEN_DESC"
+        class Tank
+    }
+
+    graphics {
+		animation gulp
+    }
+
+    cost {
+        mana 2
+        infcantrip true
+    }
+
+    damage_instance {
+        effects {
+            TempBonusKnockback 1
+            TempBonusKnockbackDamage 1
+        }
+    }
+}
+Thicken2 {
+    variant_of Thicken
+
+    meta {
+        desc "ABILITY_THICKEN2_DESC"
+    }
+
+    damage_instance {
+        effects {
+            ConstitutionUp 1
+        }
+    }
+}

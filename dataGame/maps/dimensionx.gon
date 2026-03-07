@@ -1,0 +1,64 @@
+graphics Map_DimensionX
+chapter_id dimensionx
+tileset therift
+world_name_frame therift
+area_name AREA_NAME_DIMENSIONX
+act 2
+chapter 4
+
+version 1
+
+
+levels {
+    folder dimensionx
+    easy [easy]
+    hard [easy] //switch this to "hard" in the brackets if we get specific hard levels in!
+    rare [rare]
+    boss [boss]
+    miniboss [miniboss]
+    special [special]
+}
+
+music dimensionx
+ambience amb_dimensionx.ogg
+
+events {
+    normal [
+        common
+    ]
+}
+
+//TODO: the rift has a lot of random enemies from other chapters. should they be in here too?
+enemy_pools { //for effects that need to spawn a "chapter enemy" of some sort
+    small [FrankPinky]
+    medium [JackCat ChaosStacy FrankFetus BeaniesRat]
+    large [ButchTinkBoris TracyFetus]
+}
+
+item_pools {
+    chapter_item_pool dimensionxitems
+}
+
+nodes {
+    #include "standard_nodes.gon"
+
+    boss {
+        type boss
+        boss_cutscene chaos
+        override_music chaos_boss
+    }
+
+    quest_event {
+        type special_event
+        level Quest_DimensionXRift
+        override_art MapNode_DeadChaos
+    }
+}
+
+flags {
+    ChaosAntennaAttached {
+        quest_event {
+            override_art MapNode_DeadChaosAntenna
+        }
+    }
+}

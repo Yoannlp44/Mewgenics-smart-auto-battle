@@ -1,0 +1,82 @@
+Forecast [ //the first and last week of each month's odds are blended with the next month
+    { //Winter 2 (January)
+		None 14
+		Snow 1
+	}
+	{ //Winter 3
+		None 14
+		Snow 1
+	}
+	{ //Spring 1 (March)
+		None 14
+		Rain 1
+	}
+	{ //Spring 2
+		None 14
+		Rain 1
+	}
+	{ //Spring 3
+		None 14
+		Rain 1
+	}
+	{ //Summer 1 (June)
+		None 14
+		Thunderstorm 1
+	}
+	{ //Summer 2
+		None 14
+		Thunderstorm 1
+	}
+	{ //Summer 3
+		None 14
+		Thunderstorm 1
+	}
+	{ //Autumn 1 (September)
+		None 14
+		Windy 1
+	}
+	{ //Autumn 2
+		None 14
+		Windy 1
+	}
+	{ //Autumn 3
+		None 14
+		Windy 1
+	}
+	{ //Winter 1 (December)
+		None 14
+		Snow 1
+	}
+]
+
+Weather {
+	Rain {
+		adventure_weather Rain
+		ambient_sound amb_rain.ogg
+		particles [Rain]
+		prewarm 5
+		skybox_frame day_rain
+	}
+	Thunderstorm {
+		adventure_weather Thunderstorm
+		ambient_sound amb_heavyrain.ogg
+		particles [Thunderstorm]
+		prewarm 5
+		lightning_fx true
+		skybox_frame day_thunderstorm
+	}
+	Windy {
+		adventure_weather Windy
+		ambient_sound amb_windy.ogg
+		particles [WindFull]
+		prewarm 5
+		skybox_frame day_windy
+	}
+	Snow {
+		adventure_weather Snow
+		ambient_sound amb_snow.ogg
+		particles [Snow]
+		prewarm 20
+		skybox_frame day_snow
+	}
+}

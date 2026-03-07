@@ -1,0 +1,81 @@
+graphics Map_Sewers
+chapter_id sewers
+tileset sewers
+world_name_frame sewers
+area_name AREA_NAME_SEWERS
+intro_cutscene sewers
+act 1
+chapter 2
+version 1
+
+levels {
+    folder sewer
+    easy [easy bigsharklevels]
+    hard [easy bigsharklevels]
+    rare [rare]
+    boss [boss]
+    miniboss [miniboss]
+    special [special]
+}
+
+music sewers
+ambience amb_sewer.ogg
+
+events {
+    normal [
+        common
+        sewer_events.gon
+    ]
+}
+
+enemy_pools { //for effects that need to spawn a "chapter enemy" of some sort
+    small [Dip]
+    medium [BabyShark GassyCat SharkyCat BoomerCat WaterKitten Pile Floater WaterLeech Fetus FetusGusher]
+    large [DaddyShark]
+}
+
+item_pools {
+    chapter_item_pool seweritems
+}
+
+
+minibosses {
+    flushmaster auto
+    ratking auto
+    //todo: ice elemental cutscene if its snowing
+}
+
+nodes {
+    #include "standard_nodes.gon"
+
+    //exits
+    exit0 {
+        type exit
+        next_map caves.gon
+        locked true
+        override_art MapNodeExit_Caves
+    }
+    hard_initial {
+	    type hard
+        locked true
+    }
+
+    //special
+    boss {
+        type boss
+        boss_cutscene boris
+    }
+}
+
+flags {
+    HardPathUnlocked {
+        hard_initial {
+            locked false
+        }
+    }
+    CavesUnlocked {
+        exit0 {
+            locked false
+        }
+    }
+}

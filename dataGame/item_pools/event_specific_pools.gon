@@ -1,0 +1,473 @@
+rat_trinkets [
+    RatTail
+    RatHeart
+    RatBeezer
+	RatHat
+	RatMask
+	RatNecklace
+	HybridMask
+	PetrifiedPinky
+	RatBomb
+]
+
+bone_equipment [
+    BonesHat
+    BonesMask
+    BonesNeck
+    BoneClub
+    Molars
+	VibratingSkull
+	BoneMarrow
+	CatRib
+	HumanLeg
+	DryBoneMask
+	DryBoneHat
+	DryBoneNecklace
+	FingerBone
+	//WishBone
+]
+
+common_bones [
+	BonesHat
+    BonesMask
+    BonesNeck
+    BoneClub
+	Molars
+]
+
+deadcat_equipment [
+    BonesHat
+    BonesMask
+    BonesNeck
+    BoneClub
+    Molars
+	VibratingSkull
+	BoneMarrow
+	CatRib
+	HumanLeg
+	DryBoneMask
+	DryBoneHat
+	DryBoneNecklace
+	FingerBone
+	BoneClub
+    Molars
+	FingerBone
+	//WishBone
+	CatHideHat
+    CatHideMask
+    CatHideArmor
+]
+
+bone_weapons [
+    BoneClub
+    Molars
+	FingerBone
+	//WishBone
+]
+
+bone_armor [
+    BonesHat
+    BonesMask
+    BonesNeck
+	DryBoneMask
+	DryBoneHat
+	DryBoneNecklace
+]
+
+cat_armor [
+    CatHideHat
+    CatHideMask
+    CatHideArmor
+]
+
+hide_items [
+    CatHideHat
+    CatHideMask
+    CatHideArmor
+    ThickHide
+	RatHat
+	RatMask
+	RatNecklace
+	ThickHide
+]
+
+rotten_armor [
+    RottenHat
+    RottenMask
+    RottenArmor
+]
+
+flesh_items [
+	PoundOfFlesh
+	HumanFleshMask
+	HumanFleshHat
+	HumanFleshArmor
+	HumanHead
+	HumanHand
+	HumanToe
+]
+
+unique [ //TODO: this will be populated with other stuff later (this is currently referenced in 1 treasure box event)
+    Shotgun
+    Revolver
+    Sniper
+	22Rifle
+	RocketLauncher
+	MomsKnife
+	Grenade
+]
+
+good_parasites [
+    BestBud
+    SoulSucker
+    AngryWorm
+    HealWorm
+]
+
+sludge_armor [
+    SludgeMask
+    SludgeNeck
+    SludgeHat
+]
+
+grass_items [
+    BagOfGrass
+    SeedBombs
+    GlowingSeed
+    MagicSeed
+    TwineHat
+    TwineMask
+    TwineArmor
+	LeafyMask
+	LeafyHat
+	LeafyNecklace
+	KiloOfCatnip
+	CatnipBig
+	LuckyMask
+]
+
+eyes_nonrare [
+    SmallEye
+    GorgonsEye
+    Eyeball
+    WitchsEye
+	BlinkingEyeball
+	ConjoinedEye
+]
+
+cursed_barbed_wire_items [
+    //BarbedPaw //This is the most thematic item but it is not cursed.
+    FaceShards
+    PawShards
+    Splinters
+]
+
+barbed_items [
+    BarbedPaw
+    BarbedHat
+    BarbedMask
+    BarbedNeck
+]
+
+barbed_armor [
+    BarbedHat
+    BarbedMask
+    BarbedNeck
+]
+
+recycled_items [
+    RecycledHat
+    RecycledMask
+    RecycledArmor
+]
+//end cap reward pool
+
+demon_themed_items [
+    BlackCandle
+    CrownOfHorns
+    ObsidianChunk
+	DemonicHat
+	DemonicMask
+	DemonicNecklace
+	DarkFriend
+]
+
+grub_armor [
+    FaceGrub
+	HeadGrub
+	NeckGrub
+]
+
+blood_altar_items [
+    GutsHeart
+    GutsLiver
+    GutsIntestines
+    SackOfMeat
+    SacredHeart
+    BoneMarrow
+	Stomach
+	LeakyBrain
+	SnaggleTooth
+	BoneMarrow
+	ExtraLimb
+	CatPaw
+	CrimsonMask
+	RedCap
+	PoundOfFlesh
+	LostSoul
+]
+
+can_items_common [
+    SixPack
+]
+
+can_items_rare [
+    TankJuice
+    RageJuice
+    EnergyDrink
+]
+
+raptor_nest_eggs [
+    GoldenEgg
+    WeirdEgg
+    RaptorEgg
+]
+
+meat_items [
+    RottenMeat
+    BagOfMeat
+    GutsHeart
+    GutsLiver
+    GutsIntestines
+    BoneMarrow
+	SackOfMeat
+]
+
+bloody_items [
+    MeatBomb
+    BloodyStick
+    BucketOfBlood
+    BloodyButterflyKnife
+    BloodyBearTraps
+    BloodyBagOfGlass
+    MeatSlugger
+    BloodyMeatHook
+    BloodySoulClaw
+    BloodBucket
+    BloodySpikes
+    BottlesOfBlood
+	BloodyRazor 
+]
+
+glitched_items [
+    BarbedScrap
+    LeatherHideMask
+    RecycledGimpMask
+    GemstoneBones
+    CoolRocks
+    MinerImplant
+    RottenGuts
+    PaperRags
+    DirtyBionicArmor
+    LuckyTwine
+]
+
+godly_items [
+    BlessedHalo
+    HolyTears
+    EyeOfGod
+    TheMind
+    TheBody
+    TheSoul
+    Scapular
+    CrownOfThorns
+    ImmaculateHeart
+    BlessedAnointingOil
+]
+
+Coin_items [
+	BloodyCoin
+	GlowingCoin
+	ElectricCoin
+	CounterfeitCoin
+	LuckyCoin
+	MoneyBag_Small
+	MoneyBag_Medium
+	MoneyBag_Large
+	MoneyBag_Huge
+	RollOfPennies
+]
+
+Eye_items [
+	MysteriousEye
+	BlinkingEyeball
+	SmallEye
+	GorgonsEye
+	ConjoinedEye
+	ThirdEye
+	Eyeball
+	WitchsEye
+]
+
+Bird_items [
+	BirdHead
+	BirdFeed
+	Feather
+	FeatheredMask
+	FeatheredWing
+	Turkey
+	Chicken
+	BirdPoopHat
+]
+
+guts_items [
+    GutsHeart
+    GutsLiver
+    GutsIntestines
+    BoneMarrow
+	Stomach
+	LeakyBrain
+	HumanBrain
+	HumanHeart
+	MysteriousEye
+]
+
+poop_items [
+	ColostomyBag
+	MegaPoop
+	PoopHat
+	DoodieMask
+	FecalMask
+	FecalHood
+	FecalNecklace
+	PetrifiedPoop
+	EnchantingPoop
+]
+
+rock_items [
+	MundaneStone
+	MindStone
+	TinyPebble
+	SkillStone
+	Neverstone
+	HeavyRock
+	Geode
+	StoneOrbit
+	StoneHelmet
+	StoneHelmet
+	StoneHelmet
+	StoneHelmet
+	Rocks
+	Rocks
+	Rocks
+	Rocks
+	Rocks
+	BagOfRocks
+	RockHat
+	RockMask
+	RockArmor
+	RockyMask
+	RockyHat
+	RockyNecklace
+	BigRockHat
+	BigRockMask
+	BigRockNecklace
+]
+
+tech_items [
+	Technology
+	FrankBolts
+	RadarDish
+	RoboArm
+	HappyHelmet
+	VisionPlugin
+	OcularChip
+	CerebralChip
+	SpinalChip
+	BionicHat
+	BionicMask
+	BionicArmor
+	CyborgHat
+	CyborgMask
+	CyborgArmor
+]
+
+junkyard_items [
+    ScrapHat
+	ScrapMask
+	ScrapArmor
+	RubberHat
+	RubberMask
+	RubberArmor
+	BarbedHat
+	BarbedMask
+	BarbedNeck
+  	RecycledHat
+	RecycledMask
+	RecycledArmor
+	BagOfChum
+	HumanHead
+
+]
+
+isaac_items [
+	Technology
+	D6
+	RazorBlade
+	Teleport
+	MomsRing
+	ButterBean
+	SacredHeart
+	FetusInAJar
+	Breakfast
+	Ipecac
+	SoyMilk
+	SpoonBender
+	Cancer
+	Wafer
+]
+
+fleshhead_items [
+	PoundOfFlesh
+	HumanFleshMask
+	HumanFleshHat
+	HumanFleshArmor
+	HumanHand
+	HumanBrain
+	MysteriousEye
+	BoneMarrow
+	BlinkingEyeball
+	ConjoinedEye
+]
+
+mom_items [
+	MomsRing
+	MomsRing
+	MomsRing
+	MomsRing
+	MangyWig
+	MangyWig
+	MangyWig
+	MomsToeNail
+	MomsKnife
+	ChildSkull
+]
+
+
+//unused cycle of usable trinkets that turn you into a class 
+class_seals [
+	FighterSeal                  
+	HunterSeal                   
+	TankSeal                     
+	ClericSeal                   
+	ThiefSeal                    
+	MageSeal                     
+	ColorlessSeal                
+	PsychicSeal                  
+	JesterSeal                   
+	TinkererSeal                 
+	ButcherSeal                  
+	DruidSeal                    
+	MonkSeal                     
+	NecromancerSeal
+]

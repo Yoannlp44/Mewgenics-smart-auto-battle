@@ -1,0 +1,2503 @@
+Propell {
+    template dash_attack
+    
+    meta {
+        name "ABILITY_PROPELL_NAME"
+        desc "ABILITY_PROPELL_DESC"
+        class Monk
+    }
+    
+    graphics {
+        dash_start_animation propelStart
+        dash_animation propelLoop
+        dash_attack_animation propelEnd
+    }
+    
+    cost {
+        infcantrip true
+        mana 5
+    }
+    
+    target {
+        max_range 1
+    }
+    
+    damage_instance {
+        damage 3+bonus_melee_ability_damage
+    }
+}
+Propell2 {
+    variant_of Propell
+
+    meta {
+        desc "ABILITY_PROPELL2_DESC"
+    }
+
+    temporary_effects {
+        CastAgain 1
+    }
+}
+
+
+Hadouken {
+    template straightshot_attack
+    
+    meta {
+        name "ABILITY_HADOKEN_NAME"
+        desc "ABILITY_HADOKEN_DESC"
+        class Monk
+    }
+
+    graphics {
+        animation hadouken
+        projectile MagicMissileProjectile
+    }
+    
+    cost {
+        infcantrip true
+        mana 9
+    }
+
+    target {
+        max_aoe 10
+    }
+
+    damage_instance {
+        damage 10
+        type spell
+
+        effects {
+            VisualFX MagicMissleBlast
+        }
+    }
+}
+Hadouken2 {
+    variant_of Hadouken
+
+    meta {
+        desc "ABILITY_HADOKEN2_DESC"
+    }
+
+     damage_instance {
+        damage 15
+     }
+}
+
+
+Cartwheel {
+    template move
+    
+    meta {
+        name "ABILITY_CARTWHEEL_NAME"
+        desc "ABILITY_CARTWHEEL_DESC"
+        class Monk
+        animate_name true
+    }
+
+    graphics {
+        sync_speed 30
+        //max_tiles_single_loop 1
+        ignore_slowtiles true
+        move_start_animation cartwheelStart
+        animation cartwheelLoop
+        move_end_animation cartwheelEnd
+    }
+
+    cost {
+        infcantrip true
+        mana 4
+    }
+
+    target {
+        range_mode diagcross
+        max_range 4
+        restrictions [must_be_moveable must_move]
+        straight_shot true
+        allow_diagonals true
+    }
+}
+Cartwheel2 {
+    variant_of Cartwheel
+
+    meta {
+        desc "ABILITY_CARTWHEEL2_DESC"
+    }
+
+    target {
+        range_mode 8cross
+    }
+}
+
+StoneFists {
+    template self_buff
+    
+    meta {
+        name "ABILITY_STONEFISTS_NAME"
+        desc "ABILITY_STONEFISTS_DESC"
+        class Monk
+        type_icon "buff"
+    }
+
+    graphics {
+        animation stoneFists
+    }
+
+    target {
+        X_is current_shield
+    }
+    
+    cost {
+        infcantrip true
+        mana 5
+    }
+    
+    damage_instance {
+        effects {
+            TempStrengthUp X
+            TempDexterityUp X
+        }
+    }
+}
+StoneFists2 {
+    template self_buff
+    
+    meta {
+        name "ABILITY_STONEFISTS_NAME"
+        desc "ABILITY_STONEFISTS2_DESC"
+        class Monk
+        type_icon "buff"
+    }
+
+    graphics {
+
+    }
+
+    target {
+        X_is current_shield
+    }
+    
+    cost {
+        infcantrip true
+        mana 5
+    }
+    
+    damage_instance {
+        effects {
+            StrengthUp X
+            DexterityUp X
+            Shield -X
+        }
+    }
+}
+
+
+Transcend {
+    template self_buff
+    
+    meta {
+        name "ABILITY_TRANSCEND_NAME"
+        desc "ABILITY_TRANSCEND_DESC"
+        class Monk
+        type_icon "defense"
+    }
+
+    graphics {
+
+    }
+
+    cost {
+        infcantrip true
+        mana 4
+    }
+    
+    damage_instance {
+        effects {
+            Cleanse 0 //0 = no divine shield per removed buff
+            Shield 1
+        }
+    }
+}
+
+Transcend2 {
+    variant_of Transcend
+    
+    meta {
+        desc "ABILITY_TRANSCEND2_DESC"
+    }
+
+    bonus_passives {
+        AutocastEachRound {
+            ability Transcend2
+            even_if_stunned true
+        }
+    }
+}
+
+
+HipToss {
+    template throw_attack
+    
+    meta {
+        name "ABILITY_HIPTOSS_NAME"
+        desc "ABILITY_HIPTOSS_DESC"
+        class Monk
+    }
+
+    graphics {
+        animation knockupatk
+    }
+
+    cost {
+        mana 3
+        infcantrip true
+    }
+    
+    target {
+        max_range 2
+        min_range 2
+        restrictions none
+    }
+    
+    damage_instance {
+        damage 3+bonus_melee_ability_damage
+    }
+}
+HipToss2 {
+    variant_of HipToss
+
+    meta {
+        desc "ABILITY_HIPTOSS2_DESC"
+    }
+
+    damage_instance {
+        blocked_damage "(3+bonus_melee_ability_damage)*2"
+    }
+}
+
+Bruise {
+    template self_buff
+    
+    meta {
+        name "ABILITY_BRUISE_NAME"
+        desc "ABILITY_BRUISE_DESC"
+        class Monk
+        type_icon "buff"
+    }
+
+    graphics {
+        animation bruise
+    }
+
+    cost {
+        mana 6
+        cantrip true
+    }
+    
+    damage_instance {
+        effects {
+            HeavyHits 1
+        }
+    }
+}
+Bruise2 {
+    variant_of Bruise
+    
+    meta {
+        desc "ABILITY_BRUISE2_DESC"
+    }
+
+    cost {
+        infcantrip true
+    }
+}
+
+Slapback {
+    template melee_attack
+    
+    meta {
+        name "ABILITY_SLAPBACK_NAME"
+        desc "ABILITY_SLAPBACK_DESC"
+        class Monk
+    }
+
+    graphics {
+    }
+
+    cost {
+        requires_reload true
+        mana 0
+    }
+
+    bonus_passives {
+        ReloadOnAnyDamage 1
+    }
+
+    damage_instance {
+        damage 2+bonus_melee_ability_damage
+        crit_chance 50%
+
+        type melee
+    }
+}
+Slapback2 {
+    variant_of Slapback
+
+    meta {
+        desc "ABILITY_SLAPBACK2_DESC"
+    }
+
+    damage_instance {
+        crit_chance 100%
+    }
+}
+
+Finisher {
+    template dash_attack
+    
+    meta {
+        name "ABILITY_FINISHER_NAME"
+        desc "ABILITY_FINISHER_DESC"
+        class Monk
+        icon_shell_frame attack
+        type_icon attack
+    }
+    
+    graphics {
+        dash_start_animation dashstart
+        dash_animation dash
+        dash_attack_animation heaviestMelee
+    }
+    
+    cost {
+        cantrip true
+        mana 6
+    }
+    
+    target {
+        max_range 3
+        X_is storm_count
+    }
+    
+    damage_instance {
+        raw_damage X*2 //raw_damage lets this go down to 0
+        show_damage_on_0 true
+    }
+}
+Finisher2 {
+    variant_of Finisher
+
+    meta {
+        desc "ABILITY_FINISHER2_DESC"
+    }
+
+    cost {
+        mana 0
+    }
+}
+
+
+Reverberate {
+    template melee_attack
+    
+    meta {
+        name "ABILITY_REVERBERATE_NAME"
+        desc "ABILITY_REVERBERATE_DESC"
+        class Monk
+        type_icon "defense"
+    }
+
+    tags [musical]
+
+    graphics {
+        animation block
+    }
+
+    cost {
+        mana 22-X*3
+        cantrip true
+    }
+
+    target {
+        target_mode none
+        aoe_mode cross
+        X_is storm_count
+    }
+
+    self_damage {
+        effects {
+            Shield 8
+        }
+    }
+    
+    damage_instance {
+        damage 0
+        type spell
+        knockback 2
+        incidentally_collects_pickups false
+    }
+}
+Reverberate2 {
+    variant_of Reverberate
+
+    meta {
+        desc "ABILITY_REVERBERATE2_DESC"
+    }
+
+    self_damage {
+        effects {
+            Shield 8+X
+        }
+    }
+}
+
+
+ComboThrow {
+    template melee_attack
+    
+    meta {
+        name "ABILITY_COMBOTHROW_NAME"
+        desc "ABILITY_COMBOTHROW_DESC"
+        class Monk
+    }
+
+    graphics {
+		animation knockswatatk
+    }
+
+    cost {
+        infcantrip true
+        mana 6
+    }
+
+    damage_instance {
+        damage 2+bonus_melee_ability_damage
+        type melee
+        knockback 3
+
+        effects {
+            ApplyToSource {
+                StanceSwitchToRanged 1
+                RefreshActPoints 1
+            }
+        }
+    }
+}
+ComboThrow2 {
+    variant_of ComboThrow
+
+    meta {
+        desc "ABILITY_COMBOTHROW2_DESC"
+    }
+
+    cost {
+        mana 3
+    }
+}
+
+ComboPull {
+    template lobbed_attack
+    
+    meta {
+        name "ABILITY_COMBOPULL_NAME"
+        desc "ABILITY_COMBOPULL_DESC"
+        class Monk
+    }
+
+    target {
+        min_range 2
+        max_range 4+bonus_range
+    }
+
+    cost {
+        infcantrip true
+        mana 6
+    }
+
+    damage_instance {
+        damage 1+bonus_ranged_damage
+
+        effects {
+            ApplyToSource {
+                StanceSwitchToMelee 1
+                RefreshActPoints 1
+            }
+            DisplaceTowardsSource 1
+        }
+    }
+}
+ComboPull2 {
+    variant_of ComboPull
+
+    meta {
+        desc "ABILITY_COMBOPULL2_DESC"
+    }
+
+    cost {
+        mana 3
+    }
+}
+
+OneWithTheWind {
+    template self_buff
+    
+    meta {
+        name "ABILITY_ONEWITHTHEWIND_NAME"
+        desc "ABILITY_ONEWITHTHEWIND_DESC"
+        class Monk
+        type_icon "movement"
+    }
+
+    graphics {
+    }
+    
+    cost {
+        infcantrip true
+        mana 6
+    }
+    
+    damage_instance {
+        effects {
+            TempMovement 20
+        }
+    }
+}
+OneWithTheWind2 {
+    variant_of OneWithTheWind
+
+    meta {
+        desc "ABILITY_ONEWITHTHEWIND2_DESC"
+    }
+
+    damage_instance {
+        effects {
+            RefreshMovePoints 1
+        }
+    }
+}
+
+
+Pogo {
+    template jump_attack
+
+    meta {
+        name "ABILITY_POGO_NAME"
+        desc "ABILITY_POGO_DESC"
+        class Monk
+        type_icon "movement"
+    }
+
+    graphics {
+        jump_attack_animation land
+    }
+
+    cost {
+        mana 5
+        infcantrip true
+    }
+    
+    target {
+        max_range 3
+
+        aoe_mode occupied_tiles
+        min_aoe 0
+        max_aoe 0
+        aoe_excludes_self false
+        restrictions none
+
+        always_bounce true
+    }
+
+    damage_instance {
+        damage 3+bonus_melee_ability_damage
+
+        effects {
+            IgnoreSelf 1
+        }
+    }
+}
+Pogo2 {
+    variant_of Pogo
+
+    meta {
+        desc "ABILITY_POGO2_DESC"
+    }
+
+    target {
+        max_range 5
+    }
+
+    damage_instance {
+        effects {
+            Bruise 1
+        }
+    }
+}
+
+
+TrainArms {
+    template self_buff
+    
+    meta {
+        name "ABILITY_WAYOFTHEMANTIS_NAME"
+        desc "ABILITY_WAYOFTHEMANTIS_DESC"
+        class Monk
+        type_icon "buff"
+    }
+
+    graphics {
+		animation stoneFists
+    }
+    
+    cost {
+        infcantrip true
+        mana 12
+    }
+    
+    damage_instance {
+        effects {
+            ExtraBasicAttacks_Status 1
+        }
+    }
+}
+TrainArms2 {
+    variant_of TrainArms
+
+    meta {
+        desc "ABILITY_WAYOFTHEMANTIS2_DESC"
+    }
+
+    cost {
+        mana 9
+    }
+}
+
+Porcupine {
+    template self_buff
+    
+    meta {
+        name "ABILITY_PORCUPINE_NAME"
+        desc "ABILITY_PORCUPINE_DESC"
+        class Monk
+        type_icon "defense"
+    }
+
+    graphics {
+		animation bruise
+    }
+
+    cost {
+        mana 5
+        infcantrip true
+    }
+
+    damage_instance {
+        damage 0
+
+        effects {
+            Temporary {
+                status Thorns
+                stacks 2
+                turns 1
+                expires_on_begin_turn true
+            }
+            Temporary {
+                status Brace
+                stacks 2
+                turns 1
+                expires_on_begin_turn true
+            }
+        }
+    }
+}
+Porcupine2 {
+    variant_of Porcupine
+
+    meta {
+        desc "ABILITY_PORCUPINE2_DESC"
+    }
+
+    damage_instance {
+        effects {
+            Reflect 1
+        }
+    }
+}
+
+Anneal {
+    template self_buff
+    
+    meta {
+        name "ABILITY_ANNEAL_NAME"
+        desc "ABILITY_ANNEAL_DESC"
+        class Monk
+        type_icon "defense"
+    }
+
+    graphics {
+        animation block
+    }
+
+    cost {
+        infcantrip true
+        mana 3
+    }
+
+    bonus_passives {
+        FreeFirstCast 1
+    }
+    
+    damage_instance {
+        effects {
+            Shield 1
+        }
+    }
+}
+
+Anneal2 {
+    template self_buff
+    
+    meta {
+        name "ABILITY_ANNEAL_NAME"
+        desc "ABILITY_ANNEAL2_DESC"
+        class Monk
+        type_icon "defense"
+    }
+
+    graphics {
+        animation block
+    }
+
+    cost {
+        infcantrip true
+        mana 3
+    }
+
+    bonus_passives {
+        FreeFirstCastAndAfterSpendMana 1
+    }
+    
+    damage_instance {
+        effects {
+            Shield 1
+        }
+    }
+}
+
+
+DeepDive {
+    template self_buff
+    
+    meta {
+        name "ABILITY_DEEPDIVE_NAME"
+        desc "ABILITY_DEEPDIVE_DESC"
+        class Monk
+        type_icon "defense"
+    }
+
+    graphics {
+    }
+    
+    cost {
+        infcantrip true
+        mana 0
+    }
+    
+    damage_instance {
+        effects {
+            SafeDie 1
+            ReviveNextRound {
+                stacks 2
+                revive_health 1
+
+                Shield 15
+                AllStatsUp 1
+            }
+        }
+    }
+}
+DeepDive2 {
+    variant_of DeepDive
+    
+    meta {
+        desc "ABILITY_DEEPDIVE2_DESC"
+    }
+
+    damage_instance {
+        effects {
+            ReviveNextRound {
+                stacks 2
+                revive_health 50%
+                Shield 20
+                DivineShield 2
+                AllStatsUp 2
+            }
+        }
+    }
+}
+
+HopAndBlock {
+    template jump_attack
+
+    meta {
+        name "ABILITY_HOPNBLOCK_NAME"
+        desc "ABILITY_HOPNBLOCK_DESC"
+        class Monk
+        type_icon "movement"
+    }
+
+    graphics {
+        jump_attack_animation block
+    }
+    
+    cost {
+        infcantrip true
+        mana 6
+    }
+
+    target {
+        max_range 4
+    }
+
+    temporary_effects {
+        JustInCaseTrample 0
+    }
+
+    damage_instance {
+        damage 0
+        type none
+        cant_miss true
+        makes_contact false
+        effects {
+            Conditional_Enemy {
+                ApplyToSource {
+                    Shield 2
+                }
+            }
+        }
+    }
+}
+HopAndBlock2 {
+    variant_of HopAndBlock
+
+    meta {
+        desc "ABILITY_HOPNBLOCK2_DESC"
+    }
+
+    target {
+        max_range 10
+    }
+}
+
+TrainMind {
+    template self_buff
+    
+    meta {
+        name "ABILITY_WAYOFTHEOWL_NAME"
+        desc "ABILITY_WAYOFTHEOWL_DESC"
+        class Monk
+        type_icon "buff"
+    }
+
+    graphics {
+		animation meditate
+    }
+    
+    cost {
+        infcantrip true
+        mana 13
+    }
+    
+    damage_instance {
+        effects {
+            DoubleCastSpellsEachTurn_Status 1
+        }
+    }
+}
+TrainMind2 {
+    variant_of TrainMind
+
+    meta {
+        desc "ABILITY_WAYOFTHEOWL2_DESC"
+    }
+
+    cost {
+        mana 10
+    }
+}
+
+Meditate {
+    template self_buff
+    
+    meta {
+        name "ABILITY_MEDITATE_NAME"
+        desc "ABILITY_MEDITATE_DESC"
+        class Monk
+        type_icon "buff"
+    }
+
+    graphics {
+        animation meditate
+    }
+    
+    cost {
+        infcantrip true
+        mana 8
+    }
+    
+    damage_instance {
+        heal 8
+
+        effects {
+            Sleep 8
+            Shield 8
+            AllStatsUp 2
+        }
+    }
+}
+Meditate2 {
+    template self_buff
+    
+    meta {
+        name "ABILITY_MEDITATE_NAME"
+        desc "ABILITY_MEDITATE2_DESC"
+        class Monk
+        type_icon "buff"
+    }
+
+    graphics {
+    }
+    
+    cost {
+        infcantrip true
+        mana 6
+    }
+    
+    damage_instance {
+        heal 8
+
+        effects {
+            Drowsy 8
+            Shield 8
+            AllStatsUp 2
+        }
+    }
+}
+
+DoomPunch {
+    template melee_attack
+    
+    meta {
+        name "ABILITY_DOOMPUNCH_NAME"
+        desc "ABILITY_DOOMPUNCH_DESC"
+        class Monk
+    }
+
+    graphics {
+        animation tinyPunch
+    }
+
+    cost {
+        infcantrip true
+        mana 7
+    }
+
+    damage_instance {
+        damage 0
+
+        effects {
+            Conditional_NotBoss {
+                Doomed 1
+            }
+            Conditional_Boss {
+                Drowsy 1
+            }
+        }
+    }
+}
+DoomPunch2 {
+    variant_of DoomPunch
+
+    meta {
+        desc "ABILITY_DOOMPUNCH2_DESC"
+    }
+
+    cost {
+        mana 5
+    }
+}
+
+KiBurst {
+    template spell
+
+    meta {
+        name "ABILITY_KIBURST_NAME"
+        desc "ABILITY_KIBURST_DESC"
+        class Monk
+    }
+
+    graphics {
+        particle fx_magicSplash
+    }
+    
+    cost {
+        infcantrip true
+        mana 3
+    }
+
+    target {
+        target_mode none
+
+        aoe_mode standard
+        min_aoe 1
+        max_aoe 1
+
+        aoe_considers_character_size true
+        aoe_excludes_self true
+    }
+
+    self_damage {
+        effects {
+            Shield 1
+        }
+    }
+    damage_instance {
+        damage 1
+        knockback 1
+    }
+}
+KiBurst2 {
+    variant_of KiBurst
+
+    meta {
+        desc "ABILITY_KIBURST2_DESC"
+    }
+    self_damage {
+        effects {
+            Shield 2
+        }
+    }
+    damage_instance {
+        damage 2
+        knockback 2
+    }
+}
+
+DragonPunch {
+    template melee_attack
+    
+    meta {
+        name "ABILITY_DRAGONPUNCH_NAME"
+        desc "ABILITY_DRAGONPUNCH_DESC"
+        class Monk
+    }
+
+    graphics {
+		animation uppercutatk
+    }
+
+    cost {
+        infcantrip true
+        mana 7
+    }
+
+    damage_instance {
+        damage 5
+        type spell
+        knockback 3
+        makes_contact false
+
+        effects {
+            Confusion 1
+            VisualFX MagicMissleBlast
+        }
+    }
+}
+DragonPunch2 {
+    variant_of DragonPunch
+
+    meta {
+        desc "ABILITY_DRAGONPUNCH2_DESC"
+    }
+
+    damage_instance {
+        damage 8
+        knockback 10
+
+        effects {
+            VisualFX BigMagicMissileBlast
+        }
+    }
+}
+
+TrainLegs {
+    template self_buff
+    
+    meta {
+        name "ABILITY_WAYOFTHEHARE_NAME"
+        desc "ABILITY_WAYOFTHEHARE_DESC"
+        class Monk
+        type_icon "buff"
+    }
+
+    graphics {
+		animation backflipLoop
+    }
+    
+    cost {
+        infcantrip true
+        mana 9
+    }
+    
+    damage_instance {
+        effects {
+            ExtraBasicMoves_Status 1
+        }
+    }
+}
+TrainLegs2 {
+    variant_of TrainLegs
+
+    meta {
+        desc "ABILITY_WAYOFTHEHARE2_DESC"
+    }
+
+    cost {
+        mana 6
+    }
+}
+
+ReallyFastRun {
+    template move
+    
+    meta {
+        name "ABILITY_REALLYFASTRUN_NAME"
+        desc "ABILITY_REALLYFASTRUN_DESC"
+        class Monk
+        animate_name true
+
+        icon_damage_display_eq 1+bonus_spell_damage_display
+        icon_shell_frame attack
+        icon_damage_type magic
+    }
+    
+    graphics {
+        speed 6
+        ignore_slowtiles true
+        //move_start_animation startroll
+        animation dash
+        //move_end_animation endroll
+    }
+
+    cost {
+        infcantrip true
+        mana 6
+    }
+
+    temporary_effects {
+        //DisableTrample 1
+        DelayedWindTrail 1
+    }
+
+    target {
+        range_mode cross
+        max_range 4
+        restrictions [must_be_moveable must_move]
+        straight_shot true
+        allow_diagonals true
+    }
+}
+ReallyFastRun2 {
+    variant_of ReallyFastRun
+
+    meta {
+        desc "ABILITY_REALLYFASTRUN2_DESC"
+    }
+
+    target {
+        range_mode 8cross
+        max_range 10
+    }
+}
+
+DetectWeakness {
+    template targeted_status
+
+    meta {
+        name "ABILITY_OCULARPATDOWN_NAME"
+        desc "ABILITY_OCULARPATDOWN_DESC"
+        class Monk
+    }
+
+    graphics {
+        affected_particle TakeAim
+    }
+    
+    cost {
+        mana 7
+        infcantrip true
+    }
+    
+    target {
+        min_range 1
+        max_range 4+bonus_range
+    }
+
+    damage_instance {
+        effects {
+            Marked 1
+            MagicWeakness 1
+        }
+    }
+}
+DetectWeakness2 {
+    variant_of DetectWeakness
+
+    meta {
+        desc "ABILITY_OCULARPATDOWN2_DESC"
+    }
+
+    damage_instance {
+        effects {
+            Marked 3
+            MagicWeakness 3
+        }
+    }
+}
+
+HundredHandSlap {
+    template melee_attack
+    class PlaceholderMeleeAttackAbility
+    
+    meta {
+        name "ABILITY_100HANDSLAP_NAME"
+        desc "ABILITY_100HANDSLAP_DESC"
+        class Monk
+    }
+
+    graphics {
+        animation megaslap
+
+        darken_screen true
+        darken_screen_exclude_characters_on_tile true
+        darken_screen_exclude_self true
+        darken_screen_start_early true
+    }
+
+    cost {
+        infcantrip true
+        mana 15
+    }
+
+    target {
+        aoe_considers_character_size false
+        target_mode tile
+        restrictions must_have_character
+        range_mode standard
+        aoe_mode standard
+        min_range 1
+        max_range 1
+        min_aoe 0 
+        max_aoe 0 
+
+        multihit 10
+        randomize_knockback_direction_except_for_finisher true
+    }
+
+    damage_instance {
+        damage "1+bonus_melee_ability_damage/5"
+        type melee
+        knockback 10
+    }
+}
+HundredHandSlap2 {
+    variant_of HundredHandSlap
+
+    meta {
+        desc "ABILITY_100HANDSLAP2_DESC"
+    }
+
+    damage_instance {
+        effects {
+            Bruise [1 .1]
+        }
+
+        final_hit_bonus_damage 5+bonus_melee_ability_damage
+    }
+}
+
+KineticCharge {
+    template self_buff
+    
+    meta {
+        name "ABILITY_KINETICCHARGE_NAME"
+        desc "ABILITY_KINETICCHARGE_DESC"
+        class Monk
+        type_icon "defense"
+    }
+
+    graphics {
+        animation meditate
+    }
+
+    cost {
+        mana 3
+        infcantrip true
+    }
+
+    damage_instance {
+        damage 0
+
+        effects {
+            Temporary {
+                status KineticSpikes
+                stacks 1
+                turns 1
+                expires_on_begin_turn true
+            }
+        }
+    }
+}
+KineticCharge2 {
+    variant_of KineticCharge
+
+    meta {
+        desc "ABILITY_KINETICCHARGE2_DESC"
+    }
+
+    damage_instance {
+        effects {
+            Temporary {
+                stacks 2
+            }
+        }
+    }
+}
+
+AirBurst {
+    template spell
+
+    meta {
+        name "ABILITY_AIRBURST_NAME"
+        desc "ABILITY_AIRBURST_DESC"
+        class Monk
+        type_icon "magic"
+    }
+
+    graphics {
+        particle fx_windSpell
+        animation attack
+        use_projectile true
+        projectile MagicMissileProjectile
+    }
+    
+    cost {
+        infcantrip true
+        mana 3
+    }
+    
+    target {
+        min_aoe 1
+        max_aoe 1
+        max_range 5+bonus_range
+
+        aoe_mode diagcross
+    }
+    
+    damage_instance {
+        damage 0
+        knockback 1
+        
+        elements [
+            Wind
+        ]
+    }
+}
+AirBurst2 {
+    variant_of AirBurst
+
+    meta {
+        desc "ABILITY_AIRBURST2_DESC"
+    }
+
+    target {
+        max_aoe 3
+        max_range 7+bonus_range
+    }
+
+    damage_instance {
+        damage 1
+        knockback 1
+        
+        elements [
+            Wind
+        ]
+    }
+}
+
+TrainBody {
+    template self_buff
+    
+    meta {
+        name "ABILITY_WAYOFTHETURTLE_NAME"
+        desc "ABILITY_WAYOFTHETURTLE_DESC"
+        class Monk
+        type_icon "buff"
+    }
+
+    graphics {
+		animation block
+    }
+    
+    cost {
+        infcantrip true
+        mana 9
+    }
+    
+    damage_instance {
+        effects {
+            Brace 1
+        }
+    }
+}
+TrainBody2 {
+    variant_of TrainBody
+
+    meta {
+        desc "ABILITY_WAYOFTHETURTLE2_DESC"
+    }
+
+    cost {
+        mana 6
+    }
+}
+
+ReleaseEnergy {
+    template self_buff
+    
+    meta {
+        name "ABILITY_RELEASEENERGY_NAME"
+        desc "ABILITY_RELEASEENERGY_DESC"
+        class Monk
+        type_icon "magic"
+
+        icon_damage_display_eq 1+bonus_spell_damage_display
+        icon_damage_display_suffix "x10"
+        icon_shell_frame multihit_attack
+        icon_damage_type magic
+    }
+
+    graphics {
+    }
+    
+    cost {
+        infcantrip true
+        mana 12
+    }
+    
+    damage_instance {
+        effects {
+            RandomMagicMissile 10
+        }
+    }
+}
+ReleaseEnergy2 {
+    variant_of ReleaseEnergy
+    
+    meta {
+        desc "ABILITY_RELEASEENERGY2_DESC"
+    }
+
+    cost {
+        mana 9
+    }
+}
+
+Pummel {
+    template melee_attack
+    
+    meta {
+        name "ABILITY_PUMMEL_NAME"
+        desc "ABILITY_PUMMEL_DESC"
+        class Monk
+    }
+
+    cost {
+        infcantrip true
+        mana 5
+    }
+
+    target {
+        X_is this_ability_storm_count
+    }
+
+    bonus_passives {
+        CopyBasicAttackEffects 1
+    }
+
+    damage_instance {
+        damage 1+X*3
+    }
+}
+Pummel2 {
+    variant_of Pummel
+
+    meta {
+        desc "ABILITY_PUMMEL2_DESC"
+    }
+
+    cost {
+        mana 4
+    }
+
+    damage_instance {
+        damage 1+X*4
+    }
+}
+
+QuickAttack {
+    template teleport
+    
+    meta {
+        name "ABILITY_QUICKATTACK_NAME"
+        desc "ABILITY_QUICKATTACK_DESC"
+        animate_name true
+        class Monk
+    }
+
+    graphics {
+        animation_out shadowStepOut
+        animation_in shadowStepIn
+    }
+
+    cost {
+        infcantrip true
+        mana 7
+    }
+
+    bonus_passives {
+        XIsFreeArmorSlots 1
+    }
+
+    target {
+        max_range 1+X*2
+        min_range 1
+        X_is custom
+    }
+
+    self_damage {
+        effects {
+            ForceAttack 1
+        }
+    }
+}
+QuickAttack2 {
+    variant_of QuickAttack
+
+    meta {
+        desc "ABILITY_QUICKATTACK2_DESC"
+    }
+
+    cost {
+        mana 5
+    }
+}
+
+PerfectForm {
+    template self_buff
+    
+    meta {
+        name "ABILITY_PERFECTFORM_NAME"
+        desc "ABILITY_PERFECTFORM_DESC"
+        class Monk
+    }
+
+    graphics {
+		animation cartwheelLoop
+    }
+    
+    cost {
+        infcantrip true
+        mana 4
+    }
+
+    bonus_passives {
+        XIsFreeArmorSlots 1
+    }
+
+    target {
+        X_is custom
+    }
+    
+    damage_instance {
+        effects {
+            Shield X
+            MonkStanceSwitch 1
+        }
+    }
+}
+PerfectForm2 {
+    variant_of PerfectForm
+    
+    meta {
+        desc "ABILITY_PERFECTFORM2_DESC"
+    }
+
+    damage_instance {
+        heal X
+        effects {
+            Shield X
+            MonkStanceSwitch 1
+        }
+    }
+}
+
+WarmupStretch {
+    template self_buff
+    
+    meta {
+        name "ABILITY_WARMUPSTRETCH_NAME"
+        desc "ABILITY_WARMUPSTRETCH_DESC"
+        class Monk
+    }
+
+    graphics {
+    }
+    
+    cost {
+        infcantrip true
+        mana 8-X*2
+    }
+
+    bonus_passives {
+        XIsFreeArmorSlots 1
+    }
+
+    target {
+        X_is custom
+    }
+    
+    damage_instance {
+        effects {
+            DexterityUp 1
+            SpeedUp 1
+        }
+    }
+}
+WarmupStretch2 {
+    variant_of WarmupStretch
+    
+    meta {
+        desc "ABILITY_WARMUPSTRETCH2_DESC"
+    }
+
+    damage_instance {
+        effects {
+            StrengthUp 1
+        }
+    }
+}
+
+FlyingFist {
+    template melee_spell
+    
+    meta {
+        name "ABILITY_FLYINGFIST_NAME"
+        desc "ABILITY_FLYINGFIST_DESC"
+        class Monk
+    }
+
+    graphics {
+        animation attack
+        particle fx_windSpell
+    }
+
+    cost {
+        infcantrip true
+        mana 5
+    }
+
+    target {
+        min_aoe 2+X
+        max_aoe 2+X
+
+        X_is this_ability_storm_count
+        restrictions aoe_must_exist
+    }
+
+    damage_instance {
+        damage 5+bonus_melee_ability_damage
+        type physical_spell
+        knockback 1
+
+        elements [
+            Wind
+        ]
+    }
+}
+FlyingFist2 {
+    variant_of FlyingFist
+
+    meta {
+        desc "ABILITY_FLYINGFIST2_DESC"
+    }
+
+    cost {
+        mana "max(4-X, 0)"
+    }
+}
+
+RapidFlowSpin { //util ability for RapidFlow passive, does not need an icon
+    template melee_attack
+
+    graphics {
+        animation singleSpin
+    }
+
+    target {
+        target_mode none
+        aoe_mode cross
+        knockback_mode character_to_tile
+    }
+    
+    damage_instance {
+        damage 1+bonus_melee_ability_damage
+    }
+}
+RapidFlowSpin2 { //util ability for RapidFlow passive, does not need an icon
+    variant_of RapidFlowSpin
+    class MultiHitMeleeAttackAbility
+
+    graphics {
+        start spinattackstart
+        loop spinattackloop
+        end spinattackend
+    }
+    target {
+        multihit 2
+    }
+}
+
+SpiritBomb {
+    template self_buff
+
+    keyword_tooltips {
+        BonusAbility ThrowSpiritBomb
+        BonusAbility DonateEnergy
+    }
+    
+    meta {
+        name "ABILITY_CHARGESPIRITBOMB_NAME"
+        desc "ABILITY_CHARGESPIRITBOMB_DESC"
+        class Monk
+        type_icon "buff"
+    }
+
+    cost {
+        infcantrip true
+        mana 0
+    }
+    
+    damage_instance {
+        effects {
+            TransformAbility ThrowSpiritBomb
+        }
+    }
+}
+
+SpiritBomb2 {
+    variant_of SpiritBomb
+
+    keyword_tooltips {
+        BonusAbility ThrowSpiritBomb2
+        BonusAbility DonateEnergy2
+    }
+    
+    meta {
+        desc "ABILITY_CHARGESPIRITBOMB2_DESC"
+    }
+
+    damage_instance {
+        effects {
+            TransformAbility ThrowSpiritBomb2
+        }
+    }
+}
+
+ThrowSpiritBomb {
+    template spell
+
+    meta {
+        name "ABILITY_THROWSPIRITBOMB_NAME"
+        desc "ABILITY_THROWSPIRITBOMB_DESC"
+        class Monk
+        icon_shell_frame attack
+    }
+
+    graphics {
+        area_particle MagicMissleBlast
+        center_particle BigMagicMissileBlast
+        use_projectile true
+        projectile MagicMissileProjectile
+        lob_height 1
+        speed 20
+        animation castspell
+        delay 5
+    }
+    
+    cost {
+        infcantrip true
+        mana 0
+        X_cant_be_zero true
+    }
+
+    bonus_passives {
+        ChargeSpiritBombAura DonateEnergy
+    }
+    
+    target {
+        max_aoe 2
+        max_range 20
+        X_is custom
+    }
+    
+    self_damage {
+        effects {
+            TransformAbility SpiritBomb
+        }
+    }
+
+    damage_instance {
+        raw_damage X
+
+        elements [
+            Explosion
+        ]
+    }
+}
+
+ThrowSpiritBomb2 {
+    variant_of ThrowSpiritBomb
+
+    bonus_passives {
+        ChargeSpiritBombAura DonateEnergy2
+    }
+
+    self_damage {
+        effects {
+            TransformAbility SpiritBomb2
+        }
+    }
+}
+
+DonateEnergy {
+    template self_buff
+    
+    meta {
+        name "ABILITY_DONATEENERGY_NAME"
+        desc "ABILITY_DONATEENERGY_DESC"
+        class Monk
+        type_icon "buff"
+    }
+
+    cost {
+        infcantrip true
+        mana 2
+    }
+    
+    damage_instance {
+        effects {
+            AddSpiritBombCharges 1
+        }
+    }
+}
+DonateEnergy2 {
+    variant_of DonateEnergy
+
+    meta {
+        desc "ABILITY_DONATEENERGY2_DESC"
+    }
+    
+    damage_instance {
+        effects {
+            AddSpiritBombCharges 2
+        }
+    }
+}
+
+OnePunch {
+    template melee_attack
+    
+    meta {
+        name "ABILITY_ONEPUNCH_NAME"
+        desc "ABILITY_ONEPUNCH_DESC"
+        class Monk
+    }
+
+    graphics {
+    }
+
+    cost {
+        infcantrip true
+        mana 0
+        once_per_fight true
+    }
+
+    self_damage {
+        effects {
+            AllStatsUp -1
+        }
+    }
+
+    damage_instance {
+        damage 1
+
+        effects {
+            Instakill 25
+        }
+    }
+}
+OnePunch2 {
+    variant_of OnePunch
+
+    meta {
+        name "ABILITY_ONEPUNCH_NAME"
+        desc "ABILITY_ONEPUNCH2_DESC"
+    }
+
+    damage_instance {
+        effects {
+            DelayedWindCone {
+                damage 5
+                distance 10
+            }
+        }
+    }
+}
+
+UnbridledHits {
+    class MultiHitMeleeAttackAbility
+    template melee_attack
+    
+    meta {
+        name "ABILITY_UNBRIDLEDHITS_NAME"
+        desc "ABILITY_UNBRIDLEDHITS_DESC"
+        class Monk
+    }
+
+    graphics {
+        start monkAttack
+        loop monkAttack
+        end monkAttack
+    }
+
+    cost {
+        infcantrip true
+        mana 5
+    }
+
+    target {
+        X_is custom
+        multihit X+1
+    }
+
+    bonus_passives {
+        XIsFreeArmorSlots 1
+    }
+
+    damage_instance {
+        damage 2+bonus_melee_ability_damage
+    }
+}
+UnbridledHits2 {
+    variant_of UnbridledHits
+
+    meta {
+        desc "ABILITY_UNBRIDLEDHITS2_DESC"
+    }
+
+    target {
+        multihit X*2+1
+    }
+}
+
+Kamehameha {
+    template spell
+
+    meta {
+        name "ABILITY_KAMEHAMEHA_NAME"
+        desc "ABILITY_KAMEHAMEHA_DESC"
+        class Monk
+        icon_shell_frame attack
+    }
+
+    graphics {
+        particle BigMagicMissileBlast
+        use_projectile true
+        projectile MagicMissileProjectile
+        lob_height 0
+        speed 20
+        animation hadouken
+    }
+    
+    cost {
+        cantrip true
+        mana 0
+        once_per_fight 3-X
+    }
+
+    bonus_passives {
+        XIsFreeArmorSlots 1
+    }
+    
+    target {
+        max_aoe 0
+        max_range 5
+        X_is custom
+        restrictions must_have_line_of_sight
+    }
+    
+    damage_instance {
+        damage 14
+    }
+}
+Kamehameha2 {
+    variant_of Kamehameha
+
+    meta {
+        desc "ABILITY_KAMEHAMEHA2_DESC"
+    }
+
+    target {
+        max_range 20
+    }
+
+    damage_instance {
+        damage 20
+    }
+}
+
+SideStep {
+    template move
+    
+    meta {
+        name "ABILITY_SIDESTEP_NAME"
+        desc "ABILITY_SIDESTEP_DESC"
+        animate_name true
+        class Monk
+    }
+
+    cost {
+        infcantrip true
+        mana 4
+    }
+
+    target {
+        max_range 1
+    }
+
+    self_damage {
+        effects {
+            Shield 1
+        }
+    }
+}
+SideStep2 {
+    variant_of SideStep
+
+    meta {
+        desc "ABILITY_SIDESTEP2_DESC"
+    }
+
+    cost {
+        mana 4
+    }
+
+    bonus_passives {
+        FreeFirstCast 1
+    }
+}
+
+UnimpededLunge {
+    template dash_attack
+    
+    meta {
+        name "ABILITY_UNIMPEDEDLUNGE_NAME"
+        desc "ABILITY_UNIMPEDEDLUNGE_DESC"
+        class Monk
+    }
+    
+    graphics {
+        dash_start_animation propelStart
+        dash_animation propelLoop
+        dash_attack_animation propelEnd
+    }
+    
+    cost {
+        infcantrip true
+        mana 7
+    }
+    
+    target {
+        max_range X+1
+        X_is custom
+    }
+
+    bonus_passives {
+        XIsFreeArmorSlots 1
+    }
+    
+    self_damage {
+        effects {
+            Shield X+1
+        }
+    }
+
+    damage_instance {
+        damage X+1
+        knockback X+1
+    }
+}
+UnimpededLunge2 {
+    variant_of UnimpededLunge
+
+    meta {
+        desc "ABILITY_UNIMPEDEDLUNGE2_DESC"
+        icon_shell_frame attack
+    }
+
+    target {
+        max_range 2*X
+    }
+    
+    self_damage {
+        effects {
+            Shield 2*X
+        }
+    }
+
+    damage_instance {
+        raw_damage 2*X
+        knockback 2*X
+    }
+}
+
+DoubleDragon {
+    template spawn
+
+    meta {
+        name "ABILITY_DOUBLEDRAGON_NAME"
+        desc "ABILITY_DOUBLEDRAGON_DESC"
+        class Monk
+    }
+
+    tags [summon]
+    
+    graphics {
+        lob false
+        animation MonkStartTurn
+    }
+    
+    cost {
+        infcantrip true
+        mana 5
+    }
+    
+    target {
+        min_range 1
+        max_range 3
+        max_aoe 0
+
+        range_excludes_blocking false
+        restrictions aoe_must_exist
+    }
+
+    spawn {
+        object PlayerCat_MonkShade
+        faction self
+
+        catdata clone
+        clone_items true
+    }
+}
+DoubleDragon2 {
+    variant_of DoubleDragon
+
+    meta {
+        desc "ABILITY_DOUBLEDRAGON2_DESC"
+    }
+
+    target {
+        max_range 20
+    }
+}
+
+FistOfFate {
+    template teleport
+    
+    meta {
+        name "ABILITY_FISTOFFATE_NAME"
+        desc "ABILITY_FISTOFFATE_DESC"
+        animate_name true
+        class Monk
+    }
+
+    graphics {
+        animation_out shadowStepOut
+        animation_in shadowStepIn
+    }
+
+    cost {
+        infcantrip true
+        mana 5
+    }
+
+    target {
+        target_mode random_tile
+        max_range 20
+        min_range 1
+        restrictions [must_be_moveable must_be_adjacent_to_enemy]
+    }
+
+    self_damage {
+        effects {
+            StanceSwitchToMelee 1
+            DelayedFury 0
+            ForceAttack {
+                immediate true
+            }
+        }
+    }
+}
+FistOfFate2 {
+    variant_of FistOfFate
+
+    meta {
+        desc "ABILITY_FISTOFFATE2_DESC"
+    }
+
+    self_damage {
+        effects {
+            StanceSwitchToMelee 1
+            DelayedFury 75
+            ForceAttack {
+                immediate true
+            }
+        }
+    }
+}
+
+Nirvana {
+    template self_buff
+    
+    meta {
+        name "ABILITY_NIRVANA_NAME"
+        desc "ABILITY_NIRVANA_DESC"
+        class Monk
+        type_icon "buff"
+    }
+	
+    graphics {
+        animation meditate
+    }
+
+    target {
+        X_is current_shield
+    }
+    
+    cost {
+        infcantrip true
+        mana "4-clamp(floor(X/7), 0, 1)"
+    }
+    
+    damage_instance {
+        effects {
+            Shield 1
+            IntelligenceUp 1
+        }
+    }
+}
+Nirvana2 {
+    variant_of Nirvana
+    
+    meta {
+        desc "ABILITY_NIRVANA2_DESC"
+    }
+    
+    damage_instance {
+        effects {
+            Shield 2
+            IntelligenceUp 1
+        }
+    }
+}
+
+EmptyMind {
+    template self_buff
+    
+    meta {
+        name "ABILITY_EMPTYMIND_NAME"
+        desc "ABILITY_EMPTYMIND_DESC"
+        class Monk
+        type_icon "buff"
+    }
+	
+	graphics {
+        animation psyAttack1
+    }
+
+    cost {
+        infcantrip true
+        once_per_fight true
+        mana 0
+    }
+    
+    damage_instance {
+        effects {
+            EmptyMind 1
+        }
+    }
+}
+EmptyMind2 {
+    variant_of EmptyMind
+    
+    meta {
+        desc "ABILITY_EMPTYMIND2_DESC"
+    }
+
+    damage_instance {
+        effects {
+            TakeExtraTurn 1
+        }
+    }
+}
+
+Position {
+    template teleport
+    
+    meta {
+        name "ABILITY_POSITION_NAME"
+        desc "ABILITY_POSITION_DESC"
+        animate_name true
+        class Monk
+    }
+
+    graphics {
+        animation_out shadowStepOut
+        animation_in shadowStepIn
+    }
+
+    cost {
+        infcantrip true
+        mana 3
+    }
+
+    target {
+        max_range 2
+        min_range 2
+    }
+
+    self_damage {
+        effects {
+            MonkStanceSwitch 1
+        }
+    }
+}
+Position2 {
+    variant_of Position
+    
+    meta {
+        desc "ABILITY_POSITION2_DESC"
+    }
+
+    target {
+        max_range 4
+        min_range 2
+    }
+}
+
+ChargeFists {
+    template self_buff
+
+    keyword_tooltips {RandomMagicMissile 1}
+    
+    meta {
+        name "ABILITY_CHARGEFISTS_NAME"
+        desc "ABILITY_CHARGEFISTS_DESC"
+        class Monk
+        type_icon "buff"
+    }
+
+    cost {
+        infcantrip true
+        mana 3
+    }
+    
+    damage_instance {
+        effects {
+            ChargeFists 1
+        }
+    }
+}
+ChargeFists2 {
+    variant_of ChargeFists
+
+    meta {
+        desc "ABILITY_CHARGEFISTS2_DESC"
+    }
+
+    damage_instance {
+        effects {
+            RefreshActPoints 1
+        }
+    }
+}
+Apprentice {
+    template spawn
+
+    meta {
+        name "ABILITY_SUMMONAPPRENTICE_NAME"
+        desc "ABILITY_SUMMONAPPRENTICE_DESC"
+        class Monk
+    }
+
+    tags [summon]
+    
+    graphics {
+        lob false
+        animation shoot
+    }
+    
+    cost {
+        infcantrip true
+        mana 9
+        must_not_be_a_summon true
+    }
+    
+    target {
+        min_range 1
+        max_range 1
+        max_aoe 0
+
+        range_excludes_blocking false
+        restrictions aoe_must_exist
+    }
+
+    spawn {
+        object PlayerCat_MonkMiniMe
+        faction self
+
+        catdata clone
+        clone_items true
+    }
+}
+Apprentice2 {
+    variant_of Apprentice
+
+    meta {
+        desc "ABILITY_SUMMONAPPRENTICE2_DESC"
+    }
+
+    spawn {
+        object PlayerCat_MiniMe
+    }
+}

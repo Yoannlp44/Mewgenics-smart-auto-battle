@@ -1,0 +1,180 @@
+DefaultMove {
+    template move
+    
+    meta {
+        name "ABILITY_MOVE_NAME"
+        desc "ABILITY_MOVE_DESC"
+        animate_name false
+    }
+}
+
+BasicJump {
+    template jump_attack
+    
+    meta {
+        name "ABILITY_JUMP_NAME"
+        desc "ABILITY_JUMP_DESC"
+        animate_name false
+        is_move true
+    }
+
+    cost {
+        move_points 1
+        act_points 0
+    }
+
+    graphics {
+        jump_attack_animation land
+    }
+
+    target { 
+        target_mode tile
+
+        min_range 1
+        max_range mov
+        
+        aoe_mode occupied_tiles
+        min_aoe 0
+        max_aoe 0
+        
+        range_display_include_character_size true
+        restrictions must_be_moveable
+    }
+
+    damage_instance {
+        type none
+        damage 0
+    }
+}
+
+Teleport {
+    template teleport
+    
+    meta {
+        name "ABILITY_TELEPORT_NAME"
+        desc "ABILITY_TELEPORT_DESC"
+        animate_name false
+    }
+}
+
+BasicDig {
+    template teleport
+    
+    meta {
+        name "ABILITY_DIG_NAME"
+        desc "ABILITY_DIG_DESC"
+        animate_name false
+    }
+
+    graphics {
+        animation_out digDown
+        animation_in digUp
+    }
+}
+
+Shadowstep {
+    template teleport
+    
+    meta {
+        name "ABILITY_SHADOWSTEP_NAME"
+        desc "ABILITY_SHADOWSTEP_DESC"
+        animate_name false
+    }
+
+    graphics {
+        animation_out shadowStepOut
+        animation_in shadowStepIn
+    }
+}
+
+SwapPositions {
+    template swap
+    
+    meta {
+        name "ABILITY_SWAP_NAME"
+        desc "ABILITY_SWAP_DESC"
+        animate_name true
+    }
+}
+
+SwimmerMove {
+    template move
+    
+    meta {
+        name "ABILITY_SWIMMERMOVE_NAME"
+        desc "ABILITY_SWIMMERMOVE_DESC"
+        animate_name false
+    }
+
+    target {
+        range_mode water_move
+    }
+}
+
+TrampleMove {
+    template move
+    
+    meta {
+        name "ABILITY_TRAMPLEMOVE_NAME"
+        desc "ABILITY_TRAMPLEMOVE_DESC"
+        animate_name false
+    }
+
+    temporary_effects {
+        Trample 3
+    }
+    
+    damage_instance {
+        damage 3
+    }
+}
+
+TrampleMoveOne {
+    template move
+    
+    meta {
+        name "ABILITY_MOVEONETILE_NAME"
+        desc "ABILITY_MOVEONETILE_DESC"
+        animate_name false
+    }
+
+    target { 
+        max_range 1
+    }
+
+    temporary_effects {
+        Trample 3
+    }
+    
+    damage_instance {
+        damage 3
+    }
+}
+
+MaxTeleport {
+    template teleport
+    
+    meta {
+        name "ABILITY_MAXTELEPORT_NAME"
+        desc "ABILITY_MAXTELEPORT_DESC"
+        animate_name false
+    }
+
+    target { 
+        max_range 20
+    }
+}
+
+FloatMove {
+    template move
+    
+    meta {
+        name "ABILITY_FLOAT_NAME"
+        desc "ABILITY_FLOAT_DESC"
+        animate_name false
+    }
+
+    target {
+        as_the_crow_flies true
+    }
+}

@@ -1,0 +1,35 @@
+SuperLuck {
+    name "PASSIVE_SUPERLUCK_NAME"
+    desc "PASSIVE_SUPERLUCK_DESC"
+    class Jester
+
+    1 {
+        stats {
+            lck 21
+        }
+    }
+    2 {
+        desc "PASSIVE_SUPERLUCK2_DESC"
+        stats {
+            lck 77
+        }
+    }
+}
+Goofball {
+    name "PASSIVE_GOOFBALL_NAME"
+    desc "PASSIVE_GOOFBALL_DESC"
+    class Jester
+
+    1 {
+        passives {
+            AlphaTurns -1
+        }
+    }
+    2 {
+        desc "PASSIVE_GOOFBALL2_DESC"
+        passives {
+            AlphaTurns -1
+            AlphaTurns -1
+        }
+    }
+}

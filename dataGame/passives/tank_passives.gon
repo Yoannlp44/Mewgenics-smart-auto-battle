@@ -1,0 +1,693 @@
+Thorns {
+    name "PASSIVE_THORNS_NAME"
+    desc "PASSIVE_THORNS_DESC"
+    class Tank
+
+    1 {
+        passives {
+            Thorns 2
+        }
+    }
+    2 {
+        desc "PASSIVE_THORNS2_DESC"
+        passives {
+            Thorns 4
+            StatusOnTookDamage {
+                Thorns 1
+            }
+        }
+    }
+}
+
+HeavyHanded {
+    name "PASSIVE_HEAVYHANDED_NAME"
+    desc "PASSIVE_HEAVYHANDED_DESC"
+    class Tank
+
+    1 {
+        passives {
+            AddKnockbackDamage 2
+        }
+    }
+    2 {
+        desc "PASSIVE_HEAVYHANDED2_DESC"
+        passives {
+            AddKnockbackDamage 3
+            AddStatusToBasicAttack {
+                Knockback 3
+            }
+        }
+    }
+}
+
+
+
+SlackOff {
+    name "PASSIVE_SLACKOFF_NAME"
+    desc "PASSIVE_SLACKOFF_DESC"
+    class Tank
+
+    1 {
+        passives {
+            StatusIfUnusedMovePoints {
+                HealthGain 8
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_SLACKOFF2_DESC"
+        passives {
+            StatusIfUnusedMovePoints {
+                ConstitutionUp 2
+                HealthGain 8
+                ManaGain 5
+            }
+        }
+    }
+}
+
+Scabs {
+    name "PASSIVE_SCABS_NAME"
+    desc "PASSIVE_SCABS_DESC"
+    class Tank
+
+    1 {
+        passives {
+            StatusOnTookDamageFromAbility {
+                Shield 2
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_SCABS2_DESC"
+        passives {
+            StatusOnTookDamage {
+                Shield 2
+            }
+        }
+    }
+}
+
+EyeCatchin { //CUT
+    name "Eye Catchin'"
+    desc "taunt while at full health"
+    class Tank
+
+    1 {
+        passives {
+            TauntAtFullHealth 1
+        }
+    }
+    2 {
+        desc "taunt always"
+        passives {
+            TauntAlways 1
+        }
+    }
+}
+
+ThunderThighs {
+    name "PASSIVE_THUNDERTHIGHS_NAME"
+    desc "PASSIVE_THUNDERTHIGHS_DESC"
+    class Tank
+
+    1 {
+        passives {
+            Trample 3
+        }
+    }
+    2 {
+        desc "PASSIVE_THUNDERTHIGHS2_DESC"
+        passives {
+            Trample 9
+        }
+        stats {
+            con 1
+        }
+    }
+}
+
+Plow {
+    name "PASSIVE_PLOW_NAME"
+    desc "PASSIVE_PLOW_DESC"
+    class Tank
+
+    1 {
+        passives {
+            AddStatusToAllDamage {
+                LeaveBehindRockOnKnockback 1
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_PLOW2_DESC"
+        passives {
+            AddStatusToAllDamage {
+                LeaveBehindRockOnKnockback 1
+            }
+            AddKnockbackToEverything 1
+        }
+    }
+}
+
+PetRocks {
+    name "PASSIVE_PETROCKS_NAME"
+    desc "PASSIVE_PETROCKS_DESC"
+    class Tank
+
+    1 {
+        passives {
+            ReplaceSpawnedObjects [SmallRock AnimatedSmallRock]
+            ReplaceSpawnedObjects [Boulder AnimatedBoulder]
+            ReplaceSpawnedObjects [SmallLavaRock AnimatedSmallLavaRock]
+            ReplaceSpawnedObjects [LavaBoulder AnimatedLavaBoulder]
+
+            AddPassiveToSpawnedRocks {
+                JoinSpawnerFaction 1
+                AddFilledMaxHealth 3
+            }
+
+            SpawnOnBattleStart {
+                object SmallRock
+                number 1
+            }
+
+            StatusReplacement [Petrify PetrifyCharmed]
+        }
+    }
+    2 {
+        desc "PASSIVE_PETROCKS2_DESC"
+        passives {
+            ReplaceSpawnedObjects [SmallRock AnimatedSmallLavaRock]
+            ReplaceSpawnedObjects [Boulder AnimatedLavaBoulder]
+            ReplaceSpawnedObjects [SmallLavaRock AnimatedSmallLavaRock]
+            ReplaceSpawnedObjects [LavaBoulder AnimatedLavaBoulder]
+
+            AddPassiveToSpawnedRocks {
+                JoinSpawnerFaction 1
+                AddFilledMaxHealth 7
+            }
+
+            SpawnOnBattleStart {
+                object Boulder
+                number 1
+            }
+
+            StatusReplacement [Petrify PetrifyCharmed]
+        }
+    }
+}
+
+ToadStyle {
+    name "PASSIVE_TOADSTYLE_NAME"
+    desc "PASSIVE_TOADSTYLE_DESC"
+    class Tank
+	
+    1 {
+        stats {
+            spd 4
+        }
+        passives {
+            ReplaceBasicMove ToadJump_BasicMove
+        }
+    }
+    2 {
+        desc "PASSIVE_TOADSTYLE2_DESC"
+        stats {
+            spd 8
+        }
+        passives {
+            ReplaceBasicMove BellyFlop_BasicMove
+        }
+    }
+}
+
+ChainKnockback {
+    name "PASSIVE_CHAINKNOCKBACK_NAME"
+    desc "PASSIVE_CHAINKNOCKBACK_DESC"
+    class Tank
+
+    1 {
+        passives {
+            ChainKnockback 1
+            AddStatusToBasicAttack {
+                Knockback 1
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_CHAINKNOCKBACK2_DESC"
+        passives {
+            ChainKnockback 1
+            AddStatusToBasicAttack {
+                Knockback 1
+            }
+            AddKnockbackDamage 1
+            AmplifyKnockback 2
+        }
+    }
+}
+
+
+ProtectiveAura {
+    name "PASSIVE_PROTECTIVE_NAME"
+    desc "PASSIVE_PROTECTIVE_DESC"
+    class Tank
+
+    1 {
+        passives {
+            DamageReductionAura {
+                range global
+                allies_only true
+                stacks 1
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_PROTECTIVE2_DESC"
+        passives {
+            DamageReductionAura {
+                range global
+                allies_only true
+                stacks 2
+            }
+        }
+    }
+}
+
+
+Wrestlemaniac {
+    name "PASSIVE_WRESTLEMANIAC_NAME"
+    desc "PASSIVE_WRESTLEMANIAC_DESC"
+    class Tank
+
+    1 {
+        passives {
+            BonusAbility BonusToss
+            ReplaceBasicAttackWhenCastable BasicSuplex
+        }
+        stats {
+            spd 2
+        }
+    }
+    2 {
+        desc "PASSIVE_WRESTLEMANIAC2_DESC"
+
+        passives {
+            BonusAbility BonusToss2
+            ReplaceBasicAttackWhenCastable BasicSuplex
+            ExtraMovePoints 1
+        }
+        stats {
+            spd 2
+        }
+    }
+}
+
+MountainForm {
+    name "PASSIVE_MOUNTAINFORM_NAME"
+    desc "PASSIVE_MOUNTAINFORM_DESC"
+    class Tank
+
+    1 {
+        passives {
+            InnateElement Earth
+            //ElementImmune Fire
+            //StatusImmunity [Burn]
+            KnockbackImmunity 1
+            RockDetector 10
+            SizeScale 1.2
+        }
+    }
+    2 {
+        desc "PASSIVE_MOUNTAINFORM2_DESC"
+
+        passives {
+            InnateElement Earth
+            ElementImmune Fire
+            StatusImmunity [Burn]
+            KnockbackImmunity 1
+            RockDetector 10
+            SizeScale 1.3
+            Trample 3
+            //Brace 1
+            //Thorns 2
+        }
+    }
+}
+
+HomeRun {
+    name "PASSIVE_HOMERUN_NAME"
+    desc "PASSIVE_HOMERUN_DESC"
+    class Tank
+
+    1 {
+        passives {
+            AmplifyKnockback 10
+        }
+    }
+    2 {
+        desc "PASSIVE_HOMERUN2_DESC"
+
+        passives {
+            AmplifyKnockback 10
+            AddStatusToKnockbackDamage {
+                Bruise 1
+            }
+        }
+    }
+}
+
+RockAspect {
+    name "PASSIVE_ROCKASPECT_NAME"
+    desc "PASSIVE_ROCKASPECT_DESC"
+    class Tank
+
+    1 {
+        shield 4
+        passives {
+            RevengeDamage {
+                effects {
+                    Petrify [1, .1]
+                }
+            }
+            AddTag rock
+        }
+    }
+    2 {
+        desc "PASSIVE_ROCKASPECT2_DESC"
+
+        shield 8
+        passives {
+            RevengeDamage {
+                effects {
+                    Petrify [1, .2]
+                }
+            }
+            AddTag rock
+        }
+    }
+}
+
+WideLoad {
+    name "PASSIVE_WIDELOAD_NAME"
+    desc "PASSIVE_WIDELOAD_DESC"
+    class Tank
+
+    1 {
+        passives {
+            ProtectTargetedAllies SwapPositions_WideLoad
+        }
+        stats {
+            con 1
+        }
+    }
+    2 {
+        desc "PASSIVE_WIDELOAD2_DESC"
+
+        passives {
+            ProtectTargetedAllies SwapPositions_WideLoad2
+        }
+        stats {
+            con 1
+        }
+    }
+}
+
+HardHead { //TODO: add cant be stunned (maybe)
+    name "PASSIVE_HARDHEAD_NAME"
+    desc "PASSIVE_HARDHEAD_DESC"
+    class Tank
+
+    1 {
+        passives {
+            FaceShield 0
+        }
+    }
+    2 {
+        desc "PASSIVE_HARDHEAD2_DESC"
+
+        passives {
+            FaceShield 0
+            AddStatusToBasicAttack {
+                Bruise 1
+            }
+        }
+    }
+}
+
+MyLeg {
+    name "PASSIVE_MYLEG_NAME"
+    desc "PASSIVE_MYLEG_DESC"
+    class Tank
+
+    1 {
+        passives {
+            ForceSpecificInjury spd
+            PassiveAtInjuryThreshold {
+                mode greater_or_equal
+
+                injury spd
+                threshold 4
+
+                passives {
+                    Thorns 4
+                    Trample 3
+                    AllyBonusAbilityAura NubbyToss
+                    NubbyTossPriority 1
+                }
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_MYLEG2_DESC"
+
+        passives {
+            ForceSpecificInjury spd
+            PassiveAtInjuryThreshold {
+                mode greater_or_equal
+
+                injury spd
+                threshold 4
+
+                passives {
+                    Thorns 4
+                    Trample 3
+                    Brace 4
+                    AllyBonusAbilityAura NubbyToss
+                    NubbyTossPriority 1
+                }
+            }
+        }
+    }
+}
+
+Hardy {
+    name "PASSIVE_HARDY_NAME"
+    desc "PASSIVE_HARDY_DESC"
+    class Tank
+
+    1 {
+        passives {
+            StatusOnBattleStart {
+                FullHeal 1
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_HARDY2_DESC"
+
+        passives {
+            StatusOnBattleStart {
+                FullHeal 1
+            }
+            HealthRegenUp 4
+        }
+    }
+}
+
+SlowAndSteady {
+    name "PASSIVE_SLOWANDSTEADY_NAME"
+    desc "PASSIVE_SLOWANDSTEADY_DESC"
+    class Tank
+
+    1 {
+        passives {
+            StatusEachTurnEnd {
+                SpeedUp -2
+                RangeUp 1
+            }
+            PassiveAtStatThreshold {
+                mode less_or_equal
+                threshold {
+                    spd 0
+                }
+                passives {
+                    ExtraBasicAttacks 1
+                }
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_SLOWANDSTEADY2_DESC"
+
+        passives {
+            StatusEachTurnEnd {
+                SpeedUp -2
+                RangeUp 1
+                StrengthUp 1
+                IntelligenceUp 1
+            }
+            PassiveAtStatThreshold {
+                mode less_or_equal
+                threshold {
+                    spd 0
+                }
+                passives {
+                    ExtraBasicAttacks 1
+                }
+            }
+        }
+    }
+}
+FollowUp {
+    name "PASSIVE_FOLLOWUP_NAME"
+    desc "PASSIVE_FOLLOWUP_DESC"
+    class Tank
+
+    1 {
+        passives {
+            FollowUp FollowUpDash
+        }
+    }
+    2 {
+        desc "PASSIVE_FOLLOWUP2_DESC"
+        passives {
+            FollowUp FollowUpDash2
+        }
+    }
+}
+CatAPult {
+    name "PASSIVE_CATAPULT_NAME"
+    desc "PASSIVE_CATAPULT_DESC"
+    class Tank
+
+    1 {
+        passives {
+            AllyMoveAbilityAura CatapultJump
+            CatAPultAnimation {
+                ability CatapultJump
+                animation knockupatk
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_CATAPULT2_DESC"
+        passives {
+            AllyMoveAbilityAura CatapultJump2
+            CatAPultAnimation {
+                ability CatapultJump2
+                animation knockupatk
+            }
+        }
+    }
+}
+ShovingMatch {
+    name "PASSIVE_SHOVINGMATCH_NAME"
+    desc "PASSIVE_SHOVINGMATCH_DESC"
+    class Tank
+
+    1 {
+        passives {
+            ShovingMatch attack
+            AddStatusToBasicAttack {
+                Knockback 1
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_SHOVINGMATCH2_DESC"
+        passives {
+            ShovingMatch attack
+            AllyDamageReduction 0
+            AddStatusToBasicAttack {
+                Knockback 2
+            }
+        }
+    }
+}
+
+Stoic {
+    name "PASSIVE_STOIC_NAME"
+    desc "PASSIVE_STOIC_DESC"
+    class Tank
+
+    1 {
+        passives {
+            StatusIfUnusedMovePoints {
+                MoveQuivered 2
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_STOIC2_DESC"
+        passives {
+            StatusIfUnusedMovePoints {
+                MoveQuivered 2
+                Brace 1
+                Shield 2
+            }
+        }
+    }
+}
+
+PriorityTarget {
+    name "PASSIVE_PRIORITYTARGET_NAME"
+    desc "PASSIVE_PRIORITYTARGET_DESC"
+    class Tank
+
+    1 {
+        passives {
+            TauntAlways 1
+        }
+        stats {
+            con 1
+        }
+    }
+    2 {
+        desc "PASSIVE_PRIORITYTARGET2_DESC"
+        passives {
+            TauntAlways 1
+            Brace 2
+            Thorns 2
+            HealthRegenUp 2
+        }
+        stats {
+            con 2
+        }
+    }
+}
+
+Bouncer {
+    name "PASSIVE_BOUNCER_NAME"
+    desc "PASSIVE_BOUNCER_DESC"
+    class Tank
+
+    1 {
+        passives {
+            SecurityBotProtect {
+                ability attack
+                move MoveThree
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_BOUNCER2_DESC"
+        passives {
+            SecurityBotProtect {
+                ability attack
+                move move
+            }
+        }
+    }
+}

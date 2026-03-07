@@ -1,0 +1,3815 @@
+CrowFlutter {
+    template move
+    
+    meta {
+        name "ABILITY_CROWFLUTTER_NAME"
+        desc "ABILITY_CROWFLUTTER_DESC"
+        animate_name true
+        class Druid
+    }
+
+    graphics {
+        animation fast
+    }
+
+    cost {
+        infcantrip true
+        mana 5
+    }
+
+    target {
+        min_range 3
+        max_range 3
+        straight_shot true
+        as_the_crow_flies true
+        range_mode normal
+    }
+}
+CrowFlutter2 {
+    variant_of CrowFlutter
+
+    meta {
+        desc "ABILITY_CROWFLUTTER2_DESC"
+    }
+
+    target {
+        max_range 4
+    }
+}
+CrowFlutter3 {
+    variant_of CrowFlutter
+
+    meta {
+        desc "ABILITY_CROWFLUTTER3_DESC"
+    }
+
+    target {
+        min_range 2
+        max_range 5
+    }
+}
+CrowFlap {
+    template spell
+    
+    meta {
+        name "ABILITY_AEROBLAST_NAME"
+        desc "ABILITY_AEROBLAST_DESC"
+        class Druid
+    }
+
+    graphics {
+        particle fx_windSpell
+        animation wind
+    }
+
+    cost {
+        mana 5
+        infcantrip true
+    }
+
+    target {
+        target_mode direction
+        
+        aoe_mode line
+        min_aoe 1
+        max_aoe 3+bonus_range
+        
+        aoe_considers_character_size true
+        aoe_excludes_self true
+
+        knockback_mode orientation
+    }
+
+    damage_instance {
+        damage 1
+        knockback 1
+
+        elements [
+            Wind
+        ]
+    }
+}
+CrowFlap2 {
+    variant_of CrowFlap
+    meta {
+        desc "ABILITY_AEROBLAST2_DESC"
+    }
+
+    target {
+        max_aoe 10
+    }
+
+    damage_instance {
+        damage 2
+        knockback 2
+    }
+}
+CrowFlap3 {
+    variant_of CrowFlap
+    meta {
+        desc "ABILITY_AEROBLAST3_DESC"
+    }
+
+    target {
+        max_aoe 10
+    }
+
+    damage_instance {
+        damage 3
+        knockback 10
+    }
+}
+
+
+
+ManaBomb {
+    template spell
+    
+    meta {
+        name "ABILITY_BLOOM_NAME"
+        desc "ABILITY_BLOOM_DESC"
+        class Druid
+        type_icon "misc"
+    }
+
+    tags [musical]
+
+    graphics {
+        affected_particle fx_ManaHeal
+        animation sing2
+    }
+    
+    cost {
+        infcantrip true
+        mana 6
+    }
+
+    target {
+        min_range 0
+        max_range 3
+        max_aoe 1
+        aoe_excludes_self true
+    }
+    
+    damage_instance {
+        damage 0
+        type spell
+
+        effects {
+            ManaGain 5
+        }
+    }
+}
+ManaBomb2 {
+    variant_of ManaBomb
+    
+    meta {
+        desc "ABILITY_BLOOM2_DESC"
+    }
+
+    target {
+        min_range 0
+        max_range 6
+        max_aoe 2
+    }
+}
+
+SongOfSpring {
+    template spell
+    
+    meta {
+        name "ABILITY_SONGOFSPRING_NAME"
+        desc "ABILITY_SONGOFSPRING_DESC"
+        class Druid
+        type_icon "misc"
+    }
+
+    tags [musical]
+
+    graphics {
+        animation sing1
+		particle none 
+    }
+    
+    cost {
+        infcantrip true
+        mana 7
+    }
+
+    target {
+        min_range 0
+        max_range 5
+        max_aoe 1
+    }
+    
+    damage_instance {
+        damage 0
+        type spell
+
+        effects {
+            FlowersOnHit 1
+        }
+
+        elements [
+            Grass
+            Bloom
+        ]
+    }
+}
+SongOfSpring2 {
+    variant_of SongOfSpring
+    
+    meta {
+        desc "ABILITY_SONGOFSPRING2_DESC"
+    }
+
+    target {
+        max_aoe 2
+    }
+}
+
+GrantLife {
+    template targeted_status
+    
+    meta {
+        name "ABILITY_GRANTLIFE_NAME"
+        desc "ABILITY_GRANTLIFE_DESC"
+        class Druid
+    }
+
+    tags [musical]
+
+    graphics {
+        animation sing1
+    }
+    
+    cost {
+        infcantrip true
+        mana 2
+    }
+
+    target {
+        min_range 1
+        max_range 5
+        max_aoe 0
+    }
+
+    self_damage {
+        effects {
+            AllStatsUp -1
+        }
+    }
+    
+    damage_instance {
+        damage 0
+        type spell
+
+        effects {
+            AllStatsUp 1
+        }
+    }
+}
+GrantLife2 {
+    variant_of GrantLife
+    
+    meta {
+        desc "ABILITY_GRANTLIFE2_DESC"
+    }
+
+    
+    damage_instance {
+        heal 2
+
+        effects {
+            AllStatsUp 1
+            Charge 2
+        }
+    }
+}
+
+
+SquirrelSquad {
+    template spawn
+
+    meta {
+        name "ABILITY_SQUIRRELSQUAD_NAME"
+        desc "ABILITY_SQUIRRELSQUAD_DESC"
+        class Druid
+    }
+
+    tags [summon]
+    
+    graphics {
+        lob true
+        animation shoot
+    }
+    
+    cost {
+        infcantrip true
+        mana 13
+    }
+    
+    target {
+        min_range 0
+        max_range 3
+        max_aoe 1
+
+        range_excludes_blocking false
+        restrictions aoe_must_exist
+    }
+
+    spawn {
+        object BabySquirrel
+    }
+}
+SquirrelSquad2 {
+    variant_of SquirrelSquad
+
+    meta {
+        desc "ABILITY_SQUIRRELSQUAD2_DESC"
+    }
+    spawn {
+        object Squirrel
+    }
+}
+SquirrelFurySwipes {
+    class MultiHitMeleeAttackAbility
+    template melee_attack
+    
+    meta {
+        name "ABILITY_SQUIRRELSWIPES_NAME"
+        desc "ABILITY_SQUIRRELSWIPES_DESC"
+        class Druid
+        animate_name false
+    }
+
+    graphics {
+        start attack
+        loop attack
+        end attack
+    }
+
+    target {
+        multihit_min 1
+        multihit_max 3
+    }
+
+    cost {
+        move_points 0
+        act_points 1
+    }
+
+    damage_instance {
+        damage 5+bonus_melee_damage
+        type melee
+    }
+}
+BearFurySwipes {
+    variant_of SquirrelFurySwipes
+    meta {
+        name "ABILITY_BEARSWIPES_NAME"
+    }
+}
+
+
+SummonSquirrel {
+    template spawn
+
+    meta {
+        name "ABILITY_SUMMONSQUIRREL_NAME"
+        desc "ABILITY_SUMMONSQUIRREL_DESC"
+        class Druid
+    }
+
+    tags [summon]
+    
+    graphics {
+        lob true
+        animation shoot
+    }
+    
+    cost {
+        infcantrip true
+        mana 6
+    }
+    
+    target {
+        min_range 1
+        max_range 1
+        max_aoe 0
+
+        range_excludes_blocking false
+        restrictions aoe_must_exist
+    }
+
+    spawn {
+        object Squirrel
+    }
+}
+SummonSquirrel2 {
+    variant_of SummonSquirrel
+
+    meta {
+        desc "ABILITY_SUMMONSQUIRREL2_DESC"
+    }
+
+    target {
+        max_range 20
+    }
+}
+
+SummonSnake {
+    template spawn
+
+    meta {
+        name "ABILITY_SUMMONSNAKE_NAME"
+        desc "ABILITY_SUMMONSNAKE_DESC"
+        class Druid
+    }
+
+    tags [summon]
+    
+    graphics {
+        lob true
+        animation shoot
+    }
+    
+    cost {
+        infcantrip true
+        mana 6
+    }
+    
+    target {
+        min_range 1
+        max_range 1
+        max_aoe 0
+
+        range_excludes_blocking false
+        restrictions aoe_must_exist
+    }
+
+    spawn {
+        object Snake
+    }
+}
+SummonSnake2 {
+    variant_of SummonSnake
+
+    meta {
+        desc "ABILITY_SUMMONSNAKE2_DESC"
+    }
+
+    spawn {
+        object Snake2
+    }
+}
+
+SummonTurtle {
+    template spawn
+
+    meta {
+        name "ABILITY_SUMMONTURTLE_NAME"
+        desc "ABILITY_SUMMONTURTLE_DESC"
+        class Druid
+    }
+
+    tags [summon]
+    
+    graphics {
+        lob true
+        animation shoot
+    }
+    
+    cost {
+        infcantrip true
+        mana 6
+    }
+    
+    target {
+        min_range 1
+        max_range 1
+        max_aoe 0
+
+        range_excludes_blocking false
+        restrictions aoe_must_exist
+    }
+
+    spawn {
+        object Turtle
+    }
+}
+SummonTurtle2 {
+    variant_of SummonTurtle
+
+    meta {
+        desc "ABILITY_SUMMONTURTLE2_DESC"
+    }
+
+    target {
+        max_range 6
+    }
+}
+
+
+SummonToad {
+    template spawn
+
+    meta {
+        name "ABILITY_SUMMONTOAD_NAME"
+        desc "ABILITY_SUMMONTOAD_DESC"
+        class Druid
+    }
+
+    tags [summon]
+    
+    graphics {
+        lob true
+        animation shoot
+    }
+    
+    cost {
+        infcantrip true
+        mana 6
+    }
+    
+    target {
+        min_range 1
+        max_range 1
+        max_aoe 0
+
+        range_excludes_blocking false
+        restrictions aoe_must_exist
+    }
+
+    spawn {
+        object Toad
+    }
+}
+SummonToad2 {
+    variant_of SummonToad
+
+    meta {
+        desc "ABILITY_SUMMONTOAD2_DESC"
+    }
+
+    spawn {
+        object Toad2
+    }
+}
+
+SummonBear {
+    template spawn
+
+    meta {
+        name "ABILITY_SUMMONBEAR_NAME"
+        desc "ABILITY_SUMMONBEAR_DESC"
+        class Druid
+    }
+    
+    tags [summon]
+
+    graphics {
+        lob true
+        animation shoot
+    }
+    
+    cost {
+        infcantrip true
+        mana 12
+    }
+    
+    target {
+        range_mode custom
+        custom_range [[-2 0] [-2 -1] [-1 -2] [0 -2] [-1 1] [0 1] [1 0] [1 -1]]
+
+        aoe_mode custom
+        dont_orient_aoe true
+
+        custom_aoe [[0 0] [1 0] [0 1] [1 1]]
+
+        range_excludes_blocking false
+        restrictions must_fit_2x2_character
+        aoe_restrictions none
+
+        range_display_include_aoe true
+        mouse_offset [.5 .5]
+        
+    }
+
+    spawn {
+        object Bear
+        size 2
+    }
+}
+SummonBear2 {
+    variant_of SummonBear
+
+    meta {
+        desc "ABILITY_SUMMONBEAR2_DESC"
+    }
+
+    spawn {
+        object Bear2
+    }
+}
+
+DruidSwap {
+    template swap
+    
+    meta {
+        name "ABILITY_STEPIN_NAME"
+        desc "ABILITY_STEPIN_DESC"
+        animate_name true
+        class Druid
+    }
+
+    graphics {
+    }
+
+    cost {
+        mana 3
+        infcantrip true
+    }
+
+    target {
+        max_range 20
+        restrictions [must_be_swappable aoe_must_exist]
+        aoe_restrictions [familiars_only]
+    }
+}
+DruidSwap2 {
+    variant_of DruidSwap
+
+    meta {
+        desc "ABILITY_STEPIN2_DESC"
+    }
+
+    target {
+        aoe_restrictions none
+    }
+}
+
+
+BattleCry {
+    template targeted_status
+    
+    meta {
+        name "ABILITY_BATTLECRY_NAME"
+        desc "ABILITY_BATTLECRY_DESC"
+        class Druid
+    }
+
+    tags [musical]
+
+    graphics {
+        animation sing2
+    }
+    
+    cost {
+        infcantrip true
+        mana 8
+    }
+
+    target {
+        min_range 0
+        max_range 4
+        max_aoe 2
+        //aoe_restrictions familiars_only
+    }
+    
+    damage_instance {
+        damage 0
+
+        effects {
+            Conditional_Familiar {
+                DamageUp 2
+            }
+        }
+    }
+}
+BattleCry2 {
+    variant_of BattleCry
+    
+    meta {
+        desc "ABILITY_BATTLECRY2_DESC"
+    }
+
+    target {
+        target_mode none
+        aoe_mode all
+    }
+	
+	damage_instance {
+        damage 0
+
+        effects {
+            Conditional_Familiar {
+                DamageUp 3
+            }
+        }
+    }
+}
+
+PullToSafety {
+    template targeted_status
+    
+    meta {
+        name "ABILITY_STANDBYME_NAME"
+        desc "ABILITY_STANDBYME_DESC"
+        class Druid
+        type_icon "defense"
+    }
+
+    tags [musical]
+
+    graphics {
+        animation sing3
+    }
+    
+    cost {
+        infcantrip true
+        mana 4
+    }
+
+    target {
+        min_range 0
+        max_range 20
+        restrictions must_have_ally
+    }
+    
+    damage_instance {
+        damage 0
+
+        effects {
+            DisplaceTowardsSource 1
+        }
+    }
+}
+PullToSafety2 {
+    variant_of PullToSafety
+    
+    meta {
+        desc "ABILITY_STANDBYME2_DESC"
+    }
+
+    target {
+        restrictions [must_have_character aoe_must_be_force_displaceable]
+    }
+}
+
+BrambleBurst {
+    template spell
+    
+    meta {
+        name "ABILITY_BRAMBLEBURST_NAME"
+        desc "ABILITY_BRAMBLEBURST_DESC"
+        class Druid
+    }
+
+    graphics {
+	    projectile BrambleProjectile
+	    particle Explosion
+    }
+    
+    cost {
+        infcantrip true
+        mana 5
+    }
+
+    target {
+        min_range 0
+        max_range 20
+
+        max_aoe 1
+        restrictions must_have_familiar
+    }
+    
+    damage_instance {
+        damage 5
+        cant_miss true
+
+        effects {
+            VaporizeTarget 1
+            ChangeTile BrambleTile
+        }
+
+        elements [
+            Explosion
+            Grass
+        ]
+    }
+}
+BrambleBurst2 {
+    variant_of BrambleBurst
+    
+    meta {
+        desc "ABILITY_BRAMBLEBURST2_DESC"
+    }
+
+    target {
+        max_aoe 2
+    }
+}
+
+
+FlowerFeet {
+    template move
+    
+    meta {
+        name "ABILITY_FLOWERFEET_NAME"
+        desc "ABILITY_FLOWERFEET_DESC"
+        animate_name true
+        class Druid
+    }
+
+    cost {
+        infcantrip true
+        mana 6
+    }
+
+    target {
+        max_range 3
+    }
+
+    temporary_effects {
+        TileTrail FlowerTile
+    }
+}
+FlowerFeet2 {
+    variant_of FlowerFeet
+    
+    meta {
+        desc "ABILITY_FLOWERFEET2_DESC"
+    }
+
+    target {
+        max_range 5
+    }
+
+    temporary_effects {
+        TileTrail_Ahead FlowerTile
+    }
+}
+
+ThornyFeet {
+    template move
+    
+    meta {
+        name "ABILITY_THORNYFEET_NAME"
+        desc "ABILITY_THORNYFEET_DESC"
+        animate_name true
+        class Druid
+    }
+
+    cost {
+        infcantrip true
+        mana 6
+    }
+
+    target {
+        max_range 3
+    }
+
+    temporary_effects {
+        TileTrail BrambleTile
+    }
+}
+ThornyFeet2 {
+    variant_of ThornyFeet
+    
+    meta {
+        desc "ABILITY_THORNYFEET2_DESC"
+    }
+
+    cost {
+        mana 3
+    }
+}
+
+
+Encourage {
+    template targeted_status
+    
+    meta {
+        name "ABILITY_ENCOURAGE_NAME"
+        desc "ABILITY_ENCOURAGE_DESC"
+        class Druid
+        type_icon "misc"
+    }
+
+    tags [musical]
+
+    graphics {
+        animation sing3
+    }
+    
+    cost {
+        infcantrip true
+        mana 8
+    }
+
+    target {
+        min_range 0
+        max_range 3
+        restrictions must_have_familiar
+    }
+    
+    damage_instance {
+        damage 0
+
+        effects {
+            TakeExtraTurn 1
+        }
+    }
+}
+Encourage2 {
+    variant_of Encourage
+    
+    meta {
+        desc "ABILITY_ENCOURAGE2_DESC"
+    }
+
+    cost {
+        mana 6
+    }
+
+    target {
+        max_range 6
+    }
+}
+
+Protection {
+    template targeted_status
+    
+    meta {
+        name "ABILITY_PROTECTION_NAME"
+        desc "ABILITY_PROTECTION_DESC"
+        class Druid
+        type_icon "defense"
+    }
+
+    tags [musical]
+
+    graphics {
+        animation sing3
+    }
+    
+    cost {
+        infcantrip true
+        mana 5
+    }
+
+    target {
+        min_range 0
+        max_range 4
+        max_aoe 0
+        restrictions aoe_must_exist
+        aoe_restrictions familiars_only
+    }
+    
+    damage_instance {
+        damage 0
+
+        effects {
+            DivineShield 1
+        }
+    }
+}
+Protection2 {
+    template targeted_status
+    
+    meta {
+        name "ABILITY_PROTECTION_NAME"
+        desc "ABILITY_PROTECTION2_DESC"
+        class Druid
+        type_icon "defense"
+    }
+
+    tags [musical]
+
+    graphics {
+        animation sing3
+    }
+    
+    cost {
+        infcantrip true
+        mana 5
+    }
+
+    target {
+        min_range 0
+        max_range 4
+        max_aoe 4
+    }
+
+    damage_instance {
+        damage 0
+
+        effects {
+            Conditional_Familiar {
+                DivineShield 1
+            }
+        }
+    }
+}
+
+Promote {
+    template self_buff
+    
+    meta {
+        name "ABILITY_PROMOTE_NAME"
+        desc "ABILITY_PROMOTE_DESC"
+        class Druid
+        type_icon "buff"
+    }
+
+    graphics {
+    }
+    
+    cost {
+        infcantrip true
+        mana 5
+    }
+    
+    damage_instance {
+        effects {
+            ChampionUpgradeNextMinion 1
+        }
+    }
+}
+Promote2 {
+    template self_buff
+    
+    meta {
+        name "ABILITY_PROMOTE_NAME"
+        desc "ABILITY_PROMOTE2_DESC"
+        class Druid
+        type_icon "buff"
+    }
+
+    graphics {
+    }
+    
+    cost {
+        infcantrip true
+        mana 5
+    }
+    
+    damage_instance {
+        effects {
+            EliteUpgradeNextMinion 1
+        }
+    }
+}
+
+
+SafetyDance {
+    template spell
+
+    meta {
+        name "ABILITY_SAFETYDANCE_NAME"
+        desc "ABILITY_SAFETYDANCE_DESC"
+        class Druid
+    }
+
+    tags [musical]
+
+    graphics {
+        particle fx_shield
+        animation sing2
+    }
+    
+    cost {
+        mana 5
+        infcantrip true
+    }
+
+    
+    target {
+        target_mode none
+        aoe_mode all
+        aoe_considers_character_size false
+        knockback_mode zero
+        aoe_excludes_self true
+        aoe_restrictions [allies_only]
+    }
+
+    damage_instance {
+        damage 0
+        effects {
+            Shield 1
+        }
+    }
+}
+SafetyDance2 {
+    variant_of SafetyDance
+
+    meta {
+        desc "ABILITY_SAFETYDANCE2_DESC"
+    }
+
+    damage_instance {
+        effects {
+            Shield 2
+        }
+    }
+}
+
+WarCry {
+    template spell
+
+    meta {
+        name "ABILITY_WARCRY_NAME"
+        desc "ABILITY_WARCRY_DESC"
+        class Druid
+    }
+
+    tags [musical]
+
+    graphics {
+        animation howl
+		particle none
+    }
+    
+    cost {
+        mana 5
+        infcantrip true
+    }
+
+    
+    target {
+        target_mode none
+        aoe_mode all
+        aoe_considers_character_size false
+        knockback_mode zero
+        aoe_excludes_self true
+        aoe_restrictions familiars_only
+    }
+
+    damage_instance {
+        damage 0
+        effects {
+            ForceAttack 1
+        }
+    }
+}
+WarCry2 {
+    variant_of WarCry
+
+    meta {
+        desc "ABILITY_WARCRY2_DESC"
+    }
+
+    target {
+        aoe_restrictions allies_only
+    }
+}
+
+TigerForm {
+    template self_buff
+    
+    meta {
+        name "ABILITY_FORMOFTHEWOLF_NAME"
+        desc "ABILITY_FORMOFTHEWOLF_DESC"
+        class Druid
+        type_icon "buff"
+    }
+
+    tags [shapeshift]
+
+    graphics {
+        animation druidTransform
+    }
+    
+    cost {
+        infcantrip true
+        mana 0
+    }
+    
+    damage_instance {
+        effects {
+            TransformBasicAttack TigerSwipes
+            TransformAbility Pounce
+            SpeedUp 2
+            StrengthUp 2
+            LuckUp -2
+            IntelligenceUp -2
+
+            CatPartsTransform {
+                tail 4
+                body 31
+                head 12
+                arm1 1013
+                arm2 1013
+                leg1 41
+                leg2 41
+                ear1 23
+                ear2 23
+            }
+        }
+    }
+}
+TigerForm2 {
+    variant_of TigerForm
+    
+    meta {
+        desc "ABILITY_FORMOFTHEWOLF2_DESC"
+    }
+
+    damage_instance {
+        effects {
+            TransformBasicAttack TigerSwipes2
+            TransformAbility Pounce2
+        }
+    }
+}
+
+TigerSwipes { //alt basic for TigerForm
+    template melee_attack
+    
+    meta {
+        name "ABILITY_WOLFCLAWS_NAME"
+        desc "ABILITY_WOLFCLAWS_DESC"
+        class Druid
+        animate_name false
+    }
+
+    graphics {
+        animation doubleswat
+    }
+
+    target { 
+        max_aoe 1+bonus_melee_range
+        aoe_restrictions must_have_line_of_sight_unpurgable
+        multihit 2
+    }
+
+    damage_instance {
+        damage "(5+bonus_melee_damage+1)/2"
+    }
+}
+TigerSwipes2 {
+    variant_of TigerSwipes
+
+    meta {
+        desc "ABILITY_WOLFCLAWS2_DESC"
+    }
+
+    damage_instance {
+        effects {
+            Bleed 1
+        }
+    }
+}
+
+Pounce { //alt ability for TigerForm
+    template jump_attack
+
+    meta {
+        name "ABILITY_WOLFPOUNCE_NAME"
+        desc "ABILITY_WOLFPOUNCE_DESC"
+        class Druid
+    }
+
+    graphics {
+        jump_attack_animation land
+    }
+
+    cost {
+        mana 6
+        infcantrip true
+    }
+    
+    target {
+        max_range 4
+
+        aoe_mode occupied_tiles
+        min_aoe 0
+        max_aoe 0
+        aoe_excludes_self false
+        restrictions [must_have_character]
+    }
+
+    damage_instance {
+        damage 2+bonus_melee_ability_damage
+
+        effects {
+            IgnoreSelf 1
+        }
+    }
+}
+Pounce2 {
+    variant_of Pounce
+
+    meta {
+        desc "ABILITY_WOLFPOUNCE2_DESC"
+    }
+
+    damage_instance {
+        damage 2+bonus_melee_ability_damage
+
+        effects {
+            Bleed 1
+        }
+    }
+}
+
+MonkeyForm {
+    template self_buff
+    
+    meta {
+        name "ABILITY_FORMOFTHEMONKEY_NAME"
+        desc "ABILITY_FORMOFTHEMONKEY_DESC"
+        class Druid
+        type_icon "buff"
+    }
+
+    tags [shapeshift]
+
+    graphics {
+        animation druidTransform
+    }
+    
+    cost {
+        infcantrip true
+        mana 0
+    }
+    
+    damage_instance {
+        effects {
+            TransformBasicAttack ThrowPoop
+            TransformAbility MonkeyThrow
+            DexterityUp 2
+            LuckUp 2
+            ConstitutionUp -2
+            CharismaUp -2
+
+            CatPartsTransform {
+                tail 1502
+                ear1 1501
+                ear2 1501
+                mouth 1501
+                arm1 1501
+                arm2 1501
+                leg1 1501
+                leg2 1501
+            }
+        }
+    }
+}
+MonkeyForm2 {
+    template self_buff
+    
+    meta {
+        name "ABILITY_FORMOFTHEMONKEY_NAME"
+        desc "ABILITY_FORMOFTHEMONKEY2_DESC"
+        class Druid
+        type_icon "buff"
+    }
+
+    tags [shapeshift]
+
+    graphics {
+        animation druidTransform
+    }
+    
+    cost {
+        infcantrip true
+        mana 0
+    }
+    
+    damage_instance {
+        effects {
+            TransformBasicAttack ThrowPoop
+            TransformAbility MonkeyThrow2
+            DexterityUp 2
+            LuckUp 2
+
+            CatPartsTransform {
+                tail 1502
+                ear1 1501
+                ear2 1501
+                mouth 1501
+                arm1 1501
+                arm2 1501
+                leg1 1501
+                leg2 1501
+            }
+        }
+    }
+}
+
+ThrowPoop { //alt basic attack for Monkey Form
+    template lobbed_attack
+    
+    meta {
+        name "ABILITY_THROWPOOP_NAME"
+        desc "ABILITY_THROWPOOP_DESC"
+        class Druid
+        animate_name false
+    }
+
+    graphics {
+        projectile Dip
+        animation throwobject
+    }
+
+    target {
+        min_range 3
+        max_range 5+bonus_range
+    }
+
+    damage_instance {
+        damage 4+bonus_ranged_damage
+
+        effects {
+            BounceObject CharmedDip
+        }
+    }
+}
+
+MonkeyThrow { //bonus ability for Monkey Form
+    template throw_attack
+    
+    meta {
+        name "ABILITY_MONKEYTOSS_NAME"
+        desc "ABILITY_MONKEYTOSS_DESC"
+        class Druid
+        type_icon "defense"
+        icon_shell_frame attack
+    }
+
+    graphics {
+        animation knockupatk
+    }
+
+    cost {
+        mana 6
+        infcantrip true
+    }
+    
+    target {
+        max_range 5
+        restrictions none
+    }
+    
+    damage_instance {
+        damage 0
+
+        blocked_damage 3+bonus_melee_ability_damage
+    }
+}
+MonkeyThrow2 {
+    variant_of MonkeyThrow
+
+    meta {
+        desc "ABILITY_MONKEYTOSS2_DESC"
+    }
+    cost {
+        mana 3
+    }
+}
+
+RhinoForm {
+    template self_buff
+    
+    meta {
+        name "ABILITY_FORMOFTHETURTLE_NAME"
+        desc "ABILITY_FORMOFTHETURTLE_DESC"
+        class Druid
+        type_icon "buff"
+    }
+
+    tags [shapeshift]
+
+    graphics {
+        animation druidTransform
+    }
+    
+    cost {
+        infcantrip true
+        mana 0
+    }
+    
+    damage_instance {
+        effects {
+            TransformBasicAttack HornCharge
+            TransformAbility HardenSkin
+            ConstitutionUp 2
+            Shield 10
+            IntelligenceUp -2
+            SpeedUp -2
+
+            CatPartsTransform {
+                tail 1503
+                body 1029
+                mouth 1005
+            }
+        }
+    }
+}
+RhinoForm2 {
+    template self_buff
+    
+    meta {
+        name "ABILITY_FORMOFTHETURTLE_NAME"
+        desc "ABILITY_FORMOFTHETURTLE2_DESC"
+        class Druid
+        type_icon "buff"
+    }
+
+    tags [shapeshift]
+
+    graphics {
+        animation druidTransform
+    }
+    
+    cost {
+        infcantrip true
+        mana 0
+    }
+    
+    damage_instance {
+        effects {
+            TransformBasicAttack HornCharge
+            TransformAbility HardenSkin2
+            ConstitutionUp 2
+            Shield 10
+            IntelligenceUp -2
+        }
+    }
+}
+
+
+HardenSkin {
+    template self_buff
+    
+    meta {
+        name "ABILITY_HARDENSHELL_NAME"
+        desc "ABILITY_HARDENSHELL_DESC"
+        class Druid
+        type_icon "buff"
+    }
+
+    graphics {
+    }
+    
+    cost {
+        infcantrip true
+        mana 6
+    }
+    
+    damage_instance {
+        effects {
+            Shield 1
+            Thorns 1
+            Temporary {
+                status Brace
+                stacks 1
+                turns 1
+                expires_on_begin_turn true
+            }
+        }
+    }
+}
+HardenSkin2 {
+    variant_of HardenSkin
+
+    meta {
+        desc "ABILITY_HARDENSHELL2_DESC"
+    }
+    cost {
+        mana 3
+    }
+}
+
+HornCharge { //bonus ability for Rhino Form
+    template dash_attack
+    
+    meta {
+        name "ABILITY_HEADBASH_NAME"
+        desc "ABILITY_HEADBASH_DESC"
+        class Druid
+        animate_name false
+    }
+
+    graphics {
+        dash_start_animation headbuttdashStart
+        dash_animation headbuttdash
+        dash_attack_animation headbuttdashEnd
+    }
+
+    target { 
+        max_range 1+bonus_melee_range
+    }
+
+    damage_instance {
+        damage 5+bonus_melee_damage
+        knockback 1
+
+        effects {
+            Stun [1 .2]
+        }
+    }
+}
+
+SummonCatepillar {
+    template spawn
+
+    meta {
+        name "ABILITY_SUMMONCATERPILLAR_NAME"
+        desc "ABILITY_SUMMONCATERPILLAR_DESC"
+        class Druid
+    }
+
+    tags [summon]
+    
+    graphics {
+        lob true
+        animation shoot
+    }
+    
+    cost {
+        infcantrip true
+        mana 6
+    }
+    
+    target {
+        min_range 1
+        max_range 1
+        max_aoe 0
+
+        range_excludes_blocking false
+        restrictions aoe_must_exist
+    }
+
+    spawn {
+        object Catepillar
+    }
+}
+SummonCatepillar2 {
+    variant_of SummonCatepillar
+
+    meta {
+        desc "ABILITY_SUMMONCATERPILLAR2_DESC"
+    }
+
+    spawn {
+        additional_passives {
+            AllStatsUp 2
+        }
+    }
+}
+
+
+SleepPowder {
+    template lobbed_attack
+    
+    meta {
+        name "ABILITY_SLEEPPOWDER_NAME"
+        desc "ABILITY_SLEEPPOWDER_DESC"
+        class Druid
+    }
+
+    graphics {
+        animation powder
+    }
+    
+    cost {
+        infcantrip true
+        mana 7
+    }
+
+    target {
+        min_range 1
+        max_range 3
+        max_aoe 0
+    }
+    
+    damage_instance {
+        damage 0
+        type status_spell
+
+        effects {
+            Sleep 1
+        }
+    }
+}
+
+CallTheWind {
+    template spell
+
+    meta {
+        name "ABILITY_CALLTHEWIND_NAME"
+        desc "ABILITY_CALLTHEWIND_DESC"
+        class Druid
+    }
+
+    tags [musical]
+
+    graphics {
+        animation sing3
+        particle fx_windSpell
+    }
+    
+    cost {
+        mana 4
+        infcantrip true
+    }
+
+    
+    target {
+        target_mode direction
+        aoe_mode all
+        aoe_considers_character_size false
+        knockback_mode orientation
+    }
+
+    damage_instance {
+        damage 0
+        knockback 1
+
+        elements [
+            Wind
+        ]
+    }
+}
+CallTheWind2 {
+    variant_of CallTheWind
+
+    meta {
+        desc "ABILITY_CALLTHEWIND2_DESC"
+    }
+
+    damage_instance {
+        damage 0
+        knockback 3
+
+        effects {
+            Conditional_Ally {
+                KnockbackDamageImmuneUntilSettled 1
+            }
+        }
+    }
+}
+
+InspirationalSong {
+    template spell
+
+    meta {
+        name "ABILITY_INSPIRATIONALSONG_NAME"
+        desc "ABILITY_INSPIRATIONALSONG_DESC"
+        class Druid
+    }
+
+    tags [musical]
+
+    graphics {
+        animation sing3
+		particle fx_statup
+    }
+    
+    cost {
+        mana 4
+        infcantrip true
+    }
+
+    
+    target {
+        target_mode none
+        aoe_mode all
+        aoe_considers_character_size false
+        knockback_mode zero
+        aoe_excludes_self true
+        aoe_restrictions [allies_only]
+    }
+
+    damage_instance {
+        heal 1
+        effects {
+            TempDamageUp 1
+        }
+    }
+}
+InspirationalSong2 {
+    variant_of InspirationalSong
+
+    meta {
+        desc "ABILITY_INSPIRATIONALSONG2_DESC"
+    }
+
+    damage_instance {
+        heal 2
+        effects {
+            TempDamageUp 2
+        }
+    }
+}
+
+DeathMetal {//TODO: makevoice very low for this
+    template spell
+
+    meta {
+        name "ABILITY_DEATHMETAL_NAME"
+        desc "ABILITY_DEATHMETAL_DESC"
+        class Druid
+    }
+
+    tags [musical]
+
+    graphics {
+        animation sing3
+		particle None
+    }
+    
+    cost {
+        mana 13
+        infcantrip true
+    }
+
+    
+    target {
+        target_mode random_tile
+        max_aoe 0
+        max_range 20
+
+        restrictions [must_have_living_character must_have_enemy]
+    }
+
+    damage_instance {
+        damage 0
+
+        effects {
+            Conditional_Boss {
+                Fear 1
+                VisualFX Explosion
+                ExplodeCharacter_NoDie 5
+            } Else {
+                ExplodeCharacter 5
+            }
+        }
+    }
+}
+DeathMetal2 {
+    variant_of DeathMetal
+
+    meta {
+        desc "ABILITY_DEATHMETAL2_DESC"
+    }
+
+    target {
+        max_aoe 20
+    }
+
+    splash_damage {
+        damage 0
+
+        effects {
+            Conditional_Enemy {
+                Madness 1
+            }
+        }
+    }
+}
+
+ChaChaSlide {
+    template spell
+
+    meta {
+        name "ABILITY_CHACHASLIDE_NAME"
+        desc "ABILITY_CHACHASLIDE_DESC"
+        class Druid
+    }
+
+    tags [musical]
+
+    graphics {
+        animation sing3
+        particle none
+    }
+    
+    cost {
+        mana 5
+        infcantrip true
+    }
+
+    
+    target {
+        target_mode none
+        aoe_mode all
+        aoe_considers_character_size false
+    }
+
+    damage_instance {
+        damage 0
+        knockback 10
+
+        effects {
+            RandomKnockbackDirection 4
+
+            KnockbackDamageImmuneUntilSettled 1
+            ThornsDamageImmuneUntilSettled 1
+            TileDamageImmuneUntilSettled 1
+        }
+    }
+}
+ChaChaSlide2 {
+    variant_of ChaChaSlide
+
+    meta {
+        desc "ABILITY_CHACHASLIDE2_DESC"
+    }
+
+    damage_instance {
+        effects {
+            Conditional_Ally {
+                Temporary {
+                    status Thorns
+                    stacks 3
+                    turns 1
+                    expires_on_begin_turn true
+                }
+
+                KnockbackDamageImmuneUntilSettled 1
+                ThornsDamageImmuneUntilSettled 1
+                TileDamageImmuneUntilSettled 1
+            }
+        }
+    }
+}
+
+BestowWisdom {
+    template targeted_status
+    
+    meta {
+        name "ABILITY_BESTOWWISDOM_NAME"
+        desc "ABILITY_BESTOWWISDOM_DESC"
+        class Druid
+        type_icon "misc"
+    }
+
+    graphics {
+
+    }
+    
+    cost {
+        infcantrip true
+        mana 3
+    }
+
+    target {
+        min_range 1
+        max_range 5
+    }
+    
+    damage_instance {
+        effects {
+            IntelligenceUp 1
+        }
+    }
+}
+BestowWisdom2 {
+    variant_of BestowWisdom
+    
+    meta {
+        desc "ABILITY_BESTOWWISDOM2_DESC"
+    }
+
+    damage_instance {
+        effects {
+            CharismaUp 1
+            ManaGain 2
+        }
+    }
+}
+
+RaccoonForm {
+    template self_buff
+    
+    meta {
+        name "ABILITY_FORMOFTHERACCOON_NAME"
+        desc "ABILITY_FORMOFTHERACCOON_DESC"
+        class Druid
+        type_icon "buff"
+    }
+
+    tags [shapeshift]
+
+    graphics {
+        animation druidTransform
+    }
+    
+    cost {
+        infcantrip true
+        mana 0
+    }
+    
+    damage_instance {
+        effects {
+            TransformBasicAttack Pilfer
+            TransformAbility Scavenge
+            IntelligenceUp 2
+            StrengthUp -2
+            
+            CatPartsTransform {
+                tail 1504
+                head 1504
+                texture 1008
+            }
+        }
+    }
+}
+RaccoonForm2 {
+    template self_buff
+    
+    meta {
+        name "ABILITY_FORMOFTHERACCOON_NAME"
+        desc "ABILITY_FORMOFTHERACCOON2_DESC"
+        class Druid
+        type_icon "buff"
+    }
+
+    tags [shapeshift]
+
+    graphics {
+        animation druidTransform
+    }
+    
+    cost {
+        infcantrip true
+        mana 0
+    }
+    
+    damage_instance {
+        effects {
+            TransformBasicAttack Pilfer
+            TransformAbility Scavenge2
+            IntelligenceUp 2
+            LuckUp 2
+            
+            CatPartsTransform {
+                tail 1504
+                head 1504
+                texture 1008
+            }
+        }
+    }
+}
+Pilfer { //alt basic for RaccoonForm
+    template melee_attack
+    
+    meta {
+        name "ABILITY_PILFER_NAME"
+        desc "ABILITY_PILFER_DESC"
+        class Druid
+        animate_name false
+    }
+
+    damage_instance {
+        damage 2+bonus_melee_damage
+
+        effects {
+            ScatterRandomPickups 2
+        }
+    }
+}
+Scavenge {
+    template move
+    
+    meta {
+        name "ABILITY_SCAVENGE_NAME"
+        desc "ABILITY_SCAVENGE_DESC"
+        animate_name true
+        class Druid
+    }
+
+    graphics {
+        speed 1.5
+        animation dash
+    }
+
+    cost {
+        infcantrip true
+        mana 4
+    }
+
+    target {
+        max_range 100
+        restrictions [must_be_moveable must_have_tag must_move]
+        target_requires_tag pickup
+    }
+}
+Scavenge2 {
+    variant_of Scavenge
+    
+    meta {
+        desc "ABILITY_SCAVENGE2_DESC"
+    }
+
+    temporary_effects {
+        DoubleLoot 1
+    }
+}
+
+SummonCrow {
+    template spawn
+
+    meta {
+        name "ABILITY_SUMMONCROW_NAME"
+        desc "ABILITY_SUMMONCROW_DESC"
+        class Druid
+    }
+
+    tags [summon]
+    
+    graphics {
+        lob true
+        animation throwobject
+    }
+    
+    cost {
+        infcantrip true
+        mana 11
+    }
+
+    bonus_passives {
+        AbilityDisableIfLivingCrow 1
+    }
+    
+    target {
+        min_range 1
+        max_range 1
+        max_aoe 0
+
+        range_excludes_blocking false
+        restrictions aoe_must_exist
+    }
+
+    spawn {
+        object Crow
+    }
+}
+SummonCrow2 {
+    template spawn
+
+    meta {
+        name "ABILITY_SUMMONCROW_NAME"
+        desc "ABILITY_SUMMONCROW2_DESC"
+        class Druid
+    }
+
+    tags [summon]
+    
+    graphics {
+        lob true
+        animation shoot
+    }
+    
+    cost {
+        infcantrip true
+        mana 11
+    }
+
+    target {
+        min_range 1
+        max_range 1
+        max_aoe 0
+
+        range_excludes_blocking false
+        restrictions aoe_must_exist
+    }
+
+    spawn {
+        object Crow
+    }
+}
+
+WeWillRockYou {
+    template targeted_status
+    
+    meta {
+        name "ABILITY_WEWILLROCKYOU_NAME"
+        desc "ABILITY_WEWILLROCKYOU_DESC"
+        class Druid
+        type_icon "defense"
+    }
+
+    tags [musical]
+
+    graphics {
+        animation sing3
+    }
+    
+    cost {
+        infcantrip true
+        mana 4
+    }
+
+    target {
+        min_range 0
+        max_range 7
+        max_aoe 0
+        restrictions aoe_must_exist
+        aoe_restrictions familiars_only
+    }
+    
+    damage_instance {
+        damage 0
+
+        effects {
+            Shield 6
+            Petrify 1
+        }
+    }
+}
+WeWillRockYou2 {
+    variant_of WeWillRockYou
+
+    meta {
+        desc "ABILITY_WEWILLROCKYOU2_DESC"
+    }
+
+    damage_instance {
+        effects {
+            Thorns 2
+        }
+    }
+}
+
+TreeForm {
+    template self_buff
+    
+    meta {
+        name "ABILITY_FORMOFTHETREE_NAME"
+        desc "ABILITY_FORMOFTHETREE_DESC"
+        class Druid
+        type_icon "buff"
+    }
+
+    tags [shapeshift]
+
+    graphics {
+        animation druidTransform
+    }
+    
+    cost {
+        infcantrip true
+        mana 0
+    }
+    
+    damage_instance {
+        effects {
+            TransformBasicAttack Timber
+            TransformAbility Synthesize
+            IntelligenceUp -2
+            PermanentImmobile 1
+            Brace 2
+            Shield 5
+            ApplyPassives {
+                KnockbackImmunity 1
+                AddTag plant
+                Plant 1
+                ElementImmune Creep
+            }
+            
+            CatPartsTransform {
+                texture 322
+                ear1 325
+                arm2 324
+            }
+        }
+    }
+}
+TreeForm2 {
+    variant_of TreeForm
+
+    meta {
+        desc "ABILITY_FORMOFTHETREE2_DESC"
+    }
+
+    damage_instance {
+        effects {
+            TransformAbility Synthesize2
+            FullHeal 1
+            Brace 4
+        }
+    }
+}
+
+Timber { //alt basic for TreeForm
+    template trample_dash
+    
+    meta {
+        name "ABILITY_TIMBER_NAME"
+        desc "ABILITY_TIMBER_DESC"
+        class Druid
+        type_icon "melee"
+    }
+    
+    graphics {
+        dash_start_animation timberStart
+        dash_animation timberDash
+        dash_end_animation timberEnd
+    }
+    
+    cost {
+        act_points 1
+        move_points 0
+    }
+    
+    target {
+        max_range 1+bonus_range
+    }
+
+    temporary_effects {
+        Trample 3
+    }
+    
+    damage_instance {
+        override_trample_damage true
+        damage 10+bonus_melee_damage
+    }
+}
+
+Synthesize {
+    template self_buff
+    
+    meta {
+        name "ABILITY_SYNTHESIZE_NAME"
+        desc "ABILITY_SYNTHESIZE_DESC"
+        class Druid
+        type_icon "buff"
+    }
+
+    graphics {
+		particle HealSmall
+    }
+    
+    cost {
+        infcantrip true
+        mana 3
+    }
+    
+    damage_instance {
+        heal 2
+        effects {
+            Charge 2
+        }
+    }
+}
+Synthesize2 {
+    variant_of Synthesize
+
+    meta {
+        desc "ABILITY_SYNTHESIZE2_DESC"
+    }
+
+    target {
+        max_aoe 3
+        aoe_restrictions [allies_only]
+    }
+}
+
+HydroPump {
+    template spell
+    
+    meta {
+        name "ABILITY_HYDROPUMP_NAME"
+        desc "ABILITY_HYDROPUMP_DESC"
+        class Druid
+    }
+
+    graphics {
+        particle Wave
+        animation shoot
+    }
+
+    cost {
+        mana 4
+        infcantrip true
+    }
+
+    target {
+        target_mode direction
+        
+        aoe_mode line
+        min_aoe 1
+        max_aoe 3
+        
+        aoe_considers_character_size true
+        aoe_excludes_self true
+
+        knockback_mode orientation
+    }
+
+    self_damage {
+        knockback -3
+
+        effects {
+            KnockbackDamageImmuneUntilSettled 1
+        }
+
+        elements [
+            Water
+        ]
+    }
+
+    damage_instance {
+        damage 0
+        knockback 3
+
+        effects {
+            ChangeTile WaterTile
+        }
+
+        elements [
+            Water
+        ]
+    }
+}
+HydroPump2 {
+    variant_of HydroPump
+
+    meta {
+        desc "ABILITY_HYDROPUMP2_DESC"
+    }
+
+    target {
+        max_aoe 10
+    }
+
+    self_damage {
+        knockback -10
+    }
+
+    damage_instance {
+        knockback 10
+    }
+}
+
+ControlPlants {
+    template spell
+    chain_ability ControlPlantsPartTwo
+    
+    meta {
+        name "ABILITY_CONTROLPLANTS_NAME"
+        desc "ABILITY_CONTROLPLANTS_DESC"
+        class Druid
+        type_icon "misc"
+    }
+	
+	graphics {
+        particle VineWhip
+    }
+
+    cost {
+        infcantrip true
+        mana 4
+    }
+
+    target {
+        min_range 1
+        max_range 4
+        max_aoe 0
+    }
+    
+    damage_instance {
+        damage 1
+        type spell
+
+        effects {
+            ChangeTile TallGrassTile
+            OverrideDamage 0
+        }
+
+        elements [
+            Grass
+        ]
+    }
+}
+ControlPlants2 {
+    variant_of ControlPlants
+    chain_ability ControlPlantsPartTwo2
+    
+    meta {
+        desc "ABILITY_CONTROLPLANTS2_DESC"
+    }
+
+    target {
+        max_range 6
+    }
+}
+ControlPlantsPartTwo {
+    template spell
+
+    graphics {
+        animation none
+		particle VineWhip
+    }
+
+    target {
+        target_mode none
+        aoe_mode all
+        
+        aoe_restrictions [enemies_only character_must_be_affected_by_tile_with_element]
+        aoe_tile_requires_element Grass
+    }
+
+    damage_instance {
+        damage 1
+    }
+}
+ControlPlantsPartTwo2 {
+    variant_of ControlPlantsPartTwo
+
+    damage_instance {
+        effects {
+            Poison 1
+        }
+    }
+}
+
+ControlWater {
+    template spell
+    chain_ability ControlWaterPartTwo
+	
+	graphics {
+        particle Wave
+    }
+    
+    meta {
+        name "ABILITY_CONTROLWATER_NAME"
+        desc "ABILITY_CONTROLWATER_DESC"
+        class Druid
+        type_icon "misc"
+    }
+
+    cost {
+        infcantrip true
+        mana 4
+    }
+
+    target {
+        min_range 1
+        max_range 4
+        max_aoe 0
+    }
+    
+    damage_instance {
+        heal 2
+        type spell
+
+        effects {
+            ChangeTile WaterTile
+            OverrideDamage 0
+        }
+
+        elements [
+            Water
+        ]
+    }
+}
+ControlWater2 {
+    variant_of ControlWater
+    chain_ability ControlWaterPartTwo2
+    
+    meta {
+        desc "ABILITY_CONTROLWATER2_DESC"
+    }
+
+    target {
+        max_range 6
+    }
+}
+ControlWaterPartTwo {
+    template spell
+
+    graphics {
+        animation none
+		particle none
+    }
+
+    target {
+        target_mode none
+        aoe_mode all
+        
+        aoe_restrictions [allies_only character_must_be_affected_by_tile_with_element]
+        aoe_tile_requires_element Water
+    }
+
+    damage_instance {
+        heal 2
+    }
+}
+ControlWaterPartTwo2 {
+    variant_of ControlWaterPartTwo
+
+    damage_instance {
+        effects {
+            Cleanse 0
+        }
+    }
+}
+
+ControlAir {
+    template spell
+
+    meta {
+        name "ABILITY_CONTROLAIR_NAME"
+        desc "ABILITY_CONTROLAIR_DESC"
+        class Druid
+        type_icon "magic"
+    }
+
+    graphics {
+        particle fx_windSpell
+    }
+    
+    cost {
+        infcantrip true
+        mana 4
+    }
+    
+    target {
+        max_aoe 0
+        min_range 1
+        max_range 4
+        knockback_mode character_to_target
+    }
+    
+    damage_instance {
+        damage 0
+        knockback 10
+
+        effects {
+            OverrideKnockbackDamage 0
+        }
+
+        elements [
+            Wind
+        ]
+    }
+}
+ControlAir2 {
+    variant_of ControlAir
+
+    meta {
+        desc "ABILITY_CONTROLAIR2_DESC"
+    }
+
+    cost {
+        mana 3
+    }
+
+    target {
+        max_range 20
+    }
+}
+
+FamiliarSelfDestruct {
+    template spell
+
+    meta {
+        name "ABILITY_SELFDESTRUCTFAMILIAR_NAME"
+        desc "ABILITY_SELFDESTRUCTFAMILIAR_DESC"
+        class Druid
+    }
+
+    graphics {
+        particle Explosion
+        animation blowUp
+    }
+
+    cost {
+        mana 0
+        cantrip true
+    }
+
+    target {
+        target_mode none
+        max_aoe 1
+        aoe_considers_character_size true
+    }
+
+
+    damage_instance {
+        ai_base_score -999999
+        damage 7
+        knockback 1
+        piercing true
+        cant_miss true
+        elements [
+            Fire
+            Napalm
+            Explosion
+        ]
+        effects {
+            Vaporize 1
+        }
+    }
+    splash_damage {
+        damage 8
+        knockback 1
+        elements [
+            Fire
+            Napalm
+            Explosion
+        ]
+    }
+}
+FamiliarSelfDestruct2 {
+    variant_of FamiliarSelfDestruct
+
+    damage_instance {
+        damage 12
+    }
+    splash_damage {
+        damage 12
+    }
+}
+
+FeralMelee {
+    template melee_attack
+    
+    meta {
+        name "ABILITY_FERALMELEE_NAME"
+        desc "ABILITY_FERALMELEE_DESC"
+        animate_name false
+        class Druid
+    }
+
+    cost {
+        mana 0
+        cantrip true
+    }
+
+    target { 
+        max_aoe 1+bonus_melee_range
+        aoe_restrictions must_have_line_of_sight_unpurgable
+    }
+}
+
+
+Entangle {
+    template lobbed_attack
+	
+	graphics {
+        projectile SpiderBall
+    }
+    
+    meta {
+        name "ABILITY_ENTANGLE_NAME"
+        desc "ABILITY_ENTANGLE_DESC"
+        class Druid
+    }
+
+    cost {
+        infcantrip true
+        mana 5
+    }
+
+    target {
+        min_range 0
+        max_range 4
+        max_aoe 1
+    }
+    
+    damage_instance {
+        damage 0
+
+        effects {
+            Tangled 1
+        }
+    }
+}
+Entangle2 {
+    variant_of Entangle
+
+    meta {
+        desc "ABILITY_ENTANGLE2_DESC"
+    }
+
+    damage_instance {
+        effects {
+            ChangeTile BrambleTile
+        }
+    }
+}
+
+Lullaby {
+    template spell
+    
+    meta {
+        name "ABILITY_LULLABY_NAME"
+        desc "ABILITY_LULLABY_DESC"
+        class Druid
+    }
+
+    tags [musical]
+
+    graphics {
+        animation sing2
+		particle none
+    }
+
+    cost {
+        infcantrip true
+        mana 12
+    }
+
+    target {
+        min_range 0
+        max_range 4
+        max_aoe 2
+    }
+    
+    damage_instance {
+        damage 0
+
+        effects {
+            Sleep 1
+        }
+    }
+}
+Lullaby2 {
+    variant_of Lullaby
+
+    meta {
+        desc "ABILITY_LULLABY2_DESC"
+    }
+
+    cost {
+        mana 9
+    }
+
+    target {
+        max_range 6
+    }
+}
+
+WeAreTheChampions {
+    template targeted_status
+    
+    meta {
+        name "ABILITY_WEARETHECHAMPIONS_NAME"
+        desc "ABILITY_WEARETHECHAMPIONS_DESC"
+        class Druid
+    }
+
+    tags [musical]
+
+    graphics {
+        animation sing2
+    }
+    
+    cost {
+        infcantrip true
+        mana 7
+        once_per_fight true
+    }
+
+    target {
+        target_mode none
+        aoe_mode all
+        aoe_restrictions familiars_only
+    }
+    
+    damage_instance {
+        heal 0
+
+        effects {
+            AllStatsUp 2
+            FullHeal 1
+        }
+    }
+}
+WeAreTheChampions2 {
+    variant_of WeAreTheChampions
+    
+    meta {
+        desc "ABILITY_WEARETHECHAMPIONS2_DESC"
+    }
+
+    cost {
+        mana 0
+    }
+}
+
+Cheerlead {
+    template targeted_status
+    
+    meta {
+        name "ABILITY_CHEERLEAD_NAME"
+        desc "ABILITY_CHEERLEAD_DESC"
+        class Druid
+    }
+
+    tags [musical]
+
+    graphics {
+        animation sing1
+    }
+    
+    cost {
+        infcantrip true
+        mana 10
+    }
+
+    target {
+        min_range 1
+        max_range 5
+    }
+
+    bonus_passives {
+        AlphaStatusOnTurnBegin {
+            DoubleCastSpellThisTurn 1
+        }
+    }
+    
+    damage_instance {
+        effects {
+            AlphaCat 1
+        }
+    }
+}
+Cheerlead2 {
+    variant_of Cheerlead
+
+    meta {
+        desc "ABILITY_CHEERLEAD2_DESC"
+    }
+
+    cost {
+        mana 5
+    }
+}
+
+NaturesBlessing {
+    template spell
+	
+    graphics {
+        particle none
+        animation createmagic
+    }
+    
+    meta {
+        name "ABILITY_NATURESBLESSING_NAME"
+        desc "ABILITY_NATURESBLESSING_DESC"
+        class Druid
+    }
+
+    cost {
+        infcantrip true
+        mana 9
+    }
+
+    target {
+        min_range 0
+        max_range 4
+        max_aoe 2
+    }
+    
+    damage_instance {
+        damage 0
+
+        effects {
+            ChangeTile TallGrassTile
+            DiminishingHealthRegen 3
+        }
+
+        elements [
+            Grass
+        ]
+    }
+}
+NaturesBlessing2 {
+    variant_of NaturesBlessing
+
+    meta {
+        desc "ABILITY_NATURESBLESSING2_DESC"
+    }
+
+    cost {
+        mana 7
+    }
+
+    target {
+        max_range 20
+    }
+}
+
+ThrowEgg {
+    template lobbed_attack
+    
+    meta {
+        name "ABILITY_THROWEGGDRUID_NAME"
+        desc "ABILITY_THROWEGGDRUID_DESC"
+        class Druid
+    }
+
+    tags [summon]
+
+    graphics {
+        projectile AnimalEgg
+        animation throwobject
+    }
+
+    cost {
+        infcantrip true
+        mana 7
+    }
+
+    target {
+        min_range 1
+        max_range 5+bonus_range
+    }
+
+    damage_instance {
+        damage 4+bonus_ranged_damage
+
+        effects {
+            ObjectOnHitEmpty AnimalEgg
+        }
+    }
+}
+ThrowEgg2 {
+    variant_of ThrowEgg
+
+    meta {
+        desc "ABILITY_THROWEGGDRUID2_DESC"
+    }
+
+    damage_instance {
+        effects {
+            ObjectOnHitEmpty AnimalEgg2
+        }
+    }
+}
+
+SquirrelForm {
+    template spawn
+    
+    meta {
+        name "ABILITY_SQUIRRELFORM_NAME"
+        desc "ABILITY_SQUIRRELFORM_DESC"
+        class Druid
+    }
+
+    tags [shapeshift summon]
+
+    graphics {
+        animation druidTransform
+    }
+    
+    cost {
+        infcantrip true
+        mana 10
+    }
+
+    target {
+        target_mode none
+        max_aoe 1
+    }
+    
+    self_damage {
+        effects {
+            TransformBasicAttack Chitter
+            TransformAbility BirthSquirrel
+            ApplyPassives {
+                AddTag squirrel
+            }
+            CatPartsTransform {
+                mouth 1071
+                tail 1042
+                ear1 1036
+                ear2 1036
+            }
+        }
+    }
+
+    spawn {
+        object Squirrel
+    }
+}
+SquirrelForm2 {
+    variant_of SquirrelForm
+
+    meta {
+        desc "ABILITY_SQUIRRELFORM2_DESC"
+    }
+
+    cost {
+        mana 7
+    }
+
+    self_damage {
+        effects {
+            TransformAbility BirthSquirrel2
+        }
+    }
+}
+
+BirthSquirrel {
+    template spawn
+
+    meta {
+        name "ABILITY_BIRTHSQUIRREL_NAME"
+        desc "ABILITY_BIRTHSQUIRREL_DESC"
+        class Druid
+    }
+
+    tags [summon]
+    
+    graphics {
+        lob true
+        animation poopfart
+    }
+    
+    cost {
+        cantrip true
+        mana 2
+    }
+    
+    target {
+        min_range 1
+        max_range 1
+        max_aoe 0
+
+        range_excludes_blocking false
+        restrictions aoe_must_exist
+    }
+
+    spawn {
+        object Squirrel
+    }
+}
+BirthSquirrel2 {
+    variant_of BirthSquirrel
+
+    cost {
+        mana 0
+    }
+}
+
+Chitter {
+    template spell
+    
+    meta {
+        name "ABILITY_CHITTER_NAME"
+        desc "ABILITY_CHITTER_DESC"
+        animate_name false
+        class Druid
+    }
+    tags [musical]
+
+    graphics {
+        animation sing3//howl
+		particle fx_statup
+    }
+
+    target { 
+        target_mode none
+        max_aoe 20
+
+        aoe_restrictions must_have_tag
+        target_requires_tag squirrel
+    }
+
+    damage_instance {
+        damage 0
+        cant_miss true
+
+        effects {
+            DamageUp 2
+            SpeedUp 2
+        }
+    }
+}
+
+GlowingMushroomGiveMana { //util ability for Glowing Mushroom, does not need icon
+    template spell
+
+    graphics {
+        animation puff
+		particle DustPoofMedium
+    }
+
+    target { 
+        target_mode none
+        max_aoe 3
+        aoe_excludes_self true
+    }
+
+    damage_instance {
+        damage 0
+        cant_miss true
+
+        effects {
+            ManaGain 1
+        }
+    }
+}
+GlowingMushroomGiveMana2 {
+    variant_of GlowingMushroomGiveMana
+
+    damage_instance {
+        heal 1
+        cant_miss true
+
+        effects {
+            ManaGain 1
+        }
+    }
+}
+
+PlantMushroom {
+    template spawn
+
+    meta {
+        name "ABILITY_PLANTMUSHROOM_NAME"
+        desc "ABILITY_PLANTMUSHROOM_DESC"
+        class Druid
+    }
+
+    tags [summon]
+    
+    graphics {
+        lob true
+    }
+    
+    cost {
+        cantrip true
+        mana 6
+    }
+    
+    target {
+        min_range 1
+        max_range 1
+        max_aoe 0
+
+        range_excludes_blocking false
+        restrictions aoe_must_exist
+    }
+
+    spawn {
+        object GlowingMushroom
+    }
+}
+PlantMushroom2 {
+    variant_of PlantMushroom
+
+    meta {
+        desc "ABILITY_PLANTMUSHROOM2_DESC"
+    }
+
+    target {
+        max_range 20
+    }
+
+    spawn {
+        object GlowingMushroom2
+    }
+}
+
+Serenade {
+    template targeted_status
+    
+    meta {
+        name "ABILITY_SERENADE_NAME"
+        desc "ABILITY_SERENADE_DESC"
+        class Druid
+    }
+
+    tags [musical]
+
+    graphics {
+        animation sing2
+    }
+    
+    cost {
+        infcantrip true
+        mana 5
+    }
+
+    target {
+        min_range 0
+        max_range 4
+        max_aoe 1
+    }
+    
+    damage_instance {
+        damage 0
+
+        effects {
+            HealthRegenUp 1
+        }
+    }
+}
+Serenade2 {
+    variant_of Serenade
+
+    meta {
+        desc "ABILITY_SERENADE2_DESC"
+    }
+
+    cost {
+        mana 4
+    }
+
+    target {
+        max_aoe 2
+    }
+}
+
+WindyStep {
+    template targeted_status
+    
+    meta {
+        name "ABILITY_WINDYSTEP_NAME"
+        desc "ABILITY_WINDYSTEP_DESC"
+        class Druid
+        type_icon "misc"
+    }
+
+    graphics {
+        particle fx_windSpell
+		animation castspell
+    }
+    
+    cost {
+        infcantrip true
+        mana 4
+    }
+
+    target {
+        min_range 1
+        max_range 5
+    }
+    
+    damage_instance {
+        effects {
+            MoveQuivered 1
+        }
+
+        elements [
+            Wind
+        ]
+    }
+}
+WindyStep2 {
+    variant_of WindyStep
+
+    meta {
+        desc "ABILITY_WINDYSTEP2_DESC"
+    }
+
+    damage_instance {
+        effects {
+            MoveQuivered 1
+            SpeedUp 1
+            TempInitiativeChange 100
+        }
+    }
+}
+
+ElkForm {
+    template self_buff
+    
+    meta {
+        name "ABILITY_ELKFORM_NAME"
+        desc "ABILITY_ELKFORM_DESC"
+        class Druid
+        type_icon "buff"
+    }
+
+    tags [shapeshift]
+
+    graphics {
+        animation druidTransform
+    }
+    
+    cost {
+        infcantrip true
+        mana 0
+    }
+    
+    damage_instance {
+        effects {
+            TransformBasicAttack AntlerSwipe
+            TransformAbility Prance
+
+            SpeedUp 8
+            IntelligenceUp -2
+            ConstitutionUp -2
+            Trample 3
+
+            ApplyPassives {
+                IgnoreTiles 1
+                YOffset .25
+            }
+
+            CatPartsTransform {
+                leg1 338
+                leg2 338
+                arm1 338
+                arm2 338
+                ear1 343
+                ear2 343
+            }
+        }
+    }
+}
+ElkForm2 {
+    template self_buff
+    
+    meta {
+        name "ABILITY_ELKFORM_NAME"
+        desc "ABILITY_ELKFORM2_DESC"
+        class Druid
+        type_icon "buff"
+    }
+
+    tags [shapeshift]
+
+    graphics {
+        animation druidTransform
+    }
+    
+    cost {
+        infcantrip true
+        mana 0
+    }
+    
+    damage_instance {
+        effects {
+            TransformBasicAttack AntlerSwipe2
+            TransformAbility Prance2
+
+            SpeedUp 8
+            Trample 3
+
+            ApplyPassives {
+                IgnoreTiles 1
+                YOffset .25
+            }
+
+            CatPartsTransform {
+                leg1 338
+                leg2 338
+                arm1 338
+                arm2 338
+                ear1 343
+                ear2 343
+            }
+        }
+    }
+}
+
+AntlerSwipe { //basic attack for Elk Form
+    template throw_attack
+    
+    meta {
+        name "ABILITY_ANTLERSWIPE_NAME"
+        desc "ABILITY_ANTLERSWIPE_DESC"
+        class Druid
+    }
+
+    graphics {
+        animation headbuttUppercut
+    }
+
+    target {
+        max_range 4
+        restrictions none
+    }
+    
+    damage_instance {
+        damage 0
+		force_play_hit_animation true
+
+        effects {
+            Bruise 1
+        }
+    }
+}
+AntlerSwipe2 { //basic attack for Elk Form
+    variant_of AntlerSwipe
+
+    meta {
+        desc "ABILITY_ANTLERSWIPE2_DESC"
+    }
+
+    damage_instance {
+        damage 5+bonus_melee_damage
+        blocked_damage 5+bonus_melee_damage
+    }
+}
+
+Prance { //bonus ability for Elk Form
+    template self_buff
+    
+    meta {
+        name "ABILITY_PRANCE_NAME"
+        desc "ABILITY_PRANCE_DESC"
+        class Druid
+        type_icon "movement"
+    }
+
+    graphics {
+    }
+    
+    cost {
+        infcantrip true
+        mana 3
+    }
+
+    damage_instance {
+        effects {
+            RefreshMovePoints 1
+        }
+    }
+}
+Prance2 { 
+    variant_of Prance 
+
+    meta {
+        desc "ABILITY_PRANCE2_DESC"
+    }
+
+    cost {
+        mana 2
+    }
+}
+
+MockingbirdForm {
+    template self_buff
+    
+    meta {
+        name "ABILITY_MOCKINGBIRDFORM_NAME"
+        desc "ABILITY_MOCKINGBIRDFORM_DESC"
+        class Druid
+        type_icon "buff"
+    }
+
+    tags [shapeshift]
+
+    graphics {
+        animation druidTransform
+    }
+    
+    cost {
+        infcantrip true
+        mana 0
+    }
+    
+    damage_instance {
+        effects {
+            TransformBasicAttack MockSong
+            TransformAbility Tease
+
+            LuckUp 2
+            StrengthUp -2
+
+            ApplyPassives {
+                Flying 1
+            }
+
+            CatPartsTransform {
+                tail 337
+                mouth 320
+                arm1 339
+                arm2 339
+                ear1 1005
+                ear2 1005
+            }
+        }
+    }
+}
+MockingbirdForm2 {
+    template self_buff
+    
+    meta {
+        name "ABILITY_MOCKINGBIRDFORM_NAME"
+        desc "ABILITY_MOCKINGBIRDFORM2_DESC"
+        class Druid
+        type_icon "buff"
+    }
+
+    tags [shapeshift]
+
+    graphics {
+        animation druidTransform
+    }
+    
+    cost {
+        infcantrip true
+        mana 0
+    }
+    
+    damage_instance {
+        effects {
+            TransformBasicAttack MockSong2
+            TransformAbility Tease2
+
+            LuckUp 2
+
+            ApplyPassives {
+                Flying 1
+            }
+
+            CatPartsTransform {
+                tail 337
+                mouth 320
+                arm1 339
+                arm2 339
+                ear1 1005
+                ear2 1005
+            }
+        }
+    }
+}
+MockSong { //basic attack for mockingbird form
+    template spell
+    
+    meta {
+        name "ABILITY_MOCKSONG_NAME"
+        desc "ABILITY_MOCKSONG_DESC"
+        animate_name false
+        class Druid
+    }
+    tags [musical]
+
+    graphics {
+        animation sing3//howl
+		affected_particle fx_statdown
+    }
+
+    target { 
+        max_aoe 2
+        max_range 5+bonus_range
+    }
+
+    damage_instance {
+        damage 0
+        cant_miss true
+
+        effects {
+            Temporary {
+                status AllStatsUp
+                stacks -2
+                turns 1
+                expires_on_end_turn true
+            }
+        }
+    }
+}
+MockSong2 { //basic attack for mockingbird form
+    template spell
+    
+    meta {
+        name "ABILITY_MOCKSONG_NAME"
+        desc "ABILITY_MOCKSONG2_DESC"
+        animate_name false
+        class Druid
+    }
+    tags [musical]
+
+    graphics {
+        animation sing3
+		particle none//needs visual for enemies and allys
+    }
+
+    target { 
+        max_aoe 2
+        max_range 5+bonus_range
+    }
+
+    damage_instance {
+        damage 0
+        cant_miss true
+
+        effects {
+            Conditional_Ally {
+                Temporary {
+                    status AllStatsUp
+                    stacks 2
+                    turns 1
+                    expires_on_end_turn true
+                }
+            } Else {
+                Temporary {
+                    status AllStatsUp
+                    stacks -2
+                    turns 1
+                    expires_on_end_turn true
+                }
+            }
+        }
+    }
+}
+Tease { //special ability for mockingbird form
+    template targeted_status
+    
+    meta {
+        name "ABILITY_TEASE_NAME"
+        desc "ABILITY_TEASE_DESC"
+        class Druid
+    }
+
+    tags [musical]
+
+    graphics {
+        animation howl
+    }
+    
+    cost {
+        infcantrip true
+        mana 4
+    }
+
+    target {
+        min_range 1
+        max_range 5
+        max_aoe 0
+    }
+
+    damage_instance {
+        damage 0
+
+        effects {
+            Madness 1
+        }
+    }
+}
+Tease2 {
+    variant_of Tease
+
+    meta {
+        desc "ABILITY_TEASE2_DESC"
+    }
+
+    damage_instance {
+        effects {
+            ForceAttack 1
+        }
+    }
+}
+
+FromTheTrees {
+    template spawn
+
+    meta {
+        name "ABILITY_FROMTHETREES_NAME"
+        desc "ABILITY_FROMTHETREES_DESC"
+        class Druid
+    }
+
+    tags [summon]
+    
+    graphics {
+        fall_from_sky true
+        bounce_on_hit true
+        animation howl
+        dont_orient true
+    }
+    
+    cost {
+        infcantrip true
+        mana 8
+    }
+    
+    target {
+        target_mode random_tile
+        min_range 1
+        max_range 20
+        max_aoe 0
+
+        range_excludes_blocking false
+        restrictions [aoe_must_exist must_have_enemy]
+        aoe_restrictions none
+
+        knockback_mode zero
+    }
+
+    spawn {
+        object [Squirrel Turtle Snake Toad Catepillar Crow]
+    }
+
+    damage_instance {
+        damage 5
+    }
+}
+FromTheTrees2 {
+    variant_of FromTheTrees
+
+    meta {
+        desc "ABILITY_FROMTHETREES2_DESC"
+    }
+
+    cost {
+        mana 6
+    }
+    damage_instance {
+        damage 7
+    }
+}

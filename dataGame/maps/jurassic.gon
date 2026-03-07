@@ -1,0 +1,86 @@
+graphics Map_Jurassic
+chapter_id jurassic
+tileset jurassic
+world_name_frame jurassic
+area_name AREA_NAME_JURASSIC
+act 3
+chapter 3
+version 1
+cat_flip -1
+
+levels {
+    folder jurassic
+    easy [easy]
+    hard [easy]
+    rare [rare]
+    boss [boss]
+    miniboss [miniboss]
+    special [special]
+}
+
+music jurassic
+ambience amb_jurassic.ogg
+
+events {
+    normal [
+        common
+        jurassic_events.gon
+    ]
+}
+
+enemy_pools { //for effects that need to spawn a "chapter enemy" of some sort
+    small []
+    medium [PrehistoricPooter Pterodactyl Raptor RaptorBaby Ankylosaurus Parasaurolophus Maelestes DinoEggs]
+    large [Trex Stegosaurus Triceratops]
+}
+
+item_pools {
+    chapter_item_pool jurassicitems
+}
+
+minibosses {
+    dinocouple auto
+}
+
+nodes {
+    #include "standard_nodes.gon"
+
+    //exits
+    exit0 {
+        type exit
+        next_map endoftime.gon
+        hidden true
+        override_art MapNodeExit_Infinite
+    }
+
+    //special
+    boss {
+        type boss
+        boss_cutscene megadino
+    }
+
+    quest_event {
+        type special_event
+        level Quest_Volcano
+        override_art MapNode_Volcano
+    }
+
+    time_machine {
+        type special_event
+        level Quest_TimeMachineJurassic
+        override_art MapNode_TimeMachine
+    }
+}
+
+flags {
+    VolcanoAntennaAttached {
+        quest_event {
+            override_art MapNode_VolcanoAntenna
+        }
+    }
+    EndOfTimeUnlocked {
+        exit0 {
+            hidden false
+        }
+    }
+}

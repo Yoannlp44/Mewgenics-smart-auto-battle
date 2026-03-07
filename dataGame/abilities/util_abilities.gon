@@ -1,0 +1,149 @@
+STARTER_PLACEHOLDER_Fighter {
+    template placeholder
+    
+    meta {
+        name "ABILITY_STARTER_PLACEHOLDER_NAME"
+        desc "ABILITY_STARTER_PLACEHOLDER_FIGHTER_DESC"
+        class Fighter
+    }
+}
+
+STARTER_PLACEHOLDER_Thief {
+    template placeholder
+    
+    meta {
+        name "ABILITY_STARTER_PLACEHOLDER_NAME"
+        desc "ABILITY_STARTER_PLACEHOLDER_THIEF_DESC"
+        class Thief
+    }
+}
+
+STARTER_PLACEHOLDER_Tank {
+    template placeholder
+    
+    meta {
+        name "ABILITY_STARTER_PLACEHOLDER_NAME"
+        desc "ABILITY_STARTER_PLACEHOLDER_TANK_DESC"
+        class Tank
+    }
+}
+
+STARTER_PLACEHOLDER_Mage {
+    template placeholder
+    
+    meta {
+        name "ABILITY_STARTER_PLACEHOLDER_NAME"
+        desc "ABILITY_STARTER_PLACEHOLDER_MAGE_DESC"
+        class Mage
+    }
+}
+
+STARTER_PLACEHOLDER_Medic {
+    template placeholder
+    
+    meta {
+        name "ABILITY_STARTER_PLACEHOLDER_NAME"
+        desc "ABILITY_STARTER_PLACEHOLDER_MEDIC_DESC"
+        class Medic
+    }
+}
+
+STARTER_PLACEHOLDER_Hunter {
+    template placeholder
+    
+    meta {
+        name "ABILITY_STARTER_PLACEHOLDER_NAME"
+        desc "ABILITY_STARTER_PLACEHOLDER_HUNTER_DESC"
+        class Hunter
+    }
+}
+
+STARTER_PLACEHOLDER_Necromancer {
+    template placeholder
+    
+    meta {
+        name "ABILITY_STARTER_PLACEHOLDER_NAME"
+        desc "ABILITY_STARTER_PLACEHOLDER_NECROMANCER_DESC"
+        class Necromancer
+    }
+}
+
+STARTER_PLACEHOLDER_Butcher {
+    template placeholder
+    
+    meta {
+        name "ABILITY_STARTER_PLACEHOLDER_NAME"
+        desc "ABILITY_STARTER_PLACEHOLDER_BUTCHER_DESC"
+        class Butcher
+    }
+}
+
+STARTER_PLACEHOLDER_Monk {
+    template placeholder
+    
+    meta {
+        name "ABILITY_STARTER_PLACEHOLDER_NAME"
+        desc "ABILITY_STARTER_PLACEHOLDER_MONK_DESC"
+        class Monk
+    }
+}
+
+STARTER_PLACEHOLDER_Druid {
+    template placeholder
+    
+    meta {
+        name "ABILITY_STARTER_PLACEHOLDER_NAME"
+        desc "ABILITY_STARTER_PLACEHOLDER_DRUID_DESC"
+        class Druid
+    }
+}
+
+STARTER_PLACEHOLDER_Psychic {
+    template placeholder
+    
+    meta {
+        name "ABILITY_STARTER_PLACEHOLDER_NAME"
+        desc "ABILITY_STARTER_PLACEHOLDER_PSYCHIC_DESC"
+        class Psychic
+    }
+}
+
+STARTER_PLACEHOLDER_Tinkerer {
+    template placeholder
+    
+    meta {
+        name "ABILITY_STARTER_PLACEHOLDER_NAME"
+        desc "ABILITY_STARTER_PLACEHOLDER_TINKERER_DESC"
+        class Tinkerer
+    }
+}
+
+STARTER_PLACEHOLDER_Colorless {
+    template placeholder
+    
+    meta {
+        name "ABILITY_STARTER_PLACEHOLDER_NAME"
+        desc "ABILITY_STARTER_PLACEHOLDER_COLORLESS_DESC"
+        class Colorless
+    }
+}
+
+STARTER_PLACEHOLDER_Jester {
+    template placeholder
+    
+    meta {
+        name "ABILITY_STARTER_PLACEHOLDER_NAME"
+        desc "ABILITY_STARTER_PLACEHOLDER_JESTER_DESC"
+        class Colorless
+    }
+}
+
+ATTACK_PLACEHOLDER_JesterBasic {
+    template placeholder
+    
+    meta {
+        name "ABILITY_STARTER_PLACEHOLDER_NAME"
+        desc "ABILITY_ATTACK_PLACEHOLDER_JESTERBASIC_DESC"
+        class Colorless
+    }
+}

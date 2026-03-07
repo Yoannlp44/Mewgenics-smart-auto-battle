@@ -1,0 +1,105 @@
+Bunny {
+	catdata Bunny
+	name "SPECIAL_STRAY_BUNNY"
+	gender any
+}
+
+Beaver {
+	catdata Beaver
+	name "SPECIAL_STRAY_BEAVER"
+	gender any
+}
+
+Pig {
+	catdata Pig
+	name "SPECIAL_STRAY_PIG"
+	gender any
+}
+
+Dog {
+	catdata Dog
+	name "SPECIAL_STRAY_DOG"
+	gender any
+}
+
+Skunk {
+	catdata Skunk
+	name "SPECIAL_STRAY_SKUNK"
+	gender any
+}
+
+Porcupine {
+	catdata Porcupine
+	name "SPECIAL_STRAY_PORCUPINE"
+	gender any
+}
+
+Isaac {
+	catdata Isaac
+	name "SPECIAL_STRAY_ISAAC"
+	gender male
+	no_breed true
+}
+
+Edmund {
+	catdata Edmund
+	name "SPECIAL_STRAY_EDMUND"
+	gender male
+	no_breed true
+}
+
+Tyler {
+	catdata Tyler
+	name "SPECIAL_STRAY_TYLER"
+	gender male
+	no_breed true
+}
+
+FijiMermaid {
+	catdata FijiMermaid
+	name "SPECIAL_STRAY_FIJIMERMAID"
+	gender any
+}
+
+JerseyDevil {
+	catdata JerseyDevil
+	name "SPECIAL_STRAY_JERSEYDEVIL"
+	gender any
+}
+
+Sonichu {
+	catdata Sonichu
+	name "SPECIAL_STRAY_SONICHU"
+	gender any
+}
+
+Bigfoot {
+	catdata Bigfoot
+	name "SPECIAL_STRAY_BIGFOOT"
+	gender any
+}
+
+Nessie {
+	catdata Nessie
+	name "SPECIAL_STRAY_NESSIE"
+	gender any
+}
+
+Grey {
+	catdata Grey
+	name "SPECIAL_STRAY_GREY"
+	gender any
+}
+
+Mothman {
+	catdata Mothman
+	name "SPECIAL_STRAY_MOTHMAN"
+	gender male
+}
+
+Slenderman {
+	catdata Slenderman
+	name "SPECIAL_STRAY_SLENDERMAN"
+	gender male
+	no_breed true
+}

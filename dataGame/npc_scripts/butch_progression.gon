@@ -1,0 +1,714 @@
+movieclip ButchOffice
+default_npc Butch
+
+states_and_transitions {
+	states {
+		idle ["idle"]
+		verycloseup ["verycloseup"]
+		closeup ["closeup"]
+		zoomedout ["zoomedout"]
+	}
+
+	transitions {
+	}
+}
+
+sequences {
+	
+	/*unprompted {
+		dialog NPC_BUTCH_UNPROMPTED_1
+	}*/
+
+	unknown {
+		dialog NPC_BUTCH_UNKNOWN_1
+		get npc_reward
+	}
+
+	also {
+		dialog NPC_BUTCH_ALSO_1
+	}
+
+	butch_begin_accepting_cats {
+		dialog NPC_BUTCH_BUTCH_BEGIN_ACCEPTING_CATS_1
+		dialog NPC_BUTCH_BUTCH_BEGIN_ACCEPTING_CATS_2
+		dialog NPC_BUTCH_BUTCH_BEGIN_ACCEPTING_CATS_3
+		dialog NPC_BUTCH_BUTCH_BEGIN_ACCEPTING_CATS_4
+		set_state closeup
+		dialog NPC_BUTCH_BUTCH_BEGIN_ACCEPTING_CATS_5
+		set_state idle
+		dialog NPC_BUTCH_BUTCH_BEGIN_ACCEPTING_CATS_6
+		set_state closeup
+		dialog NPC_BUTCH_BUTCH_BEGIN_ACCEPTING_CATS_7
+				set_state idle
+		dialog NPC_BUTCH_BUTCH_BEGIN_ACCEPTING_CATS_8
+		dialog NPC_BUTCH_BUTCH_BEGIN_ACCEPTING_CATS_9
+		begin_accepting_cats butch
+	}
+
+	upgrade_storage_1 {
+		set_state closeup
+		dialog NPC_BUTCH_UPGRADE_STORAGE_1_1
+		set_state idle
+		dialog NPC_BUTCH_UPGRADE_STORAGE_1_2
+		dialog NPC_BUTCH_UPGRADE_STORAGE_1_3
+		dialog NPC_BUTCH_UPGRADE_STORAGE_1_4
+
+		get npc_reward //this should include a popup
+
+		dialog NPC_BUTCH_UPGRADE_STORAGE_1_5
+		dialog NPC_BUTCH_UPGRADE_STORAGE_1_6
+		dialog NPC_BUTCH_UPGRADE_STORAGE_1_7
+	}
+
+	upgrade_storage_2 {
+		dialog NPC_BUTCH_UPGRADE_STORAGE_2_1
+		set_state verycloseup
+		dialog NPC_BUTCH_UPGRADE_STORAGE_2_2
+		set_state idle
+		dialog NPC_BUTCH_UPGRADE_STORAGE_2_3
+
+		get npc_reward //this should include a popup
+
+		dialog NPC_BUTCH_UPGRADE_STORAGE_2_4
+		dialog NPC_BUTCH_UPGRADE_STORAGE_2_5
+		dialog NPC_BUTCH_UPGRADE_STORAGE_2_6
+	}
+
+	upgrade_storage_3 {
+		set_state closeup
+		dialog NPC_BUTCH_UPGRADE_STORAGE_3_1
+		set_state idle
+		dialog NPC_BUTCH_UPGRADE_STORAGE_3_2
+		dialog NPC_BUTCH_UPGRADE_STORAGE_3_3
+		set_state verycloseup
+		dialog NPC_BUTCH_UPGRADE_STORAGE_3_4
+		set_state closeup
+		dialog NPC_BUTCH_UPGRADE_STORAGE_3_5
+		dialog NPC_BUTCH_UPGRADE_STORAGE_3_6
+
+		get npc_reward //this should include a popup
+		
+		set_state idle
+		dialog NPC_BUTCH_UPGRADE_STORAGE_3_7
+		dialog NPC_BUTCH_UPGRADE_STORAGE_3_8
+		set_state closeup
+		dialog NPC_BUTCH_UPGRADE_STORAGE_3_9
+	}
+
+	upgrade_storage_4 {
+		set_state closeup
+		dialog NPC_BUTCH_UPGRADE_STORAGE_4_1
+		set_state verycloseup
+		dialog NPC_BUTCH_UPGRADE_STORAGE_4_2
+		dialog NPC_BUTCH_UPGRADE_STORAGE_4_3
+		set_state idle
+		dialog NPC_BUTCH_UPGRADE_STORAGE_4_4
+		set_state closeup
+		dialog NPC_BUTCH_UPGRADE_STORAGE_4_5
+		set_state idle
+		dialog NPC_BUTCH_UPGRADE_STORAGE_4_6
+		dialog NPC_BUTCH_UPGRADE_STORAGE_4_7
+		dialog NPC_BUTCH_UPGRADE_STORAGE_4_8
+		set_state closeup
+		dialog NPC_BUTCH_UPGRADE_STORAGE_4_9
+		dialog NPC_BUTCH_UPGRADE_STORAGE_4_10
+		dialog NPC_BUTCH_UPGRADE_STORAGE_4_11
+		set_state zoomedout
+		dialog NPC_BUTCH_UPGRADE_STORAGE_4_12
+		set_state idle
+		dialog NPC_BUTCH_UPGRADE_STORAGE_4_13
+		dialog NPC_BUTCH_UPGRADE_STORAGE_4_14
+		dialog NPC_BUTCH_UPGRADE_STORAGE_4_15
+
+		get npc_reward //this should include a popup
+
+		dialog NPC_BUTCH_UPGRADE_STORAGE_4_16
+		set_state closeup
+		dialog NPC_BUTCH_UPGRADE_STORAGE_4_17
+	}
+
+	upgrade_storage_5 {
+		set_state zoomedout
+		dialog NPC_BUTCH_UPGRADE_STORAGE_5_1
+		set_state idle
+		dialog NPC_BUTCH_UPGRADE_STORAGE_5_2
+		dialog NPC_BUTCH_UPGRADE_STORAGE_5_3
+		dialog NPC_BUTCH_UPGRADE_STORAGE_5_4
+		dialog NPC_BUTCH_UPGRADE_STORAGE_5_5
+		set_state closeup
+		dialog NPC_BUTCH_UPGRADE_STORAGE_5_6
+		set_state idle
+		dialog NPC_BUTCH_UPGRADE_STORAGE_5_7
+		dialog NPC_BUTCH_UPGRADE_STORAGE_5_8
+		dialog NPC_BUTCH_UPGRADE_STORAGE_5_9 
+		dialog NPC_BUTCH_UPGRADE_STORAGE_5_10
+		dialog NPC_BUTCH_UPGRADE_STORAGE_5_11
+		dialog NPC_BUTCH_UPGRADE_STORAGE_5_12
+		set_state closeup
+		dialog NPC_BUTCH_UPGRADE_STORAGE_5_13
+		set_state idle
+		dialog NPC_BUTCH_UPGRADE_STORAGE_5_14
+
+		get npc_reward //this should include a popup
+
+		dialog NPC_BUTCH_UPGRADE_STORAGE_5_15
+		dialog NPC_BUTCH_UPGRADE_STORAGE_5_16
+	}
+
+	upgrade_storage_6 {
+		set_state closeup
+		dialog NPC_BUTCH_UPGRADE_STORAGE_6_1
+		set_state idle
+		dialog NPC_BUTCH_UPGRADE_STORAGE_6_2
+		dialog NPC_BUTCH_UPGRADE_STORAGE_6_3
+		set_state zoomedout
+		dialog NPC_BUTCH_UPGRADE_STORAGE_6_4
+		set_state closeup
+		dialog NPC_BUTCH_UPGRADE_STORAGE_6_5
+		set_state idle
+		dialog NPC_BUTCH_UPGRADE_STORAGE_6_6
+		set_state zoomedout
+		dialog NPC_BUTCH_UPGRADE_STORAGE_6_7
+		set_state idle
+		dialog NPC_BUTCH_UPGRADE_STORAGE_6_8
+		dialog NPC_BUTCH_UPGRADE_STORAGE_6_9
+		dialog NPC_BUTCH_UPGRADE_STORAGE_6_10
+		set_state closeup
+		dialog NPC_BUTCH_UPGRADE_STORAGE_6_11
+		set_state zoomedout
+		dialog NPC_BUTCH_UPGRADE_STORAGE_6_12
+		dialog NPC_BUTCH_UPGRADE_STORAGE_6_13
+
+		get npc_reward //this should include a popup
+
+		dialog NPC_BUTCH_UPGRADE_STORAGE_6_14
+		dialog NPC_BUTCH_UPGRADE_STORAGE_6_15
+	}
+
+	upgrade_storage_7 {
+		dialog NPC_BUTCH_UPGRADE_STORAGE_7_1
+		dialog NPC_BUTCH_UPGRADE_STORAGE_7_2
+		set_state closeup
+		dialog NPC_BUTCH_UPGRADE_STORAGE_7_3
+		set_state idle
+		dialog NPC_BUTCH_UPGRADE_STORAGE_7_4
+		dialog NPC_BUTCH_UPGRADE_STORAGE_7_5
+		set_state closeup
+		dialog NPC_BUTCH_UPGRADE_STORAGE_7_6
+		dialog NPC_BUTCH_UPGRADE_STORAGE_7_7
+		dialog NPC_BUTCH_UPGRADE_STORAGE_7_8
+
+		get npc_reward //this should include a popup
+
+		dialog NPC_BUTCH_UPGRADE_STORAGE_7_9
+		dialog NPC_BUTCH_UPGRADE_STORAGE_7_10
+		set_state closeup
+		dialog NPC_BUTCH_UPGRADE_STORAGE_7_11
+		set_state idle
+		dialog NPC_BUTCH_UPGRADE_STORAGE_7_12
+		dialog NPC_BUTCH_UPGRADE_STORAGE_7_13	//todo: when we figure out what butch does for his infinite rewards we can mess with this
+	}
+
+	upgrade_storage_repeating_intro {//when butch maxes out on storage.
+		dialog NPC_BUTCH_UPGRADE_STORAGE_REPEATING_INTRO_1
+		dialog NPC_BUTCH_UPGRADE_STORAGE_REPEATING_INTRO_2
+		set_state closeup
+		dialog NPC_BUTCH_UPGRADE_STORAGE_REPEATING_INTRO_3
+		dialog NPC_BUTCH_UPGRADE_STORAGE_REPEATING_INTRO_4
+		dialog NPC_BUTCH_UPGRADE_STORAGE_REPEATING_INTRO_5
+		set_state idle
+		dialog NPC_BUTCH_UPGRADE_STORAGE_REPEATING_INTRO_6
+
+		get npc_reward //this should include a popup
+
+		dialog NPC_BUTCH_UPGRADE_STORAGE_REPEATING_INTRO_7
+	}
+
+	upgrade_storage_repeating_normal {
+		do_random_sequence [upgrade_storage_max1, upgrade_storage_max2, upgrade_storage_max3, upgrade_storage_max4, upgrade_storage_max5]
+	}
+	upgrade_storage_repeating_hard {
+		do_random_sequence [upgrade_storage_max1, upgrade_storage_max2, upgrade_storage_max3, upgrade_storage_max4, upgrade_storage_max5]
+	}
+	upgrade_storage_repeating_crazy {
+		do_random_sequence [upgrade_storage_max1, upgrade_storage_max2, upgrade_storage_max3, upgrade_storage_max4, upgrade_storage_max5]
+	}
+	upgrade_storage_repeating_impossible {
+		do_random_sequence [upgrade_storage_max1, upgrade_storage_max2, upgrade_storage_max3, upgrade_storage_max4, upgrade_storage_max5]
+	}
+
+	upgrade_storage_max1 {//81-85 are random dialogue popups for the single storage space unlocks.
+		dialog NPC_BUTCH_UPGRADE_STORAGE_MAX1_1
+		set_state closeup
+		dialog NPC_BUTCH_UPGRADE_STORAGE_MAX1_2
+		dialog NPC_BUTCH_UPGRADE_STORAGE_MAX1_3
+		dialog NPC_BUTCH_UPGRADE_STORAGE_MAX1_4
+
+		get npc_reward //this should include a popup
+
+		dialog NPC_BUTCH_UPGRADE_STORAGE_MAX1_5
+		dialog NPC_BUTCH_UPGRADE_STORAGE_MAX1_6
+
+	}
+	
+	upgrade_storage_max2 {
+		dialog NPC_BUTCH_UPGRADE_STORAGE_MAX2_1
+		dialog NPC_BUTCH_UPGRADE_STORAGE_MAX2_2
+		dialog NPC_BUTCH_UPGRADE_STORAGE_MAX2_3
+
+		get npc_reward //this should include a popup
+
+		dialog NPC_BUTCH_UPGRADE_STORAGE_MAX2_4
+	}
+
+	upgrade_storage_max3 {
+		set_state closeup
+		dialog NPC_BUTCH_UPGRADE_STORAGE_MAX3_1
+		set_state idle
+		dialog NPC_BUTCH_UPGRADE_STORAGE_MAX3_2
+		dialog NPC_BUTCH_UPGRADE_STORAGE_MAX3_3
+		dialog NPC_BUTCH_UPGRADE_STORAGE_MAX3_4
+
+		get npc_reward //this should include a popup
+
+		dialog NPC_BUTCH_UPGRADE_STORAGE_MAX3_5
+	}
+	
+	upgrade_storage_max4 {
+		dialog NPC_BUTCH_UPGRADE_STORAGE_MAX4_1
+		set_state zoomedout
+		dialog NPC_BUTCH_UPGRADE_STORAGE_MAX4_2
+		set_state closeup
+		dialog NPC_BUTCH_UPGRADE_STORAGE_MAX4_3
+		dialog NPC_BUTCH_UPGRADE_STORAGE_MAX4_4
+
+		get npc_reward //this should include a popup
+
+		dialog NPC_BUTCH_UPGRADE_STORAGE_MAX4_5
+	}
+	
+	upgrade_storage_max5 {
+		dialog NPC_BUTCH_UPGRADE_STORAGE_MAX5_1
+		dialog NPC_BUTCH_UPGRADE_STORAGE_MAX5_2
+		set_state zoomedout
+		dialog NPC_BUTCH_UPGRADE_STORAGE_MAX5_3
+		set_state closeup
+		dialog NPC_BUTCH_UPGRADE_STORAGE_MAX5_4
+		set_state idle
+		dialog NPC_BUTCH_UPGRADE_STORAGE_MAX5_5
+		dialog NPC_BUTCH_UPGRADE_STORAGE_MAX5_6
+
+		get npc_reward //this should include a popup
+
+		dialog NPC_BUTCH_UPGRADE_STORAGE_MAX5_7
+	}
+
+
+	//class unlocks
+	class_unlock_medic {
+		set_state closeup
+		dialog NPC_BUTCH_CLASS_UNLOCK_MEDIC_1
+		set_state idle
+		dialog NPC_BUTCH_CLASS_UNLOCK_MEDIC_2
+		dialog NPC_BUTCH_CLASS_UNLOCK_MEDIC_3
+		dialog NPC_BUTCH_CLASS_UNLOCK_MEDIC_4
+		set_state closeup
+		dialog NPC_BUTCH_CLASS_UNLOCK_MEDIC_5
+		unlock_class Medic
+	}
+	class_unlock_thief {
+		set_state closeup
+		dialog NPC_BUTCH_CLASS_UNLOCK_THIEF_1
+		set_state verycloseup
+		dialog NPC_BUTCH_CLASS_UNLOCK_THIEF_2
+		set_state idle
+		dialog NPC_BUTCH_CLASS_UNLOCK_THIEF_3
+		dialog NPC_BUTCH_CLASS_UNLOCK_THIEF_4
+		dialog NPC_BUTCH_CLASS_UNLOCK_THIEF_5
+		set_state verycloseup
+		dialog NPC_BUTCH_CLASS_UNLOCK_THIEF_6
+		set_state closeup
+		dialog NPC_BUTCH_CLASS_UNLOCK_THIEF_7
+		unlock_class Thief
+	}
+	class_unlock_necromancer {
+		set_state closeup
+		dialog NPC_BUTCH_CLASS_UNLOCK_NECROMANCER_1
+		set_state verycloseup
+		dialog NPC_BUTCH_CLASS_UNLOCK_NECROMANCER_2
+		set_state closeup
+		dialog NPC_BUTCH_CLASS_UNLOCK_NECROMANCER_3
+		set_state verycloseup
+		dialog NPC_BUTCH_CLASS_UNLOCK_NECROMANCER_4
+		set_state idle
+		dialog NPC_BUTCH_CLASS_UNLOCK_NECROMANCER_5
+		dialog NPC_BUTCH_CLASS_UNLOCK_NECROMANCER_6
+		unlock_class Necromancer
+	}
+	class_unlock_psychic {
+		set_state verycloseup
+		dialog NPC_BUTCH_CLASS_UNLOCK_PSYCHIC_1
+		set_state closeup
+		dialog NPC_BUTCH_CLASS_UNLOCK_PSYCHIC_2
+		dialog NPC_BUTCH_CLASS_UNLOCK_PSYCHIC_3
+		set_state verycloseup
+		dialog NPC_BUTCH_CLASS_UNLOCK_PSYCHIC_4
+		set_state closeup
+		dialog NPC_BUTCH_CLASS_UNLOCK_PSYCHIC_5
+		set_state idle
+		dialog NPC_BUTCH_CLASS_UNLOCK_PSYCHIC_6
+		unlock_class Psychic
+	}
+	class_unlock_tinkerer {
+		set_state closeup
+		dialog NPC_BUTCH_CLASS_UNLOCK_TINKERER_1
+		dialog NPC_BUTCH_CLASS_UNLOCK_TINKERER_2
+		set_state idle
+		dialog NPC_BUTCH_CLASS_UNLOCK_TINKERER_3
+		dialog NPC_BUTCH_CLASS_UNLOCK_TINKERER_4
+		set_state verycloseup
+		dialog NPC_BUTCH_CLASS_UNLOCK_TINKERER_5
+		set_state idle
+		dialog NPC_BUTCH_CLASS_UNLOCK_TINKERER_6
+		set_state closeup
+		dialog NPC_BUTCH_CLASS_UNLOCK_TINKERER_7
+		unlock_class Tinkerer
+	}
+	class_unlock_druid {
+		dialog NPC_BUTCH_CLASS_UNLOCK_DRUID_1
+		dialog NPC_BUTCH_CLASS_UNLOCK_DRUID_2
+		dialog NPC_BUTCH_CLASS_UNLOCK_DRUID_3
+		dialog NPC_BUTCH_CLASS_UNLOCK_DRUID_4
+		unlock_class Druid
+	}
+	class_unlock_butcher {
+		dialog NPC_BUTCH_CLASS_UNLOCK_BUTCHER_1
+		set_state closeup
+		dialog NPC_BUTCH_CLASS_UNLOCK_BUTCHER_2 
+		dialog NPC_BUTCH_CLASS_UNLOCK_BUTCHER_3
+		set_state verycloseup
+		dialog NPC_BUTCH_CLASS_UNLOCK_BUTCHER_4
+		set_state idle
+		dialog NPC_BUTCH_CLASS_UNLOCK_BUTCHER_5
+		dialog NPC_BUTCH_CLASS_UNLOCK_BUTCHER_6
+		dialog NPC_BUTCH_CLASS_UNLOCK_BUTCHER_7
+		unlock_class Butcher
+	}
+	class_unlock_monk {
+		dialog NPC_BUTCH_CLASS_UNLOCK_MONK_1
+		dialog NPC_BUTCH_CLASS_UNLOCK_MONK_2
+		set_state closeup
+		dialog NPC_BUTCH_CLASS_UNLOCK_MONK_3
+		dialog NPC_BUTCH_CLASS_UNLOCK_MONK_4
+		set_state idle
+		dialog NPC_BUTCH_CLASS_UNLOCK_MONK_5
+		dialog NPC_BUTCH_CLASS_UNLOCK_MONK_6
+		set_state verycloseup
+		dialog NPC_BUTCH_CLASS_UNLOCK_MONK_7
+		set_state closeup
+		dialog NPC_BUTCH_CLASS_UNLOCK_MONK_8
+		unlock_class Monk
+	}
+	class_unlock_jester {
+		set_state closeup
+		dialog NPC_BUTCH_CLASS_UNLOCK_JESTER_1
+		set_state verycloseup
+		dialog NPC_BUTCH_CLASS_UNLOCK_JESTER_2
+		set_state closeup
+		dialog NPC_BUTCH_CLASS_UNLOCK_JESTER_3
+		dialog NPC_BUTCH_CLASS_UNLOCK_JESTER_4
+		unlock_class Jester
+	}
+
+
+	//butch tips
+
+	unprompted {
+		do_random_sequence [unprompted_a, unprompted_b, unprompted_c, unprompted_d, unprompted_e, unprompted_f, unprompted_g, unprompted_h, unprompted_i]
+	}
+
+	unprompted_a {
+		dialog NPC_BUTCH_UNPROMPTED_A_1
+		do_sequence forward_to_tips	
+	}
+	unprompted_b {
+		dialog NPC_BUTCH_UNPROMPTED_B_1
+		do_sequence forward_to_tips	
+	}
+	unprompted_c {
+		dialog NPC_BUTCH_UNPROMPTED_C_1
+		do_sequence forward_to_tips
+	}
+	unprompted_d {
+		dialog NPC_BUTCH_UNPROMPTED_D_1
+		do_sequence forward_to_tips	
+	}
+	unprompted_e {
+		dialog NPC_BUTCH_UNPROMPTED_E_1
+		do_sequence forward_to_tips	
+	}
+	unprompted_f {
+		dialog NPC_BUTCH_UNPROMPTED_F_1
+		do_sequence forward_to_tips	
+	}
+	unprompted_g {
+		dialog NPC_BUTCH_UNPROMPTED_G_1
+		dialog NPC_BUTCH_UNPROMPTED_G_2
+		do_sequence forward_to_tips	
+	}
+	unprompted_h {
+		dialog NPC_BUTCH_UNPROMPTED_H_1
+		do_sequence forward_to_tips	
+	}
+	unprompted_i {
+		dialog NPC_BUTCH_UNPROMPTED_I_1
+		do_sequence forward_to_tips	
+	}
+	
+	forward_to_tips {
+		do_random_sequence [butch_tips_intelligence, butch_tips_charisma, butch_tips_tacticalview, butch_tips_info,butch_tips_combat ,butch_tips_turnorder, butch_tips_backstab, butch_tips_magicdamage,
+		butch_tips_drafting, butch_tips_rewards, butch_tips_disorders, butch_tips_items, butch_tips_hard, butch_tips_lesscats, butch_tips_houseboss, butch_tips_passives, butch_tips_wellrounded, butch_tips_headhome, butch_tips_elements ]
+	}
+
+	butch_tips_intro {
+		dialog NPC_BUTCH_BUTCH_TIPS_INTRO_1
+		dialog NPC_BUTCH_BUTCH_TIPS_INTRO_2
+		dialog NPC_BUTCH_BUTCH_TIPS_INTRO_3
+		dialog NPC_BUTCH_BUTCH_TIPS_INTRO_4
+		do_sequence butch_tips_intelligence
+	}
+
+	butch_tips_intelligence {
+		dialog NPC_BUTCH_BUTCH_TIPS_INTELLIGENCE_1
+		dialog NPC_BUTCH_BUTCH_TIPS_INTELLIGENCE_2
+		dialog NPC_BUTCH_BUTCH_TIPS_INTELLIGENCE_3
+		dialog NPC_BUTCH_BUTCH_TIPS_INTELLIGENCE_4
+	}
+	butch_tips_charisma {
+		dialog NPC_BUTCH_BUTCH_TIPS_CHARISMA_1
+		dialog NPC_BUTCH_BUTCH_TIPS_CHARISMA_2
+		dialog NPC_BUTCH_BUTCH_TIPS_CHARISMA_3
+	}
+	butch_tips_tacticalview {
+		dialog NPC_BUTCH_BUTCH_TIPS_TACTICALVIEW_1 //TODO: insert actual keybind here instead of hard coding CTRL
+		dialog NPC_BUTCH_BUTCH_TIPS_TACTICALVIEW_2
+		dialog NPC_BUTCH_BUTCH_TIPS_TACTICALVIEW_3
+	}
+	butch_tips_info {
+		dialog NPC_BUTCH_BUTCH_TIPS_INFO_1 //TODO: insert actual keybind here instead of hard coding RIGHT CLICK
+		dialog NPC_BUTCH_BUTCH_TIPS_INFO_2
+	}
+	butch_tips_combat {
+		dialog NPC_BUTCH_BUTCH_TIPS_COMBAT_1
+		dialog NPC_BUTCH_BUTCH_TIPS_COMBAT_2
+		dialog NPC_BUTCH_BUTCH_TIPS_COMBAT_3
+		dialog NPC_BUTCH_BUTCH_TIPS_COMBAT_4
+	}
+	butch_tips_turnorder {
+		dialog NPC_BUTCH_BUTCH_TIPS_TURNORDER_1
+		dialog NPC_BUTCH_BUTCH_TIPS_TURNORDER_2
+		dialog NPC_BUTCH_BUTCH_TIPS_TURNORDER_3
+	}
+	
+	butch_tips_backstab {
+		dialog NPC_BUTCH_BUTCH_TIPS_BACKSTAB_1
+		dialog NPC_BUTCH_BUTCH_TIPS_BACKSTAB_2
+		dialog NPC_BUTCH_BUTCH_TIPS_BACKSTAB_3
+	}
+	
+	butch_tips_drafting {
+		dialog NPC_BUTCH_BUTCH_TIPS_DRAFTING_1
+		dialog NPC_BUTCH_BUTCH_TIPS_DRAFTING_2
+		dialog NPC_BUTCH_BUTCH_TIPS_DRAFTING_3
+	}
+	
+	butch_tips_rewards {
+		dialog NPC_BUTCH_BUTCH_TIPS_REWARDS_1
+		dialog NPC_BUTCH_BUTCH_TIPS_REWARDS_2
+		dialog NPC_BUTCH_BUTCH_TIPS_REWARDS_3
+		dialog NPC_BUTCH_BUTCH_TIPS_REWARDS_4
+	}
+	
+	butch_tips_disorders {
+		dialog NPC_BUTCH_BUTCH_TIPS_DISORDERS_1
+		dialog NPC_BUTCH_BUTCH_TIPS_DISORDERS_2
+		dialog NPC_BUTCH_BUTCH_TIPS_DISORDERS_3
+	}
+	
+	butch_tips_items {
+		dialog NPC_BUTCH_BUTCH_TIPS_ITEMS_1
+		dialog NPC_BUTCH_BUTCH_TIPS_ITEMS_2
+	}
+	
+	butch_tips_hard {
+		dialog NPC_BUTCH_BUTCH_TIPS_HARD_1
+		dialog NPC_BUTCH_BUTCH_TIPS_HARD_2
+		dialog NPC_BUTCH_BUTCH_TIPS_HARD_3
+		dialog NPC_BUTCH_BUTCH_TIPS_HARD_4
+		dialog NPC_BUTCH_BUTCH_TIPS_HARD_5
+	}
+	
+	butch_tips_lesscats {
+		dialog NPC_BUTCH_BUTCH_TIPS_LESSCATS_1
+		dialog NPC_BUTCH_BUTCH_TIPS_LESSCATS_2
+		dialog NPC_BUTCH_BUTCH_TIPS_LESSCATS_3
+	}
+	
+	butch_tips_houseboss {
+		dialog NPC_BUTCH_BUTCH_TIPS_HOUSEBOSS_1
+		dialog NPC_BUTCH_BUTCH_TIPS_HOUSEBOSS_2
+		dialog NPC_BUTCH_BUTCH_TIPS_HOUSEBOSS_3
+	}
+	
+	butch_tips_passives {
+		dialog NPC_BUTCH_BUTCH_TIPS_PASSIVES_1
+		dialog NPC_BUTCH_BUTCH_TIPS_PASSIVES_2
+		dialog NPC_BUTCH_BUTCH_TIPS_PASSIVES_3
+	}
+	
+	butch_tips_wellrounded {
+		dialog NPC_BUTCH_BUTCH_TIPS_WELLROUNDED_1
+		dialog NPC_BUTCH_BUTCH_TIPS_WELLROUNDED_2
+		dialog NPC_BUTCH_BUTCH_TIPS_WELLROUNDED_3
+		dialog NPC_BUTCH_BUTCH_TIPS_WELLROUNDED_4
+		dialog NPC_BUTCH_BUTCH_TIPS_WELLROUNDED_5
+	}
+	
+	butch_tips_headhome {
+		dialog NPC_BUTCH_BUTCH_TIPS_HEADHOME_1
+		dialog NPC_BUTCH_BUTCH_TIPS_HEADHOME_2
+		dialog NPC_BUTCH_BUTCH_TIPS_HEADHOME_3
+		dialog NPC_BUTCH_BUTCH_TIPS_HEADHOME_4
+	}
+
+	butch_tips_elements {
+		dialog NPC_BUTCH_BUTCH_TIPS_ELEMENTS_1
+		dialog NPC_BUTCH_BUTCH_TIPS_ELEMENTS_2
+		dialog NPC_BUTCH_BUTCH_TIPS_ELEMENTS_3
+		dialog NPC_BUTCH_BUTCH_TIPS_ELEMENTS_4
+		dialog NPC_BUTCH_BUTCH_TIPS_ELEMENTS_5
+	}	
+	
+	butch_tips_reorient {
+		dialog NPC_BUTCH_BUTCH_TIPS_REORIENT_1
+		dialog NPC_BUTCH_BUTCH_TIPS_REORIENT_2
+		dialog NPC_BUTCH_BUTCH_TIPS_REORIENT_3
+		dialog NPC_BUTCH_BUTCH_TIPS_REORIENT_4
+		dialog NPC_BUTCH_BUTCH_TIPS_REORIENT_5
+	}	
+	
+	butch_tips_magicdamage {
+		dialog NPC_BUTCH_BUTCH_TIPS_MAGICDAMAGE_1
+		dialog NPC_BUTCH_BUTCH_TIPS_MAGICDAMAGE_2
+		dialog NPC_BUTCH_BUTCH_TIPS_MAGICDAMAGE_3
+		dialog NPC_BUTCH_BUTCH_TIPS_MAGICDAMAGE_4
+	}	
+	
+	
+	//Butch unlock intros
+	butch_tina1 {
+		dialog NPC_BUTCH_BUTCH_TINA1_1
+		dialog NPC_BUTCH_BUTCH_TINA1_2
+		set_state verycloseup
+		dialog NPC_BUTCH_BUTCH_TINA1_3
+		set_state closeup
+		dialog NPC_BUTCH_BUTCH_TINA1_4
+		set_state idle
+		dialog NPC_BUTCH_BUTCH_TINA1_5
+		dialog NPC_BUTCH_BUTCH_TINA1_6
+		set_state closeup
+		dialog NPC_BUTCH_BUTCH_TINA1_7
+		set_state idle
+		dialog NPC_BUTCH_BUTCH_TINA1_8
+		dialog NPC_BUTCH_BUTCH_TINA1_9
+		dialog NPC_BUTCH_BUTCH_TINA1_10
+		dialog NPC_BUTCH_BUTCH_TINA1_11
+		set_state closeup
+		dialog NPC_BUTCH_BUTCH_TINA1_12
+		set_state verycloseup
+		dialog NPC_BUTCH_BUTCH_TINA1_13
+		set_state closeup
+		dialog NPC_BUTCH_BUTCH_TINA1_14
+	}
+
+	butch_pyro {
+		set_state closeup
+		dialog NPC_BUTCH_BUTCH_PYRO_1
+		set_state idle
+		dialog NPC_BUTCH_BUTCH_PYRO_2
+		dialog NPC_BUTCH_BUTCH_PYRO_3
+		set_state closeup
+		dialog NPC_BUTCH_BUTCH_PYRO_4
+		dialog NPC_BUTCH_BUTCH_PYRO_5
+		dialog NPC_BUTCH_BUTCH_PYRO_6
+		set_state idle
+		dialog NPC_BUTCH_BUTCH_PYRO_7
+		dialog NPC_BUTCH_BUTCH_PYRO_8
+	}	
+
+	butch_boneyard_intro {
+		set_state closeup
+		dialog NPC_BUTCH_BUTCH_BONEYARD_INTRO_1
+		set_state idle
+		dialog NPC_BUTCH_BUTCH_BONEYARD_INTRO_2
+		set_state closeup
+		dialog NPC_BUTCH_BUTCH_BONEYARD_INTRO_3
+		set_state verycloseup
+		dialog NPC_BUTCH_BUTCH_BONEYARD_INTRO_4
+		set_state zoomedout
+		dialog NPC_BUTCH_BUTCH_BONEYARD_INTRO_5
+		set_state closeup
+		dialog NPC_BUTCH_BUTCH_BONEYARD_INTRO_6
+		dialog NPC_BUTCH_BUTCH_BONEYARD_INTRO_7
+		set_state verycloseup
+		dialog NPC_BUTCH_BUTCH_BONEYARD_INTRO_8
+	}
+
+	butch_first_house_boss_beat {
+		set_state idle
+		dialog NPC_BUTCH_BUTCH_FIRST_HOUSE_BOSS_BEAT_1
+		set_state closeup
+		dialog NPC_BUTCH_BUTCH_FIRST_HOUSE_BOSS_BEAT_2
+		dialog NPC_BUTCH_BUTCH_FIRST_HOUSE_BOSS_BEAT_3
+		set_state verycloseup
+		dialog NPC_BUTCH_BUTCH_FIRST_HOUSE_BOSS_BEAT_4
+		set_state closeup
+		dialog NPC_BUTCH_BUTCH_FIRST_HOUSE_BOSS_BEAT_5
+		dialog NPC_BUTCH_BUTCH_FIRST_HOUSE_BOSS_BEAT_6
+		set_state idle
+		dialog NPC_BUTCH_BUTCH_FIRST_HOUSE_BOSS_BEAT_7
+		dialog NPC_BUTCH_BUTCH_FIRST_HOUSE_BOSS_BEAT_8
+		set_state verycloseup
+		dialog NPC_BUTCH_BUTCH_FIRST_HOUSE_BOSS_BEAT_9
+	}
+
+	test_gamepad_prompts {
+		dialog "Switch to gamepad now if you wanna see gamepad bindings."
+		dialog NPC_POPUP_FIRST_FIGHT_INTRO_14
+		dialog NPC_POPUP_MELEE_MOVE2_2
+		dialog NPC_POPUP_MAP_EQUIP_ITEMS_2
+		dialog NPC_POPUP_FINISH_ADVENTURE_5
+		dialog NPC_POPUP_HOUSE_PASS_DAY2_4
+		dialog NPC_BUTCH_BUTCH_TIPS_TACTICALVIEW_1
+		dialog NPC_BUTCH_BUTCH_TIPS_INFO_1
+
+	}
+
+	//good tips suggestions from discord:
+		//physical vs magical damage, melee vs ranged damage
+		//bonus combat rewards for beating stuff faster
+		//taking the hard path, when & why
+		//how the level up system works (of the non-downed cats, random lowest level)
+		//item set bonuses
+		//dont save mana between fights, use it or lose it
+
+	//minor mechanic tips suggestions from discord
+		//you can heal a corpse to give it an extra hit
+		//melee attacks can collect pickups
+		
+		
+		//default  happy  veryhappy  sad  angry  veryangry
+        //questioning  whispering  pondering  mocking
+        //inlove  confused  paranoid  shocked  scared  spacedout
+		//grossedout bored winking
+}

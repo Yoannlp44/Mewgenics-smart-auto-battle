@@ -1,0 +1,15 @@
+//todo: add some of the existing legendary items in here (Mjolnir and such)
+
+//unique legendary items (ones you get from specific in game events)
+TinksBow {
+    name "ARMOR_TINKSBOW_NAME"
+    desc "ARMOR_TINKSBOW_DESC"
+    rarity very_rare
+    kind head
+    frame 113
+    degrade_after_adventure false
+}
+
+
+
+//general legendary items (once you can get only once, if an event rewards a "legendary item")

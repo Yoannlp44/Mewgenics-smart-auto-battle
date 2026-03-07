@@ -1,0 +1,693 @@
+movieclip TracyOffice
+default_npc Tracy
+
+states_and_transitions {
+	states {
+		idle ["idle" "blocking"]
+	}
+
+	transitions {
+	}
+}
+
+sequences {
+	unprompted {
+		cancelable true
+		dialog NPC_TRACY_UNPROMPTED_1
+		dialog_and_autopass NPC_TRACY_UNPROMPTED_2
+		wait_for_cancel 1
+	}
+
+	also {
+		dialog NPC_TRACY_ALSO_1
+	}
+
+	tracy_introduction { //jacks introduction is in combat_tutorial since he needs to pop up over the house
+		lock_controls 1
+		set_state blocking
+		set_state closeup
+		dialog NPC_TRACY_TRACY_INTRODUCTION_1
+		set_state blocking
+		dialog NPC_TRACY_TRACY_INTRODUCTION_2
+		dialog NPC_TRACY_TRACY_INTRODUCTION_3
+		dialog NPC_TRACY_TRACY_INTRODUCTION_4
+		set_state closeup
+		dialog NPC_TRACY_TRACY_INTRODUCTION_5
+		set_state zoomedout
+		dialog NPC_TRACY_TRACY_INTRODUCTION_6
+		dialog NPC_TRACY_TRACY_INTRODUCTION_7
+		dialog NPC_TRACY_TRACY_INTRODUCTION_8
+		dialog NPC_TRACY_TRACY_INTRODUCTION_9
+		set_state closeup
+		dialog NPC_TRACY_TRACY_INTRODUCTION_10
+		set_state zoomedout
+		dialog NPC_TRACY_TRACY_INTRODUCTION_11
+		dialog NPC_TRACY_TRACY_INTRODUCTION_12
+		dialog NPC_TRACY_TRACY_INTRODUCTION_13
+		dialog NPC_TRACY_TRACY_INTRODUCTION_14
+		set_state closeup
+		dialog NPC_TRACY_TRACY_INTRODUCTION_15
+		set_state idle
+		dialog NPC_TRACY_TRACY_INTRODUCTION_16
+		dialog NPC_TRACY_TRACY_INTRODUCTION_17
+		set_state zoomedout
+		dialog NPC_TRACY_TRACY_INTRODUCTION_18
+		set_state idle
+		dialog NPC_TRACY_TRACY_INTRODUCTION_19
+		dialog NPC_TRACY_TRACY_INTRODUCTION_20
+		dialog NPC_TRACY_TRACY_INTRODUCTION_21
+		set_state closeup
+		dialog NPC_TRACY_TRACY_INTRODUCTION_22
+		begin_accepting_cats tracy
+		set_state idle
+		unlock_controls 1
+	}
+
+	out_of_stock {
+		set_state blocking
+		dialog NPC_TRACY_OUT_OF_STOCK_1
+	}
+	purchase_item {
+		cancelable true
+		dialog_and_autopass NPC_TRACY_PURCHASE_ITEM_1
+		wait_for_cancel 1
+	}
+	cant_afford {
+		cancelable true
+		dialog_and_autopass NPC_TRACY_CANT_AFFORD_1
+		wait_for_cancel 1
+	}
+
+	tooltip {
+		cancelable true
+		tooltip_dialog NPC_TRACY_SHOP_TOOLTIP
+		wait_for_cancel 1
+	}
+	hide_text {
+		cancelable true
+		dialog_and_autopass ""
+	}
+
+	//UNLOCKS
+	tracy_foodbonus1 {
+		lock_controls 1
+		set_state blocking
+		dialog NPC_TRACY_TRACY_FOODBONUS1_1
+		get npc_reward
+		dialog NPC_TRACY_TRACY_FOODBONUS1_2
+		set_state idle
+		unlock_controls 1
+	}
+	//these arent in the order you unlock them in
+
+	//collar rewards
+	tracy_blankcollar1 {
+		lock_controls 1
+		set_state blocking
+		set_state idle
+		dialog NPC_TRACY_TRACY_BLANKCOLLAR1_1
+		dialog NPC_TRACY_TRACY_BLANKCOLLAR1_2
+		set_state closeup
+		dialog NPC_TRACY_TRACY_BLANKCOLLAR1_3
+		dialog NPC_TRACY_TRACY_BLANKCOLLAR1_4
+		set_state zoomedout
+		dialog NPC_TRACY_TRACY_BLANKCOLLAR1_5
+		dialog NPC_TRACY_TRACY_BLANKCOLLAR1_6
+		set_state closeup
+		dialog NPC_TRACY_TRACY_BLANKCOLLAR1_7
+		set_state idle
+		dialog NPC_TRACY_TRACY_BLANKCOLLAR1_8
+		set_state zoomedout
+		dialog NPC_TRACY_TRACY_BLANKCOLLAR1_9
+		get npc_reward
+		set_state idle
+		unlock_controls 1
+	}
+
+	tracy_blankcollar2 {
+		lock_controls 1
+		set_state blocking
+		set_state idle
+		dialog NPC_TRACY_TRACY_BLANKCOLLAR2_1
+		dialog NPC_TRACY_TRACY_BLANKCOLLAR2_2
+		dialog NPC_TRACY_TRACY_BLANKCOLLAR2_3
+		set_state zoomedout
+		dialog NPC_TRACY_TRACY_BLANKCOLLAR2_4
+		dialog NPC_TRACY_TRACY_BLANKCOLLAR2_5
+		dialog NPC_TRACY_TRACY_BLANKCOLLAR2_6
+		set_state closeup
+		dialog NPC_TRACY_TRACY_BLANKCOLLAR2_7
+		dialog NPC_TRACY_TRACY_BLANKCOLLAR2_8
+		set_state verycloseup
+		dialog NPC_TRACY_TRACY_BLANKCOLLAR2_9
+		dialog NPC_TRACY_TRACY_BLANKCOLLAR2_10
+		set_state idle
+		dialog NPC_TRACY_TRACY_BLANKCOLLAR2_11
+		get npc_reward
+		set_state idle
+		unlock_controls 1
+	}
+
+	tracy_blankcollar3 {
+		lock_controls 1
+		set_state blocking
+		set_state idle
+		dialog NPC_TRACY_TRACY_BLANKCOLLAR3_1
+		dialog NPC_TRACY_TRACY_BLANKCOLLAR3_2
+		dialog NPC_TRACY_TRACY_BLANKCOLLAR3_3
+		dialog NPC_TRACY_TRACY_BLANKCOLLAR3_4
+		set_state zoomedout
+		dialog NPC_TRACY_TRACY_BLANKCOLLAR3_5
+		set_state closeup
+		dialog NPC_TRACY_TRACY_BLANKCOLLAR3_6
+		set_state zoomedout
+		dialog NPC_TRACY_TRACY_BLANKCOLLAR3_7
+		get npc_reward
+		set_state idle
+		unlock_controls 1
+	}
+
+	//idol rewards
+	tracy_idol1 {
+		lock_controls 1
+		set_state blocking
+		set_state idle
+		dialog NPC_TRACY_TRACY_IDOL1_1
+		dialog NPC_TRACY_TRACY_IDOL1_2
+		dialog NPC_TRACY_TRACY_IDOL1_3
+		dialog NPC_TRACY_TRACY_IDOL1_4
+		set_state zoomedout
+		dialog NPC_TRACY_TRACY_IDOL1_5
+		dialog NPC_TRACY_TRACY_IDOL1_6
+		dialog NPC_TRACY_TRACY_IDOL1_7
+		dialog NPC_TRACY_TRACY_IDOL1_8
+		dialog NPC_TRACY_TRACY_IDOL1_9
+		set_state closeup
+		dialog NPC_TRACY_TRACY_IDOL1_10
+		set_state verycloseup
+		dialog NPC_TRACY_TRACY_IDOL1_11
+		dialog NPC_TRACY_TRACY_IDOL1_12
+		set_state idle
+		dialog NPC_TRACY_TRACY_IDOL1_13
+		get npc_reward
+		set_state idle
+		unlock_controls 1
+	}
+	tracy_idol2 {
+		lock_controls 1
+		set_state blocking
+		set_state idle
+		dialog NPC_TRACY_TRACY_IDOL2_1
+		set_state closeup
+		dialog NPC_TRACY_TRACY_IDOL2_2
+		dialog NPC_TRACY_TRACY_IDOL2_3
+		dialog NPC_TRACY_TRACY_IDOL2_4
+		dialog NPC_TRACY_TRACY_IDOL2_5
+		dialog NPC_TRACY_TRACY_IDOL2_6
+		set_state verycloseup
+		dialog NPC_TRACY_TRACY_IDOL2_7
+		dialog NPC_TRACY_TRACY_IDOL2_8
+		get npc_reward
+		set_state idle
+		unlock_controls 1
+	}
+	tracy_idol3 {
+		lock_controls 1
+		set_state blocking
+		dialog NPC_TRACY_TRACY_IDOL3_1
+		dialog NPC_TRACY_TRACY_IDOL3_2
+		dialog NPC_TRACY_TRACY_IDOL3_3
+		dialog NPC_TRACY_TRACY_IDOL3_4
+		set_state closeup
+		dialog NPC_TRACY_TRACY_IDOL3_5
+		dialog NPC_TRACY_TRACY_IDOL3_6
+		dialog NPC_TRACY_TRACY_IDOL3_7
+		set_state verycloseup
+		dialog NPC_TRACY_TRACY_IDOL3_8
+		dialog NPC_TRACY_TRACY_IDOL3_9
+		set_state idle
+		dialog NPC_TRACY_TRACY_IDOL3_10
+		dialog NPC_TRACY_TRACY_IDOL3_11
+		get npc_reward
+		set_state idle
+		unlock_controls 1
+	}
+	tracy_idol4 {
+		lock_controls 1
+		set_state blocking
+		set_state idle
+		dialog NPC_TRACY_TRACY_IDOL4_1
+		dialog NPC_TRACY_TRACY_IDOL4_2
+		set_state zoomedout
+		dialog NPC_TRACY_TRACY_IDOL4_3
+		dialog NPC_TRACY_TRACY_IDOL4_4
+		set_state closeup
+		dialog NPC_TRACY_TRACY_IDOL4_5
+		dialog NPC_TRACY_TRACY_IDOL4_6
+		dialog NPC_TRACY_TRACY_IDOL4_7
+		dialog NPC_TRACY_TRACY_IDOL4_8
+		set_state zoomedout
+		dialog NPC_TRACY_TRACY_IDOL4_9
+		set_state verycloseup
+		dialog NPC_TRACY_TRACY_IDOL4_10
+		get npc_reward
+		set_state idle
+		
+		unlock_controls 1
+	}
+	tracy_idol5 {
+		lock_controls 1
+		set_state blocking
+		set_state idle
+		dialog NPC_TRACY_TRACY_IDOL5_1
+		dialog NPC_TRACY_TRACY_IDOL5_2
+		dialog NPC_TRACY_TRACY_IDOL5_3
+		dialog NPC_TRACY_TRACY_IDOL5_4
+		set_state closeup
+		dialog NPC_TRACY_TRACY_IDOL5_5
+		dialog NPC_TRACY_TRACY_IDOL5_6
+		dialog NPC_TRACY_TRACY_IDOL5_7
+		get npc_reward
+		set_state idle
+		unlock_controls 1
+	}
+	tracy_idol6 {
+		lock_controls 1
+		set_state blocking
+		set_state zoomedout
+		dialog NPC_TRACY_TRACY_IDOL6_1
+		dialog NPC_TRACY_TRACY_IDOL6_2
+		dialog NPC_TRACY_TRACY_IDOL6_3
+		set_state closeup
+		dialog NPC_TRACY_TRACY_IDOL6_4
+		dialog NPC_TRACY_TRACY_IDOL6_5
+		dialog NPC_TRACY_TRACY_IDOL6_6
+		dialog NPC_TRACY_TRACY_IDOL6_7
+		set_state zoomedout
+		dialog NPC_TRACY_TRACY_IDOL6_8
+		set_state closeup
+		dialog NPC_TRACY_TRACY_IDOL6_9
+		dialog NPC_TRACY_TRACY_IDOL6_10
+		set_state verycloseup
+		dialog NPC_TRACY_TRACY_IDOL6_11
+		get npc_reward
+		set_state idle
+		unlock_controls 1
+	}
+	tracy_idol7 {
+		lock_controls 1
+		set_state blocking
+		set_state verycloseup
+		dialog NPC_TRACY_TRACY_IDOL7_1
+		set_state closeup
+		dialog NPC_TRACY_TRACY_IDOL7_2
+		dialog NPC_TRACY_TRACY_IDOL7_3
+		dialog NPC_TRACY_TRACY_IDOL7_4
+		dialog NPC_TRACY_TRACY_IDOL7_5
+		set_state verycloseup
+		dialog NPC_TRACY_TRACY_IDOL7_6
+		set_state closeup
+		dialog NPC_TRACY_TRACY_IDOL7_7
+		set_state zoomedout
+		dialog NPC_TRACY_TRACY_IDOL7_8
+		set_state closeup
+		dialog NPC_TRACY_TRACY_IDOL7_9
+		dialog NPC_TRACY_TRACY_IDOL7_10
+		dialog NPC_TRACY_TRACY_IDOL7_11
+		set_state verycloseup
+		dialog NPC_TRACY_TRACY_IDOL7_12
+		dialog NPC_TRACY_TRACY_IDOL7_13
+		dialog NPC_TRACY_TRACY_IDOL7_14
+		set_state closeup
+		dialog NPC_TRACY_TRACY_IDOL7_15
+		set_state zoomedout
+		dialog NPC_TRACY_TRACY_IDOL7_16
+		dialog NPC_TRACY_TRACY_IDOL7_17
+		get npc_reward
+		set_state idle
+		unlock_controls 1
+	}
+
+	//food storage rewards
+	tracy_foodstorage1 {
+		lock_controls 1
+		set_state blocking
+		set_state zoomedout
+		dialog NPC_TRACY_TRACY_FOODSTORAGE1_1
+		set_state idle
+		dialog NPC_TRACY_TRACY_FOODSTORAGE1_2
+		dialog NPC_TRACY_TRACY_FOODSTORAGE1_3
+		dialog NPC_TRACY_TRACY_FOODSTORAGE1_4
+		set_state zoomedout
+		dialog NPC_TRACY_TRACY_FOODSTORAGE1_5
+		set_state closeup
+		dialog NPC_TRACY_TRACY_FOODSTORAGE1_6
+		dialog NPC_TRACY_TRACY_FOODSTORAGE1_7
+		set_state zoomedout
+		dialog NPC_TRACY_TRACY_FOODSTORAGE1_8 
+		get npc_reward
+		set_state idle
+		unlock_controls 1
+	}
+	tracy_foodstorage2 {
+		lock_controls 1
+		set_state blocking
+		set_state idle
+		dialog NPC_TRACY_TRACY_FOODSTORAGE2_1
+		dialog NPC_TRACY_TRACY_FOODSTORAGE2_2
+		set_state zoomedout
+		dialog NPC_TRACY_TRACY_FOODSTORAGE2_3
+		dialog NPC_TRACY_TRACY_FOODSTORAGE2_4
+		dialog NPC_TRACY_TRACY_FOODSTORAGE2_5
+		set_state closeup
+		dialog NPC_TRACY_TRACY_FOODSTORAGE2_6
+		dialog NPC_TRACY_TRACY_FOODSTORAGE2_7
+		get npc_reward
+		set_state idle
+		unlock_controls 1
+	}
+	tracy_foodstorage3 {
+		lock_controls 1
+		set_state blocking
+		set_state idle
+		dialog NPC_TRACY_TRACY_FOODSTORAGE3_1
+		dialog NPC_TRACY_TRACY_FOODSTORAGE3_2
+		dialog NPC_TRACY_TRACY_FOODSTORAGE3_3
+		set_state zoomedout
+		dialog NPC_TRACY_TRACY_FOODSTORAGE3_4
+		dialog NPC_TRACY_TRACY_FOODSTORAGE3_5
+		dialog NPC_TRACY_TRACY_FOODSTORAGE3_6
+		dialog NPC_TRACY_TRACY_FOODSTORAGE3_7
+		dialog NPC_TRACY_TRACY_FOODSTORAGE3_8
+		set_state closeup
+		dialog NPC_TRACY_TRACY_FOODSTORAGE3_9
+		dialog NPC_TRACY_TRACY_FOODSTORAGE3_10
+		dialog NPC_TRACY_TRACY_FOODSTORAGE3_11
+		dialog NPC_TRACY_TRACY_FOODSTORAGE3_12
+		set_state verycloseup
+		dialog NPC_TRACY_TRACY_FOODSTORAGE3_13
+		set_state zoomedout
+		dialog NPC_TRACY_TRACY_FOODSTORAGE3_14
+		set_state idle
+		dialog NPC_TRACY_TRACY_FOODSTORAGE3_15
+		set_state zoomedout
+		dialog NPC_TRACY_TRACY_FOODSTORAGE3_16 
+		get npc_reward
+		set_state idle
+		unlock_controls 1
+	}
+	tracy_foodstorage4 {
+		lock_controls 1
+		set_state blocking
+		set_state zoomedout
+		dialog NPC_TRACY_TRACY_FOODSTORAGE4_1
+		dialog NPC_TRACY_TRACY_FOODSTORAGE4_2
+		dialog NPC_TRACY_TRACY_FOODSTORAGE4_3
+		dialog NPC_TRACY_TRACY_FOODSTORAGE4_4
+		set_state closeup
+		dialog NPC_TRACY_TRACY_FOODSTORAGE4_5
+		dialog NPC_TRACY_TRACY_FOODSTORAGE4_6
+		set_state zoomedout
+		dialog NPC_TRACY_TRACY_FOODSTORAGE4_7
+		dialog NPC_TRACY_TRACY_FOODSTORAGE4_8
+		set_state verycloseup
+		dialog NPC_TRACY_TRACY_FOODSTORAGE4_9
+		set_state closeup
+		dialog NPC_TRACY_TRACY_FOODSTORAGE4_10
+		dialog NPC_TRACY_TRACY_FOODSTORAGE4_11
+		set_state verycloseup
+		dialog NPC_TRACY_TRACY_FOODSTORAGE4_12
+		dialog NPC_TRACY_TRACY_FOODSTORAGE4_13
+		set_state idle
+		dialog NPC_TRACY_TRACY_FOODSTORAGE4_14
+		dialog NPC_TRACY_TRACY_FOODSTORAGE4_15
+		get npc_reward
+		set_state idle
+		unlock_controls 1
+	}
+	tracy_foodstorage5 {
+		lock_controls 1
+		set_state blocking
+		set_state idle
+		dialog NPC_TRACY_TRACY_FOODSTORAGE5_1
+		dialog NPC_TRACY_TRACY_FOODSTORAGE5_2
+		dialog NPC_TRACY_TRACY_FOODSTORAGE5_3
+		dialog NPC_TRACY_TRACY_FOODSTORAGE5_4
+		dialog NPC_TRACY_TRACY_FOODSTORAGE5_5
+		set_state zoomedout
+		dialog NPC_TRACY_TRACY_FOODSTORAGE5_6
+		dialog NPC_TRACY_TRACY_FOODSTORAGE5_7
+		dialog NPC_TRACY_TRACY_FOODSTORAGE5_8
+		dialog NPC_TRACY_TRACY_FOODSTORAGE5_9
+		get npc_reward
+		set_state idle
+		unlock_controls 1
+	}
+	tracy_foodstorage6 {
+		lock_controls 1
+		set_state blocking
+		set_state zoomedout
+		dialog NPC_TRACY_TRACY_FOODSTORAGE6_1
+		dialog NPC_TRACY_TRACY_FOODSTORAGE6_2
+		dialog NPC_TRACY_TRACY_FOODSTORAGE6_3
+		set_state closeup
+		dialog NPC_TRACY_TRACY_FOODSTORAGE6_4
+		dialog NPC_TRACY_TRACY_FOODSTORAGE6_5
+		dialog NPC_TRACY_TRACY_FOODSTORAGE6_6
+		dialog NPC_TRACY_TRACY_FOODSTORAGE6_7
+		set_state verycloseup
+		dialog NPC_TRACY_TRACY_FOODSTORAGE6_8
+		set_state closeup
+		dialog NPC_TRACY_TRACY_FOODSTORAGE6_9
+		dialog NPC_TRACY_TRACY_FOODSTORAGE6_10
+		get npc_reward
+		set_state idle
+		unlock_controls 1
+	}
+	tracy_foodstorage7 {
+		lock_controls 1
+		set_state blocking
+		set_state zoomedout
+		dialog NPC_TRACY_TRACY_FOODSTORAGE7_1
+		set_state closeup
+		dialog NPC_TRACY_TRACY_FOODSTORAGE7_2 
+		dialog NPC_TRACY_TRACY_FOODSTORAGE7_3
+		dialog NPC_TRACY_TRACY_FOODSTORAGE7_4
+		dialog NPC_TRACY_TRACY_FOODSTORAGE7_5
+		dialog NPC_TRACY_TRACY_FOODSTORAGE7_6
+		set_state zoomedout
+		dialog NPC_TRACY_TRACY_FOODSTORAGE7_7
+		dialog NPC_TRACY_TRACY_FOODSTORAGE7_8
+		dialog NPC_TRACY_TRACY_FOODSTORAGE7_9
+		set_state closeup
+		dialog NPC_TRACY_TRACY_FOODSTORAGE7_10
+		dialog NPC_TRACY_TRACY_FOODSTORAGE7_11
+		set_state verycloseup
+		dialog NPC_TRACY_TRACY_FOODSTORAGE7_12
+		get npc_reward
+		set_state idle
+		unlock_controls 1
+	}
+	tracy_foodstorage8 {
+		lock_controls 1
+		set_state blocking
+		set_state idle
+		dialog NPC_TRACY_TRACY_FOODSTORAGE8_1
+		dialog NPC_TRACY_TRACY_FOODSTORAGE8_2
+		dialog NPC_TRACY_TRACY_FOODSTORAGE8_3
+		dialog NPC_TRACY_TRACY_FOODSTORAGE8_4
+		set_state zoomedout
+		dialog NPC_TRACY_TRACY_FOODSTORAGE8_5
+		set_state closeup
+		dialog NPC_TRACY_TRACY_FOODSTORAGE8_6
+		dialog NPC_TRACY_TRACY_FOODSTORAGE8_7
+		dialog NPC_TRACY_TRACY_FOODSTORAGE8_8
+		dialog NPC_TRACY_TRACY_FOODSTORAGE8_9
+		set_state verycloseup
+		dialog NPC_TRACY_TRACY_FOODSTORAGE8_10
+		get npc_reward
+		set_state idle
+		unlock_controls 1
+	}
+	tracy_foodstorage9 {
+		lock_controls 1
+		set_state blocking
+		set_state closeup
+		dialog NPC_TRACY_TRACY_FOODSTORAGE9_1
+		dialog NPC_TRACY_TRACY_FOODSTORAGE9_2
+		dialog NPC_TRACY_TRACY_FOODSTORAGE9_3
+		dialog NPC_TRACY_TRACY_FOODSTORAGE9_4
+		set_state zoomedout
+		dialog NPC_TRACY_TRACY_FOODSTORAGE9_5
+		dialog NPC_TRACY_TRACY_FOODSTORAGE9_6
+		set_state closeup
+		dialog NPC_TRACY_TRACY_FOODSTORAGE9_7
+		dialog NPC_TRACY_TRACY_FOODSTORAGE9_8
+		dialog NPC_TRACY_TRACY_FOODSTORAGE9_9
+		set_state zoomedout
+		dialog NPC_TRACY_TRACY_FOODSTORAGE9_10
+		get npc_reward
+		set_state idle
+		unlock_controls 1
+	}
+	tracy_foodstorage10 {
+		lock_controls 1
+		set_state blocking
+		set_state idle
+		dialog NPC_TRACY_TRACY_FOODSTORAGE10_1
+		dialog NPC_TRACY_TRACY_FOODSTORAGE10_2
+		dialog NPC_TRACY_TRACY_FOODSTORAGE10_3
+		dialog NPC_TRACY_TRACY_FOODSTORAGE10_4
+		dialog NPC_TRACY_TRACY_FOODSTORAGE10_5
+		dialog NPC_TRACY_TRACY_FOODSTORAGE10_6
+		set_state zoomedout
+		dialog NPC_TRACY_TRACY_FOODSTORAGE10_7
+		dialog NPC_TRACY_TRACY_FOODSTORAGE10_8
+		set_state closeup
+		dialog NPC_TRACY_TRACY_FOODSTORAGE10_9
+		dialog NPC_TRACY_TRACY_FOODSTORAGE10_10
+		dialog NPC_TRACY_TRACY_FOODSTORAGE10_11
+		set_state verycloseup
+		dialog NPC_TRACY_TRACY_FOODSTORAGE10_12
+		get npc_reward
+		set_state idle
+		unlock_controls 1
+	}
+
+	tracy_max_intro {//the 1st time you gain something after having max favor.
+		lock_controls 1
+		set_state blocking
+		set_state zoomedout
+		dialog NPC_TRACY_TRACY_MAX_INTRO_1
+		dialog NPC_TRACY_TRACY_MAX_INTRO_2
+		dialog NPC_TRACY_TRACY_MAX_INTRO_3
+		set_state verycloseup
+		dialog NPC_TRACY_TRACY_MAX_INTRO_4
+		set_state closeup
+		dialog NPC_TRACY_TRACY_MAX_INTRO_5
+		dialog NPC_TRACY_TRACY_MAX_INTRO_6
+		dialog NPC_TRACY_TRACY_MAX_INTRO_7
+		get npc_reward
+		set_state idle
+		unlock_controls 1
+	}
+
+	tracy_max_repeating {
+		do_random_sequence [tracy_max1, tracy_max2, tracy_max3, tracy_max4, tracy_max5]
+	}
+	
+	tracy_max1 {//max1-5 is for when tracy is at max favor
+		lock_controls 1
+		set_state blocking
+		set_state closeup
+		dialog NPC_TRACY_TRACY_MAX1_1
+		set_state verycloseup
+		dialog NPC_TRACY_TRACY_MAX1_2
+		set_state closeup
+		dialog NPC_TRACY_TRACY_MAX1_3
+		get npc_reward
+		set_state idle
+		unlock_controls 1
+	}
+	
+	tracy_max2 {
+		lock_controls 1
+		set_state blocking
+		set_state closeup
+		dialog NPC_TRACY_TRACY_MAX2_1
+		set_state verycloseup
+		dialog NPC_TRACY_TRACY_MAX2_2
+		set_state closeup
+		dialog NPC_TRACY_TRACY_MAX2_3
+		get npc_reward
+		set_state idle
+		unlock_controls 1
+	}
+
+	tracy_max3 {
+		lock_controls 1
+		set_state blocking
+		dialog NPC_TRACY_TRACY_MAX3_1
+		dialog NPC_TRACY_TRACY_MAX3_2
+		dialog NPC_TRACY_TRACY_MAX3_3
+		dialog NPC_TRACY_TRACY_MAX3_4
+		get npc_reward
+		set_state idle
+		unlock_controls 1
+	}
+
+	tracy_max4 {
+		lock_controls 1
+		set_state blocking
+		set_state closeup
+		dialog NPC_TRACY_TRACY_MAX4_1
+		dialog NPC_TRACY_TRACY_MAX4_2
+		set_state zoomedout
+		dialog NPC_TRACY_TRACY_MAX4_3
+		set_state closeup
+		dialog NPC_TRACY_TRACY_MAX4_4
+		dialog NPC_TRACY_TRACY_MAX4_5
+		set_state zoomedout
+		dialog NPC_TRACY_TRACY_MAX4_6
+		get npc_reward
+		set_state idle
+		unlock_controls 1
+	}
+	
+	tracy_max5 {
+		lock_controls 1
+		set_state blocking
+		set_state closeup
+		dialog NPC_TRACY_TRACY_MAX5_1
+		set_state verycloseup
+		dialog NPC_TRACY_TRACY_MAX5_2
+		set_state closeup
+		dialog NPC_TRACY_TRACY_MAX5_3
+		dialog NPC_TRACY_TRACY_MAX5_4
+		set_state zoomedout
+		dialog NPC_TRACY_TRACY_MAX5_5
+		dialog NPC_TRACY_TRACY_MAX5_6
+		set_state verycloseup
+		dialog NPC_TRACY_TRACY_MAX5_7
+		get npc_reward
+		set_state idle
+		unlock_controls 1
+	}
+
+	unknown {
+		lock_controls 1
+		set_state blocking
+		dialog NPC_TRACY_UNKNOWN_1
+		get npc_reward
+		set_state idle
+		unlock_controls 1
+	}
+	
+	//Tracy unlock intros
+	
+	tracy_kaijufight {
+		lock_controls 1
+		set_state blocking
+		set_state zoomedout
+		dialog NPC_TRACY_TRACY_KAIJUFIGHT_1
+		dialog NPC_TRACY_TRACY_KAIJUFIGHT_2
+		set_state closeup
+		dialog NPC_TRACY_TRACY_KAIJUFIGHT_3
+		set_state zoomedout
+		dialog NPC_TRACY_TRACY_KAIJUFIGHT_4
+		dialog NPC_TRACY_TRACY_KAIJUFIGHT_5
+		dialog NPC_TRACY_TRACY_KAIJUFIGHT_6
+		dialog NPC_TRACY_TRACY_KAIJUFIGHT_7
+		set_state closeup
+		dialog NPC_TRACY_TRACY_KAIJUFIGHT_8
+		set_state verycloseup
+		dialog NPC_TRACY_TRACY_KAIJUFIGHT_9
+		dialog NPC_TRACY_TRACY_KAIJUFIGHT_10
+
+		set_state idle
+		unlock_controls 1
+	}
+		//default  happy  veryhappy  sad  angry  veryangry
+        //questioning  whispering  pondering  mocking
+        //inlove  confused  paranoid  shocked  scared  spacedout
+}

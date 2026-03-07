@@ -1,0 +1,45 @@
+melee_cat {
+	base_stats {
+		str 6
+		spd 6 //before rat
+		con 7
+
+		//balance out the numbers to average 5 each
+		dex 4
+		lck 4
+		int 5
+		cha 3
+	}
+
+	abilities {
+		attack BasicMelee
+		spell0 Spit
+	}
+
+	passives {
+		passive0 SelfAssured
+	}
+}
+
+ranged_cat {
+	base_stats {
+		spd 3 //after rat, before tomtom
+		dex 6
+		con 5
+
+		//balance out the numbers to average 5 each
+		lck 6
+		int 7
+		cha 5
+		str 3
+	}
+
+	abilities {
+		attack BasicShortLobbed
+		spell0 Roll
+	}
+
+	passives {
+		passive0 HotBlooded
+	}
+}

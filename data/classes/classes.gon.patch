@@ -1,0 +1,62 @@
+// Applique automatiquement les AI presets à chaque classe de base via innate_passives.
+// innate_passives est auto-appliqué à tous les chats de la classe dès le début.
+
+Hunter.merge {
+    innate_passives {
+        ReplaceBrain {
+            brain GenericBrain
+            decision_weights smart_hunter
+            move_weights smart_hunter_move
+        }
+    }
+}
+
+Fighter.merge {
+    innate_passives {
+        ReplaceBrain {
+            brain GenericBrain
+            decision_weights smart_fighter
+            move_weights smart_fighter_move
+        }
+    }
+}
+
+Tank.merge {
+    innate_passives {
+        ReplaceBrain {
+            brain GenericBrain
+            decision_weights smart_tank
+            move_weights smart_tank_move
+        }
+    }
+}
+
+Mage.merge {
+    innate_passives {
+        ReplaceBrain {
+            brain GenericBrain
+            decision_weights smart_mage
+            move_weights smart_mage_move
+        }
+    }
+}
+
+Medic.merge {
+    innate_passives {
+        ReplaceBrain {
+            brain GenericBrain
+            decision_weights smart_cleric
+            move_weights smart_cleric_move
+        }
+    }
+}
+
+Thief.merge {
+    innate_passives {
+        ReplaceBrain {
+            brain GenericBrain
+            decision_weights smart_thief
+            move_weights smart_thief_move
+        }
+    }
+}

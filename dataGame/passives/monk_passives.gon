@@ -1,0 +1,706 @@
+SafeSwitching {
+    name "PASSIVE_SAFESWITCHING_NAME"
+    desc "PASSIVE_SAFESWITCHING_DESC"
+    class Monk
+
+    1 {
+        passives {
+            StatusOnStanceSwitch {
+                Shield 2
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_SAFESWITCHING2_DESC"
+        passives {
+            StatusOnStanceSwitch {
+                Shield 3
+                PartialCleanse 1
+            }
+        }
+    }
+}
+
+Mixup {
+    name "PASSIVE_MIXUP_NAME"
+    desc "PASSIVE_MIXUP_DESC"
+    class Monk
+
+    1 {
+        passives {
+            StatusOnStanceSwitch {
+                NextBasicAttackCritsThisTurn 1
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_MIXUP2_DESC"
+        passives {
+            StatusOnStanceSwitch {
+                NextBasicAttackCritsThisTurn 1
+            }
+            CritsApplyStatus {
+                Confusion 1
+            }
+        }
+    }
+}
+
+Turnabout {
+    name "PASSIVE_TURNABOUT_NAME"
+    desc "PASSIVE_TURNABOUT_DESC"
+    class Monk
+
+    1 {
+        passives {
+            AddStatusToBasicMeleeAttack {
+                FaceAway 1
+                Confusion 1
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_TURNABOUT2_DESC"
+        passives {
+            AddStatusToBasicMeleeAttack {
+                FaceAway 1
+                Confusion 1
+                Stun [1 .2]
+            }
+        }
+    }
+}
+
+MonkeyStyle {
+    name "PASSIVE_MONKEYSTYLE_NAME"
+    desc "PASSIVE_MONKEYSTYLE_DESC"
+    class Monk
+
+    1 {
+        passives {
+            ChanceToBlockAndCounter 15%
+        }
+    }
+    2 {
+        desc "PASSIVE_MONKEYSTYLE2_DESC"
+        passives {
+            ChanceToBlockAndCounter 33%
+        }
+    }
+}
+
+BrickSkin {
+    name "PASSIVE_BRICKSKIN_NAME"
+    desc "PASSIVE_BRICKSKIN_DESC"
+    class Monk
+
+    1 {
+        passives {
+            GainExtraShield 2
+        }
+    }
+    2 {
+        desc "PASSIVE_BRICKSKIN2_DESC"
+        passives {
+            GainExtraShield 2
+        }
+        shield 8
+    }
+}
+
+JaggedEdges {
+    name "PASSIVE_JAGGEDEDGE_NAME"
+    desc "PASSIVE_JAGGEDEDGE_DESC"
+    class Monk
+
+    1 {
+        passives {
+            StatusOnLoseShield {
+                Thorns 1
+            }
+        }
+        shield 2
+    }
+    2 {
+        desc "PASSIVE_JAGGEDEDGE2_DESC"
+        passives {
+            ScaledStatusOnLoseShield {
+                Thorns 1
+            }
+        }
+        shield 4
+    }
+}
+
+MindBreaker {
+    name "PASSIVE_MINDBREAKER_NAME"
+    desc "PASSIVE_MINDBREAKER_DESC"
+    class Monk
+
+    1 {
+        passives {
+            AddStatusToBasicAttack {
+                MagicWeakness 1
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_MINDBREAKER2_DESC"
+        passives {
+            AddStatusToBasicAttack {
+                MagicWeakness 2
+            }
+        }
+    }
+}
+
+CobraStyle {
+    name "PASSIVE_COBRASTYLE_NAME"
+    desc "PASSIVE_COBRASTYLE_DESC"
+    class Monk
+
+    1 {
+        passives {
+            CobraReflex BasicMonkMelee
+        }
+    }
+    2 {
+        desc "PASSIVE_COBRASTYLE2_DESC"
+        passives {
+            CobraReflex BasicMonkMelee
+            CobraReflex BasicMonkMelee
+        }
+    }
+}
+
+Tenderize {
+    name "PASSIVE_TENDERIZE_NAME"
+    desc "PASSIVE_TENDERIZE_DESC"
+    class Monk
+
+    1 {
+        passives {
+            AddStatusToBasicMeleeAttack {
+                Bruise 1
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_TENDERIZE2_DESC"
+        passives {
+            AddStatusToBasicMeleeAttack {
+                Bruise 1
+                Confusion 1
+                Stun [1 .15]
+            }
+        }
+    }
+}
+
+LongArms {
+    name "PASSIVE_LONGARMS_NAME"
+    desc "PASSIVE_LONGARMS_DESC"
+    class Monk
+
+    1 {
+        passives {
+            AddBonusRange 1
+            AddBonusMeleeRange 1
+        }
+    }
+    2 {
+        desc "PASSIVE_LONGARMS2_DESC"
+        passives {
+            AddBonusRange 1
+            AddBonusMeleeRange 1
+        }
+        stats {
+            str 2
+            dex 2
+        }
+    }
+}
+
+SpreadThePain {
+    name "PASSIVE_SPREADTHEPAIN_NAME"
+    desc "PASSIVE_SPREADTHEPAIN_DESC"
+    class Monk
+
+    1 {
+        passives {
+            SpreadPainBonus 2
+        }
+    }
+    2 {
+        desc "PASSIVE_SPREADTHEPAIN2_DESC"
+        passives {
+            SpreadPainBonus 2
+            SpreadPainBonusCrit 1
+        }
+    }
+}
+
+Harden {
+    name "PASSIVE_HARDEN_NAME"
+    desc "PASSIVE_HARDEN_DESC"
+    class Monk
+
+    1 {
+        passives {
+            StatusOnGainShield {
+                Temporary {
+                    status Brace
+                    stacks 1
+                    turns 1
+                    expires_on_begin_turn true
+                }
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_HARDEN2_DESC"
+        passives {
+            StatusOnGainShield {
+                Temporary {
+                    status Brace
+                    stacks 1
+                    turns 1
+                    expires_on_begin_turn true
+                }
+            }
+            AddStatusToBasicAttack {
+                ApplyToSource {
+                    Shield 1
+                }
+            }
+        }
+    }
+}
+
+IronSkin {
+    name "PASSIVE_IRONSKINTECHNIQUE_NAME"
+    desc "PASSIVE_IRONSKINTECHNIQUE_DESC"
+    class Monk
+
+    1 {
+        passives {
+            StatusOnCrit {
+                Shield 2
+            }
+            CritChanceUp 10
+        }
+    }
+    2 {
+        desc "PASSIVE_IRONSKINTECHNIQUE2_DESC"
+        passives {
+            StatusOnCrit {
+                Shield 3
+            }
+            CritChanceUp 25
+        }
+    }
+}
+
+JetFists {
+    name "PASSIVE_JETFISTS_NAME"
+    desc "PASSIVE_JETFISTS_DESC"
+    class Monk
+
+    1 {
+        passives {
+            AddStatusToMeleeDamage {
+                DelayedWind {
+                    distance 2
+                }
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_JETFISTS2_DESC"
+        passives {
+            AddStatusToMeleeDamage {
+                DelayedWindCone {
+                    distance 10
+                }
+            }
+        }
+    }
+}
+
+EnergyFists {
+    name "PASSIVE_ENERGYFISTS_NAME"
+    desc "PASSIVE_ENERGYFISTS_DESC"
+    class Monk
+
+    1 {
+        passives {
+            AddSelfStatusToBasicAttack {
+                RandomMagicMissile 1
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_ENERGYFISTS2_DESC"
+        passives {
+            AddSelfStatusToBasicAttack {
+                RandomMagicMissile 1
+                RandomMagicMissile 1
+            }
+        }
+    }
+}
+
+Unstoppable {
+    name "PASSIVE_UNSTOPPABLE_NAME"
+    desc "PASSIVE_UNSTOPPABLE_DESC"
+    class Monk
+
+    1 {
+        passives {
+            CCImmunity 1
+            KnockbackImmunity 1
+        }
+    }
+    2 {
+        desc "PASSIVE_UNSTOPPABLE2_DESC"
+        passives {
+            CCImmunity 1
+            DebuffImmunity 1
+            KnockbackImmunity 1
+        }
+    }
+}
+
+UnburdenedMotion {
+    name "PASSIVE_UNBURDENEDMOTION_NAME"
+    desc "PASSIVE_UNBURDENEDMOTION_DESC"
+    class Monk
+
+    1 {
+        empty_armor_scaled_stats { //hard coded in CatData::get_bonus_stats and Character::recompute_item_effects
+            spd 1
+        }
+
+        passives {
+            PassiveIfEmptyHead {
+                DodgeChance 10%
+            }
+            PassiveIfEmptyNeck {
+                DodgeChance 10%
+            }
+            PassiveIfEmptyFace {
+                DodgeChance 10%
+            }
+            PassiveIfAllArmorEmpty {
+                ExtraMovePoints 1
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_UNBURDENEDMOTION2_DESC"
+
+        empty_armor_scaled_stats { //hard coded in CatData::get_bonus_stats and Character::recompute_item_effects
+            spd 2
+        }
+
+        passives {
+            PassiveIfEmptyHead {
+                DodgeChance 15%
+            }
+            PassiveIfEmptyNeck {
+                DodgeChance 15%
+            }
+            PassiveIfEmptyFace {
+                DodgeChance 15%
+            }
+            PassiveIfAllArmorEmpty {
+                ExtraMovePoints 1
+                Flying 1
+            }
+        }
+    }
+}
+
+UnburdenedStrikes {
+    name "PASSIVE_UNBURDENEDSTRIKES_NAME"
+    desc "PASSIVE_UNBURDENEDSTRIKES_DESC"
+    class Monk
+
+    1 {
+        passives {
+            PassiveIfEmptyHead {
+                CritChanceUp 10
+                AddCritMultiplier 25%
+            }
+            PassiveIfEmptyNeck {
+                CritChanceUp 10
+                AddCritMultiplier 25%
+            }
+            PassiveIfEmptyFace {
+                CritChanceUp 10
+                AddCritMultiplier 25%
+            }
+            PassiveIfAllArmorEmpty {
+                CounterAttack attack
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_UNBURDENEDSTRIKES2_DESC"
+
+        passives {
+            PassiveIfEmptyHead {
+                CritChanceUp 10
+                AddCritMultiplier 40%
+            }
+            PassiveIfEmptyNeck {
+                CritChanceUp 10
+                AddCritMultiplier 40%
+            }
+            PassiveIfEmptyFace {
+                CritChanceUp 10
+                AddCritMultiplier 40%
+            }
+            PassiveIfAllArmorEmpty {
+                CounterAttack attack
+                CritsApplyStatus {
+                    Bruise 1
+                }
+            }
+        }
+    }
+}
+
+UnburdenedThoughts {
+    name "PASSIVE_UNBURDENEDTHOUGHTS_NAME"
+    desc "PASSIVE_UNBURDENEDTHOUGHTS_DESC"
+    class Monk
+
+    1 {
+        empty_armor_scaled_stats { //hard coded in CatData::get_bonus_stats and Character::recompute_item_effects
+            int 1
+            cha 1
+        }
+
+        passives {
+            PassiveIfAllArmorEmpty {
+                ManaCostReduction 1
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_UNBURDENEDTHOUGHTS2_DESC"
+
+        empty_armor_scaled_stats { //hard coded in CatData::get_bonus_stats and Character::recompute_item_effects
+            int 1
+            cha 1
+        }
+
+        passives {
+            PassiveIfEmptyHead {
+                KineticSpikes 1
+            }
+            PassiveIfEmptyNeck {
+                KineticSpikes 1
+            }
+            PassiveIfEmptyFace {
+                KineticSpikes 1
+            }
+            PassiveIfAllArmorEmpty {
+                ManaCostReduction 1
+                AddSpellDamage 2
+            }
+        }
+    }
+}
+
+RunningJab {
+    name "PASSIVE_RUNNINGJAB_NAME"
+    desc "PASSIVE_RUNNINGJAB_DESC"
+    class Monk
+
+    1 {
+        passives {
+            StatusOnEndMove {
+                ForceAttack 1
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_RUNNINGJAB2_DESC"
+
+        passives {
+            StatusOnEndMove {
+                ForceAttack 1
+            }
+            ExtraMovePoints 1
+        }
+    }
+}
+
+PerfectTechnique {
+    name "PASSIVE_PERFECTTECHNIQUE_NAME"
+    desc "PASSIVE_PERFECTTECHNIQUE_DESC"
+    class Monk
+
+    1 {
+        passives {
+            PassiveWhileInMonkRangedStance {
+                AddBonusRange 1
+                AddSpellDamage 2
+            }
+            PassiveWhilePreviewingMonkRangedStance {
+                AddBonusRange 1
+            }
+            PassiveWhileInMonkMeleeStance {
+                Brace 1
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_PERFECTTECHNIQUE2_DESC"
+
+        passives {
+            PassiveWhileInMonkRangedStance {
+                AddBonusRange 2
+                KineticSpikes 2
+                AddSpellDamage 2
+            }
+            PassiveWhilePreviewingMonkRangedStance {
+                AddBonusRange 2
+            }
+            PassiveWhileInMonkMeleeStance {
+                Brace 2
+                HealthRegenUp 2
+            }
+        }
+    }
+}
+
+RapidFlow {
+    name "PASSIVE_RAPIDFLOW_NAME"
+    desc "PASSIVE_RAPIDFLOW_DESC"
+    class Monk
+
+    1 {
+        passives {
+            StatusOnStanceSwitch {
+                ForceUseAbility RapidFlowSpin
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_RAPIDFLOW2_DESC"
+        passives {
+            StatusOnStanceSwitch {
+                ForceUseAbility RapidFlowSpin2
+            }
+        }
+    }
+}
+
+CounterBarrage {
+    name "PASSIVE_COUNTERBARRAGE_NAME"
+    desc "PASSIVE_COUNTERBARRAGE_DESC"
+    class Monk
+
+    1 {
+        passives {
+            StatusOnTookDamageFromEnemyAbility {
+                Quivered 1
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_COUNTERBARRAGE2_DESC"
+        passives {
+            StatusOnTookDamageFromEnemyAbility {
+                Quivered 1
+                MoveQuivered 1
+            }
+        }
+    }
+}
+
+FlowState {
+    name "PASSIVE_FLOWSTATE_NAME"
+    desc "PASSIVE_FLOWSTATE_DESC"
+    class Monk
+
+    1 {
+        passives {
+            StatusOnDealtDamage {
+                TempStrengthUp 1
+                TempDexterityUp 2
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_FLOWSTATE2_DESC"
+        passives {
+            StatusOnDealtDamage {
+                TempStrengthUp 2
+                TempDexterityUp 2
+                TempLuckUp 2
+            }
+        }
+    }
+}
+
+DancingLights {
+    name "PASSIVE_DANCINGLIGHTS_NAME"
+    desc "PASSIVE_DANCINGLIGHTS_DESC"
+    class Monk
+
+    1 {
+        passives {
+            PassiveIfEmptyHead {
+                StatusOnStanceSwitch {
+                    RandomMagicMissile 1
+                }
+            }
+            PassiveIfEmptyNeck {
+                StatusOnStanceSwitch {
+                    RandomMagicMissile 1
+                }
+            }
+            PassiveIfEmptyFace {
+                StatusOnStanceSwitch {
+                    RandomMagicMissile 1
+                }
+            }
+            PassiveIfAllArmorEmpty {
+                StatusOnStanceSwitch {
+                    RandomStatUp 1
+                }
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_DANCINGLIGHTS2_DESC"
+
+        passives {
+            PassiveIfEmptyHead {
+                StatusOnStanceSwitch {
+                    RandomMagicMissile 1
+                }
+            }
+            PassiveIfEmptyNeck {
+                StatusOnStanceSwitch {
+                    RandomMagicMissile 1
+                }
+            }
+            PassiveIfEmptyFace {
+                StatusOnStanceSwitch {
+                    RandomMagicMissile 1
+                }
+            }
+            PassiveIfAllArmorEmpty {
+                StatusOnStanceSwitch {
+                    RandomStatUp 1
+                }
+                AddSpellDamage 1
+            }
+        }
+    }
+}

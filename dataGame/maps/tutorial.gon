@@ -1,0 +1,70 @@
+graphics Map_Tutorial
+chapter_id tutorial
+tileset tutorial
+world_name_frame tutorial
+area_name AREA_NAME_TUTORIAL
+act 0 //act 0 is the tutorial
+chapter 1
+
+version 1
+
+
+levels {
+    folder tutorial
+    easy [easy]
+    hard [easy] //switch this to "hard" in the brackets if we get specific hard levels in!
+    rare [rare]
+    boss [boss]
+    miniboss [miniboss]
+    special [special]
+}
+
+music tutorial
+ambience amb_alley.ogg
+
+events {
+    normal [
+        common
+    ]
+}
+
+enemy_pools { //for effects that need to spawn a "chapter enemy" of some sort
+    small [Maggot Fly Flea Pinky]
+    medium [Rat Leaper Pooter Kitten TomTom Mangy CatCaller]
+    large []
+}
+
+item_pools {
+
+}
+
+nodes {
+    start {
+	    type enter
+    }
+
+    battle {
+	    type battle
+    }
+
+    treasure {
+	    type treasure
+        level TreasureTutorial
+    }
+
+    event {
+	    type event
+        level Butch_Tutorial
+    }
+
+    //exits
+    home {
+	    type home
+    }
+
+    //special
+    boss {
+        type boss
+        boss_cutscene pebbles
+    }
+}

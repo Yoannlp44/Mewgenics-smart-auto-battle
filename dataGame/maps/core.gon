@@ -1,0 +1,91 @@
+graphics Map_Core
+chapter_id core
+tileset core
+world_name_frame thecore
+area_name AREA_NAME_CORE
+intro_cutscene core
+act 2
+chapter 3
+version 1
+
+levels {
+    folder core
+    easy [easy]
+    hard [easy]
+    rare [rare]
+    boss [boss]
+    miniboss [miniboss]
+    special [special]
+}
+
+music core
+ambience amb_core.ogg
+
+events {
+    normal [
+        common
+        core_events.gon
+    ]
+}
+
+enemy_pools { //for effects that need to spawn a "chapter enemy" of some sort
+    small []
+    medium [CoreFreak PokerDemon Whisperer CloakedDemon BigDemon HeadTumor TallTumor DemonHooker Belcher TumorCat]
+    large [MegaTumor]
+}
+
+item_pools {
+    chapter_item_pool coreitems
+}
+
+
+minibosses {
+    cerberubs auto
+}
+
+nodes {
+    #include "standard_nodes.gon"
+
+    //exits
+    exit0 {
+        type exit
+        next_map dimensionx.gon
+        hidden true
+        override_art MapNodeExit_DimensionX
+    }
+
+    //special
+    boss {
+        type boss
+        boss_cutscene coven
+    }
+
+    quest_event {
+        type special_event
+        level Quest_CoreObelisk
+        override_art MapNode_ObeliskHalf
+    }
+}
+
+flags {
+    CoreObeliskUnlocked {
+        quest_event {
+            level Quest_CoreObeliskRaised
+            override_art MapNode_ObeliskFull
+        }
+    }
+
+    BothObelisksUnlocked {
+        quest_event {
+            level Quest_CoreObeliskGlowing
+            override_art MapNode_ObeliskGlowing
+        }
+    }
+
+    DimensionXUnlocked {
+        quest_event {
+            level Quest_DimensionXPortal
+            override_art MapNode_RiftPortal
+        }
+    }
+}

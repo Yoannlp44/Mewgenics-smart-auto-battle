@@ -1,0 +1,80 @@
+//the number is POWER and it is scaled differently for each effect, use 1 most of the time unless you specifically want a piece to be "twice as strong as others with the same effect"
+
+//furniture bounses that effect BREEDING
+InheritAbilityChance 1
+InheritSecondAbilityChance 1
+InheritPassiveChance 1
+InheritDisorderChance 1
+
+InheritStatFavorMom 1
+InheritStatFavorDad 1
+InheritStatFavorBest 1
+
+InheritAbilityFavorMom 1
+InheritAbilityFavorDad 1
+InheritAbilityFavorClass 1
+
+InheritPassiveFavorMom 1
+InheritPassiveFavorDad 1
+InheritPassiveFavorClass 1
+
+InheritPieceFavorMutation 1
+
+
+//furniture bonuses that effect KITTENS (bonus effects that do not come from parents)
+KittenChanceOfExtraRandomStat 1
+KittenChanceOfExtraStr 1
+KittenChanceOfExtraDex 1
+KittenChanceOfExtraCon 1
+KittenChanceOfExtraInt 1
+KittenChanceOfExtraCha 1
+KittenChanceOfExtraSpd 1
+KittenChanceOfExtraLck 1
+KittenChanceOfMale 1
+KittenChanceOfFemale 1
+KittenChanceOfNeutral 1
+
+//furniture bonuses that effect STRAYS
+StrayChanceOfExtraRandomStat 1
+StrayChanceOfExtraStr 1
+StrayChanceOfExtraDex 1
+StrayChanceOfExtraCon 1
+StrayChanceOfExtraInt 1
+StrayChanceOfExtraCha 1
+StrayChanceOfExtraSpd 1
+StrayChanceOfExtraLck 1
+StrayChanceOfBonusPassive 1
+StrayChanceOfClassAbility 1
+StrayChanceOfClassPassive 1
+StrayChanceOfMale 1
+StrayChanceOfFemale 1
+StrayChanceOfNeutral 1
+
+
+//furniture bonuses that effect DEAD CATS
+CatDiesGainCoins 1
+CatDiesGainFood 1
+
+//furniture bonuses that effect poop
+PoopPopCoinChance 1
+PoopPopFoodChance 1
+
+//econ
+GainGoldEachDay 1
+ReduceFoodNeeded 1
+
+//event chances, fertility (chance to get kittens from breeding)
+IncreaseRoomBreedChance 1
+IncreaseRoomFightChance 1
+DecreaseRoomBreedChance 1
+DecreaseRoomFightChance 1
+IncreasePartnerBreedChance 1
+IncreaseRivalFightChance 1
+IncreaseFertility 1
+IncreaseLifespan 1
+
+//amplification effects
+FurnitureEffectsBoostGlobal 1
+FurnitureEffectsBoostRoom 1
+FurnitureEffectsBoostAdjacent 1
+FurnitureEffectsBoostStuffOnTop 1

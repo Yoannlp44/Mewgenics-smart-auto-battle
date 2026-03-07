@@ -1,0 +1,133 @@
+smart_hunter_move.merge {
+    distance_to_enemy -1
+    distance_to_ally 0
+    distance_to_character 0
+    preferred_distance reach  // Portée d'arme maximale [cite: 59]
+    total_distance_moved 0.01
+    face_closest_enemy 1
+}
+
+smart_fighter_move.merge {
+    distance_to_enemy -2    // Cherche frénétiquement le contact [cite: 56]
+    distance_to_ally 0
+    distance_to_character 0
+    preferred_distance 0
+    total_distance_moved 0.01
+    face_closest_enemy 1
+}
+
+smart_tank_move.merge {
+    distance_to_enemy -1
+    distance_to_ally -1     // Reste à proximité de son équipe [cite: 60, 61]
+    distance_to_character 0
+    preferred_distance 0
+    total_distance_moved 0.01
+    face_closest_enemy 1
+}
+
+smart_mage_move.merge {
+    distance_to_enemy -1
+    distance_to_ally 0
+    distance_to_character 0
+    preferred_distance reach
+    total_distance_moved 0.01
+    face_closest_enemy 1
+}
+
+smart_cleric_move.merge {
+    distance_to_enemy 1     // S'éloigne des ennemis [cite: 56]
+    distance_to_ally -2     // Cherche frénétiquement à coller ses alliés [cite: 60]
+    distance_to_character 0
+    preferred_distance 2    // Reste juste derrière la ligne de front [cite: 61]
+    total_distance_moved 0.01
+    face_closest_enemy 0
+}
+
+smart_thief_move.merge {
+    distance_to_enemy -1
+    distance_to_ally 0
+    distance_to_character 0
+    preferred_distance 0
+    total_distance_moved 5    // Pousse le voleur à beaucoup bouger (flanking) [cite: 57]
+    face_closest_enemy 1
+}
+
+smart_butcher_move.merge {
+    distance_to_enemy -2
+    distance_to_ally 0
+    distance_to_character 0
+    preferred_distance 0
+    total_distance_moved 0.01
+    face_closest_enemy 1
+}
+
+smart_psychic_move.merge {
+    distance_to_enemy -1
+    distance_to_ally -1
+    distance_to_character 0
+    preferred_distance mov   // Garde une distance de sécurité 
+    total_distance_moved 0.01
+    face_closest_enemy 1
+}
+
+// Le Collarless est un bagarreur hybride, il cherche le contact mais reste flexible
+smart_collarless_move.merge {
+    distance_to_enemy -1
+    distance_to_ally 0
+    distance_to_character 0
+    preferred_distance 1
+    total_distance_moved 0.01
+    face_closest_enemy 1
+}
+
+// Le Jester bouge beaucoup et de manière imprévisible
+smart_jester_move.merge {
+    distance_to_enemy -1
+    distance_to_ally 0
+    distance_to_character 0
+    preferred_distance 2
+    total_distance_moved 1.5    // Se déplace presque à chaque tour
+    face_closest_enemy 1
+    randomness 4                // Comportement légèrement erratique
+}
+
+// Le Druide reste un peu en arrière, près de ses invocations et de l'équipe
+smart_druid_move.merge {
+    distance_to_enemy 0
+    distance_to_ally -1
+    distance_to_character 0
+    preferred_distance reach
+    total_distance_moved 0.01
+    face_closest_enemy 1
+}
+
+// Le Moine fonce au contact comme le Fighter, mais esquive plus
+smart_monk_move.merge {
+    distance_to_enemy -2
+    distance_to_ally 0
+    distance_to_character 0
+    preferred_distance 0
+    total_distance_moved 0.5    // Se repositionne souvent pour faire des frappes de flanc
+    face_closest_enemy 1
+}
+
+// Le Nécromancien reste extrêmement loin et gère son armée de morts
+smart_necromancer_move.merge {
+    distance_to_enemy 1         // Cherche activement à fuir l'ennemi (+1)
+    distance_to_corpse -2       // Mais il est ATTIRE par les cadavres !
+    distance_to_ally 0
+    distance_to_character 0
+    preferred_distance mov
+    total_distance_moved 0.01
+    face_closest_enemy 1
+}
+
+// Le Bricoleur garde ses distances derrière ses tourelles
+smart_tinkerer_move.merge {
+    distance_to_enemy -1
+    distance_to_ally 0
+    distance_to_character 0
+    preferred_distance reach
+    total_distance_moved 0.01
+    face_closest_enemy 1
+}

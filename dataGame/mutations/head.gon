@@ -1,0 +1,435 @@
+head {
+    300 { //Square head
+        con 1
+    }
+    301 { //Sloth head
+        int -1
+        str 1
+        con 1
+    }
+    302 { //Big brain
+        int 2
+        con -1
+    }
+    303 { //Spioke head
+        desc "MUTATION_HEAD_303_DESC"
+        passives {
+            Thorns 1
+        }
+    }
+    304 { //Sludge head
+        tag melted
+        desc "MUTATION_HEAD_304_DESC"
+
+        cha -2
+        passives {
+            HealthRegenUp 2
+            DodgeChance 5%
+        }
+    }
+    305 { //Strong Chin
+        cha 1
+    }
+    306 { //Alien head
+        int 1
+    }
+    307 { //Bump-on-the-head Head
+        desc "MUTATION_HEAD_307_DESC"
+
+        shield 1
+        passives {
+            MeleeRevengeDamage {
+                type status
+                damage 0
+                knockback 1
+            }
+        }
+    }
+    308 { //Frog Head
+        tag animal
+        desc "MUTATION_HEAD_308_DESC"
+
+        passives {
+            PassiveWhenAffectedByElement {
+                element water
+                passives {
+                    AddMovement 1
+                }
+            } 
+            WaterWalk 1
+        }
+    }
+    309 { //half moon
+        lck 2
+    }
+    310 { //rock head
+        shield 2
+    }
+
+    311 { //Money Bag head
+        desc "MUTATION_HEAD_311_DESC"
+    
+        passives {
+            SpawnThingOnDamage {
+                object Coin 
+                chance 100%
+            }
+        }
+    }
+
+    312 { //Magnet Head
+        desc "MUTATION_HEAD_312_DESC"
+
+        passives {
+            MakeBasicAttackPull 1
+        } 
+    } 
+    
+    313 { //Poop Head
+        desc "MUTATION_HEAD_313_DESC"
+
+        passives {
+            PoopWhenHit Poop
+        }
+    }
+    
+    314 { //Pyramid Head
+        desc "MUTATION_HEAD_314_DESC"
+    
+        passives {
+            StatusEachTurnEnd {
+               IntelligenceUp 1
+            } 
+        }
+    }
+
+    315 { //Upside Down Head
+        desc "MUTATION_HEAD_315_DESC"
+   
+        passives {
+            SwapHighestAndLowestStat 1
+        }
+    }
+    
+    316 { //Fractured Head
+        desc "MUTATION_HEAD_316_DESC"
+        
+        passives {
+            StatusOnTookDamageFromAbility {
+                RandomStatusFromPool { 
+                    Charge 1
+                    Thorns 1
+                    KineticSpikes 1
+                    DiminishingHealthRegen 1
+                    RandomStatUp 1
+                    Shield 1
+                }
+            }
+        } 
+    }
+    
+    317 { //Sideways Head
+        desc "MUTATION_HEAD_317_DESC"
+
+        passives {
+            DodgeChance 5% 
+        }
+    }
+
+    318 { //Long Neck
+        desc "MUTATION_HEAD_318_DESC"
+
+        passives {
+            AddBonusRange 1
+        }
+    }
+    
+    319 { //Exposed Brain
+        desc "MUTATION_HEAD_319_DESC"
+
+        passives {
+            Bruise 2
+            StatusOnBattleEnd {
+                PermanentIntelligence 1
+            }
+        }
+    } 
+      
+    320 { //Bubble Head
+        desc "MUTATION_HEAD_320_DESC"
+
+        passives {
+            AddStatusToBasicAttack {
+                Knockback 2
+            }
+        }
+    } 
+
+    321 { //Button Head
+        desc "MUTATION_HEAD_321_DESC"
+
+        passives { 
+            RevengeDamage {
+                effects {
+                    Fear [1, .05]
+                }
+            }
+        }
+    } 
+	
+    750 { //spiked head
+		desc "MUTATION_HEAD_750_DESC"
+        passives { 
+			Thorns 1
+        }
+    } 
+	
+    753 { //tyler head
+        desc "MUTATION_HEAD_753_DESC"
+
+		passives {
+			ElementImmune Ice
+			StatusImmunity [Freeze, Slow]
+		}
+    } 	
+	
+    757 { //grey head
+		int 2
+    } 
+	
+    759 { //Human Head
+        desc "MUTATION_HEAD_759_DESC"
+
+        passives {
+            AlphaTurns 1
+        }
+    } 
+	
+     
+    //simple stat mod parts
+    400 {
+        str 2
+        con -1
+    }
+    401 {
+        str 2
+        dex -1
+    }
+    402 {
+        str 2
+        cha -1
+    }
+    403 {
+        str 2
+        int -1
+    }
+    404 {
+        str 2
+        spd -1
+    }
+    405 {
+        tag melted
+        str 2
+        lck -1
+    }
+    406 {
+        con 2
+        str -1
+    }
+    407 {
+        con 2
+        dex -1
+    }
+    408 {
+        con 2
+        cha -1
+    }
+    409 {
+        con 2
+        int -1
+    }
+    410 {
+        con 2
+        spd -1
+    }
+    411 {
+        con 2
+        lck -1
+    }
+    412 {
+        dex 2
+        con -1
+    }
+    413 {
+        dex 2
+        str -1
+    }
+    414 {
+        dex 2
+        cha -1
+    }
+    415 {
+        dex 2
+        int -1
+    }
+    416 {
+        dex 2
+        spd -1
+    }
+    417 {
+        dex 2
+        lck -1
+    }
+    418 {
+        int 2
+        con -1
+    }
+    419 {
+        int 2
+        dex -1
+    }
+    420 {
+        int 2
+        cha -1
+    }
+    421 {
+        int 2
+        str -1
+    }
+    422 {
+        int 2
+        spd -1
+    }
+    423 {
+        int 2
+        lck -1
+    }
+    424 {
+        cha 2
+        con -1
+    }
+    425 {
+        cha 2
+        dex -1
+    }
+    426 {
+        cha 2
+        str -1
+    }
+    427 {
+        cha 2
+        int -1
+    }
+    428 {
+        cha 2
+        spd -1
+    }
+    429 {
+        cha 2
+        lck -1
+    }
+    430 {
+        lck 2
+        con -1
+    }
+    431 {
+        lck 2
+        dex -1
+    }
+    432 {
+        lck 2
+        cha -1
+    }
+    433 {
+        lck 2
+        int -1
+    }
+    434 {
+        lck 2
+        spd -1
+    }
+    435 {
+        lck 2
+        str -1
+    }
+    436 {
+        spd 2
+        con -1
+    }
+    437 {
+        spd 2
+        str -1
+    }
+    438 {
+        spd 2
+        cha -1
+    }
+    439 {
+        spd 2
+        int -1
+    }
+    440 {
+        spd 2
+        dex -1
+    }
+    441 {
+        spd 2
+        lck -1
+    }
+
+
+    //Birth Defects
+    700 { //microcephaly
+        tag birth_defect
+        int -2
+    }
+    701 { //macrocephaly
+        tag birth_defect
+        int -2
+    }
+	702 { //concave head
+        tag birth_defect
+        int -1
+    }
+	703 { //soft spot
+        desc "MUTATION_HEAD_703_DESC"
+        tag birth_defect
+
+        passives {
+            BackstabFront 1
+        }
+    }
+	704 { //cyclops
+        desc "MUTATION_HEAD_704_DESC"
+        tag birth_defect
+
+        passives {
+            MissChance 20
+            ManaCostReduction 1
+        }
+    }
+	705 { //conjoined head
+        tag birth_defect
+        cha -3
+		int 2
+    }
+	706 { //sloth
+        desc "MUTATION_HEAD_706_DESC"
+        tag birth_defect
+        cha -3
+
+        passives {
+            Brace 1
+        }
+    }
+
+    900 { //slender
+        desc "MUTATION_HEAD_900_DESC"
+
+        cha -1
+        passives {
+            AddBonusRange 1
+            AddBonusMeleeRange 1
+        }
+    }
+}

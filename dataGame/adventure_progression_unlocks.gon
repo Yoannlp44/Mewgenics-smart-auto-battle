@@ -1,0 +1,2908 @@
+//class unlocks
+class_unlock_medic {
+	complete_chapter alley
+	trigger_npc_sequence class_unlock_medic
+}
+class_unlock_thief {
+	complete_chapter sewers
+	trigger_npc_sequence class_unlock_thief
+}
+class_unlock_necromancer {
+	complete_chapter boneyard
+	trigger_npc_sequence class_unlock_necromancer
+}
+class_unlock_psychic {
+	complete_chapter moon
+	trigger_npc_sequence class_unlock_psychic
+}
+class_unlock_tinkerer {
+	complete_chapter bunker
+	trigger_npc_sequence class_unlock_tinkerer
+}
+class_unlock_druid {
+	complete_chapter crater
+	trigger_npc_sequence class_unlock_druid
+}
+class_unlock_butcher {
+	complete_chapter core
+	trigger_npc_sequence class_unlock_butcher
+}
+class_unlock_monk {
+	complete_chapter lab
+	trigger_npc_sequence class_unlock_monk
+}
+class_unlock_jester {
+	complete_chapter dimensionx
+	trigger_npc_sequence class_unlock_jester
+	unlock_boss jestercat
+}
+
+
+//area unlocks
+map_unlock_hardpath {
+	complete_chapter sewers
+	//popup blah
+	set_mapgen_flag HardPathUnlocked
+}
+map_unlock_sewers {
+	complete_chapter alley
+	popup {
+		prompt AREA_UNLOCK_SEWERS
+		frame UnlockArea_Sewers
+	}
+
+	set_mapgen_flag SewersUnlocked
+}
+map_unlock_junkyard {
+	//triggered via unlockcheck_on_complete on alley boss
+	requires_hard_path true
+	popup {
+		prompt AREA_UNLOCK_JUNKYARD
+		immediate true
+		frame UnlockArea_Junkyard
+	}
+	set_mapgen_flag JunkyardUnlocked
+}
+map_unlock_boneyard {
+	complete_chapter junkyard
+	trigger_npc_sequence_tomorrow butch_boneyard_intro
+	trigger_npc_sequence_tomorrow organ_boneyard_intro
+	queue_cutscene_immediate dybbuk
+	set_mapgen_flag BoneyardUnlocked
+}
+map_unlock_caves {
+	complete_chapter sewers
+	trigger_npc_sequence_tomorrow frank_caves_intro
+	queue_cutscene_immediate caves_intro
+	set_mapgen_flag CavesUnlocked
+}
+map_unlock_desert {
+	complete_chapters [caves boneyard]
+	trigger_npc_sequence_tomorrow jack_desert_intro
+	queue_cutscene_immediate desert_intro
+	set_mapgen_flag DesertUnlocked
+}
+
+map_unlock_bunker {
+	complete_chapter desert
+	popup {
+		prompt AREA_UNLOCK_BUNKER
+		frame UnlockArea_Bunker
+	}
+	set_mapgen_flag BunkerUnlocked
+}
+map_unlock_crater {
+	complete_chapter desert
+	popup {
+		prompt AREA_UNLOCK_CRATER
+		frame UnlockArea_Crater
+	}
+	set_mapgen_flag CraterUnlocked
+}
+map_unlock_core {
+	complete_chapter bunker
+	queue_cutscene_immediate core_intro
+	set_mapgen_flag CoreUnlocked
+}
+map_unlock_moon {
+	complete_chapter crater
+	queue_cutscene_immediate moon_intro
+	/*popup {
+		prompt AREA_UNLOCK_MOON
+		frame UnlockArea_Moon
+	}*/
+	set_mapgen_flag MoonUnlocked
+}
+map_unlock_lab {
+	complete_chapters [core moon]
+	set_savefile_flag PlotFlag_Beanies_Homeless
+	queue_cutscene_immediate lab_intro
+	trigger_npc_sequence beanies_lab_intro
+	set_mapgen_flag LabUnlocked
+}
+map_unlock_iceage {
+	//complete_chapter lab
+	popup {
+		prompt AREA_UNLOCK_ICEAGE
+		immediate true
+		frame UnlockArea_IceAge
+	}
+	set_mapgen_flag IceAgeUnlocked
+}
+map_unlock_jurassic {
+	complete_chapter iceage
+	trigger_npc_sequence beanies_jurassic_intro
+	queue_cutscene_immediate jurassic_intro
+
+
+	/*popup {
+		prompt AREA_UNLOCK_JURASSIC
+		frame UnlockArea_Jurassic
+	}*/
+	set_mapgen_flag JurassicUnlocked
+}
+map_unlock_future {
+	complete_chapter jurassic
+	trigger_npc_sequence beanies_future_intro
+
+	popup {
+		prompt AREA_UNLOCK_FUTURE
+		frame UnlockArea_Future
+	}
+	set_mapgen_flag FutureUnlocked
+}
+
+see_future_dialog_trigger {
+	visit_chapter future
+	trigger_npc_sequence beanies_seefuture
+}
+
+map_unlock_theend {
+	complete_chapter future
+	trigger_npc_sequence beanies_theend_intro
+	queue_cutscene_immediate theend_intro
+
+	/*popup {
+		prompt AREA_UNLOCK_THEEND
+		frame UnlockArea_TheEnd
+	}*/
+	set_mapgen_flag TheEndUnlocked
+}
+
+see_theend_dialog_trigger {
+	visit_chapter theend
+	trigger_npc_sequence beanies_seetheend
+}
+
+//house boss unlocks + progression
+
+houseboss_unlock_guillotina_1 {
+	complete_chapter boneyard
+	trigger_house_boss guillotina_1
+}
+houseboss_unlock_guillotina_2 {
+	beat_house_boss guillotina_1
+	trigger_house_boss guillotina_2
+}
+houseboss_unlock_guillotina_3 {
+	beat_house_boss guillotina_2
+	trigger_house_boss guillotina_3
+}
+
+houseboss_unlock_pyrophina {
+	complete_chapter core
+	trigger_house_boss pyrophina
+}
+houseboss_unlock_zaratana {
+	complete_chapter moon
+	trigger_house_boss zaratana
+}
+houseboss_unlock_kaijufighta {
+	beat_house_boss pyrophina
+	require_beat_house_boss zaratana
+	trigger_house_boss pyrophina_vs_zaratana
+}
+houseboss_unlock_kaijufightb {
+	beat_house_boss zaratana
+	require_beat_house_boss pyrophina
+	trigger_house_boss pyrophina_vs_zaratana
+}
+
+houseboss_unlock_terminator_1 {
+	complete_chapter future
+	trigger_house_boss terminator_1
+}
+houseboss_unlock_terminator_2 {
+	beat_house_boss terminator_1
+	trigger_house_boss terminator_2
+}
+houseboss_unlock_terminator_3 {
+	beat_house_boss terminator_2
+	trigger_house_boss terminator_3
+}
+
+trigger_starcat_tip {
+	beat_house_boss any
+	trigger_npc_sequence butch_first_house_boss_beat
+}
+
+
+npc_houseboss_intro_guillotina_1 {
+	trigger_npc_sequence butch_tina1
+}
+npc_houseboss_intro_guillotina_2 {
+	trigger_npc_sequence tink_tina2
+}
+npc_houseboss_intro_guillotina_3 {
+	trigger_npc_sequence organ_tina3
+}
+npc_houseboss_intro_pyrophina {
+	trigger_npc_sequence butch_pyro
+}
+npc_houseboss_intro_zaratana {
+	trigger_npc_sequence jack_zara
+}
+npc_houseboss_intro_pyrophina_vs_zaratana {
+	trigger_npc_sequence tracy_kaijufight
+}
+npc_houseboss_intro_terminator_1 {
+	trigger_npc_sequence tink_terminator
+}
+npc_houseboss_intro_terminator_2 {
+	trigger_npc_sequence frank_terminator2
+}
+npc_houseboss_intro_terminator_3 {
+	trigger_npc_sequence beanies_hitler3
+}
+
+//QUEST TRIGGERS
+quest_begin_gristle {
+	beat_house_boss guillotina_1
+	unlock_quest_item ThrobbingGristle
+	popup {
+		prompt QUEST_BEGIN_THROBBINGGRISTLE
+		frame QuestUnlock_Gristle
+	}
+}
+quest_begin_leech {
+	beat_house_boss guillotina_2
+	unlock_quest_item PutridLeech
+	popup {
+		prompt QUEST_BEGIN_PUTRIDLEECH
+		frame QuestUnlock_Leech
+	}
+}
+quest_begin_tinahead {
+	beat_house_boss guillotina_3
+	unlock_quest_item GuillotinasHead
+	popup {
+		prompt QUEST_BEGIN_GUILLOTINASHEAD
+		frame QuestUnlock_Head
+	}
+}
+
+//
+quest_begin_scaldingorb {
+	beat_house_boss pyrophina
+	unlock_quest_item ScaldingOrb
+	popup {
+		prompt QUEST_BEGIN_SCALDINGORB
+		frame QuestUnlock_Orb
+	}
+}
+quest_begin_blackshard {
+	beat_house_boss zaratana
+	unlock_quest_item BlackShard
+	popup {
+		prompt QUEST_BEGIN_BLACKSHARD
+		frame QuestUnlock_Shard
+	}
+}
+quest_begin_pcollar {
+	beat_house_boss pyrophina_vs_zaratana
+	surviving_kaiju pyrophina
+	unlock_quest_item PyrophinasCollar
+	popup {
+		prompt QUEST_BEGIN_PYROPHINASCOLLAR
+		frame QuestUnlock_KaijuCollar
+	}
+}
+quest_begin_zcollar {
+	beat_house_boss pyrophina_vs_zaratana
+	surviving_kaiju zaratana
+	unlock_quest_item ZaratanasCollar
+	popup {
+		prompt QUEST_BEGIN_ZARATANASCOLLAR
+		frame QuestUnlock_KaijuCollar
+	}
+}
+
+//
+quest_begin_receiver {
+	beat_house_boss terminator_1
+	trigger_npc_sequence beanies_terminator1_defeat
+}
+quest_begin_transmitter {
+	beat_house_boss terminator_2
+	trigger_npc_sequence beanies_terminator2_defeat
+}
+quest_begin_amplifier {
+	beat_house_boss terminator_3
+	trigger_npc_sequence beanies_hitler3_defeat
+}
+quest_begin_receiver2 {
+	unlock_quest_item ReceiverAntenna
+	popup {
+		prompt QUEST_BEGIN_RECEIVER
+		frame QuestUnlock_Receiver
+		immediate true
+	}
+}
+quest_begin_transmitter2 {
+	unlock_quest_item TransmitterAntenna
+	popup {
+		prompt QUEST_BEGIN_TRANSMITTER
+		frame QuestUnlock_Transmitter
+		immediate true
+	}
+}
+quest_begin_amplifier2 {
+	unlock_quest_item SignalAmplifier
+	popup {
+		prompt QUEST_BEGIN_AMPLIFIER
+		frame QuestUnlock_Amplifier
+		immediate true
+	}
+}
+
+//time machine quest flag
+time_machine_quest_trigger {
+	trigger_npc_sequence beanies_timemachine_intro
+}
+time_machine_quest_begin {
+	unlock_quest_item CryogenicTimeChamber_Empty
+
+	popup {
+		prompt QUEST_BEGIN_COOLER
+		immediate true
+		frame QuestUnlock_Cooler
+	}
+}
+time_machine_quest_finalstep {
+	trigger_npc_sequence beanies_timemachine_2
+}
+
+//QUEST COMPLETIONS
+meat_world_unlock {
+	set_mapgen_flag MeatWorldUnlocked
+	trigger_npc_sequence organ_throbbingdomain_intro
+
+	popup {
+		prompt AREA_UNLOCK_MEATWORLD
+		immediate true
+		frame UnlockArea_Meatworld
+	}
+}
+meat_world_open {
+	set_mapgen_flag MeatWorldUnlockedFull
+
+	/*popup {
+		prompt AREA_UNLOCK_MEATWORLDFULL
+		immediate true
+		frame UnlockArea_Meatworld
+	}*/
+}
+map_unlock_dimensionx {
+	set_mapgen_flag DimensionXUnlocked
+
+	/*popup {
+		prompt AREA_UNLOCK_THERIFT
+		immediate true
+		frame AreaUnlock_Rift
+	}*/
+}
+
+moon_obelisk {
+	complete_item_quest ScaldingOrb
+	set_mapgen_flag MoonObeliskUnlocked
+	post_combat_cutscene obelisk1_moon
+}
+core_obelisk {
+	complete_item_quest BlackShard
+	set_mapgen_flag CoreObeliskUnlocked
+	post_combat_cutscene obelisk1_core
+}
+moon_obelisk2 {
+	complete_item_quest ScaldingOrb
+	require_mapgen_flag CoreObeliskUnlocked
+	set_mapgen_flag BothObelisksUnlocked
+	post_combat_cutscene obelisk2_moon
+}
+core_obelisk2 {
+	complete_item_quest BlackShard
+	require_mapgen_flag MoonObeliskUnlocked
+	set_mapgen_flag BothObelisksUnlocked
+	post_combat_cutscene obelisk2_core
+}
+
+end_of_time_unlock {
+	set_mapgen_flag EndOfTimeUnlocked
+
+	/*popup {
+		prompt AREA_UNLOCK_ENDOFTIME
+		immediate true
+		frame AreaUnlock_Infinite
+	}*/
+}
+
+//NUKE QUEST
+nuke_quest_begin {
+	complete_chapter endoftime
+	trigger_npc_sequence beanies_bombquest_begin
+
+	preempt_npc_sequence beanies_bombquest_amnesia
+}
+nuke_quest_jar1 {
+	complete_item_quest JarOfRadiation
+	repeatable true
+	trigger_npc_sequence beanies_bombquest_2 //this one is optional to see and should be cleared if you progess past it or fail the quest
+}
+nuke_quest_jar2 {
+	complete_item_quest JarOfRadiatedBlood
+	repeatable true
+	trigger_npc_sequence beanies_bombquest_3
+
+	preempt_npc_sequence beanies_bombquest_2
+}
+
+//NUKE QUEST FAILS
+fail_nuke1 {
+	fail_item_quest JarOfRadiation
+	repeatable true
+	trigger_npc_sequence beanies_bombquest_fail_jarofradiation
+}
+fail_nuke2 {
+	fail_item_quest JarOfRadiatedBlood
+	repeatable true
+	trigger_npc_sequence beanies_bombquest_fail_jarofblood
+
+	preempt_npc_sequence beanies_bombquest_2
+	preempt_npc_sequence beanies_bombquest_3
+}
+fail_nuke3 {
+	fail_item_quest JarOfChaos
+	repeatable true
+	trigger_npc_sequence beanies_bombquest_fail_jarofchaos
+
+	preempt_npc_sequence beanies_bombquest_2
+	preempt_npc_sequence beanies_bombquest_3
+}
+fail_nuke4 {
+	fail_item_quest Nuke
+	repeatable true
+	trigger_npc_sequence beanies_bombquest_fail_nuke
+}
+
+reset_nuke_quest { //manually triggered via dialog
+	repeatable true
+
+	unlock_quest_item JarOfRadiation
+
+	popup {
+		prompt QUEST_BEGIN_JAR
+		immediate true
+		frame QuestUnlock_Jar
+	}
+
+	reset_npc_sequence beanies_bombquest_2
+	reset_npc_sequence beanies_bombquest_3
+	reset_npc_sequence beanies_bombquest_fail_jarofradiation
+	reset_npc_sequence beanies_bombquest_fail_jarofblood
+	reset_npc_sequence beanies_bombquest_fail_jarofchaos
+	reset_npc_sequence beanies_bombquest_fail_nuke
+	reset_npc_sequence beanies_bombquest_amnesia
+}
+nuke_quest_get_nuke { //manually triggered via dialog
+	finish_quest JarOfChaos //this one ("finish_quest") means "trigger finishing this quest" not "this triggers when the quest is done" (which would be the "complete_item_quest" condition)
+	unlock_quest_item Nuke
+
+	repeatable true
+
+	popup {
+		prompt QUEST_BEGIN_NUKE
+		immediate true
+		frame QuestUnlock_Nuke
+	}
+}
+
+nuke_quest_complete {
+	complete_item_quest Nuke
+
+	repeatable true
+
+	set_savefile_flag PlotFlag_FrankBeanies
+	trigger_npc_sequence frank_ending
+	trigger_npc_sequence beanies_bombquest_amnesia
+	trigger_npc_sequence steven_postendgame
+
+	//reset_unlock nuke_quest_begin //killing God again normally can trigger the nuke quest a second time
+	//reset_npc_sequence beanies_bombquest_begin
+
+	increment_savefile_counter GameStat_CountNukeQuestCompletions
+}
+
+nuke_quest_loop {
+	repeatable true
+
+	reset_unlock nuke_quest_begin //killing God again normally can trigger the nuke quest a second time
+	reset_npc_sequence beanies_bombquest_begin
+}
+
+//CLASS UNLOCKS
+
+//class ability unlocks (caves with class)
+class_unlock_fighter_ability {
+	complete_chapter_with_class [caves Fighter]
+	popup {
+		prompt ABILITY_UNLOCK_FIGHTER
+		immediate true
+	}
+	unlock_ability Pawbreaker
+}
+class_unlock_hunter_ability {
+	complete_chapter_with_class [caves Hunter]
+	popup {
+		prompt ABILITY_UNLOCK_HUNTER
+		immediate true
+	}
+	unlock_ability BallOfSpiders
+}
+class_unlock_mage_ability {
+	complete_chapter_with_class [caves Mage]
+	popup {
+		prompt ABILITY_UNLOCK_MAGE
+		immediate true
+	}
+	unlock_ability HyperBeam
+}
+class_unlock_medic_ability {
+	complete_chapter_with_class [caves Medic]
+	popup {
+		prompt ABILITY_UNLOCK_MEDIC
+		immediate true
+	}
+	unlock_ability Ethereal
+}
+class_unlock_thief_ability {
+	complete_chapter_with_class [caves Thief]
+	popup {
+		prompt ABILITY_UNLOCK_THIEF
+		immediate true
+	}
+	unlock_ability NailFlurry
+}
+class_unlock_tank_ability {
+	complete_chapter_with_class [caves Tank]
+	popup {
+		prompt ABILITY_UNLOCK_TANK
+		immediate true
+	}
+	unlock_ability Suplex
+}
+class_unlock_necro_ability {
+	complete_chapter_with_class [caves Necromancer]
+	popup {
+		prompt ABILITY_UNLOCK_NECROMANCER
+		immediate true
+	}
+	unlock_ability SummonShade
+}
+class_unlock_psychic_ability {
+	complete_chapter_with_class [caves Psychic]
+	popup {
+		prompt ABILITY_UNLOCK_PSYCHIC
+		immediate true
+	}
+	unlock_ability Supernova
+}
+class_unlock_tinkerer_ability {
+	complete_chapter_with_class [caves Tinkerer]
+	popup {
+		prompt ABILITY_UNLOCK_TINKERER
+		immediate true
+	}
+	unlock_ability MechSuit
+}
+class_unlock_butcher_ability {
+	complete_chapter_with_class [caves Butcher]
+	popup {
+		prompt ABILITY_UNLOCK_BUTCHER
+		immediate true
+	}
+	unlock_ability SliceAndDice
+}
+class_unlock_druid_ability {
+	complete_chapter_with_class [caves Druid]
+	popup {
+		prompt ABILITY_UNLOCK_DRUID
+		immediate true
+	}
+	unlock_ability SummonBear
+}
+class_unlock_monk_ability {
+	complete_chapter_with_class [caves Monk]
+	popup {
+		prompt ABILITY_UNLOCK_MONK
+		immediate true
+	}
+	unlock_ability HundredHandSlap
+}
+class_unlock_colorless_ability {
+	complete_chapter_with_class [caves Colorless]
+	popup {
+		prompt ABILITY_UNLOCK_COLORLESS
+		immediate true
+	}
+	unlock_ability Metronome
+}
+class_unlock_jester_ability {
+	complete_chapter_with_class [caves Jester]
+	popup {
+		prompt ABILITY_UNLOCK_JESTER
+		immediate true
+	}
+	unlock_ability SmartMetronome
+	unlock_ability RNGCannon
+	unlock_ability Bump
+	unlock_ability PowerUp
+}
+
+//class passive unlocks (boneyard)
+class_unlock_fighter_passive {
+	complete_chapter_with_class [boneyard Fighter]
+	popup {
+		prompt PASSIVE_UNLOCK_FIGHTER
+		immediate true
+	}
+	unlock_passive DualWield
+}
+class_unlock_hunter_passive {
+	complete_chapter_with_class [boneyard Hunter]
+	popup {
+		prompt PASSIVE_UNLOCK_HUNTER
+		immediate true
+	}
+	unlock_passive ThrillOfTheHunt
+}
+class_unlock_mage_passive {
+	complete_chapter_with_class [boneyard Mage]
+	popup {
+		prompt PASSIVE_UNLOCK_MAGE
+		immediate true
+	}
+	unlock_passive EnergyStorm
+}
+class_unlock_medic_passive {
+	complete_chapter_with_class [boneyard Medic]
+	popup {
+		prompt PASSIVE_UNLOCK_MEDIC
+		immediate true
+	}
+	unlock_passive EvilPatron
+}
+class_unlock_thief_passive {
+	complete_chapter_with_class [boneyard Thief]
+	popup {
+		prompt PASSIVE_UNLOCK_THIEF
+		immediate true
+	}
+	unlock_passive AlphaStrike
+}
+class_unlock_tank_passive {
+	complete_chapter_with_class [boneyard Tank]
+	popup {
+		prompt PASSIVE_UNLOCK_TANK
+		immediate true
+	}
+	unlock_passive Bouncer
+}
+class_unlock_necro_passive {
+	complete_chapter_with_class [boneyard Necromancer]
+	popup {
+		prompt PASSIVE_UNLOCK_NECROMANCER
+		immediate true
+	}
+	unlock_passive DeathIncarnate
+}
+class_unlock_psychic_passive {
+	complete_chapter_with_class [boneyard Psychic]
+	popup {
+		prompt PASSIVE_UNLOCK_PSYCHIC
+		immediate true
+	}
+	unlock_passive GravityWell
+}
+class_unlock_tinkerer_passive {
+	complete_chapter_with_class [boneyard Tinkerer]
+	popup {
+		prompt PASSIVE_UNLOCK_TINKERER
+		immediate true
+	}
+	unlock_passive ArmorSpecialist
+}
+class_unlock_butcher_passive {
+	complete_chapter_with_class [boneyard Butcher]
+	popup {
+		prompt PASSIVE_UNLOCK_BUTCHER
+		immediate true
+	}
+	unlock_passive Indigestion
+}
+class_unlock_druid_passive {
+	complete_chapter_with_class [boneyard Druid]
+	popup {
+		prompt PASSIVE_UNLOCK_DRUID
+		immediate true
+	}
+	unlock_passive SuicideSquad
+}
+class_unlock_monk_passive {
+	complete_chapter_with_class [boneyard Monk]
+	popup {
+		prompt PASSIVE_UNLOCK_MONK
+		immediate true
+	}
+	unlock_passive Unstoppable
+}
+class_unlock_colorless_passive {
+	complete_chapter_with_class [boneyard Colorless]
+	popup {
+		prompt PASSIVE_UNLOCK_COLORLESS
+		immediate true
+	}
+	unlock_passive SkillShare
+}
+class_unlock_jester_passive {
+	complete_chapter_with_class [boneyard Jester]
+	popup {
+		prompt PASSIVE_UNLOCK_JESTER
+		immediate true
+	}
+	unlock_passive SuperLuck
+    unlock_passive Goofball
+}
+
+
+//class colorless ability unlocks (core with class)
+class_unlock_fighter_colorless_ability {
+	complete_chapter_with_class [core Fighter]
+	popup {
+		prompt ABILITY_UNLOCK_FIGHTER_COLORLESS
+		immediate true
+	}
+	unlock_ability PathOfTheFighter
+}
+class_unlock_hunter_colorless_ability {
+	complete_chapter_with_class [core Hunter]
+	popup {
+		prompt ABILITY_UNLOCK_HUNTER_COLORLESS
+		immediate true
+	}
+	unlock_ability PathOfTheHunter
+}
+class_unlock_mage_colorless_ability {
+	complete_chapter_with_class [core Mage]
+	popup {
+		prompt ABILITY_UNLOCK_MAGE_COLORLESS
+		immediate true
+	}
+	unlock_ability PathOfTheMage
+}
+class_unlock_medic_colorless_ability {
+	complete_chapter_with_class [core Medic]
+	popup {
+		prompt ABILITY_UNLOCK_MEDIC_COLORLESS
+		immediate true
+	}
+	unlock_ability PathOfTheCleric
+}
+class_unlock_thief_colorless_ability {
+	complete_chapter_with_class [core Thief]
+	popup {
+		prompt ABILITY_UNLOCK_THIEF_COLORLESS
+		immediate true
+	}
+	unlock_ability PathOfTheThief
+}
+class_unlock_tank_colorless_ability {
+	complete_chapter_with_class [core Tank]
+	popup {
+		prompt ABILITY_UNLOCK_TANK_COLORLESS
+		immediate true
+	}
+	unlock_ability PathOfTheTank
+}
+class_unlock_necro_colorless_ability {
+	complete_chapter_with_class [core Necromancer]
+	popup {
+		prompt ABILITY_UNLOCK_NECROMANCER_COLORLESS
+		immediate true
+	}
+	unlock_ability PathOfTheNecromancer
+}
+class_unlock_psychic_colorless_ability {
+	complete_chapter_with_class [core Psychic]
+	popup {
+		prompt ABILITY_UNLOCK_PSYCHIC_COLORLESS
+		immediate true
+	}
+	unlock_ability PathOfThePsychic
+}
+class_unlock_tinkerer_colorless_ability {
+	complete_chapter_with_class [core Tinkerer]
+	popup {
+		prompt ABILITY_UNLOCK_TINKERER_COLORLESS
+		immediate true
+	}
+	unlock_ability PathOfTheTinkerer
+}
+class_unlock_butcher_colorless_ability {
+	complete_chapter_with_class [core Butcher]
+	popup {
+		prompt ABILITY_UNLOCK_BUTCHER_COLORLESS
+		immediate true
+	}
+	unlock_ability PathOfTheButcher
+}
+class_unlock_druid_colorless_ability {
+	complete_chapter_with_class [core Druid]
+	popup {
+		prompt ABILITY_UNLOCK_DRUID_COLORLESS
+		immediate true
+	}
+	unlock_ability PathOfTheDruid
+}
+class_unlock_monk_colorless_ability {
+	complete_chapter_with_class [core Monk]
+	popup {
+		prompt ABILITY_UNLOCK_MONK_COLORLESS
+		immediate true
+	}
+	unlock_ability PathOfTheMonk
+}
+class_unlock_colorless_colorless_ability {
+	complete_chapter_with_class [core Colorless]
+	popup {
+		prompt ABILITY_UNLOCK_COLORLESS_COLORLESS
+		immediate true
+	}
+	unlock_ability PathOfTheVoid
+}
+class_unlock_jester_colorless_ability {
+	complete_chapter_with_class [core Jester]
+	popup {
+		prompt ABILITY_UNLOCK_JESTER_COLORLESS
+		immediate true
+	}
+	unlock_ability PathOfTheJester
+}
+
+//class passive colorless unlocks (moon)
+class_unlock_fighter_colorless_passive {
+	complete_chapter_with_class [moon Fighter]
+	popup {
+		prompt PASSIVE_UNLOCK_FIGHTER_COLORLESS
+		immediate true
+	}
+	unlock_passive FightersSoul
+}
+class_unlock_hunter_colorless_passive {
+	complete_chapter_with_class [moon Hunter]
+	popup {
+		prompt PASSIVE_UNLOCK_HUNTER_COLORLESS
+		immediate true
+	}
+	unlock_passive HuntersSoul
+}
+class_unlock_mage_colorless_passive {
+	complete_chapter_with_class [moon Mage]
+	popup {
+		prompt PASSIVE_UNLOCK_MAGE_COLORLESS
+		immediate true
+	}
+	unlock_passive MagesSoul
+}
+class_unlock_medic_colorless_passive {
+	complete_chapter_with_class [moon Medic]
+	popup {
+		prompt PASSIVE_UNLOCK_MEDIC_COLORLESS
+		immediate true
+	}
+	unlock_passive ClericsSoul
+}
+class_unlock_thief_colorless_passive {
+	complete_chapter_with_class [moon Thief]
+	popup {
+		prompt PASSIVE_UNLOCK_THIEF_COLORLESS
+		immediate true
+	}
+	unlock_passive ThiefsSoul
+}
+class_unlock_tank_colorless_passive {
+	complete_chapter_with_class [moon Tank]
+	popup {
+		prompt PASSIVE_UNLOCK_TANK_COLORLESS
+		immediate true
+	}
+	unlock_passive TanksSoul
+}
+class_unlock_necro_colorless_passive {
+	complete_chapter_with_class [moon Necromancer]
+	popup {
+		prompt PASSIVE_UNLOCK_NECROMANCER_COLORLESS
+		immediate true
+	}
+	unlock_passive NecromancersSoul
+}
+class_unlock_psychic_colorless_passive {
+	complete_chapter_with_class [moon Psychic]
+	popup {
+		prompt PASSIVE_UNLOCK_PSYCHIC_COLORLESS
+		immediate true
+	}
+	unlock_passive PsychicsSoul
+}
+class_unlock_tinkerer_colorless_passive {
+	complete_chapter_with_class [moon Tinkerer]
+	popup {
+		prompt PASSIVE_UNLOCK_TINKERER_COLORLESS
+		immediate true
+	}
+	unlock_passive TinkerersSoul
+}
+class_unlock_butcher_colorless_passive {
+	complete_chapter_with_class [moon Butcher]
+	popup {
+		prompt PASSIVE_UNLOCK_BUTCHER_COLORLESS
+		immediate true
+	}
+	unlock_passive ButchersSoul
+}
+class_unlock_druid_colorless_passive {
+	complete_chapter_with_class [moon Druid]
+	popup {
+		prompt PASSIVE_UNLOCK_DRUID_COLORLESS
+		immediate true
+	}
+	unlock_passive DruidsSoul
+}
+class_unlock_monk_colorless_passive {
+	complete_chapter_with_class [moon Monk]
+	popup {
+		prompt PASSIVE_UNLOCK_MONK_COLORLESS
+		immediate true
+	}
+	unlock_passive MonksSoul
+}
+class_unlock_colorless_colorless_passive {
+	complete_chapter_with_class [moon Colorless]
+	popup {
+		prompt PASSIVE_UNLOCK_COLORLESS_COLORLESS
+		immediate true
+	}
+	unlock_passive VoidSoul
+}
+class_unlock_jester_colorless_passive {
+	complete_chapter_with_class [moon Jester]
+	popup {
+		prompt PASSIVE_UNLOCK_JESTER_COLORLESS
+		immediate true
+	}
+	unlock_passive JestersSoul
+}
+
+//class weapon unlocks (jurassic)
+class_unlock_fighter_weapon {
+	complete_chapter_with_class [jurassic Fighter]
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate BattleAxe
+}
+class_unlock_hunter_weapon {
+	complete_chapter_with_class [jurassic Hunter]
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate InfinityArrow
+}
+class_unlock_mage_weapon {
+	complete_chapter_with_class [jurassic Mage]
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate StaffOfFlame
+}
+class_unlock_medic_weapon {
+	complete_chapter_with_class [jurassic Medic]
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate AnointingOil
+}
+class_unlock_thief_weapon {
+	complete_chapter_with_class [jurassic Thief]
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate LacedNeedle
+}
+class_unlock_tank_weapon {
+	complete_chapter_with_class [jurassic Tank]
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate Girder
+}
+class_unlock_necro_weapon {
+	complete_chapter_with_class [jurassic Necromancer]
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate UnderworldStaff
+}
+class_unlock_psychic_weapon {
+	complete_chapter_with_class [jurassic Psychic]
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate BentSpoon
+}
+class_unlock_tinkerer_weapon {
+	complete_chapter_with_class [jurassic Tinkerer]
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate BallPeenHammer
+}
+class_unlock_butcher_weapon {
+	complete_chapter_with_class [jurassic Butcher]
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate ButchersCleaver
+}
+class_unlock_druid_weapon {
+	complete_chapter_with_class [jurassic Druid]
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate RainStaff
+}
+class_unlock_monk_weapon {
+	complete_chapter_with_class [jurassic Monk]
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate Bo
+}
+class_unlock_colorless_weapon {
+	complete_chapter_with_class [jurassic Colorless]
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate LilKitty
+}
+class_unlock_jester_weapon {
+	complete_chapter_with_class [jurassic Jester]
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate NinnyStick
+}
+
+//class trinket unlocks (theend)
+class_unlock_fighter_trinket {
+	complete_chapter_with_class [theend Fighter]
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate RageJuice
+}
+class_unlock_hunter_trinket {
+	complete_chapter_with_class [theend Hunter]
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate HuntersFlute
+}
+class_unlock_mage_trinket {
+	complete_chapter_with_class [theend Mage]
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate RingOfFrost
+}
+class_unlock_medic_trinket {
+	complete_chapter_with_class [theend Medic]
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate HolyWater
+}
+class_unlock_thief_trinket {
+	complete_chapter_with_class [theend Thief]
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate LuckyCoinPurse
+}
+class_unlock_tank_trinket {
+	complete_chapter_with_class [theend Tank]
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate TankJuice
+}
+class_unlock_necro_trinket {
+	complete_chapter_with_class [theend Necromancer]
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate SatanicBible
+}
+class_unlock_psychic_trinket {
+	complete_chapter_with_class [theend Psychic]
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate TarotDeck
+}
+class_unlock_tinkerer_trinket {
+	complete_chapter_with_class [theend Tinkerer]
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate ScrapBag
+}
+class_unlock_butcher_trinket {
+	complete_chapter_with_class [theend Butcher]
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate Cookbook
+}
+class_unlock_druid_trinket {
+	complete_chapter_with_class [theend Druid]
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate DruidsWhistle
+}
+class_unlock_monk_trinket {
+	complete_chapter_with_class [theend Monk]
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate EmptyHand
+}
+class_unlock_colorless_trinket {
+	complete_chapter_with_class [theend Colorless]
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate BallOfYarn
+}
+class_unlock_jester_trinket {
+	complete_chapter_with_class [theend Jester]
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate ToyGun
+}
+
+//class helmet unlocks (throbbing king)
+class_unlock_fighter_helmet {
+	complete_chapter_with_class [meatworld Fighter]
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate FighterHelm
+}
+class_unlock_hunter_helmet {
+	complete_chapter_with_class [meatworld Hunter]
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate HunterCap
+}
+class_unlock_mage_helmet {
+	complete_chapter_with_class [meatworld Mage]
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate MageHat
+}
+class_unlock_medic_helmet {
+	complete_chapter_with_class [meatworld Medic]
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate ClericHat
+}
+class_unlock_thief_helmet {
+	complete_chapter_with_class [meatworld Thief]
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate ThiefHood
+}
+class_unlock_tank_helmet {
+	complete_chapter_with_class [meatworld Tank]
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate TankHelmet
+}
+class_unlock_necro_helmet {
+	complete_chapter_with_class [meatworld Necromancer]
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate SpiderHat
+}
+class_unlock_psychic_helmet {
+	complete_chapter_with_class [meatworld Psychic]
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate TinfoilHat
+}
+class_unlock_tinkerer_helmet {
+	complete_chapter_with_class [meatworld Tinkerer]
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate ScrappersHat
+}
+class_unlock_butcher_helmet {
+	complete_chapter_with_class [meatworld Butcher]
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate FleshShroud
+}
+class_unlock_druid_helmet {
+	complete_chapter_with_class [meatworld Druid]
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate MushroomHat
+}
+class_unlock_monk_helmet {
+	complete_chapter_with_class [meatworld Monk]
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate HeadBrand
+}
+class_unlock_colorless_helmet {
+	complete_chapter_with_class [meatworld Colorless]
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate CatEars
+}
+class_unlock_jester_helmet {
+	complete_chapter_with_class [meatworld Jester]
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate CapAndBells
+}
+
+//class face unlocks (chaos boss)
+class_unlock_fighter_face {
+	complete_chapter_with_class [dimensionx Fighter]
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate FighterScar
+}
+class_unlock_hunter_face {
+	complete_chapter_with_class [dimensionx Hunter]
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate HunterMonocle
+}
+class_unlock_mage_face {
+	complete_chapter_with_class [dimensionx Mage]
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate MageRobe
+}
+class_unlock_medic_face {
+	complete_chapter_with_class [dimensionx Medic]
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate ClericTears
+}
+class_unlock_thief_face {
+	complete_chapter_with_class [dimensionx Thief]
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate ThiefTattoo
+}
+class_unlock_tank_face {
+	complete_chapter_with_class [dimensionx Tank]
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate TankTattoo
+}
+class_unlock_necro_face {
+	complete_chapter_with_class [dimensionx Necromancer]
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate DeathMask
+}
+class_unlock_psychic_face {
+	complete_chapter_with_class [dimensionx Psychic]
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate MysticEye
+}
+class_unlock_tinkerer_face {
+	complete_chapter_with_class [dimensionx Tinkerer]
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate ScrappersMask
+}
+class_unlock_butcher_face {
+	complete_chapter_with_class [dimensionx Butcher]
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate IronJaw
+}
+class_unlock_druid_face {
+	complete_chapter_with_class [dimensionx Druid]
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate GreenmanMask
+}
+class_unlock_monk_face {
+	complete_chapter_with_class [dimensionx Monk]
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate FaceBrand
+}
+class_unlock_colorless_face {
+	complete_chapter_with_class [dimensionx Colorless]
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate CatWhiskers
+}
+class_unlock_jester_face {
+	complete_chapter_with_class [dimensionx Jester]
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate ClownMakeup
+}
+
+//class neck unlocks (god)
+class_unlock_fighter_neck {
+	complete_chapter_with_class [endoftime Fighter]
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate FighterShoulderPad
+}
+class_unlock_hunter_neck {
+	complete_chapter_with_class [endoftime Hunter]
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate HunterQuiver
+}
+class_unlock_mage_neck {
+	complete_chapter_with_class [endoftime Mage]
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate MageScarf
+}
+class_unlock_medic_neck {
+	complete_chapter_with_class [endoftime Medic]
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate ClericRelic
+}
+class_unlock_thief_neck {
+	complete_chapter_with_class [endoftime Thief]
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate ThiefCloak
+}
+class_unlock_tank_neck {
+	complete_chapter_with_class [endoftime Tank]
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate TankPads
+}
+class_unlock_necro_neck {
+	complete_chapter_with_class [endoftime Necromancer]
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate LeechNecklace
+}
+class_unlock_psychic_neck {
+	complete_chapter_with_class [endoftime Psychic]
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate DivinersCloth
+}
+class_unlock_tinkerer_neck {
+	complete_chapter_with_class [endoftime Tinkerer]
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate ScrappersBackpack
+}
+class_unlock_butcher_neck {
+	complete_chapter_with_class [endoftime Butcher]
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate HookedNecklace
+}
+class_unlock_druid_neck {
+	complete_chapter_with_class [endoftime Druid]
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate RingOfMushrooms
+}
+class_unlock_monk_neck {
+	complete_chapter_with_class [endoftime Monk]
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate PrayerBeads
+}
+class_unlock_colorless_neck {
+	complete_chapter_with_class [endoftime Colorless]
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate CatCollar
+}
+class_unlock_jester_neck {
+	complete_chapter_with_class [endoftime Jester]
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		immediate true
+	}
+	unlock_item_immediate Ruffle
+}
+
+//class trinket unlocks 2 (complete checkmark)
+class_unlock_fighter_trinket2 {
+	complete_checklist_with_class Fighter
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate Steroids
+}
+class_unlock_hunter_trinket2 {
+	complete_checklist_with_class Hunter
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate BagOfSeeds
+}
+class_unlock_mage_trinket2 {
+	complete_checklist_with_class Mage
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate SpellBook
+}
+class_unlock_medic_trinket2 {
+	complete_checklist_with_class Medic
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate PrayerCard
+}
+class_unlock_thief_trinket2 {
+	complete_checklist_with_class Thief
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate BagOfBags
+}
+class_unlock_tank_trinket2 {
+	complete_checklist_with_class Tank
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate TankToy
+}
+class_unlock_necro_trinket2 {
+	complete_checklist_with_class Necromancer
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate CambionConception
+}
+class_unlock_psychic_trinket2 {
+	complete_checklist_with_class Psychic
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate FriendshipBracelet
+}
+class_unlock_tinkerer_trinket2 {
+	complete_checklist_with_class Tinkerer
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate Fireworks
+}
+class_unlock_butcher_trinket2 {
+	complete_checklist_with_class Butcher
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate SackOfMeat
+}
+class_unlock_druid_trinket2 {
+	complete_checklist_with_class Druid
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate TinyCage
+}
+class_unlock_monk_trinket2 {
+	complete_checklist_with_class Monk
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate TinyPebble
+}
+class_unlock_colorless_trinket2 {
+	complete_checklist_with_class Colorless
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate SkillSplit
+}
+class_unlock_jester_trinket2 {
+	complete_checklist_with_class Jester
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate JokerCard
+}
+
+//additional item unlocks
+class_unlock_box0 {
+	fully_complete_difficulty 0
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate TheBoxCardboard
+}
+class_unlock_box1 {
+	fully_complete_difficulty 1
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate TheBoxChest
+}
+class_unlock_box2 {
+	fully_complete_difficulty 2
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate TheBox
+}
+class_unlock_box3 {
+	fully_complete_difficulty 3
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate TheBlackBox
+}
+class_unlock_monocolorless_head {
+	complete_chapter_with_class [meatworld Colorless]
+	requires_monoclass_run true
+
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate CopycatHat
+}
+class_unlock_monocolorless_face {
+	complete_chapter_with_class [dimensionx Colorless]
+	requires_monoclass_run true
+
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate CopycatMask
+}
+class_unlock_monocolorless_neck {
+	complete_chapter_with_class [endoftime Colorless]
+	requires_monoclass_run true
+
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate CopycatScarf
+}
+
+//radio songs
+song_unlock_alley {
+	beat_chapter_boss alley
+	repeat 6 //trigger this 3 times to actually get the unlock
+	unlock_song eatin_rats
+
+	popup {
+		prompt SONG_UNLOCK_ALLEY
+		immediate true
+	}
+}
+
+song_unlock_sewers {
+	beat_chapter_boss sewers
+	repeat 3 //trigger this 3 times to actually get the unlock
+	unlock_song flush
+
+	popup {
+		prompt SONG_UNLOCK_SEWERS
+		immediate true
+	}
+}
+
+song_unlock_junkyard {
+	beat_chapter_boss junkyard
+	repeat 3 //trigger this 3 times to actually get the unlock
+	unlock_song chumbucket_kitty
+
+	popup {
+		prompt SONG_UNLOCK_JUNKYARD
+		immediate true
+	}
+}
+
+song_unlock_caves {
+	beat_chapter_boss crystaline_dreams
+	repeat 3 //trigger this 3 times to actually get the unlock
+	unlock_song queenhippo
+
+	popup {
+		prompt SONG_UNLOCK_CAVES
+		immediate true
+	}
+}
+
+song_unlock_boneyard {
+	beat_chapter_boss boneyard
+	repeat 3 //trigger this 3 times to actually get the unlock
+	unlock_song them_kitty_bones
+
+	popup {
+		prompt SONG_UNLOCK_BONEYARD
+		immediate true
+	}
+}
+
+song_unlock_meatworld {
+	beat_chapter_boss meatworld
+	repeat 3 //trigger this 3 times to actually get the unlock
+	unlock_song sweet_delicious
+
+	popup {
+		prompt SONG_UNLOCK_MEATWORLD
+		immediate true
+	}
+}
+
+song_unlock_throbbingking {
+	beat_chapter_boss meatworld
+	repeat 3 //trigger this 3 times to actually get the unlock
+	unlock_song radio_throbbing_king
+
+	popup {
+		prompt SONG_UNLOCK_THROBBINGKING
+		immediate true
+	}
+}
+
+song_unlock_guillotina {
+	beat_house_boss guillotina_3
+	unlock_song you_know_who
+
+	popup {
+		prompt SONG_UNLOCK_GUILLOTINA
+		immediate true
+	}
+}
+
+song_unlock_desert {
+	beat_chapter_boss desert
+	repeat 6 //trigger this 3 times to actually get the unlock
+	unlock_song lonesome_road
+
+	popup {
+		prompt SONG_UNLOCK_DESERT
+		immediate true
+	}
+}
+
+song_unlock_crater {
+	beat_chapter_boss crater
+	repeat 3 //trigger this 3 times to actually get the unlock
+	unlock_song feline_invader
+
+	popup {
+		prompt SONG_UNLOCK_CRATER
+		immediate true
+	}
+}
+
+song_unlock_bunker {
+	beat_chapter_boss bunker
+	repeat 3 //trigger this 3 times to actually get the unlock
+	unlock_song alone_in_the_dark
+
+	popup {
+		prompt SONG_UNLOCK_BUNKER
+		immediate true
+	}
+}
+
+song_unlock_moon {
+	beat_chapter_boss moon
+	repeat 3 //trigger this 3 times to actually get the unlock
+	unlock_song so_high
+
+	popup {
+		prompt SONG_UNLOCK_MOON
+		immediate true
+	}
+}
+
+song_unlock_core {
+	beat_chapter_boss core
+	repeat 3 //trigger this 3 times to actually get the unlock
+	unlock_song down_with_the_devil
+
+	popup {
+		prompt SONG_UNLOCK_CORE
+		immediate true
+	}
+}
+
+song_unlock_dimensionx {
+	beat_chapter_boss dimensionx
+	repeat 3 //trigger this 3 times to actually get the unlock
+	unlock_song chaos
+
+	popup {
+		prompt SONG_UNLOCK_DIMENSIONX
+		immediate true
+	}
+}
+
+song_unlock_scrambled { //silent unlock for visiting the rift for the first time (cut boss song)
+	visit_chapter dimensionx
+	unlock_song radio_scrambled
+
+	/*popup {
+		prompt SONG_UNLOCK_SCRAMBLED
+		immediate true
+	}*/
+}
+
+song_unlock_crazy_days {
+	beat_chapter_boss dimensionx
+	repeat 3 //trigger this 3 times to actually get the unlock
+	unlock_song crazy_days
+
+	popup {
+		prompt SONG_UNLOCK_CHAOS_FORWARD
+		immediate true
+	}
+}
+song_unlock_bolt_of_lightning {
+	beat_chapter_boss dimensionx
+	repeat 3 //trigger this 3 times to actually get the unlock
+	unlock_song bolt_of_lightning
+
+	popup {
+		prompt SONG_UNLOCK_CHAOS_BACKWARD
+		immediate true
+	}
+}
+
+song_unlock_kaijufight {
+	beat_house_boss pyrophina_vs_zaratana
+	unlock_song brush_your_teeth
+
+	popup {
+		prompt SONG_UNLOCK_KAIJUS
+		immediate true
+	}
+}
+
+song_unlock_lab {
+	beat_chapter_boss lab
+	repeat 6 //trigger this 3 times to actually get the unlock
+	unlock_song endless_misery
+
+	popup {
+		prompt SONG_UNLOCK_LAB
+		immediate true
+	}
+}
+
+song_unlock_future {
+	beat_chapter_boss future
+	repeat 3 //trigger this 3 times to actually get the unlock
+	unlock_song humanicide
+
+	popup {
+		prompt SONG_UNLOCK_FUTURE
+		immediate true
+	}
+}
+
+song_unlock_iceage {
+	beat_chapter_boss iceage
+	repeat 3 //trigger this 3 times to actually get the unlock
+	unlock_song mom_i_really_hate_you
+
+	popup {
+		prompt SONG_UNLOCK_ICEAGE
+		immediate true
+	}
+}
+
+song_unlock_theend {
+	beat_chapter_boss theend
+	repeat 3 //trigger this 3 times to actually get the unlock
+	unlock_song were_dead
+
+	popup {
+		prompt SONG_UNLOCK_THEEND
+		immediate true
+	}
+}
+
+song_unlock_jurassic {
+	beat_chapter_boss jurassic
+	repeat 3 //trigger this 3 times to actually get the unlock
+	unlock_song tuff
+
+	popup {
+		prompt SONG_UNLOCK_JURASSIC
+		immediate true
+	}
+}
+
+song_unlock_endoftime {
+	beat_chapter_boss endoftime
+	repeat 3 //trigger this 3 times to actually get the unlock
+	unlock_song angel_wings
+
+	popup {
+		prompt SONG_UNLOCK_THEINFINITE
+		immediate true
+	}
+}
+
+song_unlock_finalboss {
+	beat_chapter_boss endoftime
+	repeat 3 //trigger this 3 times to actually get the unlock
+	unlock_song radio_final_boss
+
+	popup {
+		prompt SONG_UNLOCK_FINALBOSS
+		immediate true
+	}
+}
+
+song_unlock_terminator {
+	beat_house_boss terminator_2
+	unlock_song taser_paws
+
+	popup {
+		prompt SONG_UNLOCK_TERMINATOR
+		immediate true
+	}
+}
+
+song_unlock_crack_of_doom {
+	beat_house_boss terminator_3
+	unlock_song crack_of_doom
+
+	popup {
+		prompt SONG_UNLOCK_HITLERIII
+		immediate true
+	}
+}
+
+song_unlock_get_in_the_cage {
+	complete_item_quest Nuke //fallback for existing players
+	unlock_song get_in_the_cage
+
+	popup {
+		prompt SONG_UNLOCK_CREDITS_1
+		immediate false
+	}
+}
+song_unlock_future_meets_the_past {
+	complete_item_quest Nuke
+	unlock_song future_meets_the_past
+
+	popup {
+		prompt SONG_UNLOCK_CREDITS_2
+		immediate false
+	}
+}
+
+//EVENT ITEM UNLOCK
+legacy_event_unlock_momsknife {
+	unlock_item MomsKnife
+	popup { 
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+}
+
+
+
+//boss unlocks
+boss_unlock_queenhippo {
+	complete_chapter alley
+	repeat 3 //trigger this 3 times to actually get the unlock
+	unlock_boss queenhippo
+}
+
+boss_unlock_gambit { //ensure that zodiac is the first boss you fight in the desert
+	complete_chapter desert
+	repeat 1
+	unlock_boss gambit
+}
+
+boss_unlock_ratking { //ensure that flushmaster is the first miniboss you fight in the sewers
+	complete_chapter sewers
+	repeat 1
+	unlock_boss ratking
+}
+
+boss_unlock_bumblefoot { //ensure that lenny is the first miniboss you fight in the bunker
+	complete_chapter bunker
+	repeat 1
+	unlock_boss bumblefoot
+}
+
+boss_unlock_infestedduo { //ensure that rocky bobo is the first miniboss you fight in the crater
+	complete_chapter crater
+	repeat 1
+	unlock_boss infestedduo
+}
+
+//level group unlocks (caves OR boneyard = big sharks unlocked)
+levelgroup_unlock_bigsharksA {
+	complete_chapter caves
+	unlock_levelgroup bigsharklevels
+}
+levelgroup_unlock_bigsharksB {
+	complete_chapter boneyard
+	unlock_levelgroup bigsharklevels
+}
+
+//weather effect unlocks
+weather_unlock_restlessdead {
+	complete_chapter boneyard
+	repeat 3
+	set_savefile_flag RestlessDeadUnlocked
+}
+weather_unlock_robotuprising {
+	complete_chapter bunker
+	repeat 3
+	set_savefile_flag RobotUprisingUnlocked
+}
+weather_unlock_hauntednight {
+	complete_chapter boneyard
+	repeat 3
+	set_savefile_flag HauntedNightUnlocked
+}
+weather_unlock_alieninvasion {
+	complete_chapter moon
+	repeat 3
+	set_savefile_flag AlienInvasionUnlocked
+}
+
+
+//NPC text unlocks
+
+trigger_butch_tips {
+	fail_adventure anywhere
+	repeat 2
+	trigger_npc_sequence butch_tips_intro
+}
+trigger_tink_tips { //triggered manually
+	trigger_npc_sequence tink_tips_intro
+}
+
+unlock_jack {
+	complete_adventure anywhere
+	requires_unlocked_npc tracy
+
+	unlock_npc_tomorrow jack
+}
+trigger_jack_begin_accepting_cats { //triggered manually
+	requires_unlocked_npc jack
+	trigger_npc_sequence jack_begin_accepting_cats
+}
+
+unlock_tracy {
+	complete_adventure anywhere
+	requires_unlocked_npc frank
+	unlock_npc_tomorrow tracy
+	trigger_npc_sequence tracy_introduction
+}
+
+/*unlock_organgrinder {
+	fail_adventure anywhere
+	unlock_npc_tomorrow organgrinder
+}*/
+
+unlock_beanies {
+	complete_chapters [caves boneyard] //same requirement as unlock desert
+	unlock_npc_tomorrow beanies
+	trigger_npc_sequence beanies_begin_accepting_cats
+}
+
+unlock_steven {
+	visit_chapter iceage
+	unlock_npc_tomorrow steven
+	trigger_npc_sequence steven_introduction
+}
+
+//difficulty ramp
+
+difficulty_unlock_act1_hard {
+	complete_act_difficulty [1 0]
+	unlock_act_difficulty [1 1]
+	//trigger_npc_sequence steven_introduction (actual trigger for this is visit ice age)
+}
+difficulty_unlock_act1_crazy {
+	complete_act_difficulty [1 1]
+	unlock_act_difficulty [1 2]
+
+	trigger_npc_sequence steven_unlock_act1_crazy
+}
+difficulty_unlock_act1_impossible {
+	complete_act_difficulty [1 2]
+	unlock_act_difficulty [1 3]
+
+	trigger_npc_sequence steven_unlock_act1_impossible
+}
+
+difficulty_unlock_act2_hard {
+	complete_act_difficulty [2 0]
+	unlock_act_difficulty [2 1]
+
+	trigger_npc_sequence steven_unlock_act2_hard
+}
+difficulty_unlock_act2_crazy {
+	complete_act_difficulty [2 1]
+	unlock_act_difficulty [2 2]
+
+	trigger_npc_sequence steven_unlock_act2_crazy
+}
+difficulty_unlock_act2_impossible {
+	complete_act_difficulty [2 2]
+	unlock_act_difficulty [2 3]
+
+	trigger_npc_sequence steven_unlock_act2_impossible
+}
+
+difficulty_unlock_act3_hard {
+	complete_act_difficulty [3 0]
+	unlock_act_difficulty [3 1]
+
+	trigger_npc_sequence steven_unlock_act3_hard
+}
+difficulty_unlock_act3_crazy {
+	complete_act_difficulty [3 1]
+	unlock_act_difficulty [3 2]
+
+	trigger_npc_sequence steven_unlock_act3_crazy
+}
+difficulty_unlock_act3_impossible {
+	complete_act_difficulty [3 2]
+	unlock_act_difficulty [3 3]
+
+	trigger_npc_sequence steven_unlock_act3_impossible
+}
+
+//cutscene popups (these dont technically get unlocked, I just needed a place to put popup info for the cutscenes that include popups)
+desert_intro_popup {
+	popup {
+		prompt AREA_UNLOCK_DESERT
+		frame UnlockArea_Desert
+	}
+}
+caves_intro_popup {
+	popup {
+		prompt AREA_UNLOCK_CAVES
+		frame UnlockArea_Caves
+	}
+}
+dybbuk_popup { //boneyard intro
+	popup {
+		prompt AREA_UNLOCK_BONEYARD
+		frame UnlockArea_Boneyard
+	}
+}
+core_intro_popup {
+	popup {
+		prompt AREA_UNLOCK_CORE
+		frame UnlockArea_Core
+	}
+}
+moon_intro_popup {
+	popup {
+		prompt AREA_UNLOCK_MOON
+		frame UnlockArea_Moon
+	}
+}
+
+lab_intro_popup {
+	popup {
+		prompt AREA_UNLOCK_LAB
+		frame UnlockArea_Lab
+	}
+}
+
+theend_intro_popup {
+	popup {
+		prompt AREA_UNLOCK_THEEND
+		frame UnlockArea_TheEnd
+	}
+}
+jurassic_intro_popup {
+	popup {
+		prompt AREA_UNLOCK_JURASSIC
+		frame UnlockArea_Jurassic
+	}
+}
+
+guillotina_1_popup {
+	popup {
+		prompt CUTSCENE_GUILLOTINA_1
+		//frame Guillotina1
+	}
+}
+house_boss_returns_tina1_popup {
+	popup {
+		prompt CUTSCENE_GUILLOTINA_1_REMATCH
+		//frame Guillotina1
+	}
+}
+guillotina_2_popup {
+	popup {
+		prompt CUTSCENE_GUILLOTINA_2
+		//frame Guillotina1
+	}
+}
+house_boss_returns_tina2_popup {
+	popup {
+		prompt CUTSCENE_GUILLOTINA_2_REMATCH
+		//frame Guillotina1
+	}
+}
+guillotina_3_popup {
+	popup {
+		prompt CUTSCENE_GUILLOTINA_3
+		//frame Guillotina1
+	}
+}
+house_boss_returns_tina3_popup {
+	popup {
+		prompt CUTSCENE_GUILLOTINA_3_REMATCH
+		//frame Guillotina1
+	}
+}
+pyro_intro_popup {
+	popup {
+		prompt CUTSCENE_PYROPHINA
+		//frame Guillotina1
+	}
+}
+house_boss_returns_pyro_popup {
+	popup {
+		prompt CUTSCENE_PYROPHINA_REMATCH
+		//frame Guillotina1
+	}
+}
+moonboss_intro_popup {
+	popup {
+		prompt CUTSCENE_ZARATANA
+		//frame Guillotina1
+	}
+}
+house_boss_returns_zara_popup {
+	popup {
+		prompt CUTSCENE_ZARATANA_REMATCH
+		//frame Guillotina1
+	}
+}
+kaiju_fight_popup {
+	popup {
+		prompt CUTSCENE_KAIJUFIGHT
+		//frame Guillotina1
+	}
+}
+house_boss_returns_kaijufight_popup {
+	popup {
+		prompt CUTSCENE_KAIJUFIGHT_REMATCH
+		//frame Guillotina1
+	}
+}
+terminator_1_popup {
+	popup {
+		prompt CUTSCENE_TERMINATOR_1
+		//frame Guillotina1
+	}
+}
+house_boss_returns_t1_popup {
+	popup {
+		prompt CUTSCENE_TERMINATOR_1_REMATCH
+		//frame Guillotina1
+	}
+}
+t1000_intro_popup {
+	popup {
+		prompt CUTSCENE_TERMINATOR_2
+		//frame Guillotina1
+	}
+}
+house_boss_returns_t2_popup {
+	popup {
+		prompt CUTSCENE_TERMINATOR_2_REMATCH
+		//frame Guillotina1
+	}
+}
+hitler_intro_popup {
+	popup {
+		prompt CUTSCENE_TERMINATOR_3
+		//frame Guillotina1
+	}
+}
+house_boss_returns_t3_popup {
+	popup {
+		prompt CUTSCENE_TERMINATOR_3_REMATCH
+		//frame Guillotina1
+	}
+}
+
+
+pyro_ending_popup {
+	popup {
+		prompt AREA_UNLOCK_THERIFT
+		frame UnlockArea_Rift
+	}
+}
+zara_ending_popup {
+	popup {
+		prompt AREA_UNLOCK_THERIFT
+		frame UnlockArea_Rift
+	}
+}
+
+king_intro_popup {
+	popup {
+		prompt AREA_UNLOCK_MEATWORLDFULL
+		frame UnlockArea_Meatworld
+	}
+}
+
+infinite_intro_popup {
+	popup {
+		prompt AREA_UNLOCK_ENDOFTIME
+		frame UnlockArea_Infinite
+	}
+}
+
+obelisk1_core_popup {
+	popup {
+		prompt CUTSCENE_OBELISK1_CORE_POPUP
+	}
+}
+obelisk1_moon_popup {
+	popup {
+		prompt CUTSCENE_OBELISK1_MOON_POPUP
+	}
+}
+obelisk2_core_popup {
+	popup {
+		prompt CUTSCENE_OBELISK2_POPUP
+	}
+}
+obelisk2_moon_popup {
+	popup {
+		prompt CUTSCENE_OBELISK2_POPUP
+	}
+}
+
+
+//HARD MODE UNLOCKS
+steven_unlock_throb_hard {
+	beat_chapter_boss meatworld
+	required_difficulty 1
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate ThrobbingCrown
+}
+steven_unlock_rift_hard {
+	beat_chapter_boss dimensionx
+	required_difficulty 1
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate CrownOfChaos
+}
+steven_unlock_infinite_hard {
+	beat_chapter_boss endoftime
+	required_difficulty 1
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate ChildsCrown
+}
+steven_unlock_tina1_hard {
+	beat_house_boss guillotina_1
+	required_difficulty 1
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate TinasBellyButton
+}
+steven_unlock_tina2_hard {
+	beat_house_boss guillotina_2
+	required_difficulty 1
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate TinasLarynx
+}
+steven_unlock_tina3_hard {
+	beat_house_boss guillotina_3
+	required_difficulty 1
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate TinasFriend
+}
+steven_unlock_pyro_hard {
+	beat_house_boss pyrophina
+	required_difficulty 1
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate PyrophinasToenail
+}
+steven_unlock_zara_hard {
+	beat_house_boss zaratana
+	required_difficulty 1
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate ZaratanaTurd
+}
+steven_unlock_kfight_hard {
+	beat_house_boss pyrophina_vs_zaratana
+	required_difficulty 1
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate ScorchedEarth
+}
+steven_unlock_t1_hard {
+	beat_house_boss terminator_1
+	required_difficulty 1
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate RoboticArm
+}
+steven_unlock_t2_hard {
+	beat_house_boss terminator_2
+	required_difficulty 1
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate LiquidMetal
+}
+steven_unlock_t3_hard {
+	beat_house_boss terminator_3
+	required_difficulty 1
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate HitlersToupe
+}
+
+//CRAZY MODE UNLOCKS
+steven_unlock_throb_crazy {
+	beat_chapter_boss meatworld
+	required_difficulty 2
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate StevensGobbler
+}
+steven_unlock_rift_crazy {
+	beat_chapter_boss dimensionx
+	required_difficulty 2
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate StevensFartFace
+}
+steven_unlock_infinite_crazy {
+	beat_chapter_boss endoftime
+	required_difficulty 2
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate StevensShotgun
+}
+steven_unlock_tina1_crazy {
+	beat_house_boss guillotina_1
+	required_difficulty 2
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate StevensMustache
+}
+steven_unlock_tina2_crazy {
+	beat_house_boss guillotina_2
+	required_difficulty 2
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate StevensGristle
+}
+steven_unlock_tina3_crazy {
+	beat_house_boss guillotina_3
+	required_difficulty 2
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate StevensBagofRocks
+}
+steven_unlock_pyro_crazy {
+	beat_house_boss pyrophina
+	required_difficulty 2
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate StevensHelmet
+}
+steven_unlock_zara_crazy {
+	beat_house_boss zaratana
+	required_difficulty 2
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate StevensFriend
+}
+steven_unlock_kfight_crazy {
+	beat_house_boss pyrophina_vs_zaratana
+	required_difficulty 2
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate StevenStone
+}
+steven_unlock_t1_crazy {
+	beat_house_boss terminator_1
+	required_difficulty 2
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate StevenMarrow
+}
+steven_unlock_t2_crazy {
+	beat_house_boss terminator_2
+	required_difficulty 2
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate StevensBottle
+}
+steven_unlock_t3_crazy {
+	beat_house_boss terminator_3
+	required_difficulty 2
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate StevensHat
+}
+
+//IMPOSSIBLE MODE UNLOCKS
+steven_unlock_throb_impossible {
+	beat_chapter_boss meatworld
+	required_difficulty 3
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate StevenHat1
+}
+steven_unlock_rift_impossible {
+	beat_chapter_boss dimensionx
+	required_difficulty 3
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate StevenMask1
+}
+steven_unlock_infinite_impossible {
+	beat_chapter_boss endoftime
+	required_difficulty 3
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate StevenNeck1
+}
+steven_unlock_tina1_impossible {
+	beat_house_boss guillotina_1
+	required_difficulty 3
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate StevenTrinket1
+}
+steven_unlock_tina2_impossible {
+	beat_house_boss guillotina_2
+	required_difficulty 3
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate StevenWeapon1
+}
+steven_unlock_tina3_impossible {
+	beat_house_boss guillotina_3
+	required_difficulty 3
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate StevensConsumable1
+}
+steven_unlock_pyro_impossible {
+	beat_house_boss pyrophina
+	required_difficulty 3
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate StevenHat2
+}
+steven_unlock_zara_impossible {
+	beat_house_boss zaratana
+	required_difficulty 3
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate StevenMask2
+}
+steven_unlock_kfight_impossible {
+	beat_house_boss pyrophina_vs_zaratana
+	required_difficulty 3
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate StevenNeck2
+}
+steven_unlock_t1_impossible {
+	beat_house_boss terminator_1
+	required_difficulty 3
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate StevenTrinket2
+}
+steven_unlock_t2_impossible {
+	beat_house_boss terminator_2
+	required_difficulty 3
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate StevenWeapon2
+}
+steven_unlock_t3_impossible {
+	beat_house_boss terminator_3
+	required_difficulty 3
+	popup {
+		prompt ITEM_UNLOCK_GENERIC
+		frame UnlockItem
+		immediate true
+	}
+	unlock_item_immediate StevensConsumable2
+}

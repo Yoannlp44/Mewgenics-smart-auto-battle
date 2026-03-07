@@ -1,0 +1,134 @@
+graphics Map_Alley
+chapter_id alley
+tileset alley
+world_name_frame alley
+area_name AREA_NAME_ALLEY
+intro_cutscene none
+act 1
+chapter 1
+
+version 1
+
+
+levels {
+    folder alley
+    easy [easy]
+    hard [easy] //switch this to "hard" in the brackets if we get specific hard levels in!
+    rare [rare]
+    boss [boss]
+    miniboss [miniboss]
+    special [special]
+}
+
+bosses {
+    radicalrat auto //auto means set subfolder and boss_cutscene to the name of the boss
+    queenhippo auto
+    /*radicalrat {
+        subfolder radicalrat
+        boss_cutscene radicalrat
+    }
+    queenhippo {
+        subfolder queenhippo
+        boss_cutscene queenhippo
+    }*/
+}
+
+minibosses {
+    fightercat auto
+    huntercat auto
+    magecat auto
+    tankcat auto
+    jestercat auto
+}
+
+music alley
+ambience amb_alley.ogg
+
+events {
+    normal [
+        common
+        alley_events.gon
+    ]
+}
+
+enemy_pools { //for effects that need to spawn a "chapter enemy" of some sort
+    small [Maggot Fly Flea Pinky]
+    medium [Rat Leaper Pooter Kitten TomTom Mangy CatCaller]
+    large []
+}
+
+item_pools {
+    chapter_item_pool alleyitems
+}
+
+nodes {
+    #include "standard_nodes.gon"
+
+    //exits
+    exit0 {
+        type exit
+        next_map sewers.gon
+        locked true
+        override_art MapNodeExit_Sewers
+    }
+    exit1 {
+        type exit
+        next_map junkyard.gon
+        locked true
+        override_art MapNodeExit_Junkyard
+    }
+    exit_desert {
+        type exit
+        next_map desert.gon
+        locked true
+        override_art MapNodeExit_Desert
+        hidden true
+    }
+    exit_lab {
+        type exit
+        next_map lab.gon
+        locked true
+        override_art MapNodeExit_Lab
+        hidden true
+    }
+    hard_initial {
+	    type hard
+        locked true
+    }
+
+    //special
+    boss {
+        type boss
+        unlockcheck_on_complete map_unlock_junkyard
+    }
+}
+
+flags {
+    HardPathUnlocked {
+        hard_initial {
+            locked false
+        }
+    }
+    SewersUnlocked {
+        exit0 {
+            locked false
+        }
+    }
+    JunkyardUnlocked {
+        exit1 {
+            locked false
+        }
+    }
+    /*DesertUnlocked {
+        exit_desert {
+            locked false
+            hidden false
+        }
+    }
+    LabUnlocked {
+        exit_lab {
+            locked false
+            hidden false
+        }
+    }*/
+}

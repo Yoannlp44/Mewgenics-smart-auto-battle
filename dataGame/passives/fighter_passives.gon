@@ -1,0 +1,646 @@
+BloodLust {
+    name "PASSIVE_FRENZY_NAME"
+    desc "PASSIVE_FRENZY_DESC"
+    class Fighter
+
+    1 {
+        passives {
+            StatusOnKill {
+                StrengthUp 2
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_FRENZY2_DESC"
+        passives {
+            StatusOnKill {
+                StrengthUp 2
+                SpeedUp 2
+            }
+        }
+    }
+}
+
+Avenger {
+    name "PASSIVE_AVENGER_NAME"
+    desc "PASSIVE_AVENGER_DESC"
+    class Fighter
+
+    1 {
+        passives {
+            StatusOnAllyCatDeath {
+                AllStatsUp 2
+                HealthGain 8
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_AVENGER2_DESC"
+        passives {
+            StatusOnAllyCatDeath {
+                AllStatsUp 2
+                PercentHeal 50
+                TakeExtraTurn 1
+            }
+        }
+    }
+}
+
+Scars {
+    name "PASSIVE_SCARS_NAME"
+    desc "PASSIVE_SCARS_DESC"
+    class Fighter
+
+    1 {
+        passives {
+            Brace 1
+        }
+    }
+    2 {
+        desc "PASSIVE_SCARS2_DESC"
+        passives {
+            Brace 3
+        }
+    }
+}
+
+FasterWhenHit {
+    name "PASSIVE_HULKUP_NAME"
+    desc "PASSIVE_HULKUP_DESC"
+    class Fighter
+
+    1 {
+        passives {
+            StatusOnTookDamage {
+                SpeedUp 2
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_HULKUP2_DESC"
+        passives {
+            StatusOnTookDamage {
+                SpeedUp 2
+            }
+            StackingDodgeChanceOnTookDamage {
+                amount 10%
+                cap 50%
+            }
+        }
+        stats {
+            spd 2
+        }
+    }
+}
+
+KillsHeal {
+    name "PASSIVE_FERVOR_NAME"
+    desc "PASSIVE_FERVOR_DESC"
+    class Fighter
+
+    1 {
+        passives {
+            KillsHeal 5
+        }
+    }
+    2 {
+        desc "PASSIVE_FERVOR2_DESC"
+        passives {
+            KillsHeal 50%
+        }
+    }
+}
+
+Vengeful {
+    name "PASSIVE_VENGEFUL_NAME"
+    desc "PASSIVE_VENGEFUL_DESC"
+    class Fighter
+
+    1 {
+        passives {
+            Vengeful 1
+        }
+    }
+    2 {
+        desc "PASSIVE_VENGEFUL2_DESC"
+        passives {
+            Vengeful 1
+            RevengeDamage {
+                effects {
+                    Marked 1
+                }
+            }
+        }
+    }
+}
+
+HamsterStyle {
+    name "PASSIVE_HAMSTERSTYLE_NAME"
+    desc "PASSIVE_HAMSTERSTYLE_DESC"
+    class Fighter
+
+    1 {
+        passives {
+            HealthRegenUp 1
+            SizeScale .8
+            MoveQuivered 2
+        }
+        stats {
+            str -1
+            con -1
+            int 1
+        }
+    }
+    2 {
+        desc "PASSIVE_HAMSTERSTYLE2_DESC"
+        passives {
+            HealthRegenUp 2
+            SizeScale .6
+            AddTemporaryEffectsToBasicAttack {
+                Fury 75
+            }
+            MoveQuivered 2
+        }
+        stats {
+            str -1
+            con -1
+            int 1
+        }
+    }
+}
+
+WeaponMaster {
+    name "PASSIVE_WEAPONMASTER_NAME"
+    desc "PASSIVE_WEAPONMASTER_DESC"
+    class Fighter
+
+    1 {
+        passives {
+            BoostWeaponDamage {
+                damage 2
+                crit_chance .25
+            }
+        }
+        bonus_items [Pipe]
+    }
+    2 {
+        desc "PASSIVE_WEAPONMASTER2_DESC"
+        passives {
+            BoostWeaponDamage {
+                damage 3
+                crit_chance .5
+            }
+
+            EquipRandomTemporaryItemFromPool weapons
+        }
+    }
+}
+
+ShoulderCheck {
+    name "PASSIVE_SHOULDERCHECK_NAME"
+    desc "PASSIVE_SHOULDERCHECK_DESC"
+    class Fighter
+
+    1 {
+        passives {
+            ShoulderCheck 33%
+        }
+    }
+    2 {
+        desc "PASSIVE_SHOULDERCHECK2_DESC"
+        passives {
+            ShoulderCheck 100%
+        }
+    }
+}
+
+SkullSmash {
+    name "PASSIVE_SKULLSMASH_NAME"
+    desc "PASSIVE_SKULLSMASH_DESC"
+    class Fighter
+
+    1 {
+        passives {
+            AddStatusToBasicAttack {
+                Bruise 1
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_SKULLSMASH2_DESC"
+        passives {
+            AddStatusToBasicAttack {
+                Bruise 2
+            }
+        }
+    }
+}
+
+TurtleStyle {
+    name "PASSIVE_TURTLESTYLE_NAME"
+    desc "PASSIVE_TURTLESTYLE_DESC"
+    class Fighter
+
+    1 {
+        shield 4
+        stats {
+            con 2
+            spd -1
+        }
+    }
+    2 {
+        desc "PASSIVE_TURTLESTYLE2_DESC"
+        shield 4
+        stats {
+            con 2
+            spd -1
+        }
+        passives {
+            Brace 2
+        }
+    }
+}
+
+Overpowered {
+    name "PASSIVE_OVERPOWERED_NAME"
+    desc "PASSIVE_OVERPOWERED_DESC"
+    class Fighter
+
+    1 {
+        passives {
+            ExplodeOverkilledEnemies 1
+        }
+    }
+    2 {
+        desc "PASSIVE_OVERPOWERED2_DESC"
+
+        passives {
+            ExplodeOverkilledEnemies 2
+        }
+    }
+}
+
+FightMe {
+    name "PASSIVE_FIGHTME_NAME"
+    desc "PASSIVE_FIGHTME_DESC"
+    class Fighter
+
+    1 {
+        passives {
+            StrengthForEachNeighboringEnemy 2
+            BraceForEachNeighboringEnemy 1
+        }
+    }
+    2 {
+        desc "PASSIVE_FIGHTME2_DESC"
+
+        passives {
+            StrengthForEachNeighboringEnemy 3
+            BraceForEachNeighboringEnemy 2
+        }
+    }
+}
+
+HighAsYouCanCount {
+    name "PASSIVE_MATHQ_NAME"
+    desc "PASSIVE_MATHQ_DESC"
+    class Fighter
+
+    1 {
+        passives {
+            SetSpellCosts 3
+            MakeSpellsRequireCharge 1
+        }
+    }
+    2 {
+        desc "PASSIVE_MATHQ2_DESC"
+
+        passives {
+            SetSpellCosts 0
+            MakeSpellsRequireCharge 1
+        }
+    }
+}
+
+DumbMuscle {
+    name "PASSIVE_DUMBMUSCLE_NAME"
+    desc "PASSIVE_DUMBMUSCLE_DESC"
+    class Fighter
+
+    1 {
+        passives {
+            StatusOnTookDamage {
+                IntelligenceUp -1
+            }
+            PassiveAtStatThreshold {
+                mode less_or_equal
+                threshold {
+                    int 4
+                }
+                passives {
+                    StrengthUp 2
+                    AddStatusToBasicAttack {
+                        Bruise 1
+                    }
+                }
+            }
+            PassiveAtStatThreshold {
+                mode less_or_equal
+                threshold {
+                    int 0
+                }
+                passives {
+                    BasicAttackCritChance 100%
+                }
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_DUMBMUSCLE2_DESC"
+
+        passives {
+            StatusOnTookDamage {
+                IntelligenceUp -2
+            }
+            PassiveAtStatThreshold {
+                mode less_or_equal
+                threshold {
+                    int 4
+                }
+                passives {
+                    StrengthUp 2
+                    AddStatusToBasicAttack {
+                        Bruise 1
+                    }
+                }
+            }
+            PassiveAtStatThreshold {
+                mode less_or_equal
+                threshold {
+                    int 0
+                }
+                passives {
+                    BasicAttackCritChance 100%
+                }
+            }
+            PassiveAtStatThreshold {
+                mode less_or_equal
+                threshold {
+                    int -10
+                }
+                passives {
+                    ExtraMovePoints 1
+                    ExtraBasicAttacks 1
+                }
+            }
+        }
+    }
+}
+
+ThickSkull {
+    name "PASSIVE_THICKSKULL_NAME"
+    desc "PASSIVE_THICKSKULL_DESC"
+    class Fighter
+
+    1 {
+        passives {
+            ForceSpecificInjury int
+            StatusPerInjury {
+                injury int
+                cap 10
+
+                Shield 3
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_THICKSKULL2_DESC"
+
+        passives {
+            ForceSpecificInjury int
+            StatusPerInjury {
+                injury int
+                cap 10
+
+                Shield 3
+                StrengthUp 1
+            }
+        }
+    }
+}
+
+MostValuableCat {
+    name "PASSIVE_MOSTVALUABLECAT_NAME"
+    desc "PASSIVE_MOSTVALUABLECAT_DESC"
+    class Fighter
+
+    1 {
+        passives {
+            StatusAnyCatAllyWhoKills {
+                AlphaCat 1
+            }
+            PassiveWhenTheAlpha {
+                TogglableRoundEndExtraTurn 1
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_MOSTVALUABLECAT2_DESC"
+
+        passives {
+            AlphaCat 1
+            StatusAnyCatAllyWhoKills {
+                AlphaCat 1
+            }
+            PassiveWhenTheAlpha {
+                TogglableRoundEndExtraTurn 1
+            }
+        }
+    }
+}
+
+RatStyle {
+    name "PASSIVE_RATSTYLE_NAME"
+    desc "PASSIVE_RATSTYLE_DESC"
+    class Fighter
+
+    1 {
+        passives {
+            DodgeChance 10%
+        }
+        stats {
+            spd 2
+        }
+    }
+    2 {
+        desc "PASSIVE_RATSTYLE2_DESC"
+        passives {
+            DodgeChance 30%
+        }
+        stats {
+            spd 4
+        }
+    }
+}
+
+Boned {
+    name "PASSIVE_BONED_NAME"
+    desc "PASSIVE_BONED_DESC"
+    class Fighter
+
+    1 {
+        passives {
+            StatusOnKill {
+                EquipPermanentItem BoneClub
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_BONED2_DESC"
+        passives {
+            StatusOnKill {
+                EquipPermanentItem BoneClub
+            }
+            BonusAbility FighterBonusThrow
+        }
+    }
+}
+
+DualWield {
+    name "PASSIVE_DUALWIELD_NAME"
+    desc "PASSIVE_DUALWIELD_DESC"
+    class Fighter
+
+    1 {
+        passives {
+            //DualWield 1
+            DoubleCastWeapons 1
+        }
+    }
+    2 {
+        desc "PASSIVE_DUALWIELD2_DESC"
+        passives {
+            //DualWield 1
+            //WeaponsDontLoseDurability 0
+            DoubleCastWeapons 2
+        }
+    }
+}
+
+ReflexPunch {
+    name "PASSIVE_PATELLARREFLEX_NAME"
+    desc "PASSIVE_PATELLARREFLEX_DESC"
+    class Fighter
+
+    1 {
+        passives {
+            CounterAttack ReflexPunchJab
+        }
+    }
+    2 {
+        desc "PASSIVE_PATELLARREFLEX2_DESC"
+        passives {
+            CounterAttack ReflexPunchJab2
+        }
+    }
+}
+
+HitMe {
+    name "PASSIVE_HITME_NAME"
+    desc "PASSIVE_HITME_DESC"
+    class Fighter
+
+    1 {
+        passives {
+            AllyDamageReaction attack
+            CapDamageFromAllies 1
+        }
+    }
+    2 {
+        desc "PASSIVE_HITME2_DESC"
+        passives {
+            AllyDamageReaction attack
+            CapDamageFromAllies 1
+
+            StatusOnTookDamage {
+                RandomStatUp 1
+            }
+        }
+    }
+}
+
+Smash {
+    name "PASSIVE_SMASH_NAME"
+    desc "PASSIVE_SMASH_DESC"
+    class Fighter
+
+    1 {
+        passives {
+            WeaponDamageMultiplierBonus 2
+            AddSelfStatusToWeapons {
+                ChanceToBreak 100
+            }
+        }
+
+        bonus_items [Stick Stick Stick]
+    }
+    2 {
+        desc "PASSIVE_SMASH2_DESC"
+        passives {
+            WeaponDamageMultiplierBonus 2
+            AddSelfStatusToWeapons {
+                ChanceToBreak 50
+            }
+        }
+
+        bonus_items [Stick Stick Stick]
+    }
+}
+
+PunchFace {
+    name "PASSIVE_PUNCHFACE_NAME"
+    desc "PASSIVE_PUNCHFACE_DESC"
+    class Fighter
+
+    1 {
+        passives {
+            FrontstabBasicAttackCritChance 100%
+        }
+    }
+    2 {
+        desc "PASSIVE_PUNCHFACE2_DESC"
+
+        passives {
+            FrontstabCritChance 100%
+        }
+    }
+}
+
+Recoil {
+    name "PASSIVE_MERCILESS_NAME"
+    desc "PASSIVE_MERCILESS_DESC"
+    class Fighter
+
+    1 {
+        passives {
+            StatusOnDealtDamageThreshold {
+                threshold 10
+                count_overkill true
+                RefreshMovePoints 1
+                Shield 2
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_MERCILESS2_DESC"
+        passives {
+            StatusOnDealtDamageThreshold {
+                threshold 10
+                count_overkill true
+                RefreshMovePoints 1
+                Shield 2
+                AllStatsUp 1
+            }
+        }
+    }
+}

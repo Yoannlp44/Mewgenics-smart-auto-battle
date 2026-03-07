@@ -1,0 +1,835 @@
+None {
+    name "WEATHER_NONE_NAME"
+    desc "WEATHER_NONE_DESC"
+}
+
+Fog {
+    name "WEATHER_FOG_NAME"
+    desc "WEATHER_FOG_DESC"
+    
+    effects {
+        Fog 1
+    }
+}
+
+Rain {
+    name "WEATHER_RAIN_NAME"
+    desc "WEATHER_RAIN_DESC"
+
+    ambient_sound amb_rain.ogg
+   
+    hint_persistent_elements [Water]
+    effects {
+        Rain 1
+    }
+}
+
+HeavyRain {
+    name "WEATHER_HEAVYRAIN_NAME"
+    desc "WEATHER_HEAVYRAIN_DESC"
+
+    ambient_sound amb_heavyrain.ogg
+    
+    hint_persistent_elements [Water]
+    effects {
+        Rain 2
+        SpawnExtraThingsOnBattleStart {
+            tile WaterTile
+            number [12 20]
+        }
+    }
+}
+
+Windy {
+    name "WEATHER_WINDY_NAME"
+    desc "WEATHER_WINDY_DESC"
+    
+    ambient_sound amb_windy.ogg
+
+    hint_persistent_elements [Wind]
+    effects {
+        Windy 1
+    }
+}
+
+Sandstorm {
+    name "WEATHER_SANDSTORM_NAME"
+    desc "WEATHER_SANDSTORM_DESC"
+    
+    ambient_sound amb_sandstorm.ogg
+
+    effects {
+        Sandstorm 1
+    }
+}
+
+Overgrowth {
+    name "WEATHER_OVERGROWTH_NAME"
+    desc "WEATHER_OVERGROWTH_DESC"
+    
+    effects {
+        SpawnExtraThingsOnBattleStart {
+            tile BrambleTile
+            number [2 5]
+        }
+        SpawnExtraThingsOnBattleStart {
+            tile TallGrassTile
+            number [2 5]
+        }
+    }
+}
+
+Earthquake {
+    name "WEATHER_EARTHQUAKE_NAME"
+    desc "WEATHER_EARTHQUAKE_DESC"
+    
+    effects {
+        DeleteInanimateObjectsChance 25%
+
+        SpawnExtraThingsOnBattleStart {
+            object SmallRock
+            number [3 5]
+        }
+        SpawnExtraThingsOnBattleStart {
+            object Boulder
+            number [0 2]
+        }
+    }
+}
+
+Wildfire {
+    name "WEATHER_WILDFIRE_NAME"
+    desc "WEATHER_WILDFIRE_DESC"
+    
+    effects {
+        SpawnExtraThingsOnBattleStart {
+            tile FireTile
+            number [3 8]
+        }
+    }
+}
+
+HeatWave {
+    name "WEATHER_HEATWAVE_NAME"
+    desc "WEATHER_HEATWAVE_DESC"
+    
+    hint_persistent_elements [Heat]
+    effects {
+        HeatWave 1
+    }
+}
+
+Snow {
+    name "WEATHER_SNOW_NAME"
+    desc "WEATHER_SNOW_DESC"
+
+    ambient_sound amb_snow.ogg
+    
+    hint_persistent_elements [Ice]
+    effects {
+        Snow 1
+    }
+}
+
+AcidRain {
+    name "WEATHER_ACIDRAIN_NAME"
+    desc "WEATHER_ACIDRAIN_DESC"
+    
+    ambient_sound amb_acidrain.ogg
+
+    effects {
+        AcidRain 2
+    }
+}
+
+MeteorShower {
+    name "WEATHER_METEORS_NAME"
+    desc "WEATHER_METEORS_DESC"
+    
+    effects {
+        MeteorShower 25%
+    }
+}
+
+Thunderstorm {
+    name "WEATHER_THUNDERSTORM_NAME"
+    desc "WEATHER_THUNDERSTORM_DESC"
+    
+    ambient_sound amb_thunderstorm.ogg
+
+    hint_persistent_elements [Water Wind]
+    effects {
+        Rain 1
+        RandomLightning 50%
+        Windy 1
+    }
+}
+
+FlashFlood {
+    name "WEATHER_FLASHFLOOD_NAME"
+    desc "WEATHER_FLASHFLOOD_DESC"
+    
+    ambient_sound amb_rain.ogg
+
+    hint_persistent_elements [Water]
+    effects {
+        Rain 4
+        SpawnExtraThingsOnBattleStart {
+            tile WaterTile
+            number [40 60]
+        }
+    }
+}
+
+TrashDay {
+    name "WEATHER_TRASHDAY_NAME"
+    desc "WEATHER_TRASHDAY_DESC"
+    
+    effects {
+        SpawnExtraThingsOnBattleStart {
+            object [Junk Junk TrashBag]
+            number [3 6]
+        }
+    }
+}
+
+RainingFrogs {
+    name "WEATHER_FROGS_NAME"
+    desc "WEATHER_FROGS_DESC"
+    
+    effects {
+        SpawnExtraThingsOnBattleStart {
+            object NeutralToad
+            number [2 4]
+        }
+    }
+}
+
+PipeBlockage {
+    name "WEATHER_BLOCKAGE_NAME"
+    desc "WEATHER_BLOCKAGE_DESC"
+    
+    effects {
+        SpawnExtraThingsOnBattleStart {
+            object Poop
+            number [1 3]
+        }
+        SpawnExtraThingsOnBattleStart {
+            tile CreepTile
+            number [3 5]
+        }
+    }
+}
+
+PayDay {
+    name "WEATHER_PAYDAY_NAME"
+    desc "WEATHER_PAYDAY_DESC"
+    
+    effects {
+        SpawnExtraThingsOnBattleStart {
+            object Coin
+            number [5 10]
+        }
+    }
+}
+
+HuntingSeason {
+    name "WEATHER_HUNTING_NAME"
+    desc "WEATHER_HUNTING_DESC"
+    
+    effects {
+        SpawnExtraThingsOnBattleStart {
+            trap BearTrap
+            number [2 4]
+        }
+    }
+}
+
+RestlessDead {
+    name "WEATHER_RESTLESS_NAME"
+    desc "WEATHER_RESTLESS_DESC"
+    
+    effects {
+        GlobalSpawnOnRoundEnd {
+            object NeutralZombieKitten
+        }
+    }
+}
+
+FireflySwarm {
+    name "WEATHER_FIREFLY_NAME"
+    desc "WEATHER_FIREFLY_DESC"
+    
+    effects {
+        FireflySwarm 2
+    }
+}
+
+ButterflySwarm {
+    name "WEATHER_BUTTERFLY_NAME"
+    desc "WEATHER_BUTTERFLY_DESC"
+
+    ambient_sound amb_butterflyswarm.ogg
+    
+    effects {
+        ButterflySwarm 2
+    }
+}
+
+FlySwarm {
+    name "WEATHER_FLYSWARM_NAME"
+    desc "WEATHER_FLYSWARM_DESC"
+
+    ambient_sound amb_flyswarm.ogg
+    
+    effects {
+        FlySwarm 50%
+    }
+}
+
+VisualFlySwarm { //for Tormentor fight
+    name "WEATHER_TORFLIES_NAME"
+    desc "WEATHER_TORFLIES_DESC"
+
+    ambient_sound amb_flyswarm.ogg
+    
+    effects {
+        VisualFlySwarm 1
+    }
+}
+
+LowGravity {
+    name "WEATHER_LOWGRAV_NAME"
+    desc "WEATHER_LOWGRAV_DESC"
+    
+    effects {
+        LowGravityRangeBoost 2
+        LowGravityKnockbackBoost 1
+        ClearDefaultDebris 1
+        AddTilesetObjects {
+            FloatingDebris {
+                count 20
+            }
+        }
+    }
+}
+
+Firestorm {
+    name "WEATHER_FIRESTORM_NAME"
+    desc "WEATHER_FIRESTORM_DESC"
+    
+    hint_persistent_elements [Fire]
+    effects {
+        FireStorm 0%
+        SpawnExtraThingsOnBattleStart {
+            tile FireTile
+            number [2 5]
+        }
+    }
+}
+KaijuFirestorm {
+    name "WEATHER_KAIJUFIRE_NAME"
+    desc "WEATHER_KAIJUFIRE_DESC"
+    
+    hint_persistent_elements [Fire]
+    effects {
+        FireStorm 33%
+        LowerAmbientLight 50%
+    }
+}
+
+Meteornado {
+    name "WEATHER_METEORNADO_NAME"
+    desc "WEATHER_METEORNADO_DESC"
+
+    effects {
+        Meteornado 1
+    }
+}
+
+KaijuMeteornado {
+    name "WEATHER_KAIJUMETEORNADO_NAME"
+    desc "WEATHER_KAIJUMETEORNADO_DESC"
+
+    effects {
+        Meteornado 1
+        LowerAmbientLight 33%
+        SpecialGodRays {
+            Big {
+                position [4.5 4.5]
+                follow_character_tag zaratana
+            }
+        }
+    }
+}
+KaijuMeteornadoSolo {
+    name "WEATHER_KAIJUMETEORSOLO_NAME"
+    desc "WEATHER_KAIJUMETEORSOLO_DESC"
+
+    effects {
+        Meteornado 1
+        LowerAmbientLight 50%
+        SpecialGodRays {
+            Big {
+                position [4.5 4.5]
+                follow_character_tag zaratana
+            }
+        }
+    }
+}
+
+RobotUprising {
+    name "WEATHER_ROBOTS_NAME"
+    desc "WEATHER_ROBOTS_DESC"
+
+    effects {
+        FactionUprising robot
+
+        SpawnExtraThingsOnBattleStart { //todo: would like to cluster these spawns together away from enemies or allies
+            object [SecurityBot CopBot_Uprising Rover RoboTom]
+            number 1
+        }
+        SpawnExtraThingsOnBattleStart { //todo: would like to cluster these spawns together away from enemies or allies
+            object [Bombchu Deathbot RoboVacuum TinkererTurret]
+            number [1 3]
+        }
+    }
+}
+
+HauntedNight {
+    name "WEATHER_HAUNTED_NAME"
+    desc "WEATHER_HAUNTED_DESC"
+    
+    effects {
+        FactionUprising ghost
+        LowerAmbientLight 33%
+
+
+        SpawnExtraThingsOnBattleStart { //todo: would like to cluster these spawns together away from enemies or allies
+            object [Spookie Scary Tatters Wisp Wisp Wisp]
+            number [2 4]
+        }
+    }
+}
+
+BirdMigration {
+    name "WEATHER_MIGRATION_NAME"
+    desc "WEATHER_MIGRATION_DESC"
+    
+    effects {
+        SpawnExtraThingsOnBattleStart {
+            object [Bird]
+            number [1 2]
+        }
+    }
+}
+
+CockroachSwarm {
+    name "WEATHER_COCKROACHES_NAME"
+    desc "WEATHER_COCKROACHES_DESC"
+    
+    effects {
+        CockroachSwarm 1
+
+        CharacterTypeGainsStatusAtBattleStart {
+            tag any
+
+            Conditional_Flying {
+            } Else { //only to things actually on the ground
+                Fear [1 .25]
+                Poison [1 .25]
+            }
+        }
+    }
+}
+
+JudgementDay {
+    name "WEATHER_JUDGEMENT_NAME"
+    desc "WEATHER_JUDGEMENT_DESC"
+    
+    effects {
+        JudgementDay 25
+    }
+}
+
+Pandemonium {
+    name "WEATHER_PANDEMONIUM_NAME"
+    desc "WEATHER_PANDEMONIUM_DESC"
+    
+    effects {
+        StatusCharactersOnRoundStart {
+            Madness [1 .25]
+        }
+    }
+}
+
+TheHollowing {
+    name "WEATHER_HOLLOWING_NAME"
+    desc "WEATHER_HOLLOWING_DESC"
+    
+    effects {
+        StatusCharactersOnRoundEnd {
+            Conditional_GoodRoll {
+                odds 25%
+                Conditional_Corpse {
+                    Revive 50%
+                    Madness 5
+                }
+            }
+        }
+    }
+}
+
+OilSpill {
+    name "WEATHER_OILSPILL_NAME"
+    desc "WEATHER_OILSPILL_DESC"
+    
+    effects {
+        SpawnTilePuddleOnBattleStart {
+            tile OilTile
+            min_radius 1.5
+            max_radius 3.5
+        }
+    }
+}
+
+Blizzard {
+    name "WEATHER_BLIZZARD_NAME"
+    desc "WEATHER_BLIZZARD_DESC"
+
+    ambient_sound amb_blizzard.ogg
+
+    hint_persistent_elements [Ice Wind]
+    effects {
+        Snow 1
+        RandomLightning 50%
+        Windy 1
+    }
+}
+
+Hurricane {
+    name "WEATHER_HURRICANE_NAME"
+    desc "WEATHER_HURRICANE_DESC"
+
+    ambient_sound amb_windy.ogg
+
+    hint_persistent_elements [Wind]
+    effects {
+        Windy 10
+    }
+}
+
+StrangeSpikes {
+    name "WEATHER_STRANGESPIKES_NAME"
+    desc "WEATHER_STRANGESPIKES_DESC"
+
+    effects {
+        StatusCharactersOnRoundEnd {
+            Thorns 1
+        }
+    }
+}
+
+BlessedDay {
+    name "WEATHER_BLESSED_NAME"
+    desc "WEATHER_BLESSED_DESC"
+
+    hint_persistent_elements [Holy]
+    effects {
+        PersistentElement Holy
+        GlobalHealthRegenAura 3
+    }
+}
+
+StealthMission {
+    name "WEATHER_STEALTH_NAME"
+    desc "WEATHER_STEALTH_DESC"
+    
+    effects {
+        CharacterTypeGainsStatusAtBattleStart {
+            tag any
+            Stealth 1
+        }
+    }
+}
+
+Infestation {
+    name "WEATHER_INFESTATION_NAME"
+    desc "WEATHER_INFESTATION_DESC"
+    
+    effects {
+        StatusAllCharactersOnSpawn {
+            Conditional_Tiny {
+            } Else {
+                AllyInfested {
+                    object ["Maggot", "Fly"]
+                }
+            }
+        }
+    }
+}
+
+Eruption {
+    name "WEATHER_ERUPTION_NAME"
+    desc "WEATHER_ERUPTION_DESC"
+    
+    effects {
+        SpawnVolcanoOnBattleStart {
+            object MiniVolcano
+            puddle_tile LavaTile
+            min_radius .2
+            max_radius 2.2
+        }
+    }
+}
+
+Drugs {
+    name "WEATHER_DRUGS_NAME"
+    desc "WEATHER_DRUGS_DESC"
+    
+    effects {
+        SpawnExtraThingsOnBattleStart {
+            object RandomCatnipPickup
+            number [4 6]
+        }
+        FindExtraItemFromPoolOnBattleEnd pills
+    }
+}
+
+TrainingDay {
+    name "WEATHER_TRAININGDAY_NAME"
+    desc "WEATHER_TRAININGDAY_DESC"
+    
+    effects {
+        SpawnVolcanoOnBattleStart {
+            object PunchingBag
+        }
+    }
+}
+
+Tornado {
+    name "WEATHER_TORNADOES_NAME"
+    desc "WEATHER_TORNADOES_DESC"
+    
+    effects {
+        SpawnExtraThingsOnBattleStart {
+            object NeutralTwister
+            number [1 2]
+        }
+        GlobalSpawnOnRoundEnd {
+            object NeutralTwister
+            number [1 2]
+        }
+    }
+}
+
+CrazyWeather {
+    name "WEATHER_CRAZY_NAME"
+    desc "WEATHER_CRAZY_DESC"
+    
+    effects {
+        //TODO: this needs to set ambient sounds correctly also
+        RandomWeatherEachFight [Fog Rain Windy Sandstorm HeatWave Snow Thunderstorm Blizzard Tornado] //todo: hailstorm too
+    }
+}
+
+BountyHunting {
+    name "WEATHER_BOUNTY_NAME"
+    desc "WEATHER_BOUNTY_DESC"
+    
+    effects {
+        SpawnExtraThingsOnBattleStart {
+            object EventBountyHunter
+        }
+    }
+}
+
+Minesweeper {
+    name "WEATHER_MINESWEEPER_NAME"
+    desc "WEATHER_MINESWEEPER_DESC"
+    
+    effects {
+        SpawnExtraThingsOnBattleStart {
+            trap LandMine
+            number [2 4]
+        }
+    }
+}
+
+AlienInvasion {
+    name "WEATHER_ALIENS_NAME"
+    desc "WEATHER_ALIENS_DESC"
+
+    effects {
+        FactionUprising alien
+
+        SpawnExtraThingsOnBattleStart { //todo: would like to cluster these spawns together away from enemies or allies
+            object [SmallUFO SmallUFO SmallUFO YellowBlaster GreyAlien GreenProber]
+            number [2 3]
+        }
+        SpawnExtraThingsOnBattleStart { //todo: would like to cluster these spawns together away from enemies or allies
+            object [BigUFO]
+            number [-2 1] //33% chance of a big ufo
+        }
+    }
+}
+
+//new weather
+
+Birdemic {
+    name "WEATHER_BIRDEMIC_NAME"
+    desc "WEATHER_BIRDEMIC_DESC"
+
+    effects {
+        FactionUprising {
+            tag bird
+
+            extra_statuses { //cancel the -999 bonus bird initiative
+                Conditional_HasTag {
+                    tag bonusbird
+
+                    ApplyPassives {
+                        AddInitiative 999
+                    }
+                    AddExtraTurnsBeforeRun 2
+                }
+                AllStatsUp 2
+                HealthGain 8 //fill up the blank max health
+            }
+        }
+
+        SpawnExtraThingsOnBattleStart {
+            object [Bird] //todo: would like to cluster these spawns together away from enemies or allies
+            number [2 4]
+        }
+    }
+}
+
+SolarFlare {
+    name "WEATHER_SOLARFLARE_NAME"
+    desc "WEATHER_SOLARFLARE_DESC"
+
+    effects {
+        SolarFlare {
+            damage 5
+
+            effects {
+                Burn 3
+                Blind 3
+            }
+            elements [
+                Fire
+            ]
+        }
+    }
+}
+
+GeomagneticStorm {
+    name "WEATHER_GEOMAGSTORM_NAME"
+    desc "WEATHER_GEOMAGSTORM_DESC"
+
+    effects {
+        StatusCharactersOnRoundEnd {
+            tag_filter rock
+            FloatingRockTrap 1
+        }
+        SpawnExtraThingsOnBattleStart {
+            object SmallRock
+            number [1 3]
+        }
+        SpawnExtraThingsOnBattleStart {
+            object Boulder
+            number [0 2]
+        }
+    }
+}
+
+TheShimmer {
+    name "WEATHER_SHIMMER_NAME"
+    desc "WEATHER_SHIMMER_DESC"
+
+    effects {
+        AddPostProcessEffect {
+            shader shimmervignette
+            requires_framebuffer false
+        }
+
+        StatusCharactersOnRoundStart {
+            Conditional_GoodRoll { //so luck matters
+                odds .5
+
+                RandomStatusFromPool {
+                    //positive
+                        RandomStatUp 1
+                        RandomStatUp 1
+                        RandomStatUp 1
+                        RandomStatUp 1
+
+                        Brace 1
+                        Shield 1
+                        DivineShield 1
+                        SpellDamageUp 1
+                        DamageUp 1
+                        Thorns 1
+                        KineticSpikes 1
+                }
+
+            } Else {
+                RandomStatusFromPool {
+                    //negative
+                        RandomStatDown 1
+                        RandomStatDown 1
+                        RandomStatDown 1
+                        RandomStatDown 1
+
+                        Poison 1
+                        Bruise 1
+                        Bleed 1
+                        Weakness 1
+                        Blind 1
+                        Drowsy 1
+                        Slow 1
+                }
+            }
+        }
+
+        StatusAllCharactersOnSpawn {
+            Conditional_PartyMember {
+                ApplyPassives {
+                    StatusOnBattleEnd {
+                        RandomMutation 1
+                    }
+                }
+            }
+        }
+    }
+}
+
+StrangeEggs {
+    name "WEATHER_STRANGEEGGS_NAME"
+    desc "WEATHER_STRANGEEGGS_DESC"
+
+    effects {
+        SpawnExtraThingsOnBattleStart {
+            object AlienEgg
+            number [3 6]
+        }
+    }
+}
+
+
+AlienOvergrowth {
+    name "WEATHER_ALIENOVERGROWTH_NAME"
+    desc "WEATHER_ALIENOVERGROWTH_DESC"
+
+    effects {
+        SpawnVolcanoOnBattleStart {
+            object Sprout
+            puddle_tile [BrambleTile TallBrambleTile]
+            min_radius 1
+            max_radius 2.2
+
+            number [3 5]
+        }
+    }
+}

@@ -1,0 +1,461 @@
+movieclip FrankOffice
+default_npc Frank
+
+states_and_transitions {
+	states {
+		idle ["idle"]
+	}
+
+	transitions {
+	}
+}
+
+sequences {
+
+	unknown {
+		dialog NPC_FRANK_UNKNOWN_1
+		get npc_reward
+	}
+
+	also {
+		dialog NPC_FRANK_ALSO_1
+	}
+	
+		//frank tips
+
+	unprompted {
+		do_random_sequence [unprompted_a, unprompted_b, unprompted_c, unprompted_d, unprompted_e, unprompted_f, unprompted_g, unprompted_h, unprompted_i]
+	}
+
+	unprompted_a {
+		dialog NPC_FRANK_UNPROMPTED_A_1
+		dialog NPC_FRANK_UNPROMPTED_A_2
+		dialog NPC_FRANK_UNPROMPTED_A_3
+		do_sequence forward_to_tips	
+	}
+	unprompted_b {
+		dialog NPC_FRANK_UNPROMPTED_B_1
+		dialog NPC_FRANK_UNPROMPTED_B_2
+		do_sequence forward_to_tips	
+	}
+	unprompted_c {
+		dialog NPC_FRANK_UNPROMPTED_C_1
+		dialog NPC_FRANK_UNPROMPTED_C_2
+		do_sequence forward_to_tips
+	}
+	unprompted_d {
+		dialog NPC_FRANK_UNPROMPTED_D_1
+		dialog NPC_FRANK_UNPROMPTED_D_2
+		dialog NPC_FRANK_UNPROMPTED_D_3
+		do_sequence forward_to_tips	
+	}
+	unprompted_e {
+		dialog NPC_FRANK_UNPROMPTED_E_1
+		dialog NPC_FRANK_UNPROMPTED_E_2
+		dialog NPC_FRANK_UNPROMPTED_E_3
+		do_sequence forward_to_tips	
+	}
+	unprompted_f {
+		dialog NPC_FRANK_UNPROMPTED_F_1
+		dialog NPC_FRANK_UNPROMPTED_F_2
+		dialog NPC_FRANK_UNPROMPTED_F_3
+		do_sequence forward_to_tips	
+	}
+	unprompted_g {
+		dialog NPC_FRANK_UNPROMPTED_G_1
+		dialog NPC_FRANK_UNPROMPTED_G_2
+		dialog NPC_FRANK_UNPROMPTED_G_3
+		do_sequence forward_to_tips	
+	}
+	unprompted_h {
+		dialog NPC_FRANK_UNPROMPTED_H_1
+		dialog NPC_FRANK_UNPROMPTED_H_2
+		dialog NPC_FRANK_UNPROMPTED_H_3
+		dialog NPC_FRANK_UNPROMPTED_H_4
+		dialog NPC_FRANK_UNPROMPTED_H_5
+		do_sequence forward_to_tips	
+	}
+	unprompted_i {
+		dialog NPC_FRANK_UNPROMPTED_I_1
+		dialog NPC_FRANK_UNPROMPTED_I_2
+		dialog NPC_FRANK_UNPROMPTED_I_3
+		dialog NPC_FRANK_UNPROMPTED_I_4
+		dialog NPC_FRANK_UNPROMPTED_I_5
+		do_sequence forward_to_tips	
+	}
+	
+	forward_to_tips {
+		do_random_sequence [frank_tips_1, frank_tips_2, frank_tips_3, frank_tips_4,frank_tips_5 ,frank_tips_6, frank_tips_7,
+		frank_tips_8, frank_tips_9, frank_tips_10]
+	}
+
+	
+	frank_tips_1 {
+		dialog NPC_FRANK_FRANK_TIPS_1_1
+		dialog NPC_FRANK_FRANK_TIPS_1_2
+		dialog NPC_FRANK_FRANK_TIPS_1_3
+		dialog NPC_FRANK_FRANK_TIPS_1_4
+	}
+	
+	frank_tips_2 {
+		dialog NPC_FRANK_FRANK_TIPS_2_1
+		dialog NPC_FRANK_FRANK_TIPS_2_2
+		dialog NPC_FRANK_FRANK_TIPS_2_3
+	}
+	frank_tips_3 {
+	    dialog NPC_FRANK_FRANK_TIPS_3_1
+		dialog NPC_FRANK_FRANK_TIPS_3_2
+		dialog NPC_FRANK_FRANK_TIPS_3_3
+	}
+	
+	frank_tips_4 {
+		dialog NPC_FRANK_FRANK_TIPS_4_1
+		dialog NPC_FRANK_FRANK_TIPS_4_2
+		dialog NPC_FRANK_FRANK_TIPS_4_3
+	}
+	frank_tips_5 {
+		dialog NPC_FRANK_FRANK_TIPS_5_1
+		dialog NPC_FRANK_FRANK_TIPS_5_2
+		dialog NPC_FRANK_FRANK_TIPS_5_3
+		dialog NPC_FRANK_FRANK_TIPS_5_4
+		dialog NPC_FRANK_FRANK_TIPS_5_5
+	}
+	
+	frank_tips_6 {
+		dialog NPC_FRANK_FRANK_TIPS_6_1
+		dialog NPC_FRANK_FRANK_TIPS_6_2
+		dialog NPC_FRANK_FRANK_TIPS_6_3
+	}
+	frank_tips_7 {
+		dialog NPC_FRANK_FRANK_TIPS_7_1
+		dialog NPC_FRANK_FRANK_TIPS_7_2
+		dialog NPC_FRANK_FRANK_TIPS_7_3
+	}
+	
+	frank_tips_8 {
+		dialog NPC_FRANK_FRANK_TIPS_8_1
+		dialog NPC_FRANK_FRANK_TIPS_8_2
+		dialog NPC_FRANK_FRANK_TIPS_8_3
+	}
+	frank_tips_9 {
+		dialog NPC_FRANK_FRANK_TIPS_9_1
+		dialog NPC_FRANK_FRANK_TIPS_9_2
+	}
+	
+	frank_tips_10 {
+		dialog NPC_FRANK_FRANK_TIPS_10_1
+		dialog NPC_FRANK_FRANK_TIPS_10_2
+		dialog NPC_FRANK_FRANK_TIPS_10_3
+		dialog NPC_FRANK_FRANK_TIPS_10_4
+	}
+
+	
+
+	house_upgrade_attic {
+		dialog NPC_FRANK_HOUSE_UPGRADE_ATTIC_1
+		set_state closeup
+		dialog NPC_FRANK_HOUSE_UPGRADE_ATTIC_2
+		dialog NPC_FRANK_HOUSE_UPGRADE_ATTIC_3
+		set_state zoomedout
+		dialog NPC_FRANK_HOUSE_UPGRADE_ATTIC_4
+		set_state idle
+		dialog NPC_FRANK_HOUSE_UPGRADE_ATTIC_5
+		dialog NPC_FRANK_HOUSE_UPGRADE_ATTIC_6
+		set_state closeup
+		dialog NPC_FRANK_HOUSE_UPGRADE_ATTIC_7
+		set_state idle
+		dialog NPC_FRANK_HOUSE_UPGRADE_ATTIC_8
+		set_state zoomedout
+		dialog NPC_FRANK_HOUSE_UPGRADE_ATTIC_9
+		get npc_reward
+	}
+
+	house_upgrade_mediumhouse {
+		dialog NPC_FRANK_HOUSE_UPGRADE_MEDIUMHOUSE_1
+		dialog NPC_FRANK_HOUSE_UPGRADE_MEDIUMHOUSE_2
+		set_state verycloseup
+		dialog NPC_FRANK_HOUSE_UPGRADE_MEDIUMHOUSE_3
+		set_state closeup
+		dialog NPC_FRANK_HOUSE_UPGRADE_MEDIUMHOUSE_4
+		dialog NPC_FRANK_HOUSE_UPGRADE_MEDIUMHOUSE_5
+		set_state verycloseup
+		dialog NPC_FRANK_HOUSE_UPGRADE_MEDIUMHOUSE_6
+		set_state closeup
+		dialog NPC_FRANK_HOUSE_UPGRADE_MEDIUMHOUSE_7
+		set_state verycloseup
+		dialog NPC_FRANK_HOUSE_UPGRADE_MEDIUMHOUSE_8
+		set_state zoomedout
+		dialog NPC_FRANK_HOUSE_UPGRADE_MEDIUMHOUSE_9
+		set_state idle
+		dialog NPC_FRANK_HOUSE_UPGRADE_MEDIUMHOUSE_10
+		dialog NPC_FRANK_HOUSE_UPGRADE_MEDIUMHOUSE_11
+		set_state closeup
+		dialog NPC_FRANK_HOUSE_UPGRADE_MEDIUMHOUSE_12
+		dialog NPC_FRANK_HOUSE_UPGRADE_MEDIUMHOUSE_13
+		dialog NPC_FRANK_HOUSE_UPGRADE_MEDIUMHOUSE_14
+		set_state zoomedout
+		dialog NPC_FRANK_HOUSE_UPGRADE_MEDIUMHOUSE_15
+		set_state idle
+		dialog NPC_FRANK_HOUSE_UPGRADE_MEDIUMHOUSE_16
+		dialog NPC_FRANK_HOUSE_UPGRADE_MEDIUMHOUSE_17
+		set_state zoomedout
+		dialog NPC_FRANK_HOUSE_UPGRADE_MEDIUMHOUSE_18
+		set_state idle
+		dialog NPC_FRANK_HOUSE_UPGRADE_MEDIUMHOUSE_19
+		dialog NPC_FRANK_HOUSE_UPGRADE_MEDIUMHOUSE_20
+		dialog NPC_FRANK_HOUSE_UPGRADE_MEDIUMHOUSE_21
+		get npc_reward
+	}
+
+	house_upgrade_largehouse {
+		dialog NPC_FRANK_HOUSE_UPGRADE_LARGEHOUSE_1
+		dialog NPC_FRANK_HOUSE_UPGRADE_LARGEHOUSE_2
+		dialog NPC_FRANK_HOUSE_UPGRADE_LARGEHOUSE_3
+		dialog NPC_FRANK_HOUSE_UPGRADE_LARGEHOUSE_4
+		set_state zoomedout
+		dialog NPC_FRANK_HOUSE_UPGRADE_LARGEHOUSE_5
+		set_state closeup
+		dialog NPC_FRANK_HOUSE_UPGRADE_LARGEHOUSE_6
+		dialog NPC_FRANK_HOUSE_UPGRADE_LARGEHOUSE_7
+		dialog NPC_FRANK_HOUSE_UPGRADE_LARGEHOUSE_8
+		set_state idle
+		dialog NPC_FRANK_HOUSE_UPGRADE_LARGEHOUSE_9
+		dialog NPC_FRANK_HOUSE_UPGRADE_LARGEHOUSE_10
+		dialog NPC_FRANK_HOUSE_UPGRADE_LARGEHOUSE_11
+		dialog NPC_FRANK_HOUSE_UPGRADE_LARGEHOUSE_12
+		set_state zoomedout
+		dialog NPC_FRANK_HOUSE_UPGRADE_LARGEHOUSE_13
+		get npc_reward
+	}
+
+	house_upgrade_4throom {
+		set_state verycloseup
+		dialog NPC_FRANK_HOUSE_UPGRADE_4THROOM_1
+		dialog NPC_FRANK_HOUSE_UPGRADE_4THROOM_2
+		set_state closeup
+		dialog NPC_FRANK_HOUSE_UPGRADE_4THROOM_3
+		dialog NPC_FRANK_HOUSE_UPGRADE_4THROOM_4
+		dialog NPC_FRANK_HOUSE_UPGRADE_4THROOM_5
+		set_state verycloseup
+		dialog NPC_FRANK_HOUSE_UPGRADE_4THROOM_6
+		set_state zoomedout
+		dialog NPC_FRANK_HOUSE_UPGRADE_4THROOM_7
+		set_state closeup
+		dialog NPC_FRANK_HOUSE_UPGRADE_4THROOM_8
+		dialog NPC_FRANK_HOUSE_UPGRADE_4THROOM_9
+		set_state idle
+		dialog NPC_FRANK_HOUSE_UPGRADE_4THROOM_10
+		set_state closeup
+		dialog NPC_FRANK_HOUSE_UPGRADE_4THROOM_11
+		dialog NPC_FRANK_HOUSE_UPGRADE_4THROOM_12
+		set_state zoomedout
+		dialog NPC_FRANK_HOUSE_UPGRADE_4THROOM_13
+		dialog NPC_FRANK_HOUSE_UPGRADE_4THROOM_14
+		set_state closeup
+		dialog NPC_FRANK_HOUSE_UPGRADE_4THROOM_15
+		dialog NPC_FRANK_HOUSE_UPGRADE_4THROOM_16
+		set_state idle
+		dialog NPC_FRANK_HOUSE_UPGRADE_4THROOM_17
+		get npc_reward
+	}
+
+	frank_max_intro {//when frank hits max favor
+		dialog NPC_FRANK_FRANK_MAX_INTRO_1
+		dialog NPC_FRANK_FRANK_MAX_INTRO_2
+		dialog NPC_FRANK_FRANK_MAX_INTRO_3
+		set_state closeup
+		dialog NPC_FRANK_FRANK_MAX_INTRO_4
+		dialog NPC_FRANK_FRANK_MAX_INTRO_5
+		set_state verycloseup
+		dialog NPC_FRANK_FRANK_MAX_INTRO_6
+		set_state zoomedout
+		dialog NPC_FRANK_FRANK_MAX_INTRO_7
+		set_state idle
+		dialog NPC_FRANK_FRANK_MAX_INTRO_8
+		get npc_reward
+	}
+
+	frank_max_repeating {
+		do_random_sequence [frank_max1, frank_max2, frank_max3, frank_max4, frank_max5]
+	}
+
+	frank_max1 {
+		dialog NPC_FRANK_FRANK_MAX1_1
+		dialog NPC_FRANK_FRANK_MAX1_2
+		set_state verycloseup
+		dialog NPC_FRANK_FRANK_MAX1_3
+		set_state idle
+		dialog NPC_FRANK_FRANK_MAX1_4
+		set_state closeup
+		dialog NPC_FRANK_FRANK_MAX1_5
+		dialog NPC_FRANK_FRANK_MAX1_6
+		dialog NPC_FRANK_FRANK_MAX1_7
+		get npc_reward
+	}
+	
+	frank_max2 {
+		dialog NPC_FRANK_FRANK_MAX2_1
+		set_state verycloseup
+		dialog NPC_FRANK_FRANK_MAX2_2
+		set_state idle
+		dialog NPC_FRANK_FRANK_MAX2_3
+		set_state  closeup
+		dialog NPC_FRANK_FRANK_MAX2_4
+		dialog NPC_FRANK_FRANK_MAX2_5
+		dialog NPC_FRANK_FRANK_MAX2_6
+		get npc_reward
+	}
+	
+	frank_max3 {
+		set_state verycloseup
+		dialog NPC_FRANK_FRANK_MAX3_1
+		set_state closeup
+		dialog NPC_FRANK_FRANK_MAX3_2
+		dialog NPC_FRANK_FRANK_MAX3_3
+		dialog NPC_FRANK_FRANK_MAX3_4
+		set_state zoomedout
+		dialog NPC_FRANK_FRANK_MAX3_5
+		set_state closeup
+		dialog NPC_FRANK_FRANK_MAX3_6
+		dialog NPC_FRANK_FRANK_MAX3_7
+		get npc_reward
+	}
+	
+	frank_max4 {
+		dialog NPC_FRANK_FRANK_MAX4_1
+		dialog NPC_FRANK_FRANK_MAX4_2
+		dialog NPC_FRANK_FRANK_MAX4_3
+		set_state verycloseup
+		dialog NPC_FRANK_FRANK_MAX4_4
+		set_state zoomedout
+		dialog NPC_FRANK_FRANK_MAX4_5
+		set_state closeup
+		dialog NPC_FRANK_FRANK_MAX4_6
+		dialog NPC_FRANK_FRANK_MAX4_7
+		get npc_reward
+	}
+	
+	frank_max5 {
+		set_state closeup
+		dialog NPC_FRANK_FRANK_MAX5_1
+		set_state verycloseup
+		dialog NPC_FRANK_FRANK_MAX5_2
+		set_state closeup
+		dialog NPC_FRANK_FRANK_MAX5_3
+		dialog NPC_FRANK_FRANK_MAX5_4
+		set_state zoomedout
+		dialog NPC_FRANK_FRANK_MAX5_5
+		set_state idle
+		dialog NPC_FRANK_FRANK_MAX5_6
+		dialog NPC_FRANK_FRANK_MAX5_7
+		get npc_reward
+	}
+	
+
+	house_upgrade_basement {
+		dialog NPC_FRANK_HOUSE_UPGRADE_BASEMENT_1
+		get npc_reward
+	}
+
+	house_upgrade_basement2 {
+		dialog NPC_FRANK_HOUSE_UPGRADE_BASEMENT2_1
+		get npc_reward
+	}
+
+	house_upgrade_basement3 {
+		dialog NPC_FRANK_HOUSE_UPGRADE_BASEMENT3_1
+		get npc_reward
+	}
+
+	house_upgrade_basement4 {
+		dialog NPC_FRANK_HOUSE_UPGRADE_BASEMENT4_1
+		get npc_reward
+	}
+
+	house_upgrade_basement5 {
+		dialog NPC_FRANK_HOUSE_UPGRADE_BASEMENT5_1
+		get npc_reward
+	}
+	
+	//Frank unlock intros
+	
+	frank_caves_intro {
+		dialog NPC_FRANK_FRANK_CAVES_INTRO_1
+		set_state closeup
+		dialog NPC_FRANK_FRANK_CAVES_INTRO_2
+		dialog NPC_FRANK_FRANK_CAVES_INTRO_3
+		dialog NPC_FRANK_FRANK_CAVES_INTRO_4
+		set_state zoomedout
+		dialog NPC_FRANK_FRANK_CAVES_INTRO_5
+		dialog NPC_FRANK_FRANK_CAVES_INTRO_6
+		dialog NPC_FRANK_FRANK_CAVES_INTRO_7
+		set_state closeup
+		dialog NPC_FRANK_FRANK_CAVES_INTRO_8
+		set_state zoomedout
+		dialog NPC_FRANK_FRANK_CAVES_INTRO_9
+		dialog NPC_FRANK_FRANK_CAVES_INTRO_10
+		dialog NPC_FRANK_FRANK_CAVES_INTRO_11
+		dialog NPC_FRANK_FRANK_CAVES_INTRO_12
+		set_state closeup
+		dialog NPC_FRANK_FRANK_CAVES_INTRO_13
+	}
+	
+	frank_terminator2 {
+		set_state closeup
+		dialog NPC_FRANK_FRANK_TERMINATOR2_1
+		set_state verycloseup
+		dialog NPC_FRANK_FRANK_TERMINATOR2_2
+		set_state idle
+		dialog NPC_FRANK_FRANK_TERMINATOR2_3
+		dialog NPC_FRANK_FRANK_TERMINATOR2_4
+		set_state zoomedout
+		dialog NPC_FRANK_FRANK_TERMINATOR2_5
+		set_state closeup
+		dialog NPC_FRANK_FRANK_TERMINATOR2_6
+		dialog NPC_FRANK_FRANK_TERMINATOR2_7
+		dialog NPC_FRANK_FRANK_TERMINATOR2_8
+		set_state idle
+		dialog NPC_FRANK_FRANK_TERMINATOR2_9
+		dialog NPC_FRANK_FRANK_TERMINATOR2_10
+		set_state closeup
+		dialog NPC_FRANK_FRANK_TERMINATOR2_11
+		dialog NPC_FRANK_FRANK_TERMINATOR2_12
+		set_state zoomedout
+		dialog NPC_FRANK_FRANK_TERMINATOR2_13
+		dialog NPC_FRANK_FRANK_TERMINATOR2_14
+		dialog NPC_FRANK_FRANK_TERMINATOR2_15
+	}
+
+	frank_ending { //after the nuke final ending frank says this as his new intro
+		set_state closeup
+		dialog NPC_FRANK_FRANK_ENDING_1
+		dialog NPC_FRANK_FRANK_ENDING_2
+		dialog NPC_FRANK_FRANK_ENDING_3
+		dialog NPC_FRANK_FRANK_ENDING_4
+		set_state idle
+		dialog NPC_FRANK_FRANK_ENDING_5
+		set_state closeup
+		dialog NPC_FRANK_FRANK_ENDING_6
+		set_state idle
+		dialog NPC_FRANK_FRANK_ENDING_7
+		set_state zoomedout
+		dialog NPC_FRANK_FRANK_ENDING_8
+		dialog NPC_FRANK_FRANK_ENDING_9
+		set_state verycloseup
+		dialog NPC_FRANK_FRANK_ENDING_10
+		dialog NPC_FRANK_FRANK_ENDING_11
+		set_state closeup
+		dialog NPC_FRANK_FRANK_ENDING_12
+		dialog NPC_FRANK_FRANK_ENDING_13
+		dialog NPC_FRANK_FRANK_ENDING_14
+		dialog NPC_FRANK_FRANK_ENDING_15
+		set_state idle
+		dialog NPC_FRANK_FRANK_ENDING_16
+	}
+	
+}
+
+
+		//default  happy  veryhappy  sad  angry  veryangry
+        //questioning  whispering  pondering  mocking
+        //inlove  confused  paranoid  shocked  scared  spacedout

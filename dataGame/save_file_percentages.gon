@@ -1,0 +1,199 @@
+main { //stuff needed to reach 100%
+
+	//each chapter cleared once (20%)
+
+	20 {
+		complete_chapter alley
+		complete_chapter sewers
+		complete_chapter junkyard
+		complete_chapter caves
+		complete_chapter boneyard
+		complete_chapter meatworld
+		complete_chapter desert
+		complete_chapter crater
+		complete_chapter bunker
+		complete_chapter moon
+		complete_chapter core
+		complete_chapter dimensionx
+		complete_chapter lab
+		complete_chapter iceage
+		complete_chapter future
+		complete_chapter jurassic
+		complete_chapter theend
+		complete_chapter endoftime
+	}
+
+	//all 14 classes x all 9 checkmarks at normal+ difficulty (20%)
+
+	20 {
+		complete_checkmarks {
+			classes [Fighter Hunter Mage Medic Tank Thief Colorless Monk Butcher Druid Tinkerer Necromancer Psychic Jester]
+			areas [caves boneyard moon core jurassic theend meatworld dimensionx endoftime]
+			min_difficulty 0
+			mono_cat_run false
+			solo_cat_run false
+		}
+	}
+	
+	//all NPCs maxed out (20%)
+	20 {
+		max_npc Beanies
+		max_npc Butch
+		max_npc Tink
+		max_npc Frank
+		max_npc Jack
+		max_npc Tracy
+		max_npc OrganGrinder
+	}
+
+	//all house bosses beat once (20%)
+	20 {
+		complete_house_boss guillotina_1
+		complete_house_boss guillotina_2
+		complete_house_boss guillotina_3
+		complete_house_boss pyrophina
+		complete_house_boss zaratana
+		complete_house_boss pyrophina_vs_zaratana
+		complete_house_boss terminator_1
+		complete_house_boss terminator_2
+		complete_house_boss terminator_3
+	}
+
+	//all main quests complete (20%)
+	20 {
+		save_file_flag MeatWorldQuest_Gristle
+		save_file_flag MeatWorldQuest_Leech
+		save_file_flag mapflag_MeatWorldUnlockedFull
+
+		save_file_flag mapflag_MoonObeliskUnlocked
+		save_file_flag mapflag_CoreObeliskUnlocked
+		save_file_flag mapflag_DimensionXUnlocked
+
+		save_file_flag AntennaQuest_Volcano
+		save_file_flag AntennaQuest_Orb
+		save_file_flag AntennaQuest_Rift
+
+		adventure_unlock time_machine_quest_finalstep //first part of cooler quest
+		adventure_unlock map_unlock_iceage //second part of cooler quest
+
+		adventure_unlock nuke_quest_jar1
+		adventure_unlock nuke_quest_get_nuke
+		adventure_unlock nuke_quest_complete
+	}
+}
+bonus { //keys that count for bonus stuff beyond 100%
+
+	//all 14 classes x all 9 checkmarks at hard+ difficulty
+	//all 14 classes x all 9 checkmarks at crazy+ difficulty
+	//all 14 classes x all 9 checkmarks at impossible+ difficulty
+
+	1 {
+		complete_checkmarks {
+			classes [Fighter Hunter Mage Medic Tank Thief Colorless Monk Butcher Druid Tinkerer Necromancer Psychic Jester]
+			areas [caves boneyard moon core jurassic theend meatworld dimensionx endoftime]
+			min_difficulty 1
+			mono_cat_run false
+			solo_cat_run false
+		}
+	}
+	1 {
+		complete_checkmarks {
+			classes [Fighter Hunter Mage Medic Tank Thief Colorless Monk Butcher Druid Tinkerer Necromancer Psychic Jester]
+			areas [caves boneyard moon core jurassic theend meatworld dimensionx endoftime]
+			min_difficulty 2
+			mono_cat_run false
+			solo_cat_run false
+		}
+	}
+	1 {
+		complete_checkmarks {
+			classes [Fighter Hunter Mage Medic Tank Thief Colorless Monk Butcher Druid Tinkerer Necromancer Psychic Jester]
+			areas [caves boneyard moon core jurassic theend meatworld dimensionx endoftime]
+			min_difficulty 3
+			mono_cat_run false
+			solo_cat_run false
+		}
+	}
+
+	//all 9 house bosses at hard+ difficulty
+	//all 9 house bosses at crazy+ difficulty
+	//all 9 house bosses at impossible+ difficulty
+	//all steven items
+
+	1 {
+		adventure_unlock  steven_unlock_tina1_hard
+		adventure_unlock  steven_unlock_tina2_hard
+		adventure_unlock  steven_unlock_tina3_hard
+		adventure_unlock   steven_unlock_pyro_hard
+		adventure_unlock   steven_unlock_zara_hard
+		adventure_unlock steven_unlock_kfight_hard
+		adventure_unlock     steven_unlock_t1_hard
+		adventure_unlock     steven_unlock_t2_hard
+		adventure_unlock     steven_unlock_t3_hard
+
+		adventure_unlock     steven_unlock_throb_hard
+		adventure_unlock      steven_unlock_rift_hard
+		adventure_unlock  steven_unlock_infinite_hard
+	}
+
+	1 {
+		adventure_unlock  steven_unlock_tina1_crazy
+		adventure_unlock  steven_unlock_tina2_crazy
+		adventure_unlock  steven_unlock_tina3_crazy
+		adventure_unlock   steven_unlock_pyro_crazy
+		adventure_unlock   steven_unlock_zara_crazy
+		adventure_unlock steven_unlock_kfight_crazy
+		adventure_unlock     steven_unlock_t1_crazy
+		adventure_unlock     steven_unlock_t2_crazy
+		adventure_unlock     steven_unlock_t3_crazy
+
+		adventure_unlock     steven_unlock_throb_crazy
+		adventure_unlock      steven_unlock_rift_crazy
+		adventure_unlock  steven_unlock_infinite_crazy
+	}
+
+	1 {
+		adventure_unlock  steven_unlock_tina1_impossible
+		adventure_unlock  steven_unlock_tina2_impossible
+		adventure_unlock  steven_unlock_tina3_impossible
+		adventure_unlock   steven_unlock_pyro_impossible
+		adventure_unlock   steven_unlock_zara_impossible
+		adventure_unlock steven_unlock_kfight_impossible
+		adventure_unlock     steven_unlock_t1_impossible
+		adventure_unlock     steven_unlock_t2_impossible
+		adventure_unlock     steven_unlock_t3_impossible
+
+		adventure_unlock     steven_unlock_throb_impossible
+		adventure_unlock      steven_unlock_rift_impossible
+		adventure_unlock  steven_unlock_infinite_impossible
+	}
+
+	1 {
+		adventure_unlock class_unlock_monocolorless_head
+		adventure_unlock class_unlock_monocolorless_face
+		adventure_unlock class_unlock_monocolorless_neck
+	}
+
+
+	//all 14 classes x all 9 checkmarks mono class runs (+1%)
+	1 {
+		complete_checkmarks {
+			classes [Fighter Hunter Mage Medic Tank Thief Colorless Monk Butcher Druid Tinkerer Necromancer Psychic Jester]
+			areas [caves boneyard moon core jurassic theend meatworld dimensionx endoftime]
+			min_difficulty 0
+			mono_cat_run true
+			solo_cat_run false
+		}
+	}
+
+	//all 14 classes x all 9 checkmarks solo cat runs (+1%)
+	1 {
+		complete_checkmarks {
+			classes [Fighter Hunter Mage Medic Tank Thief Colorless Monk Butcher Druid Tinkerer Necromancer Psychic Jester]
+			areas [caves boneyard moon core jurassic theend meatworld dimensionx endoftime]
+			min_difficulty 0
+			mono_cat_run false
+			solo_cat_run true
+		}
+	}
+}

@@ -1,0 +1,944 @@
+num_textures 250
+
+num_bodies 250
+num_heads 250
+num_legs 250
+num_tails 250
+num_ears 250
+num_eyes 250
+num_brows 250
+num_mouths 250
+
+num_claws 10
+
+num_palettes 49
+
+num_wrinkles 10
+num_grayhair 10
+
+voice_sets {
+    male1 1 //Jon evans
+    male2 1 //Matthias Bossi
+    male3 1 //Edmund (as Guppy)
+    male4 1 // Eryck Lindquist
+    male5 1 // Joey Kuras
+    male6 1 // Ash
+    male7 1 // Viggo
+    male8 1 // Cody Glaiel 
+    male9 1 // Cody Glaiel (metal)
+    male10 1 // Quentin Glaiel (young)
+    male11 1 // Quentin Glaiel (young)
+    male12 1 //swearing cat (jeff) (speaks) (swears)
+    male13 1 // Ricky Berwick
+    male14 1 // Wubby
+    male15 1 // Steven Williams
+    male16 1 // Cliff Bleszinski
+    male17 1 // Sony Shock
+    male18 1 // Arin (deep)
+    male19 1 // Arin (nerdy)
+    male20 1 // Arin (nasally)
+    male21 1 // Tyler Glaiel
+    male22 1 // Tay Zonday
+    male23 1 // VSauce
+    male24 1 // VSauce
+    male25 1 // Ross Donovan
+    male26 1 // Vinny Vinesauce (cat)
+    male27 1 // Vinny Vinesauce (human cat)
+    male28 1 // Markiplier
+    male29 1 // Chills
+    male30 1 // Taylor Hall (noble)
+    male31 1 // Pelo
+    male32 1 // Rivers Cuomo
+    male33 1 // Logic
+    male34 1 // Yoav (autotune)
+    male35 1 // Derrick Acosta - Mega64
+    male36 1 // Shawn Chatfield - Mega64
+    male37 1 // Rocco Botte - Mega64
+    male38 1 // David Harbour
+    male39 1 // hbomberguy (speaks)
+    male40 1 // Ethan from H3H (speaks)
+    male41 1 // Spencer Kling - can use for enemies
+    male42 1 // David ROCK Nelson (speaks)
+    male43 1 // Michael Glaiel
+    male44 1 // Mister MV
+    male45 1 // Geno Samuel
+    male46 1 // Adam Johnston (YMS)
+    male47 1 // Adam Johnston (YMS) (speaks)
+    male48 1 // Carl Edge
+    male49 1 // Damian Abraham
+    male50 1 // Cody (Shannon and the Clams)
+    male51 1 // David Firth
+    male52 1 // Dusty
+    male53 1 // Froggy Fresh
+    male54 1 // Gavin Howell
+    male55 1 // Eli
+    male56 1 // Florian Himsl
+    male57 1 // Greg Sestero
+    male58 1 // Stinky Blue Rat
+    male59 1 // Liquid Chris
+    male60 1 // Sneegsnag (speaks)
+    male61 1 // Josh Tomar (cat)
+    male62 1 // Josh Tomar (human)
+    male63 1 // SwaggerSouls
+    male64 1 // Sam (Living Tomb Stones)
+    male65 1 // Tom Cardy
+    male66 1 // Mark DeCarlo
+    male67 1 // The Professor (speaks)
+    male68 1 // Jack Packard (smeegle cat)
+    male69 1 // Jack Packard (hunky cat) (speaks)
+    male70 1 // ragman
+    male71 1 // Zach Hadel
+    male72 1 // Taylor Hall
+    male73 1 // maxmoefoe (cat)
+    male74 1 // maxmoefoe (funny) (speaks & swears)
+    male75 1 // idubbbz
+    male76 1 // Andrew Bowser (Onyx The Fortuitous) (speaks)
+    male77 1 // Rich Evans (human)
+    male78 1 // Rich Evans (cat)
+    male79 1 // Dan Gheesling
+    male80 1 // Tonetta (says 3 quick phrases, I'm hurt, goodbye, I'm dying - not marked as speech)
+    male81 1 // Lloyd Kaufman
+    male82 1 // Daxflame
+    male83 1 // Nick Nightmind
+    male84 1 // Russ Frushtick
+    male85 1 // Meat Canyon
+    male86 1 // Douglas Philippa
+    male87 1 // Douglas Philippa
+    male88 1 // Jonathan Holmes
+    male89 1 // Jonathan Holmes (old man)
+    male90 1 // Jonathan Holmes (satchmo)
+    male91 1 // The-Vinh Truong
+    male92 1 // Bobcat Goldthwait
+    male93 1 // Nik (Serbian cat - LeatherIceCream)
+	male94 1 // Jay Bauman (speaks) (swears)
+    male95 1 //  Matan Evan
+    male96 1 // Alex Hicks
+    male97 1 // Mike Stoklasa
+    male98 1 // Corpse Husband
+    male99 1 // Will Stamper
+    male100 1 // Northern Lion
+    male101 1 // Josh Robert Thompson (George Lucas imitation) (speaks)
+    male102 1 // Justin Whang
+    male103 1 // Justin Whang ver 2 (says death for a couple death lines - not marked as speech)
+    male105 1 // Jamishio
+    male106 1 // Burt Bronx
+    male107 1 // Greg Sestero (speaks) - this is all dialog
+    male108 1 // MoistCr1tikal
+    male109 1 // Jerma (sounds like a cat)
+    male110 1 // Juan Moore
+    male111 1 // Gene Ween
+    male112 1 // Will Stamper - reversed
+    male113 1 // Rodney Roy
+    male114 1 // Josh Robert Thompson (Morgan Freeman imitation) (speaks)
+    female1 1 // Danielle
+    female2 1
+    female3 1 // Carla
+    female4 1 // Lisa Kuras
+    female5 1 // Elicia Roy
+    female6 1 // Kaitlyn Lindquist
+    female7 1 // Audrina (young)
+    female8 1 // Audrina (young)
+    female9 1 // Selena
+    female10 1 // Selena
+    female11 1 // Alluux
+    female12 1 // Lauren Bleszinski
+    female13 1 // Giwi
+    female14 1 // Tikara the Mew
+    female15 1 // Cupquake
+    female16 1 // Sushimew (speaks)
+    female17 1 // Peachy (young)
+    female18 1 // Acacia
+    female19 1 // Chelsea Rebecca
+    female20 1 // Chelsea Rebecca
+    female21 1 // Emily Gordon
+    female22 1 // Felicia
+    female23 1 // Sydney Miles
+    female24 1 // Sydney Miles
+    female25 1 // Sydney Miles (speaks)
+    female26 1 // Sydney Miles
+    female27 1 // Sydney Miles (speaks)
+    female28 1 // Skye Manley
+    female29 1 // Crystal
+    female30 1 // Peach (normal) (young) (speaks)
+    female31 1 // Hila (from H3H)
+    female32 1 // Kris Kling - can use for enemies
+    female33 1 // Barbara Laliberte
+    female34 1 // Marguerite Perrin (God Warrior) (speak)
+    female35 1 // Chris Chan Sonichu Prime
+    female36 1 // Dani Bowman
+    female37 1 // Barbara Crampton - human
+    female38 1 // Barbara Crampton - cat
+    female39 1 // Lily Pichu
+    female40 1 // Nicole Barille (speak)
+    female41 1 // Stephanie Sterling
+    female42 1 // Anisa
+    female43 1 // Mini (young)
+    female44 1 // Jonathan Holmes (impersonating his mother) (speak)
+    female45 1 // Ali Glaiel
+    female46 1 // Ali Glaiel
+    female47 1 // Isabella Scobie
+    female48 1 // Brittney V
+    female49 1 // Brittney V
+    female50 1 // Brandi Corbett
+    female51 1 // Brandi Corbett
+    female52 1 // Gloria Howell
+    female53 1 // Shannon Shaw (speaks)
+    female54 1 // Shannon Shaw
+    female55 1 // Sheep Xing (Josie) (speaks)
+    female56 1 // Kezia Burrows
+    female57 1 // Kezia Burrows
+    female58 1 // Emiru
+    female59 1 // Zoe Thorogood
+    robotom  1 // Robotom robot voice
+    spidercat 1 // kitten like spider cat
+    terminator 1 // Josh Robert Thompson (speaks) //TODO: make unlockable
+
+}
+
+special_voice_sets { //wont show up in cat voice pool, but need to be listed so the game can load them
+    terminator_boss 1 // John Robert Thompson
+    raptor 1 // raptor voice
+    sabertoothcat 1 // sabertooth cat voice
+    raptorbaby 1 // raptor baby voice
+    mammothbaby 1 // mammoth baby voice
+    parasaurolophus 1 // parasaurolophus voice
+    ankylosaurus 1 // ankylosaurus voice
+    wolfcat 1 // wolfcat voice
+    futurebot 1 // futurebot voice
+    yeticat 1 // yeticat voice
+    poopcat 1 // poopcat voice - incomplete set
+    scorpioncat 1 // scorpioncat voice
+}
+
+voice_pitch_range_high .5
+voice_pitch_range_low .5
+
+faces {
+    
+    back {
+        back true
+    }
+
+    default {
+        eyebrow_up 15
+        eyebrow_rotation 0
+        ear_rotation 0
+        mouth closed
+        eyes open
+
+        face_offset [10 0]
+        back false
+    }
+
+    faceleft {
+        face_offset [-10 0]
+    }
+    faceright {
+        face_offset [10 0]
+    }
+    faceup {
+        face_offset [0 -10]
+    }
+    facedown {
+        face_offset [0 10]
+    }
+    facecenter {
+        face_offset [0 0]
+    }
+    face_center {
+        face_offset [0 0]
+    }
+	facedownleft {
+        face_offset [-5 10]
+    }
+    facedownleft_eyes_closed {
+        face_offset [-5 10]
+		eyes closed
+    }
+    facedownright {
+        face_offset [5 10]
+    }
+	facedownright_eyes_closed {
+        face_offset [5 10]
+		eyes closed
+    }
+	facedownright_more {
+        face_offset [10 10]
+    }
+	faceupright {
+        face_offset [6 -10]
+    }
+	faceupleft {
+        face_offset [-6 -10]
+    }
+
+	face_far_right {
+        face_offset [20 0]
+    }
+	face_far_left {
+        face_offset [-20 0]
+    }
+	face_far_up {
+        face_offset [0 -23]
+    }
+	face_far_down {
+        face_offset [0 23]
+    }
+    face_far_down_right {
+        face_offset [15 23]
+    }
+	face_far_up_right {
+        face_offset [15 -17]
+    }
+	face_far_up_left {
+        face_offset [-15 -17]
+    }
+
+    facecenter_right { //centered face but fur and ears point right
+        face_offset [3 0]
+    }
+
+
+    faceup_eyes_closed {
+        face_offset [0 -10]
+        eyes closed
+        mouth closed
+    }
+    facedown_eyes_closed {
+        face_offset [0 10]
+        eyes closed
+        mouth closed
+    }
+    facedown_eyes_closed_overshoot {
+        face_offset [0 15]
+        eyes closed
+        mouth closed
+    }
+
+    faceleft_eyes_closed {
+        face_offset [-10 0]
+        eyes closed
+        mouth closed
+    }
+    face_far_left_eyes_closed {
+        face_offset [-20 0]
+        eyes closed
+        mouth closed
+    }
+    facecenter_eyes_closed {
+        face_offset [0 0]
+        eyes closed
+        mouth closed
+    }
+    faceupleft_eyes_closed {
+        face_offset [-10 -10]
+        eyes closed
+        mouth closed
+    }
+
+
+    faceleft_back {
+        face_offset [-10 0]
+        back true
+    }
+    faceright_back { // default back
+        face_offset [10 0]
+        back true
+    }
+    faceup_back {
+        face_offset [0 -10]
+        back true
+    }
+    facedown_back {
+        face_offset [0 10]
+        back true
+    }
+    facecenter_back {
+        face_offset [0 0]
+        back true
+    }
+
+	faceleft_mouth_open {
+        face_offset [-10 0]
+		mouth open
+    }
+
+    shock {
+        eyebrow_up 25
+        eyebrow_rotation 0
+        ear_rotation [20, 20]
+        mouth open
+        eyes open
+    }
+    facecenter_shock {
+        eyebrow_up 25
+        eyebrow_rotation 0
+        ear_rotation [20, 20]
+        mouth open
+        eyes open
+		face_offset [0 0]
+    }
+    faceup_shock {
+        eyebrow_up 25
+        eyebrow_rotation 0
+        ear_rotation [20, 20]
+        mouth open
+        eyes open
+		face_offset [0 -10]
+    }
+	shock_left {
+        eyebrow_up 25
+        eyebrow_rotation 0
+        ear_rotation [20, 20]
+        mouth open
+        eyes open
+		face_offset [-10 0]
+    }
+    
+    suprise {
+        eyebrow_up 25
+        eyebrow_rotation 0
+        mouth smile
+        eyes open
+    }
+    facecenter_suprise {
+        eyebrow_up 25
+        eyebrow_rotation 0
+        mouth smile
+        eyes open
+        face_offset [0 0]
+    }
+
+
+    hardblink {
+        eyebrow_up 0
+        eyebrow_rotation 0
+        mouth closed
+        eyes closed
+    }
+    facecenter_hardblink {
+        eyebrow_up 0
+        eyebrow_rotation 0
+        mouth closed
+        eyes closed
+        face_offset [0 0]
+    }
+    
+    
+    terror {
+        eyebrow_up 20
+        eyebrow_rotation -22.5
+        mouth open
+        eyes open
+        ear_rotation [-10, -10]
+    }
+    
+    euphoric {
+        eyebrow_up 20
+        eyebrow_rotation 0
+        mouth smile
+        eyes closed
+    }
+    
+    happy {
+        eyebrow_up 20
+        eyebrow_rotation 0
+        mouth smile
+        eyes open
+    }
+	happy_left {
+        eyebrow_up 20
+        eyebrow_rotation 0
+        mouth smile
+        eyes open
+		face_offset [-10 0]
+    }
+	facecenter_happy {
+        eyebrow_up 20
+        eyebrow_rotation 0
+        mouth smile
+        eyes open
+		face_offset [0 0]
+    }
+    facecenter_happy_overshoot {
+        eyebrow_up 25
+        eyebrow_rotation 7
+        mouth smile
+        eyes open
+		face_offset [0 0]
+    }
+
+    devious {
+        eyebrow_up 19
+        eyebrow_rotation 20
+        mouth smile
+        eyes close
+        face_offset [10 0]
+    }
+    devious2 {
+        eyebrow_up 20
+        eyebrow_rotation 18
+        mouth smile
+        eyes close
+        face_offset [10 3]
+    }
+    
+    
+    
+    
+    mad {
+        eyebrow_up 15
+        eyebrow_rotation 22.5
+        mouth closed
+        eyes open
+    }
+
+    angry {
+        eyebrow_up 15
+        eyebrow_rotation 22.5
+        mouth closed
+        eyes open
+    }
+
+    bloodthirsty {
+        eyebrow_up 15
+        eyebrow_rotation 22.5
+        mouth smile
+        eyes open
+    }
+    bloodthirsty_eyes_closed {
+        eyebrow_up 12.5
+        eyebrow_rotation 22
+        mouth smile
+        eyes close
+        face_offset [10 10]
+    }
+
+    verymad {
+        eyebrow_up 10
+        eyebrow_rotation 30
+        mouth open
+        eyes open
+    }
+
+    supermad {
+        eyebrow_up 0
+        eyebrow_rotation 40
+        mouth open
+        eyes closed
+    }
+    faceupright_supermad {
+        face_offset [6 -10]
+        eyebrow_up 0
+        eyebrow_rotation 40
+        mouth open
+        eyes closed
+    }
+    
+    insane {
+        eyebrow_up 10
+        eyebrow_rotation 40
+        mouth smile
+        eyes open
+    }
+    
+    worried {
+        eyebrow_up 15
+        eyebrow_rotation -22.5
+        mouth closed
+        eyes open
+        ear_rotation [-12 ,-12]
+    }
+    facecenter_worried {
+        eyebrow_up 15
+        eyebrow_rotation -22.5
+        mouth closed
+        eyes open
+        ear_rotation [-12 ,-12]
+    }
+    worried_left {
+        eyebrow_up 15
+        eyebrow_rotation -30
+        mouth closed
+        eyes open
+        ear_rotation [-12 ,-12]
+	    face_offset [-11 0]
+    }
+
+    sad {
+        eyebrow_up 10
+        eyebrow_rotation -15
+        mouth closed
+        eyes open
+        ear_rotation [-12 ,-12]
+        face_offset [10 5]
+    }
+    sad_left {
+        eyebrow_up 10
+        eyebrow_rotation -15
+        mouth closed
+        eyes open
+        ear_rotation [-12 ,-12]
+        face_offset [-11 5]
+    }
+    
+    wince {
+        eyebrow_up 15
+        eyebrow_rotation -22.5
+        mouth open
+        eyes closed
+    }
+    face_down_wince {
+        eyebrow_up 15
+        eyebrow_rotation -22.5
+        mouth open
+        eyes closed
+	    face_offset [0 10]
+    }
+    face_left_wince {
+        eyebrow_up 15
+        eyebrow_rotation -22.5
+        mouth open
+        eyes closed
+	    face_offset [-10 0]
+    }
+    distraught {
+        eyebrow_up 12
+        eyebrow_rotation -22.5
+        mouth closed
+        eyes closed
+	    face_offset [0 17]
+        ear_rotation [ -25, -25]
+        eyebrow_up [10, 10]
+    }
+    
+    dead {
+        eyebrow_up 15
+        eyebrow_rotation -30
+        mouth closed
+        eyes closed
+    }
+    dead_faceleft {
+        eyebrow_up 15
+        eyebrow_rotation -30
+        mouth closed
+        eyes closed
+        face_offset [-10 0]
+    }
+    dead_facecenter {
+        eyebrow_up 15
+        eyebrow_rotation -30
+        mouth closed
+        eyes closed
+        face_offset [0 0]
+    }
+    
+    bored {
+        eyebrow_up 10
+        eyebrow_rotation 0
+        mouth closed
+        eyes open
+    }
+    
+    mouth_open {
+        mouth open
+        eyes open
+    }
+    
+    smile {
+        eyebrow_up 20
+        mouth smile
+        eyes open
+        ear_rotation [10, 10]
+    }
+    
+    eyes_closed {
+        eyes closed
+        mouth closed
+    }
+
+    barf {
+        eyebrow_up 15
+        eyebrow_rotation -22.5
+        mouth open
+        eyes closed
+    }
+
+    barf_attack {
+        eyebrow_up 15
+        eyebrow_rotation -22.5
+        mouth open
+        eyes open
+    }
+
+    barf_prep {
+        eyebrow_up 5
+        eyebrow_rotation -22.5
+        mouth closed
+        eyes closed
+    }
+    concentrate {
+        eyebrow_up 10
+        eyebrow_rotation 40
+        mouth closed
+        eyes closed
+    }
+    
+    bite {
+        eyebrow_up 10
+        eyebrow_rotation 30
+        eyes closed
+        mouth closed
+    }
+    
+    wink {
+        eyebrow_up 25
+        eyebrow_rotation 0
+        mouth smile
+        eyes open
+    }
+
+
+
+    shake1 {
+        face_offset[-10, 10]
+        eyes closed
+        mouth closed
+        ear_rotation [-10, 15]
+    }
+    shake2 {
+        face_offset[10, 10]
+        eyes closed
+        mouth closed
+        ear_rotation [15, -10]
+    }
+
+
+    ears_up {
+        ear_rotation [15, 15]
+        eyebrow_up [25, 25]
+    }
+    ears_up_overshoot {
+        ear_rotation [32, 32]
+        eyebrow_up [29, 29]
+    }
+
+    ears_down {
+        ear_rotation [ -15, -15]
+        eyebrow_up [12, 12]
+    }
+    ears_down_overshoot {
+        ear_rotation [ -20, -20]
+        eyebrow_up [8, 8]
+    }
+
+    ears_left {
+        ear_rotation [-30, 60]
+    }
+    ears_right {
+        ear_rotation [60, -30]
+    }
+
+
+    dreamworks {
+        face_offset [0 0]
+        eyebrow_up [25, 15]
+        eyebrow_rotation [0 20]
+        mouth smile
+    }
+    dreamworks2 {
+        face_offset [0 0]
+        eyebrow_up [35, 15]
+        eyebrow_rotation [0 20]
+        mouth smile
+    }
+    
+    
+    one_eye_wink { //test
+        eyebrow_up [15 25]
+        ear_rotation [-30, 10]
+        eyebrow_rotation [0 22.5]
+        eyes [closed open]
+    }
+
+    smug {
+        eyebrow_up [13 25]
+        mouth smile
+        face_offset [0 -5] //up
+    }
+    smug_left {
+        eyebrow_up [25 13]
+        mouth smile
+        face_offset [-10 -5] //up
+        ear_rotation [-20, 10]
+    }
+
+    real_wink {
+        eyes [closed open]
+        eyebrow_up 20
+        eyebrow_rotation 0
+        mouth smile
+        face_offset [10 2]
+    }
+    real_wink_overshoot {
+        eyes [closed open]
+        eyebrow_up 30
+        eyebrow_rotation 10
+        mouth smile
+        face_offset [10 7]
+    }
+
+
+	petted {
+		mouth smile
+		face_offset [10 10]
+		eyes closed
+		eyebrow_rotation 15
+		ear_rotation [-7, -7]
+	}
+	petted2 {
+		mouth smile
+		face_offset [10 20]
+		eyes closed
+		eyebrow_rotation 15
+		ear_rotation [-13, -13]
+	}
+
+    happy_eyes_closed {
+        face_offset [10 0]
+        eyes closed
+        mouth smile
+    }
+    happy_up_eyes_closed {
+        face_offset [10 -10]
+        eyes closed
+        mouth smile
+    }
+
+    focused {
+        mouth closed
+        eyebrow_up 10
+        eyebrow_rotation 18
+    }
+    facedownright_focused {
+        mouth closed
+        eyebrow_up 10
+        eyebrow_rotation 18
+        face_offset [5 20]
+    }
+    cough {
+        mouth open
+        eyes closed
+        eyebrow_up 10
+        eyebrow_rotation 25
+        face_offset [5 20]
+    }
+
+    tantrum_cry {
+        eyebrow_up 25
+        eyebrow_rotation [-10, -10]
+        ear_rotation [-20, -20]
+        mouth open
+        eyes closed
+        face_offset [1, -15]
+    }
+
+
+
+
+    //class portraits
+    fighter_portrait {
+        face_offset [-10 10]
+        eyebrow_up 18
+        eyebrow_rotation 30
+        mouth smile
+        eyes open
+    }
+    hunter_portrait {
+        face_offset [5 -3]
+        eyebrow_up [12 25]
+        eyebrow_rotation [15 -1]
+        mouth closed
+        eyes [closed open]
+    }
+    mage_portrait {
+        face_offset [-10 2]
+        eyebrow_up 20
+        eyebrow_rotation 10
+        mouth open
+        eyes open
+    }
+    tank_portrait {
+        face_offset [10 10]
+        eyebrow_up 7
+        eyebrow_rotation 15
+        mouth smile
+        eyes open
+    }
+    medic_portrait {
+        face_offset [0 -8]
+        eyebrow_up 18
+        eyebrow_rotation -28
+        mouth smile
+        eyes open
+    }
+    thief_portrait {
+        face_offset [10 2]
+        eyebrow_up 30
+        eyebrow_rotation [10, 20]
+        mouth smile
+        eyes closed
+    }
+    necromancer_portrait {
+        face_offset [0 15]
+        eyebrow_up 20
+        eyebrow_rotation 30
+        mouth smile
+        eyes open
+    }
+    psychic_portrait {
+        //face_offset [0 -10]
+        eyebrow_up 20
+        eyebrow_rotation 0
+        mouth smile
+        eyes closed
+    }
+    butcher_portrait {
+        face_offset [8 0]
+        eyebrow_up 11
+        eyebrow_rotation -5
+        mouth smile
+        eyes open
+    }
+    druid_portrait {
+        face_offset [-11 -5]
+        eyebrow_up 20
+        eyebrow_rotation [-20 15]
+        mouth smile
+        eyes [open closed]
+    }
+    tinkerer_portrait {
+        face_offset [-5 10]
+        eyebrow_up [35 15]
+        eyebrow_rotation [0 -15]
+        mouth closed 
+        eyes open
+    }
+    monk_portrait {
+        face_offset [-11 0]
+        eyebrow_up 30
+        eyebrow_rotation 25
+        mouth smile
+        eyes closed
+    }
+    jester_portrait {
+        face_offset [0 -5]
+        eyebrow_up 20
+        eyebrow_rotation -25
+        mouth smile
+        eyes closed
+    }
+    //colorless portrait?
+
+
+}

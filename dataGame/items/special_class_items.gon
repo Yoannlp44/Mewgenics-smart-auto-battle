@@ -1,0 +1,103 @@
+MonkFist {
+    name "ITEM_MONKFIST_NAME"
+    // desc "Use: another basic attack! (innate, can't be removed or replaced)"
+    desc "ITEM_MONKFIST_DESC"
+    kind weapon
+    frame 71
+    
+    sticky true
+    fragile true
+    indestructible true
+    
+    //ability wp_MonkFist
+    passives {
+        ExtraBasicAttacks 1
+    }
+}
+
+MonkStyleChanger {
+    name "ITEM_STANCESWITCHER_NAME"
+    desc "ITEM_STANCESWITCHER_DESC"
+    kind trinket
+    frame 80
+
+    sticky true
+    fragile true
+    indestructible true
+    
+    ability tk_MonkStyleChange
+
+    passives {
+        PassiveWhileInMonkMeleeStance {
+            Brace 1
+        }
+    }
+}
+
+
+ButcherHook {
+    name "ITEM_MEATHOOK_NAME"
+    desc "ITEM_MEATHOOK_DESC"
+    kind weapon
+    frame 6
+
+    sticky true
+    fragile true
+    indestructible true
+    
+    ability wp_MeatHookB
+}
+ButcherHook_Temporary {
+    name "ITEM_MEATHOOK_NAME"
+    desc "ITEM_MEATHOOKTEMP_DESC"
+    kind weapon
+    frame 6
+    
+    ability wp_MeatHookB
+}
+
+Necro_SoulDagger_Uncharged {
+    name "ITEM_SOULDAGGER_NAME"
+    desc "ITEM_SOULDAGGER_DESC"
+    kind weapon
+    frame 118
+    
+    ability wp_NecroSoulDagger
+}
+Necro_SoulDagger_Charged {
+    name "ITEM_SOULDAGGERCHARGED_NAME"
+    desc "ITEM_SOULDAGGERCHARGED_DESC"
+    kind weapon
+    frame 119
+
+    passives {
+        StatusOnBattleEnd {
+            even_if_dead true
+            TransformWeapon {
+                from Necro_SoulDagger_Charged
+                to Necro_SoulDagger_Uncharged
+            }
+        }
+    }
+    
+    ability wp_NecroSoulDaggerCharged
+}
+
+SleepDart {
+    name "ITEM_SLEEPDART_NAME"
+    desc "ITEM_SLEEPDART_DESC"
+    kind weapon
+    frame 151
+    durability 1 
+    
+    ability wp_SleepDart
+}
+SleepDart2 {
+    name "ITEM_SLEEPDART_NAME"
+    desc "ITEM_SLEEPDART_DESC"
+    kind weapon
+    frame 151
+    durability 2
+    
+    ability wp_SleepDart
+}

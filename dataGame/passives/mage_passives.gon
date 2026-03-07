@@ -1,0 +1,874 @@
+Micronaps {
+    name "PASSIVE_SYNTHESIZE_NAME"
+    desc "PASSIVE_SYNTHESIZE_DESC"
+    class Mage
+
+    1 {
+        passives {
+            StatusEachTurnBegin {
+                IntelligenceUp 1
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_SYNTHESIZE2_DESC"
+        passives {
+            StatusEachTurnBegin {
+                IntelligenceUp 1
+            }
+            ManaCostReduction 25%
+        }
+    }
+}
+
+HolyMantel {
+    name "PASSIVE_FORCEFIELD_NAME"
+    desc "PASSIVE_FORCEFIELD_DESC"
+    class Mage
+
+    1 {
+        divine_shield 1
+        passives {
+            StatusEveryXTurnBegins {
+                turns 3
+                DivineShield 1
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_FORCEFIELD2_DESC"
+
+        divine_shield 1
+        passives {
+            StatusEveryXTurnBegins {
+                turns 2
+                DivineShield 1
+            }
+        }
+    }
+}
+
+Shrapnel {
+    name "PASSIVE_SHRAPNEL_NAME"
+    desc "PASSIVE_SHRAPNEL_DESC"
+    class Mage
+
+    1 {
+        passives {
+            AddStatusToBasicAttack {
+                SplashDamage 2
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_SHRAPNEL2_DESC"
+        passives {
+            AddStatusToBasicAttack {
+                BigSplashDamage 2
+            }
+            AddBonusRange 2
+            AddBonusMeleeRange 2
+        }
+    }
+}
+
+BurningPaws {
+    name "PASSIVE_BURNINGPAWS_NAME"
+    desc "PASSIVE_BURNINGPAWS_DESC"
+    class Mage
+
+    1 {
+        passives {
+            AddStatusToBasicAttack {
+                Burn 1
+            }
+
+            AddElementsToBasicAttack Fire
+        }
+    }
+    2 {
+        desc "PASSIVE_BURNINGPAWS2_DESC"
+        passives {
+            AddStatusToBasicAttack {
+                Burn 3
+            }
+
+            AddElementsToBasicAttack Fire
+        }
+    }
+}
+
+LightningPaws {
+    name "PASSIVE_LIGHTNINGPAWS_NAME"
+    desc "PASSIVE_LIGHTNINGPAWS_DESC"
+    class Mage
+
+    1 {
+        passives {
+            AddStatusToBasicAttack {
+                Stun [1 .1]
+            }
+            AddDamageToBasicAttack 1
+            AddElementsToBasicAttack Electric
+        }
+    }
+    2 {
+        desc "PASSIVE_LIGHTNINGPAWS2_DESC"
+        passives {
+            AddStatusToBasicAttack {
+                Stun [1 .33]
+            }
+            AddDamageToBasicAttack 2
+            AddElementsToBasicAttack Electric
+        }
+    }
+}
+
+IcePaws {
+    name "PASSIVE_ICEPAWS_NAME"
+    desc "PASSIVE_ICEPAWS_DESC"
+    class Mage
+
+    1 {
+        passives {
+            AddStatusToBasicAttack {
+                Freeze [1 .15]
+                Slow 1
+            }
+            AddElementsToBasicAttack Ice
+        }
+    }
+    2 {
+        desc "PASSIVE_ICEPAWS2_DESC"
+        passives {
+            AddStatusToBasicAttack {
+                Freeze [1 .5]
+                Slow 2
+            }
+            AddElementsToBasicAttack Ice
+        }
+    }
+}
+
+PawMissile {
+    name "PASSIVE_PAWMISSILE_NAME"
+    desc "PASSIVE_PAWMISSILE_DESC"
+    class Mage
+
+    1 {
+        override_basic_attack BasicMagicMissile 
+        passives {
+            ReplaceBasicAttack BasicMagicMissile
+        }
+    }
+    2 {
+        desc "PASSIVE_PAWMISSILE2_DESC"
+        override_basic_attack BasicMagicMissile 
+        passives {
+            ReplaceBasicAttack BasicMagicMissile
+            AddSelfStatusToBasicAttack {
+                RandomMagicMissile 1
+                RandomMagicMissile 1
+                RandomMagicMissile 1
+                RandomMagicMissile 1
+            }
+        }
+    }
+}
+
+Overload {
+    name "PASSIVE_OVERLOAD_NAME"
+    desc "PASSIVE_OVERLOAD_DESC"
+    class Mage
+
+    1 {
+        passives {
+            DamageNeighborTilesWhenCastSpell {
+                fire {
+                    type spell
+                    damage 1
+
+                    effects {
+                        Burn 1
+                        VisualFXTile BurnTrigger
+                    }
+                    elements [
+                        Fire
+                    ]
+                }
+                ice {
+                    type spell
+                    damage 1
+
+                    effects {
+                        Freeze [1, .05]
+                        VisualFXTile IcePoof
+                    }
+                    elements [
+                        Ice
+                    ]
+                }
+                lightning {
+                    type spell
+                    damage 1
+
+                    effects {
+                        Stun [1, .05]
+                        VisualFXTile WaterConduct
+                    }
+                    elements [
+                        Electric
+                    ]
+                }
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_OVERLOAD2_DESC"
+        passives {
+            DamageNeighborTilesWhenCastSpell {
+                triattack {
+                    type spell
+                    damage 2
+
+                    effects {
+                        Burn 1
+                        //Freeze [1, .05] //this just conflicts with Burn
+                        Stun [1, .05]
+
+                        VisualFXTile IcePoof
+                        VisualFXTile BurnTrigger
+                        VisualFXTile WaterConduct
+                    }
+                    elements [
+                        Fire
+                        Ice
+                        Electric
+                    ]
+                }
+            }
+        }
+    }
+}
+
+ChargeUp {
+    name "PASSIVE_CHARGEUP_NAME"
+    desc "PASSIVE_CHARGEUP_DESC"
+    class Mage
+
+    1 {
+        passives {
+            StatusOnTurnEndIfManaExact {
+                mana 0
+                FreeSpell 1
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_CHARGEUP2_DESC"
+        passives {
+            StatusOnTurnEndIfManaExact {
+                mana 0
+                FreeSpell 1
+                SpellDamageUp 1
+            }
+        }
+    }
+}
+
+DeathChill { //CUT
+    name "PASSIVE_DEATHCHILL_NAME"
+    desc "PASSIVE_DEATHCHILL_DESC"
+    class Mage
+
+    1 {
+        passives {
+            StatusEnemiesOnDeath {
+                Freeze 2
+                AllStatsUp -1
+            }
+            DeathChill 1
+        }
+    }
+    2 {
+        desc "PASSIVE_DEATHCHILL2_DESC"
+        passives {
+            StatusEnemiesOnDeath {
+                Freeze 2
+                AllStatsUp -2
+            }
+            StatusAlliesOnDeath {
+                FullHeal 1
+                Freeze 1
+            }
+            DeathChill 1
+        }
+    }
+}
+
+Recharged {
+    name "PASSIVE_RECHARGED_NAME"
+    desc "PASSIVE_RECHARGED_DESC"
+    class Mage
+
+    1 {
+        passives {
+            AddStartingMana 5
+            AddManaRegen 5
+            StatusEachTurnEnd {
+                EmptyMana 1
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_RECHARGED2_DESC"
+        passives {
+            AddStartingMana 20
+            AddManaRegen 5
+            StatusEachTurnEnd {
+                EmptyMana 1
+            }
+        }
+    }
+}
+
+EnergyStorm {
+    name "PASSIVE_ENERGYSTORM_NAME"
+    desc "PASSIVE_ENERGYSTORM_DESC"
+    class Mage
+
+    1 {
+        passives {
+            EnergyStorm 3
+        }
+    }
+    2 {
+        desc "PASSIVE_ENERGYSTORM2_DESC"
+        passives {
+            EnergyStorm {
+                period 3
+                cycle_start 2
+            }
+        }
+    }
+}
+
+
+FireArmor {
+    name "PASSIVE_FIREASPECT_NAME"
+    desc "PASSIVE_FIREASPECT_DESC"
+    class Mage
+
+    1 {
+        passives {
+            MeleeRevengeDamage {
+                damage 0
+
+                effects {
+                    //Burn 1 //burn gets added here with the other effect
+                    VisualFXTile BurnTrigger
+                }
+            
+                elements [
+                    Fire
+                ]
+            }
+            InnateElement Fire
+            ElementImmune Fire
+            StatusImmunity [Burn]
+
+            AddStatusToElementDamage {
+                element Fire
+                Burn 1
+            }
+            AddDamageToElementDamage {
+                element Fire
+                damage 1
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_FIREASPECT2_DESC"
+        passives {
+            MeleeRevengeDamage {
+                damage 0
+
+                effects {
+                    //Burn 1 //burn gets added here with the other effect
+                    VisualFXTile BurnTrigger
+                }
+            
+                elements [
+                    Fire
+                ]
+            }
+            InnateElement Fire
+            ElementImmune Fire
+            StatusImmunity [Burn]
+
+            AddStatusToElementDamage {
+                element Fire
+                Burn 3
+            }
+            AddDamageToElementDamage {
+                element Fire
+                damage 2
+            }
+        }
+    }
+}
+
+
+IceArmor {
+    name "PASSIVE_ICEASPECT_NAME"
+    desc "PASSIVE_ICEASPECT_DESC"
+    class Mage
+
+    1 {
+        passives {
+            MeleeRevengeDamage {
+                damage 1
+
+                effects {
+                    Slow 2
+                    Freeze [1, .05]
+
+                    VisualFXTile IcePoof
+                }
+            
+                elements [
+                    Ice
+                ]
+            }
+            InnateElement Ice
+            ElementImmune Ice
+            StatusImmunity [Freeze, Slow]
+
+            FreezePiercing 1
+        }
+    }
+    2 {
+        desc "PASSIVE_ICEASPECT2_DESC"
+        passives {
+            MeleeRevengeDamage {
+                damage 3
+
+                effects {
+                    Slow 2
+                    Freeze [1, .15]
+
+                    VisualFXTile IcePoof
+                }
+            
+                elements [
+                    Ice
+                ]
+            }
+            InnateElement Ice
+            ElementImmune Ice
+            StatusImmunity [Freeze, Slow]
+
+            FreezePiercing 1
+            Brace 2
+        }
+    }
+}
+
+Resonance {
+    name "PASSIVE_RESONANCE_NAME"
+    desc "PASSIVE_RESONANCE_DESC"
+    class Mage
+
+    1 {
+        passives {
+            StatusAfterCastSpell {
+                TempSpellDamageUp 1
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_RESONANCE2_DESC"
+        passives {
+            StatusAfterCastSpell {
+                TempSpellDamageUp 1
+                TempDamageUp 1
+            }
+        }
+    }
+}
+
+LearnFromMe {
+    name "PASSIVE_LEARNFROMME_NAME"
+    desc "PASSIVE_LEARNFROMME_DESC"
+    class Mage
+
+    1 {
+        passives {
+            ConjureCastSpellsForAllies 1
+        }
+    }
+    2 {
+        desc "PASSIVE_LEARNFROMME2_DESC"
+        passives {
+            ConjureCastSpellsForAllies 2
+        }
+    }
+}
+
+LightningArmor {
+    name "PASSIVE_LIGHTNINGASPECT_NAME"
+    desc "PASSIVE_LIGHTNINGASPECT_DESC"
+    class Mage
+
+    1 {
+        passives {
+            InnateElement Electric
+            ElementImmune Electric
+            LightningAspectCharge 0
+        }
+    }
+    2 {
+        desc "PASSIVE_LIGHTNINGASPECT2_DESC"
+        passives {
+            InnateElement Electric
+            ElementImmune Electric
+            LightningAspectCharge 1
+        }
+    }
+}
+
+LongCast {
+    name "PASSIVE_LONGCAST_NAME"
+    desc "PASSIVE_LONGCAST_DESC"
+    class Mage
+
+    1 {
+        passives {
+            IncreaseSpellRange 3
+        }
+    }
+    2 {
+        desc "PASSIVE_LONGCAST2_DESC"
+        passives {
+            IncreaseSpellRange 5
+            AddSpellDamage 1
+        }
+    }
+}
+
+LightUpTheStage {
+    name "PASSIVE_LIGHTUPTHESTAGE_NAME"
+    desc "PASSIVE_LIGHTUPTHESTAGE_DESC"
+    class Mage
+
+    1 {
+        passives {
+            StatusEachTurnEndForEachTurn {
+                RandomMagicMissile 1
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_LIGHTUPTHESTAGE2_DESC"
+        passives {
+            StatusEachTurnEndForEachTurn {
+                RandomMagicMissile 1
+            }
+            StatusEachTurnEnd {
+                KineticSpikes 1
+            }
+        }
+    }
+}
+
+ElementalAttunement {
+    name "PASSIVE_ELEMENTALATTUNEMENT_NAME"
+    desc "PASSIVE_ELEMENTALATTUNEMENT_DESC"
+    class Mage
+
+    1 {
+        passives {
+            ElementalAttunement {
+                Fire {
+                    Burn X
+                }
+                Ice {
+                    Slow X
+                }
+                Electric {
+                    Stun [1 .1*X]
+                }
+                Earth {
+                    damage X
+                }
+                Wind {
+                    knockback X
+                }
+                Water {
+                    AOEPuddle X-1
+                }
+                Grass {
+                    Poison X
+                }
+                Holy {
+                    FlatLeech X
+                }
+                /*Explosion { //Fireball has Explosion element so it makes the combo weird, explosion isnt really an element anyway
+                    HitExplosion X
+                }
+                Musical {(cause that shows as an element icon on spells)
+                }*/
+                Gravity {
+                    Weakness X
+                }
+                Shadow { //do we even have shadow spells?
+                    crit_chance .05*X
+                }
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_ELEMENTALATTUNEMENT2_DESC"
+        
+        passives {
+            ElementalAttunement {
+                Fire {
+                    Burn X
+                }
+                Ice {
+                    Slow X
+                }
+                Electric {
+                    Stun [1 .1*X]
+                }
+                Earth {
+                    damage X
+                }
+                Wind {
+                    knockback X
+                }
+                Water {
+                    AOEPuddle X-1
+                }
+                Grass {
+                    Poison X
+                }
+                Holy {
+                    FlatLeech X
+                }
+                /*Explosion { //Fireball has Explosion element so it makes the combo weird, explosion isnt really an element anyway
+                    HitExplosion X
+                }
+                Musical {(cause that shows as an element icon on spells)
+                }*/
+                Gravity {
+                    Weakness X
+                }
+                Shadow { //do we even have shadow spells?
+                    crit_chance .05*X
+                }
+            }
+            ElementalManaCostReduction {
+                element [Fire Ice Electric Earth Wind Water Grass Holy Gravity]
+                reduction 2
+            }
+        }
+    }
+}
+
+LatentEnergy {
+    name "PASSIVE_LATENTENERGY_NAME"
+    desc "PASSIVE_LATENTENERGY_DESC"
+    class Mage
+
+    1 {
+        passives {
+            StatusWhenAllySpendsMana {
+                OneUseSpellDamageUp 2
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_LATENTENERGY2_DESC"
+        passives {
+            StatusWhenAllySpendsMana {
+                OneUseSpellDamageUp 2
+                ManaGain 2
+            }
+        }
+    }
+}
+
+Five {
+    name "PASSIVE_FIVE_NAME"
+    desc "PASSIVE_FIVE_DESC"
+    class Mage
+
+    1 {
+        passives {
+            StatusOnTurnEndIfManaExact {
+                mana 5
+
+                Shield 5
+                Temporary {
+                    status KineticSpikes
+                    stacks 5
+                    turns 1
+                    expires_on_end_turn true
+                }
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_FIVE2_DESC"
+        passives {
+            StatusOnTurnEndIfManaExact {
+                mana 5
+
+                Shield 5
+                HealthGain 5
+                Temporary {
+                    status KineticSpikes
+                    stacks 5
+                    turns 1
+                    expires_on_end_turn true
+                }
+                Temporary {
+                    status DamageUp
+                    stacks 5
+                    turns 1
+                    expires_on_end_turn true
+                }
+            }
+        }
+    }
+}
+
+MagicGuru {
+    name "PASSIVE_MAGICGURU_NAME"
+    desc "PASSIVE_MAGICGURU_DESC"
+    class Mage
+
+    1 {
+        passives {
+            AllyManaRegenAura {
+                stacks 1
+                range global
+            }
+            StatusAllyWhenAllySpendsMana {
+                threshold 7
+                AllStatsUp 1
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_MAGICGURU2_DESC"
+        passives {
+            AllyManaRegenAura {
+                stacks 1
+                range global
+            }
+            StatusAllyWhenAllySpendsMana {
+                threshold 7
+                AllStatsUp 1
+            }
+            StatusAlliesOnSpendMana {
+                ManaGain 1
+            }
+        }
+    }
+}
+
+One {
+    name "PASSIVE_ONE_NAME"
+    desc "PASSIVE_ONE_DESC"
+    class Mage
+
+    1 {
+        passives {
+            StatusOnTurnEndIfCastNSpells {
+                spells 1
+
+                DoubleCastSpell 1
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_ONE2_DESC"
+        passives {
+            StatusOnTurnEndIfCastNSpells {
+                spells 1
+
+                DoubleCastSpell 2
+            }
+        }
+    }
+}
+
+Two {
+    name "PASSIVE_TWO_NAME"
+    desc "PASSIVE_TWO_DESC"
+    class Mage
+
+    1 {
+        passives {
+            StatusOnTurnEndIfManaExact {
+                mana 2
+
+                Quivered 1
+            }
+            StatusOnTurnEndIfCastNSpells {
+                spells 2
+
+                Quivered 1
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_TWO2_DESC"
+        passives {
+            StatusOnTurnEndIfManaExact {
+                mana 2
+
+                Quivered 1
+                MoveQuivered 1
+            }
+            StatusOnTurnEndIfCastNSpells {
+                spells 2
+
+                Quivered 1
+                MoveQuivered 1
+            }
+        }
+    }
+}
+
+Four {
+    name "PASSIVE_FOUR_NAME"
+    desc "PASSIVE_FOUR_DESC"
+    class Mage
+
+    1 {
+        passives {
+            StatusOnTurnEndIfManaExact {
+                mana 4
+
+                IntelligenceUp 1
+                SpellDamageUp 1
+            }
+        }
+    }
+    2 {
+        desc "PASSIVE_FOUR2_DESC"
+        passives {
+            StatusOnTurnEndIfManaExact {
+                mana 4
+
+                IntelligenceUp 1
+                SpellDamageUp 1
+                KineticSpikes 1
+                DivineShield 1
+            }
+        }
+    }
+}

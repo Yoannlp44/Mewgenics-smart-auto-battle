@@ -1,0 +1,71 @@
+graphics Map_Junkyard
+chapter_id junkyard
+tileset junkyard
+world_name_frame junkyard
+area_name AREA_NAME_JUNKYARD
+intro_cutscene junkyard
+act 1
+chapter 2
+version 1
+
+levels {
+    folder junkyard
+    easy [easy]
+    hard [easy]
+    rare [rare]
+    boss [boss]
+    miniboss [miniboss]
+    special [special]
+}
+
+music junkyard
+ambience amb_junkyard.ogg
+
+events {
+    normal [
+        common
+        junkyard_events.gon
+    ]
+}
+
+enemy_pools { //for effects that need to spawn a "chapter enemy" of some sort
+    small [Maggot Fly]
+    medium [Lumpy GlassSpitter Siren Jekyll SpikedCat PopeyeCat ChumBag Chummy Host]
+    large []
+}
+
+item_pools {
+    chapter_item_pool junkyarditems
+}
+
+
+minibosses {
+    cancreeper auto
+    trampy auto
+}
+
+nodes {
+    #include "standard_nodes.gon"
+
+    //exits
+    exit0 {
+        type exit
+        next_map boneyard.gon
+        locked true
+        override_art MapNodeExit_Boneyard
+    }
+
+    //special
+    boss {
+        type boss
+        boss_cutscene chubsandnubs
+    }
+}
+
+flags {
+    BoneyardUnlocked {
+        exit0 {
+            locked false
+        }
+    }
+}

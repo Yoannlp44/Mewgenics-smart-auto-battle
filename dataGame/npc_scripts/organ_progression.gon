@@ -1,0 +1,463 @@
+movieclip OrganOffice
+default_npc OrganGrinder
+
+states_and_transitions {
+	states {
+		idle ["idle" "blocking" "gone"]
+	}
+
+	transitions {
+	}
+}
+
+sequences {
+	
+	unprompted {
+		cancelable true
+		dialog_and_autopass NPC_ORGANGRINDER_UNPROMPTED_1
+		wait_for_cancel 1
+	}
+
+	also {
+		dialog NPC_ORGANGRINDER_ALSO_1
+	}
+
+	out_of_stock {
+		set_state blocking
+		dialog NPC_ORGANGRINDER_OUT_OF_STOCK_1
+	}
+	purchase_item {
+		cancelable true
+		dialog_and_autopass NPC_ORGANGRINDER_PURCHASE_ITEM_1
+		wait_for_cancel 1
+	}
+
+	tooltip {
+		cancelable true
+		tooltip_dialog NPC_ORGANGRINDER_SHOP_TOOLTIP
+		wait_for_cancel 1
+	}
+	hide_text {
+		cancelable true
+		dialog_and_autopass ""
+	}
+
+	unknown {
+		lock_controls 1
+		set_state blocking
+		dialog NPC_ORGANGRINDER_UNKNOWN_1
+		get npc_reward
+		set_state idle
+		unlock_controls 1
+	}
+
+	organ_intro {
+		lock_controls 1
+		set_state idle
+		dialog NPC_ORGANGRINDER_ORGAN_INTRO_1
+		dialog NPC_ORGANGRINDER_ORGAN_INTRO_2
+		dialog NPC_ORGANGRINDER_ORGAN_INTRO_3
+		set_state closeup
+		dialog NPC_ORGANGRINDER_ORGAN_INTRO_4
+		dialog NPC_ORGANGRINDER_ORGAN_INTRO_5
+		dialog NPC_ORGANGRINDER_ORGAN_INTRO_6
+		set_state idle2
+		dialog NPC_ORGANGRINDER_ORGAN_INTRO_7
+		dialog NPC_ORGANGRINDER_ORGAN_INTRO_8
+		dialog NPC_ORGANGRINDER_ORGAN_INTRO_9
+		set_state closeup
+		set_organ_name "Tyler" //sets organname from steam, if unavailable use the one listed here
+		set_state verycloseup
+		dialog NPC_ORGANGRINDER_ORGAN_INTRO_10
+		dialog NPC_ORGANGRINDER_ORGAN_INTRO_11
+		set_state closeup
+		dialog NPC_ORGANGRINDER_ORGAN_INTRO_12
+		set_state verycloseup
+		dialog NPC_ORGANGRINDER_ORGAN_INTRO_13
+		set_state idle2
+		dialog NPC_ORGANGRINDER_ORGAN_INTRO_14
+		dialog NPC_ORGANGRINDER_ORGAN_INTRO_15
+	    dialog NPC_ORGANGRINDER_ORGAN_INTRO_16
+		dialog NPC_ORGANGRINDER_ORGAN_INTRO_17
+		dialog NPC_ORGANGRINDER_ORGAN_INTRO_18
+		dialog NPC_ORGANGRINDER_ORGAN_INTRO_19	
+		begin_accepting_cats organgrinder
+		set_state idle2
+		unlock_controls 1
+		dialog_and_autopass NPC_ORGANGRINDER_ORGAN_INTRO_20
+	}
+
+	organ_rename {
+		lock_controls 1
+		set_state idle
+
+		dialog NPC_ORGANGRINDER_ORGAN_RENAME_1
+		dialog NPC_ORGANGRINDER_ORGAN_RENAME_2
+		dialog NPC_ORGANGRINDER_ORGAN_RENAME_3
+		dialog NPC_ORGANGRINDER_ORGAN_RENAME_4
+		set_organ_name "Tyler" //sets organname from steam, if unavailable use the one listed here
+		set_state verycloseup
+		dialog NPC_ORGANGRINDER_ORGAN_RENAME_5
+		set_state closeup
+		dialog NPC_ORGANGRINDER_ORGAN_RENAME_6
+		dialog NPC_ORGANGRINDER_ORGAN_RENAME_7
+		set_state idle2
+		dialog NPC_ORGANGRINDER_ORGAN_RENAME_8
+
+		set_state idle
+		unlock_controls 1
+	}
+
+	collected_new_items {
+		lock_controls 1
+		set_state blocking
+		dialog NPC_ORGANGRINDER_COLLECTED_NEW_ITEMS_1
+		dialog NPC_ORGANGRINDER_COLLECTED_NEW_ITEMS_2
+		dialog NPC_ORGANGRINDER_COLLECTED_NEW_ITEMS_3
+		dialog NPC_ORGANGRINDER_COLLECTED_NEW_ITEMS_4
+		get npc_reward //this text overrides the "gain upgrade" text if you unlocked something
+		set_state idle2
+		unlock_controls 1
+		dialog_and_autopass NPC_ORGANGRINDER_COLLECTED_NEW_ITEMS_5
+	}
+	collected_nothing { //this one happens if you die on the first combat and have 0 coins, food or items lol
+		lock_controls 1
+		set_state blocking
+		dialog NPC_ORGANGRINDER_COLLECTED_NOTHING_1
+		dialog NPC_ORGANGRINDER_COLLECTED_NOTHING_2
+		dialog NPC_ORGANGRINDER_COLLECTED_NOTHING_3
+		dialog NPC_ORGANGRINDER_COLLECTED_NOTHING_4
+		dialog NPC_ORGANGRINDER_COLLECTED_NOTHING_5
+		get npc_reward //this text overrides the "gain upgrade" text if you unlocked something
+		set_state idle2
+		unlock_controls 1
+	}
+
+	organ_unlock { //these ones only trigger if you level up organ grider via piping dead cats to him
+		lock_controls 1
+		set_state idle
+		dialog NPC_ORGANGRINDER_ORGAN_UNLOCK_1
+		dialog NPC_ORGANGRINDER_ORGAN_UNLOCK_2
+		set_state closeup
+		dialog NPC_ORGANGRINDER_ORGAN_UNLOCK_3
+		dialog NPC_ORGANGRINDER_ORGAN_UNLOCK_4
+		set_state idle2
+		dialog NPC_ORGANGRINDER_ORGAN_UNLOCK_5
+		dialog NPC_ORGANGRINDER_ORGAN_UNLOCK_6
+		dialog NPC_ORGANGRINDER_ORGAN_UNLOCK_7
+		dialog NPC_ORGANGRINDER_ORGAN_UNLOCK_8
+		dialog NPC_ORGANGRINDER_ORGAN_UNLOCK_9
+		get npc_reward
+		set_state idle2
+		unlock_controls 1
+	}
+	organ_upgrade1 { //these ones only trigger if you level up organ grider via piping dead cats to him
+		lock_controls 1
+		set_state idle
+		set_state closeup
+		dialog NPC_ORGANGRINDER_ORGAN_UPGRADE1_1
+		dialog NPC_ORGANGRINDER_ORGAN_UPGRADE1_2
+		dialog NPC_ORGANGRINDER_ORGAN_UPGRADE1_3
+		set_state verycloseup
+		dialog NPC_ORGANGRINDER_ORGAN_UPGRADE1_4
+		set_state closeup
+		dialog NPC_ORGANGRINDER_ORGAN_UPGRADE1_5
+		dialog NPC_ORGANGRINDER_ORGAN_UPGRADE1_6
+		set_state idle2
+		dialog NPC_ORGANGRINDER_ORGAN_UPGRADE1_7
+		dialog NPC_ORGANGRINDER_ORGAN_UPGRADE1_8
+		get npc_reward
+		set_state idle
+		unlock_controls 1
+	}
+	organ_upgrade2 { //these ones only trigger if you level up organ grider via piping dead cats to him
+		lock_controls 1
+		set_state idle
+		dialog NPC_ORGANGRINDER_ORGAN_UPGRADE2_1
+		dialog NPC_ORGANGRINDER_ORGAN_UPGRADE2_2
+		set_state verycloseup
+		dialog NPC_ORGANGRINDER_ORGAN_UPGRADE2_3
+		set_state closeup
+		dialog NPC_ORGANGRINDER_ORGAN_UPGRADE2_4
+		dialog NPC_ORGANGRINDER_ORGAN_UPGRADE2_5
+		set_state idle2
+		dialog NPC_ORGANGRINDER_ORGAN_UPGRADE2_6
+		dialog NPC_ORGANGRINDER_ORGAN_UPGRADE2_7
+		dialog NPC_ORGANGRINDER_ORGAN_UPGRADE2_8
+		dialog NPC_ORGANGRINDER_ORGAN_UPGRADE2_9
+		get npc_reward
+		set_state idle2
+		unlock_controls 1
+	}
+	organ_upgrade3 { //these ones only trigger if you level up organ grider via piping dead cats to him
+		lock_controls 1
+		set_state idle
+		set_state closeup
+		dialog NPC_ORGANGRINDER_ORGAN_UPGRADE3_1
+		set_state idle2
+		dialog NPC_ORGANGRINDER_ORGAN_UPGRADE3_2
+		dialog NPC_ORGANGRINDER_ORGAN_UPGRADE3_3
+		set_state closeup
+		dialog NPC_ORGANGRINDER_ORGAN_UPGRADE3_4
+		set_state idle2
+		dialog NPC_ORGANGRINDER_ORGAN_UPGRADE3_5
+		dialog NPC_ORGANGRINDER_ORGAN_UPGRADE3_6
+		dialog NPC_ORGANGRINDER_ORGAN_UPGRADE3_7
+		get npc_reward
+		set_state idle2
+		unlock_controls 1
+	}
+	organ_upgrade4 { //these ones only trigger if you level up organ grider via piping dead cats to him
+		lock_controls 1
+		set_state idle
+		dialog NPC_ORGANGRINDER_ORGAN_UPGRADE4_1
+		dialog NPC_ORGANGRINDER_ORGAN_UPGRADE4_2
+		set_state closeup
+		dialog NPC_ORGANGRINDER_ORGAN_UPGRADE4_3
+		set_state idle2
+		dialog NPC_ORGANGRINDER_ORGAN_UPGRADE4_4
+		set_state closeup
+		dialog NPC_ORGANGRINDER_ORGAN_UPGRADE4_5
+		dialog NPC_ORGANGRINDER_ORGAN_UPGRADE4_6
+		set_state idle
+		dialog NPC_ORGANGRINDER_ORGAN_UPGRADE4_7
+		dialog NPC_ORGANGRINDER_ORGAN_UPGRADE4_8
+		get npc_reward
+		set_state idle2
+		unlock_controls 1
+	}
+	organ_upgrade5 { //these ones only trigger if you level up organ grider via piping dead cats to him
+		lock_controls 1
+		set_state idle
+		set_state verycloseup
+		dialog NPC_ORGANGRINDER_ORGAN_UPGRADE5_1
+		set_state closeup
+		dialog NPC_ORGANGRINDER_ORGAN_UPGRADE5_2
+		dialog NPC_ORGANGRINDER_ORGAN_UPGRADE5_3
+		dialog NPC_ORGANGRINDER_ORGAN_UPGRADE5_4
+		set_state zoomedout
+		dialog NPC_ORGANGRINDER_ORGAN_UPGRADE5_5
+		set_state idle2
+		dialog NPC_ORGANGRINDER_ORGAN_UPGRADE5_6
+		dialog NPC_ORGANGRINDER_ORGAN_UPGRADE5_7
+		dialog NPC_ORGANGRINDER_ORGAN_UPGRADE5_8
+		dialog NPC_ORGANGRINDER_ORGAN_UPGRADE5_9
+		get npc_reward
+		set_state idle2
+		unlock_controls 1
+	}
+	organ_upgrade6 { //these ones only trigger if you level up organ grider via piping dead cats to him
+		lock_controls 1
+		set_state idle
+		set_state closeup
+		dialog NPC_ORGANGRINDER_ORGAN_UPGRADE6_1
+		set_state idle2
+		dialog NPC_ORGANGRINDER_ORGAN_UPGRADE6_2
+		dialog NPC_ORGANGRINDER_ORGAN_UPGRADE6_3
+		set_state closeup
+		dialog NPC_ORGANGRINDER_ORGAN_UPGRADE6_4
+		set_state verycloseup
+		dialog NPC_ORGANGRINDER_ORGAN_UPGRADE6_5
+		dialog NPC_ORGANGRINDER_ORGAN_UPGRADE6_6
+		dialog NPC_ORGANGRINDER_ORGAN_UPGRADE6_7
+		set_state closeup
+		dialog NPC_ORGANGRINDER_ORGAN_UPGRADE6_8
+		get npc_reward
+		set_state idle2
+		unlock_controls 1
+	}
+	
+	organ_max_intro {//when OG gains max favor
+		lock_controls 1
+		set_state idle
+		dialog NPC_ORGANGRINDER_ORGAN_MAX_INTRO_1
+		dialog NPC_ORGANGRINDER_ORGAN_MAX_INTRO_2
+		set_state closeup
+		dialog NPC_ORGANGRINDER_ORGAN_MAX_INTRO_3
+		set_state idle2
+		dialog NPC_ORGANGRINDER_ORGAN_MAX_INTRO_4
+		dialog NPC_ORGANGRINDER_ORGAN_MAX_INTRO_5
+		dialog NPC_ORGANGRINDER_ORGAN_MAX_INTRO_6
+		get npc_reward
+		set_state idle2
+		unlock_controls 1
+	}
+
+	organ_max_repeating {
+		do_random_sequence [organ_max1, organ_max2, organ_max3, organ_max4, organ_max5]
+	}
+	
+	organ_max1 {//when OG gains max favor
+		lock_controls 1
+		set_state idle
+		dialog NPC_ORGANGRINDER_ORGAN_MAX1_1
+		dialog NPC_ORGANGRINDER_ORGAN_MAX1_2
+		set_state verycloseup
+		dialog NPC_ORGANGRINDER_ORGAN_MAX1_3
+		set_state idle2
+		dialog NPC_ORGANGRINDER_ORGAN_MAX1_4
+		set_state closeup
+		dialog NPC_ORGANGRINDER_ORGAN_MAX1_5
+		get npc_reward
+		set_state idle2
+		unlock_controls 1
+	}
+	
+	organ_max2 {//when OG gains max favor
+		lock_controls 1
+		set_state idle
+		set_state closeup
+		dialog NPC_ORGANGRINDER_ORGAN_MAX2_1
+		set_state idle2
+		dialog NPC_ORGANGRINDER_ORGAN_MAX2_2
+		dialog NPC_ORGANGRINDER_ORGAN_MAX2_3
+		dialog NPC_ORGANGRINDER_ORGAN_MAX2_4
+		get npc_reward
+		set_state idle2
+		unlock_controls 1
+	}
+	
+	organ_max3 {//when OG gains max favor
+		lock_controls 1
+		set_state idle
+		dialog NPC_ORGANGRINDER_ORGAN_MAX3_1
+		dialog NPC_ORGANGRINDER_ORGAN_MAX3_2
+		set_state closeup
+		dialog NPC_ORGANGRINDER_ORGAN_MAX3_3
+		dialog NPC_ORGANGRINDER_ORGAN_MAX3_4
+		get npc_reward
+		set_state idle2
+		unlock_controls 1
+	}
+	
+	organ_max4 {//when OG gains max favor
+		lock_controls 1
+		set_state idle
+		dialog NPC_ORGANGRINDER_ORGAN_MAX4_1
+		dialog NPC_ORGANGRINDER_ORGAN_MAX4_2
+		dialog NPC_ORGANGRINDER_ORGAN_MAX4_3
+		set_state closeup
+		dialog NPC_ORGANGRINDER_ORGAN_MAX4_4
+		get npc_reward
+		set_state idle2
+		unlock_controls 1
+	}
+	
+	organ_max5 {//when OG gains max favor
+		lock_controls 1
+		set_state idle
+		dialog NPC_ORGANGRINDER_ORGAN_MAX5_1
+		set_state closeup
+		dialog NPC_ORGANGRINDER_ORGAN_MAX5_2
+		dialog NPC_ORGANGRINDER_ORGAN_MAX5_3
+		set_state idle2
+		dialog NPC_ORGANGRINDER_ORGAN_MAX5_4
+		get npc_reward
+		set_state idle2
+		unlock_controls 1
+	}
+
+	gone {
+		set_state gone
+	}
+	
+	//OG unlock intros
+	
+	organ_boneyard_intro {
+		lock_controls 1
+		set_state idle
+
+		dialog NPC_ORGANGRINDER_ORGAN_BONEYARD_INTRO_1
+		set_state closeup
+		dialog NPC_ORGANGRINDER_ORGAN_BONEYARD_INTRO_2
+		set_state idle2
+		dialog NPC_ORGANGRINDER_ORGAN_BONEYARD_INTRO_3
+		dialog NPC_ORGANGRINDER_ORGAN_BONEYARD_INTRO_4	
+		set_state closeup
+		dialog NPC_ORGANGRINDER_ORGAN_BONEYARD_INTRO_5
+		dialog NPC_ORGANGRINDER_ORGAN_BONEYARD_INTRO_6
+		dialog NPC_ORGANGRINDER_ORGAN_BONEYARD_INTRO_7
+		set_state idle2
+		dialog NPC_ORGANGRINDER_ORGAN_BONEYARD_INTRO_8
+		dialog NPC_ORGANGRINDER_ORGAN_BONEYARD_INTRO_9
+		dialog NPC_ORGANGRINDER_ORGAN_BONEYARD_INTRO_10
+		dialog NPC_ORGANGRINDER_ORGAN_BONEYARD_INTRO_11
+		dialog NPC_ORGANGRINDER_ORGAN_BONEYARD_INTRO_12
+
+		set_state idle2
+		unlock_controls 1
+	}
+
+	organ_throbbingdomain_intro {
+		lock_controls 1
+		set_state idle
+
+		dialog NPC_ORGANGRINDER_ORGAN_THROBBINGDOMAIN_INTRO_1
+		set_state verycloseup
+		dialog NPC_ORGANGRINDER_ORGAN_THROBBINGDOMAIN_INTRO_2
+		set_state closeup
+		dialog NPC_ORGANGRINDER_ORGAN_THROBBINGDOMAIN_INTRO_3
+		dialog NPC_ORGANGRINDER_ORGAN_THROBBINGDOMAIN_INTRO_4
+		set_state idle2
+		dialog NPC_ORGANGRINDER_ORGAN_THROBBINGDOMAIN_INTRO_5	
+		dialog NPC_ORGANGRINDER_ORGAN_THROBBINGDOMAIN_INTRO_6
+		dialog NPC_ORGANGRINDER_ORGAN_THROBBINGDOMAIN_INTRO_7
+		set_state closeup
+		dialog NPC_ORGANGRINDER_ORGAN_THROBBINGDOMAIN_INTRO_8
+		dialog NPC_ORGANGRINDER_ORGAN_THROBBINGDOMAIN_INTRO_9
+		dialog NPC_ORGANGRINDER_ORGAN_THROBBINGDOMAIN_INTRO_10
+		dialog NPC_ORGANGRINDER_ORGAN_THROBBINGDOMAIN_INTRO_11
+		dialog NPC_ORGANGRINDER_ORGAN_THROBBINGDOMAIN_INTRO_12
+		dialog NPC_ORGANGRINDER_ORGAN_THROBBINGDOMAIN_INTRO_13
+		set_state verycloseup
+		dialog NPC_ORGANGRINDER_ORGAN_THROBBINGDOMAIN_INTRO_14
+		set_state closeup
+		dialog NPC_ORGANGRINDER_ORGAN_THROBBINGDOMAIN_INTRO_15
+		set_state idle2
+		dialog NPC_ORGANGRINDER_ORGAN_THROBBINGDOMAIN_INTRO_16
+		
+		set_state idle2
+		unlock_controls 1
+	}
+
+	organ_tina3 {
+		lock_controls 1
+		set_state idle
+
+		dialog NPC_ORGANGRINDER_ORGAN_TINA3_1
+		set_state verycloseup
+		dialog NPC_ORGANGRINDER_ORGAN_TINA3_2
+		set_state closeup
+		dialog NPC_ORGANGRINDER_ORGAN_TINA3_3
+		set_state idle2
+		dialog NPC_ORGANGRINDER_ORGAN_TINA3_4	
+		dialog NPC_ORGANGRINDER_ORGAN_TINA3_5
+		dialog NPC_ORGANGRINDER_ORGAN_TINA3_6
+		set_state idle2
+		dialog NPC_ORGANGRINDER_ORGAN_TINA3_7
+		set_state closeup
+		dialog NPC_ORGANGRINDER_ORGAN_TINA3_8
+		set_state verycloseup
+		dialog NPC_ORGANGRINDER_ORGAN_TINA3_9
+		set_state closeup
+		dialog NPC_ORGANGRINDER_ORGAN_TINA3_10
+		set_state idle2
+		dialog NPC_ORGANGRINDER_ORGAN_TINA3_11
+		set_state zoomedout
+		dialog NPC_ORGANGRINDER_ORGAN_TINA3_12
+	    dialog NPC_ORGANGRINDER_ORGAN_TINA3_13
+		set_state idle2
+		dialog NPC_ORGANGRINDER_ORGAN_TINA3_14
+		dialog NPC_ORGANGRINDER_ORGAN_TINA3_15
+		set_state closeup
+		dialog NPC_ORGANGRINDER_ORGAN_TINA3_16
+
+		set_state idle2
+		unlock_controls 1
+	}
+	
+		//default  happy  veryhappy  sad  angry  veryangry
+        //questioning  whispering  pondering  mocking
+        //inlove  confused  paranoid  shocked  scared  spacedout
+		//grossedout bored winking
+}
