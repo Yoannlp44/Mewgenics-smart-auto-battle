@@ -141,34 +141,17 @@ exclude_characters_tagged <tag>
 | Necromancer    | advanced_classes.gon    | smart_necromancer    | smart_necromancer_move    |
 | Psychic        | advanced_classes.gon    | smart_psychic        | smart_psychic_move        |
 | Jester         | advanced_classes.gon    | smart_jester         | smart_jester_move         |
-| Colorless      | classes.gon             | smart_collarless     | smart_collarless_move     |
+| Colorless      | classes.gon             | smart_colorless      | smart_colorless_move      |
 | (fallback)     | player_cat.gon          | smart_default        | keep_distance (jeu)       |
 
 ---
 
 ## Bugs connus / A corriger
 
-### BUG CRITIQUE — Nom de classe `Colorless` vs `Collarless`
-- Le nom réel dans `classes.gon` est **`Colorless`** (ligne 1353).
-- Notre patch `advanced_classes.gon.patch` utilise **`Collarless.merge`** — INCORRECT.
-- **Conséquence** : le preset `smart_collarless` n'est jamais appliqué aux chats sans-collier.
-- **Fix** : déplacer le bloc `Colorless.merge` dans `classes.gon.patch` (c'est là que `Colorless` est défini) et corriger le nom.
-
-```diff
-- // dans advanced_classes.gon.patch
-- Collarless.merge { ... }
-
-+ // dans classes.gon.patch
-+ Colorless.merge {
-+     innate_passives {
-+         ReplaceBrain {
-+             brain GenericBrain
-+             decision_weights smart_collarless
-+             move_weights smart_collarless_move
-+         }
-+     }
-+ }
-```
+### ~~BUG CRITIQUE~~ CORRIGÉ — Nom de classe `Colorless` vs `Collarless`
+- **Corrigé le 2026-03-07.**
+- `advanced_classes.gon.patch` ligne 74 : `Collarless.merge` → `Colorless.merge` ✅
+- Presets renommés : `smart_collarless` → `smart_colorless`, `smart_collarless_move` → `smart_colorless_move` ✅
 
 ### Incertitude — `innate_passives` sur classes de base
 - Les classes avancées (`advanced_classes.gon`) utilisent `innate_passives` nativement (Monk, Druid, Tinkerer, Psychic).
@@ -187,10 +170,17 @@ exclude_characters_tagged <tag>
 
 ## Pistes d'amélioration (prochaines sessions)
 
+### Corrections appliquées le 2026-03-07
+- **Colorless** : `Collarless.merge` → `Colorless.merge` + renommage des presets ✅
+- **Monk** : `buff_self` réduit de 4 → 1 (évite `Meditate` Sleep 8 tours) ✅
+- **Tank** : `buff_self` et `buff_ally` réduits de 2 → 1 (évite Thorns/BarbedWire inutiles) ✅
+- **Mage** : ajout de `consider_aoe true` ✅
+- **Druid** : ajout de `consider_aoe true` (ChaChaSlide, DeathMetal) ✅
+- **Thief** : `spend_mana_scale` réduit de .99 → .5 (évite spam CoinToss / boucle ReloadOnGainCoins) ✅
+
 ### Priorité haute
 
-1. **Corriger le bug `Collarless` → `Colorless`**
-   - Déplacer dans `classes.gon.patch`, corriger le nom de la classe.
+1. ~~**Corriger le bug `Collarless` → `Colorless`**~~ — FAIT ✅
 
 2. **Affiner les presets de décision par classe**
    - Étudier les capacités réelles de chaque classe (via `dataGame/abilities/`) pour ajuster les poids.
@@ -212,8 +202,8 @@ exclude_characters_tagged <tag>
    - Le Jester a une palette de classes aléatoire — son comportement IA devrait peut-être être plus générique/chaotique.
    - Envisager `smart_default` ou un preset spécial "omnivore".
 
-6. **Ajouter un preset pour `Colorless`/chats sans classe**
-   - Une fois le bug corrigé, vérifier que le preset `smart_collarless` est adapté à un chat généraliste.
+6. ~~**Ajouter un preset pour `Colorless`/chats sans classe**~~
+   - Bug corrigé, preset `smart_colorless` actif. ✅
 
 ### Priorité basse
 

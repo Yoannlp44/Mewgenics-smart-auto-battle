@@ -100,12 +100,12 @@ smart_tank.merge {
     kill_enemy 5
     kill_ally -100
     debuff_ally -100
-    buff_ally 2
+    buff_ally 1
     debuff_enemy 2
     buff_enemy -100
     damage_self -0.1
     heal_self 2
-    buff_self 2           // Aime lancer Taunt/Provocation sur soi, mais pas au point d'abuser
+    buff_self 1           // Réduit: Porcupine/BarbedWire (Thorns) inutiles sans ennemi au mêlée
     debuff_self -1
     damage_ally_corpse 0
     damage_enemy_corpse 0
@@ -151,6 +151,7 @@ smart_mage.merge {
     consider_secondary_damage true
     accurate_knockback false
     consider_overkill true
+    consider_aoe true     // Prend en compte les dommages de zone sur les alliés
 }
 
 // --- CLERIC / MEDIC (Soigneur Pur) ---
@@ -208,7 +209,7 @@ smart_thief.merge {
     spawn_object_distance_to_enemy -.01
     spawn_object_distance_to_ally .0001
     negative_weight_scale .99
-    spend_mana_scale .99
+    spend_mana_scale .5   // Réduit: évite le spam de CoinToss (coûte 1 coin, boucle ReloadOnGainCoins)
     consider_total_damage true
     consider_secondary_damage true
     accurate_knockback false
@@ -277,8 +278,8 @@ smart_psychic.merge {
     consider_overkill true
 }
 
-// --- COLLARLESS (Bagarreur Polyvalent / Sans-collier) ---
-smart_collarless.merge {
+// --- COLORLESS (Bagarreur Polyvalent / Sans-collier) ---
+smart_colorless.merge {
     damage_ally -100
     damage_enemy 2
     heal_ally 0
@@ -368,6 +369,7 @@ smart_druid.merge {
     consider_secondary_damage true
     accurate_knockback false
     consider_overkill true
+    consider_aoe true     // ChaChaSlide et DeathMetal ont des risques pour les alliés
 }
 
 // --- MONK (Moine / Mêlée Mobile & Survie) ---
@@ -384,7 +386,7 @@ smart_monk.merge {
     buff_enemy -100
     damage_self -1
     heal_self 3
-    buff_self 4
+    buff_self 1           // Réduit: évite Meditate (Sleep 8 tours !) et Porcupine inutile
     debuff_self -1
     damage_ally_corpse 0
     damage_enemy_corpse 0

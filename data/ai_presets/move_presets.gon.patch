@@ -70,8 +70,8 @@ smart_psychic_move.merge {
     face_closest_enemy 1
 }
 
-// Le Collarless est un bagarreur hybride, il cherche le contact mais reste flexible
-smart_collarless_move.merge {
+// Le Colorless est un bagarreur hybride, il cherche le contact mais reste flexible
+smart_colorless_move.merge {
     distance_to_enemy -1
     distance_to_ally 0
     distance_to_character 0
