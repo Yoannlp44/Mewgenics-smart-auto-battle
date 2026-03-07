@@ -1,0 +1,28 @@
+// Monk abilities AI patches
+// Porcupine: self-buff Thorns+Brace for 1 turn — useless without an adjacent enemy
+Porcupine.merge {
+    damage_instance {
+        custom_additional_ai_weight tile_close_to_enemy
+    }
+}
+
+// Porcupine2: variant of Porcupine, same issue
+Porcupine2.merge {
+    damage_instance {
+        custom_additional_ai_weight tile_close_to_enemy
+    }
+}
+
+// Meditate: self-buff that heals + gives Shield BUT also inflicts Sleep 8 turns — never use in auto-battle
+Meditate.merge {
+    damage_instance {
+        ai_base_score -99999
+    }
+}
+
+// Meditate2: same as Meditate (mana 6 instead of 8), same sleep problem
+Meditate2.merge {
+    damage_instance {
+        ai_base_score -99999
+    }
+}

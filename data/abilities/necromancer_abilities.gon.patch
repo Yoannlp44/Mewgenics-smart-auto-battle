@@ -1,0 +1,42 @@
+// Necromancer abilities AI patches
+// Flatline: the caster safely kills themselves to spawn a shade clone — never do this in auto-battle
+Flatline.merge {
+    damage_instance {
+        ai_base_score -99999
+    }
+}
+
+// Flatline2: variant of Flatline, same issue
+Flatline2.merge {
+    damage_instance {
+        ai_base_score -99999
+    }
+}
+
+// BloodGeyser: deals damage but self-damages for 50% max HP — very risky
+BloodGeyser.merge {
+    damage_instance {
+        ai_base_score -20
+    }
+}
+
+// BloodGeyser2: variant of BloodGeyser, same self-damage risk
+BloodGeyser2.merge {
+    damage_instance {
+        ai_base_score -20
+    }
+}
+
+// GigaDrain: melee attack, drains ALL current mana for damage — slight penalty to avoid wasting full mana for weak hits
+GigaDrain.merge {
+    damage_instance {
+        ai_base_score -5
+    }
+}
+
+// GigaDrain2: variant of GigaDrain, same concern
+GigaDrain2.merge {
+    damage_instance {
+        ai_base_score -5
+    }
+}

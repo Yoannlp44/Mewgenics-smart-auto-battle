@@ -1,0 +1,28 @@
+// Druid abilities AI patches
+// ChaChaSlide: AoE knockback with RandomKnockbackDirection — randomly displaces ALL units including allies
+ChaChaSlide.merge {
+    damage_instance {
+        ai_base_score -99999
+    }
+}
+
+// ChaChaSlide2: variant of ChaChaSlide, same friendly-fire risk
+ChaChaSlide2.merge {
+    damage_instance {
+        ai_base_score -99999
+    }
+}
+
+// HardenSkin: self-buff Shield+Thorns+Brace for 1 turn — useless without adjacent enemy
+HardenSkin.merge {
+    damage_instance {
+        custom_additional_ai_weight tile_close_to_enemy
+    }
+}
+
+// HardenSkin2: variant of HardenSkin, same logic
+HardenSkin2.merge {
+    damage_instance {
+        custom_additional_ai_weight tile_close_to_enemy
+    }
+}

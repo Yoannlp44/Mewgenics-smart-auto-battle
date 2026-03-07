@@ -20,6 +20,17 @@ Faire jouer les chats en auto-battle avec une IA intelligente et **class-aware**
 mods/Smart_AutoBattle/
 ├── agent.md                               ← CE FICHIER
 ├── data/                                  ← FICHIERS DU MOD (patches)
+│   ├── abilities/                         ← Patches d'abilities par classe (ai_base_score / custom_additional_ai_weight)
+│   │   ├── monk_abilities.gon.patch       Porcupine (tile_close_to_enemy), Meditate (−99999 sleep 8t)
+│   │   ├── tank_abilities.gon.patch       BarbedWire (tile_close_to_enemy)
+│   │   ├── colorless_abilities.gon.patch  Rest (must_heal_most_missing_health), Brace (tile_close_to_enemy)
+│   │   ├── thief_abilities.gon.patch      CoinToss (−10, évite boucle ReloadOnGainCoins)
+│   │   ├── mage_abilities.gon.patch       Absorb (must_heal_most_missing_health), ManaMeld (−5)
+│   │   ├── necromancer_abilities.gon.patch Flatline (−99999 self-die), BloodGeyser (−20), GigaDrain (−5)
+│   │   ├── druid_abilities.gon.patch      ChaChaSlide (−99999 friendly-fire), HardenSkin (tile_close_to_enemy)
+│   │   ├── medic_abilities.gon.patch      BornAgain (−99999 sleep 4t), Zealot (tile_close_to_enemy)
+│   │   ├── butcher_abilities.gon.patch    SelfMutilate (−5), Fartoom (−10), LightenTheLoad (−10)
+│   │   └── jester_abilities.gon.patch     Bump (−99999 displaces allies)
 │   ├── ai_presets/
 │   │   ├── decision_presets.gon.patch     14 presets (smart_default + 13 classes)
 │   │   └── move_presets.gon.patch         13 move presets par classe
@@ -29,6 +40,7 @@ mods/Smart_AutoBattle/
 │       ├── classes.gon.patch              6 classes de base (Fighter, Hunter, Tank, Mage, Medic, Thief)
 │       └── advanced_classes.gon.patch     7 classes avancées + Colorless
 └── dataGame/                              ← REFERENCE JEU (ne jamais modifier)
+    ├── abilities/                         ← Abilities de chaque classe (référence)
     ├── ai_presets/
     │   ├── decision_presets.gon           Tous les champs valides pour decision presets
     │   └── move_presets.gon               Tous les champs valides pour move presets
@@ -170,7 +182,7 @@ exclude_characters_tagged <tag>
 
 ## Pistes d'amélioration (prochaines sessions)
 
-### Corrections appliquées le 2026-03-07
+### Corrections appliquées le 2026-03-07 (session 1)
 - **Colorless** : `Collarless.merge` → `Colorless.merge` + renommage des presets ✅
 - **Monk** : `buff_self` réduit de 4 → 1 (évite `Meditate` Sleep 8 tours) ✅
 - **Tank** : `buff_self` et `buff_ally` réduits de 2 → 1 (évite Thorns/BarbedWire inutiles) ✅
@@ -178,11 +190,72 @@ exclude_characters_tagged <tag>
 - **Druid** : ajout de `consider_aoe true` (ChaChaSlide, DeathMetal) ✅
 - **Thief** : `spend_mana_scale` réduit de .99 → .5 (évite spam CoinToss / boucle ReloadOnGainCoins) ✅
 
+### Corrections appliquées le 2026-03-07 (session 2) — patches abilities
+- **Monk** : `Porcupine`/`Porcupine2` → `tile_close_to_enemy` ; `Meditate`/`Meditate2` → `ai_base_score -99999` ✅
+- **Tank** : `BarbedWire`/`BarbedWire2` → `tile_close_to_enemy` ✅
+- **Colorless** : `Rest`/`Rest2` → `must_heal_most_missing_health` ; `Brace`/`Brace2` → `tile_close_to_enemy` ✅
+- **Thief** : `CoinToss`/`CoinToss2` → `ai_base_score -10` ✅
+- **Mage** : `Absorb`/`Absorb2` → `must_heal_most_missing_health` ; `ManaMeld`/`ManaMeld2` → `ai_base_score -5` ✅
+- **Necromancer** : `Flatline`/`Flatline2` → `ai_base_score -99999` ; `BloodGeyser`/`BloodGeyser2` → `-20` ; `GigaDrain`/`GigaDrain2` → `-5` ✅
+- **Druid** : `ChaChaSlide`/`ChaChaSlide2` → `ai_base_score -99999` ; `HardenSkin`/`HardenSkin2` → `tile_close_to_enemy` ✅
+- **Medic** : `BornAgain` → `ai_base_score -99999` (sleep 4t) ; `Zealot`/`Zealot2` → `tile_close_to_enemy` ✅
+- **Butcher** : `SelfMutilate`/`SelfMutilate2` → `-5` ; `Fartoom`/`Fartoom2` → `-10` ; `LightenTheLoad`/`LightenTheLoad2` → `-10` ✅
+- **Jester** : `Bump`/`Bump2` → `ai_base_score -99999` ✅
+
+### Notes techniques — patches abilities
+- **`ChaosTeleport` (Mage)** : template `teleport`, pas de `damage_instance` → impossible à patcher via ce mécanisme
+- **`BornAgain2` (Medic)** : version améliorée SANS le `self_damage Sleep` — ne pas patcher, c'est une bonne ability
+- Les patches sont dans `data/abilities/<classe>_abilities.gon.patch`
+- Format : `AbilityName.merge { damage_instance { ai_base_score N } }` ou `custom_additional_ai_weight <keyword>`
+
+### Corrections appliquées le 2026-03-07 (session 3) — abilities colorless communes
+Les abilities `Colorless` sont communes à toutes les classes (équipables par n'importe qui).
+Patchs ajoutés dans `data/abilities/colorless_abilities.gon.patch` :
+
+**Sleep :**
+- `CatNap` → `must_heal_most_missing_health` (Cleanse + Sleep 1) ✅
+- `CatNap2` : override damage_instance = `AllStatsUp 1` seulement, **pas de sleep** — non patchée intentionnellement
+
+**Near-enemy buffs :**
+- `Block`/`Block2` → `tile_close_to_enemy` (Shield inutile sans ennemi) ✅
+- `GainThorns`/`GainThorns2` → `tile_close_to_enemy_soft` (Thorns permanent, moins urgent) ✅
+
+**Risque létal :**
+- `RussianRoulette`/`RussianRoulette2` → `ai_base_score -99999` (1/6 chance de mort) ✅
+
+**Friendly-fire / aléatoire :**
+- `LotteryShottery`/`LotteryShottery2` → `ai_base_score -99999` (cible aléatoire incluant alliés) ✅
+- `Metronome`/`Metronome2` → `ai_base_score -99999` (action complètement aléatoire) ✅
+
+**Disorder self-infligé :**
+- `ForbiddenFart`/`ForbiddenFart2` → `ai_base_score -50` (inflige toujours un disorder sur soi) ✅
+
+**Anti-alliés :**
+- `ManaDrain`/`ManaDrain2` → `ai_base_score -99999` (vole le mana des alliés) ✅
+- `HealBolt` (v1) → `ai_base_score -99999` (peut soigner les ennemis — pas de `DontHealEnemies`) ✅
+  - `HealBolt2` : a `DontHealEnemies 1` et `Conditional_Enemy` — non patchée intentionnellement
+
+**Action inutile :**
+- `WasteTime` → `ai_base_score -99999` (coûte 1 mana, ne fait rien) ✅
+  - `WasteTime2` : donne `Charge 1` — légèrement utile, non patchée
+
+### Abilities colorless analysées mais non patchées (intentionnel)
+- **ChaosTeleport** : pas de `damage_instance` → impossible
+- **CatNap2** : override damage_instance = `AllStatsUp 1` seulement, pas de sleep
+- **HealBolt2** : a `DontHealEnemies` et stun conditionnel sur ennemis seulement
+- **WasteTime2** : donne `Charge 1`, légèrement utile
+- **Flex/Flex2** : le Brace est dans `self_damage`, pas `damage_instance` ; le knockback dans `damage_instance` est utile en combat
+- **ForbiddenFart** : pénalisé à -50 (pas -99999) car c'est gratuit et les dégâts AoE sont réels
+- **RussianRoulette** : -99999 car risque de mort, mais si un joueur choisit cet item c'est intentionnel
+
 ### Priorité haute
 
 1. ~~**Corriger le bug `Collarless` → `Colorless`**~~ — FAIT ✅
 
-2. **Affiner les presets de décision par classe**
+2. ~~**Patcher les abilities problématiques avec `ai_base_score` / `custom_additional_ai_weight`**~~ — FAIT ✅
+   - Toutes les 10 classes patchées (Monk, Tank, Colorless, Thief, Mage, Necromancer, Druid, Medic, Butcher, Jester)
+
+3. **Affiner les presets de décision par classe**
    - Étudier les capacités réelles de chaque classe (via `dataGame/abilities/`) pour ajuster les poids.
    - Exemple : le Medic avec `RangedHeal` doit favoriser `heal_ally` à grande distance → peut-être augmenter `heal_ally` encore plus.
    - Exemple : le Thief a beaucoup de capacités `debuff_enemy` → revoir `debuff_enemy` weight.

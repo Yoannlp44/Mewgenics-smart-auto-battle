@@ -1,0 +1,30 @@
+// Mage abilities AI patches
+// Absorb: self-buff that heals based on current mana (costs ALL mana) — only useful when hurt
+Absorb.merge {
+    damage_instance {
+        custom_additional_ai_weight must_heal_most_missing_health
+    }
+}
+
+// Absorb2: variant of Absorb, same logic
+Absorb2.merge {
+    damage_instance {
+        custom_additional_ai_weight must_heal_most_missing_health
+    }
+}
+
+// ManaMeld: transfers ALL current mana to an ally — strong situational spell, slight penalty to avoid spam
+ManaMeld.merge {
+    damage_instance {
+        ai_base_score -5
+    }
+}
+
+// ManaMeld2: variant of ManaMeld, same logic
+ManaMeld2.merge {
+    damage_instance {
+        ai_base_score -5
+    }
+}
+
+// Note: ChaosTeleport (mana 1, template teleport) has no damage_instance — cannot be patched via this method

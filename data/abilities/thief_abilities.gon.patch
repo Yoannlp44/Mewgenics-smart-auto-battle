@@ -1,0 +1,15 @@
+// Thief abilities AI patches
+// CoinToss: costs 1 coin + mana, has passive ReloadOnGainCoins 1 creating a loop
+// Penalize to discourage spam — the AI already has spend_mana_scale .5 from decision_presets
+CoinToss.merge {
+    damage_instance {
+        ai_base_score -10
+    }
+}
+
+// CoinToss2: variant of CoinToss, same loop risk
+CoinToss2.merge {
+    damage_instance {
+        ai_base_score -10
+    }
+}

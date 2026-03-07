@@ -1,0 +1,164 @@
+// Colorless abilities AI patches
+
+// ── SLEEP RISKS ──────────────────────────────────────────────────────────────
+
+// Rest: self-buff that heals 10 HP BUT inflicts Sleep 1 turn — only use when actually hurt
+Rest.merge {
+    damage_instance {
+        custom_additional_ai_weight must_heal_most_missing_health
+    }
+}
+
+// Rest2: variant of Rest, same logic
+Rest2.merge {
+    damage_instance {
+        custom_additional_ai_weight must_heal_most_missing_health
+    }
+}
+
+// CatNap: Cleanse self + Sleep 1 — same risk as Rest, only use when actually hurt
+// (CatNap2 overrides damage_instance with AllStatsUp 1, no sleep — do not patch CatNap2)
+CatNap.merge {
+    damage_instance {
+        custom_additional_ai_weight must_heal_most_missing_health
+    }
+}
+
+// ── NEAR-ENEMY BUFFS ─────────────────────────────────────────────────────────
+
+// Brace: self-buff Brace for 1 turn — useless without an adjacent enemy
+Brace.merge {
+    damage_instance {
+        custom_additional_ai_weight tile_close_to_enemy
+    }
+}
+
+// Brace2: self-buff Brace+Thorns for 1 turn — useless without an adjacent enemy
+Brace2.merge {
+    damage_instance {
+        custom_additional_ai_weight tile_close_to_enemy
+    }
+}
+
+// Block: self-buff Shield — only useful when about to take hits
+Block.merge {
+    damage_instance {
+        custom_additional_ai_weight tile_close_to_enemy
+    }
+}
+
+// Block2: variant of Block, same logic
+Block2.merge {
+    damage_instance {
+        custom_additional_ai_weight tile_close_to_enemy
+    }
+}
+
+// GainThorns: permanent Thorns — only useful if enemies will attack you in melee
+GainThorns.merge {
+    damage_instance {
+        custom_additional_ai_weight tile_close_to_enemy_soft
+    }
+}
+
+// GainThorns2: variant of GainThorns, same logic (cheaper at mana 2)
+GainThorns2.merge {
+    damage_instance {
+        custom_additional_ai_weight tile_close_to_enemy_soft
+    }
+}
+
+// ── LETHAL SELF-RISK ─────────────────────────────────────────────────────────
+
+// RussianRoulette: 1/6 chance to die instantly — never use in auto-battle
+RussianRoulette.merge {
+    damage_instance {
+        ai_base_score -99999
+    }
+}
+
+// RussianRoulette2: 1/6 chance Instakill 25 on self — never use in auto-battle
+RussianRoulette2.merge {
+    damage_instance {
+        ai_base_score -99999
+    }
+}
+
+// ── RANDOM / FRIENDLY-FIRE RISK ──────────────────────────────────────────────
+
+// LotteryShottery: targets a RANDOM animate character including allies — never use
+LotteryShottery.merge {
+    damage_instance {
+        ai_base_score -99999
+    }
+}
+
+// LotteryShottery2: variant of LotteryShottery, same random-target problem
+LotteryShottery2.merge {
+    damage_instance {
+        ai_base_score -99999
+    }
+}
+
+// Metronome: performs 1 completely random move — unpredictable, may harm allies
+Metronome.merge {
+    damage_instance {
+        ai_base_score -99999
+    }
+}
+
+// Metronome2: performs 2 random moves — same issue, doubled
+Metronome2.merge {
+    damage_instance {
+        ai_base_score -99999
+    }
+}
+
+// ── SELF-INFLICTED DISORDER ───────────────────────────────────────────────────
+
+// ForbiddenFart: free AoE damage but ALWAYS inflicts a random disorder on self
+ForbiddenFart.merge {
+    damage_instance {
+        ai_base_score -50
+    }
+}
+
+// ForbiddenFart2: variant, same disorder cost inherited
+ForbiddenFart2.merge {
+    damage_instance {
+        ai_base_score -50
+    }
+}
+
+// ── ANTI-ALLY ABILITIES ───────────────────────────────────────────────────────
+
+// ManaDrain: steals mana FROM allies — harmful to the team
+ManaDrain.merge {
+    damage_instance {
+        ai_base_score -99999
+    }
+}
+
+// ManaDrain2: steals ALL mana from an ally — extremely harmful
+ManaDrain2.merge {
+    damage_instance {
+        ai_base_score -99999
+    }
+}
+
+// HealBolt (v1 only): heals target including enemies — can heal enemies!
+// HealBolt2 has DontHealEnemies and Conditional_Enemy, so only HealBolt needs patching
+HealBolt.merge {
+    damage_instance {
+        ai_base_score -99999
+    }
+}
+
+// ── WASTED ACTIONS ────────────────────────────────────────────────────────────
+
+// WasteTime: costs 1 mana and literally does nothing
+WasteTime.merge {
+    damage_instance {
+        ai_base_score -99999
+    }
+}

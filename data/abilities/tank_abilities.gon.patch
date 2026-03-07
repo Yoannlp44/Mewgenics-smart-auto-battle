@@ -1,0 +1,14 @@
+// Tank abilities AI patches
+// BarbedWire: applies Thorns to a tile for 1 turn — useless if no enemy is near that tile
+BarbedWire.merge {
+    damage_instance {
+        custom_additional_ai_weight tile_close_to_enemy
+    }
+}
+
+// BarbedWire2: improved version, same logic
+BarbedWire2.merge {
+    damage_instance {
+        custom_additional_ai_weight tile_close_to_enemy
+    }
+}

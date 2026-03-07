@@ -1,0 +1,42 @@
+// Butcher abilities AI patches
+// SelfMutilate: deals self-damage (generic_physical) to gain StrengthUp+Cleave — slight penalty, part of the Butcher kit
+SelfMutilate.merge {
+    damage_instance {
+        ai_base_score -5
+    }
+}
+
+// SelfMutilate2: variant of SelfMutilate, same concern
+SelfMutilate2.merge {
+    damage_instance {
+        ai_base_score -5
+    }
+}
+
+// Fartoom: AoE around self, deals 25% current HP as damage BUT also self-damages 25% current HP
+Fartoom.merge {
+    damage_instance {
+        ai_base_score -10
+    }
+}
+
+// Fartoom2: variant of Fartoom, same self-damage concern
+Fartoom2.merge {
+    damage_instance {
+        ai_base_score -10
+    }
+}
+
+// LightenTheLoad: costs 25 HP (type spell_cost) to gain TakeExtraTurn — risky when low HP
+LightenTheLoad.merge {
+    damage_instance {
+        ai_base_score -10
+    }
+}
+
+// LightenTheLoad2: variant of LightenTheLoad, same concern
+LightenTheLoad2.merge {
+    damage_instance {
+        ai_base_score -10
+    }
+}
