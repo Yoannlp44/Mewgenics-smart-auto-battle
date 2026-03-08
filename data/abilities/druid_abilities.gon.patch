@@ -1,5 +1,5 @@
 // Druid abilities AI patches
-// ChaChaSlide: AoE knockback with RandomKnockbackDirection — randomly displaces ALL units including allies
+// ChaChaSlide: AoE knockback with RandomKnockbackDirection -- randomly displaces ALL units including allies
 ChaChaSlide.merge {
     damage_instance {
         ai_base_score -99999
@@ -13,9 +13,9 @@ ChaChaSlide2.merge {
     }
 }
 
-// HardenSkin: Shield+Thorns+Brace cumulables, expirent après 1 tour (expires_on_appliers_turn true)
-// tile_close_to_enemy: inutile sans ennemi adjacent
-// ai_base_score -15: décourage fortement le spam
+// HardenSkin: Shield+Thorns+Brace stackable, expires after 1 turn expires_on_appliers_turn true
+// tile_close_to_enemy: useless without adjacent enemy
+// ai_base_score -15: strongly discourages spam
 HardenSkin.merge {
     damage_instance {
         custom_additional_ai_weight tile_close_to_enemy
@@ -23,7 +23,7 @@ HardenSkin.merge {
     }
 }
 
-// HardenSkin2: même logique
+// HardenSkin2: same logic
 HardenSkin2.merge {
     damage_instance {
         custom_additional_ai_weight tile_close_to_enemy

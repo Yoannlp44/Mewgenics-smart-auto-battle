@@ -1,5 +1,5 @@
 // Jester abilities AI patches
-// Bump: randomly displaces any unit up to 20 tiles — can displace allies into danger
+// Bump: randomly displaces any unit up to 20 tiles -- can displace allies into danger
 Bump.merge {
     damage_instance {
         ai_base_score -99999
@@ -13,7 +13,7 @@ Bump2.merge {
     }
 }
 
-// PowerUp: RandomStatusFromPool — self-buff with random 1-turn buffs, not catastrophic but unpredictable
+// PowerUp: RandomStatusFromPool -- self-buff with random 1-turn buffs, not catastrophic but unpredictable
 PowerUp.merge {
     damage_instance {
         ai_base_score -10

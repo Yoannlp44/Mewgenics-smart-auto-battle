@@ -1,13 +1,13 @@
 // Medic abilities AI patches
-// BornAgain: revives a dead ally BUT caster sleeps for 4 turns — never use in auto-battle
-// BornAgain2 does NOT have the sleep cost — only patch BornAgain
+// BornAgain: revives a dead ally BUT caster sleeps for 4 turns -- never use in auto-battle
+// BornAgain2 does NOT have the sleep cost -- only patch BornAgain
 BornAgain.merge {
     damage_instance {
         ai_base_score -99999
     }
 }
 
-// Zealot: self-buff DivineShield — only useful when taking hits, useless out of range
+// Zealot: self-buff DivineShield -- only useful when taking hits, useless out of range
 Zealot.merge {
     damage_instance {
         custom_additional_ai_weight tile_close_to_enemy

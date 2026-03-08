@@ -1,6 +1,6 @@
 // Psychic abilities AI patches
 
-// RealityScramble: ScrambleEverything — randomly shuffles everything on the map, chaotic friendly-fire
+// RealityScramble: ScrambleEverything -- randomly shuffles everything on the map, chaotic friendly-fire
 RealityScramble.merge {
     damage_instance {
         ai_base_score -99999
@@ -14,21 +14,15 @@ RealityScramble2.merge {
     }
 }
 
-// ChaosSwap: target_mode random_tile — randomly swaps positions, unpredictable
-ChaosSwap.merge {
-    damage_instance {
-        ai_base_score -99999
-    }
-}
-
-// ChaosSwap2: variant of ChaosSwap, same issue
+// ChaosSwap: uses template swap, no damage_instance -- cannot patch via this mechanism
+// ChaosSwap2: has damage_instance Conditional_Enemy Confusion -- patchable
 ChaosSwap2.merge {
     damage_instance {
         ai_base_score -99999
     }
 }
 
-// ExtraTurnQuestion: TakeBonusTurnWithStatus { Stun 1 } — gains extra turn but immediately stunned, useless
+// ExtraTurnQuestion: TakeBonusTurnWithStatus Stun 1 -- gains extra turn but immediately stunned, useless
 ExtraTurnQuestion.merge {
     damage_instance {
         ai_base_score -99999
@@ -42,14 +36,14 @@ ExtraTurnQuestion2.merge {
     }
 }
 
-// MindCrack (v1): aoe_mode all without exclude_allies — applies MagicWeakness to entire map including allies
+// MindCrack (v1): aoe_mode all without exclude_allies -- applies MagicWeakness to entire map including allies
 MindCrack.merge {
     damage_instance {
         ai_base_score -99999
     }
 }
 
-// Glare: applies Madness without target restriction — can make allies attack each other
+// Glare: applies Madness without target restriction -- can make allies attack each other
 Glare.merge {
     damage_instance {
         ai_base_score -99999
@@ -63,7 +57,7 @@ Glare2.merge {
     }
 }
 
-// ThinkDeep: FillMana 1 + Sleep 1 — fills mana but puts self to sleep
+// ThinkDeep: FillMana 1 + Sleep 1 -- fills mana but puts self to sleep
 ThinkDeep.merge {
     damage_instance {
         ai_base_score -99999
@@ -77,7 +71,7 @@ ThinkDeep2.merge {
     }
 }
 
-// Pass: EndTurn 1 — wastes the caster's turn entirely
+// Pass: EndTurn 1 -- wastes the caster's turn entirely
 Pass.merge {
     damage_instance {
         ai_base_score -20
@@ -91,21 +85,21 @@ Pass2.merge {
     }
 }
 
-// BlindingFlash (v1): AoE blind around self — can blind allies nearby
+// BlindingFlash v1: AoE blind around self -- can blind allies nearby
 BlindingFlash.merge {
     damage_instance {
         ai_base_score -10
     }
 }
 
-// Supernova (v1): aoe_mode all without exclude_allies — hits allies
+// Supernova v1: aoe_mode all without exclude_allies -- hits allies
 Supernova.merge {
     damage_instance {
         ai_base_score -50
     }
 }
 
-// MassManaLeech: aoe_mode all without exclude_allies — drains mana from allies too
+// MassManaLeech: aoe_mode all without exclude_allies -- drains mana from allies too
 MassManaLeech.merge {
     damage_instance {
         ai_base_score -50
@@ -119,7 +113,7 @@ MassManaLeech2.merge {
     }
 }
 
-// MindBlast (v1): AoE Madness around self without exclude_allies
+// MindBlast v1: AoE Madness around self without exclude_allies
 MindBlast.merge {
     damage_instance {
         ai_base_score -50

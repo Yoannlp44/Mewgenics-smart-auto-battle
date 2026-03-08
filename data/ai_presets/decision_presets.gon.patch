@@ -1,4 +1,4 @@
-// --- DEFAULT SAFE (Fallback universel — n'attaque jamais les alliés) ---
+// --- DEFAULT SAFE Fallback -- never attacks allies ---
 smart_default.merge {
     damage_ally -100
     damage_enemy 1
@@ -29,7 +29,7 @@ smart_default.merge {
     consider_overkill true
 }
 
-// --- HUNTER (Sniper & Pièges) ---
+// --- HUNTER Sniper & Traps ---
 smart_hunter.merge {
     damage_ally -100
     damage_enemy 2
@@ -60,7 +60,7 @@ smart_hunter.merge {
     consider_overkill true
 }
 
-// --- FIGHTER (Mêlée Agressif) ---
+// --- FIGHTER Melee Aggressive ---
 smart_fighter.merge {
     damage_ally -100
     damage_enemy 2
@@ -91,13 +91,13 @@ smart_fighter.merge {
     consider_overkill true
 }
 
-// --- TANK (Protecteur & Contrôle) ---
+// --- TANK Protector & Control ---
 smart_tank.merge {
     damage_ally -100
-    damage_enemy 2            // Remonté: le Tank doit attaquer, pas juste se buffer
+    damage_enemy 2
     heal_ally 1
     heal_enemy -100
-    kill_enemy 8              // Remonté: tuer est prioritaire sur buffing
+    kill_enemy 8
     kill_ally -100
     debuff_ally -100
     buff_ally 1
@@ -105,7 +105,7 @@ smart_tank.merge {
     buff_enemy -100
     damage_self -0.1
     heal_self 2
-    buff_self 0.3             // Très réduit: décourage fortement tous les self-buffs situationnels
+    buff_self 0.3
     debuff_self -1
     damage_ally_corpse 0
     damage_enemy_corpse 0
@@ -122,9 +122,9 @@ smart_tank.merge {
     consider_overkill true
 }
 
-// --- MAGE (Artillerie Lourde) ---
+// --- MAGE Heavy Artillery ---
 smart_mage.merge {
-    damage_ally -1000     // Pénalité COLOSSALE contre le tir ami (Météores)
+    damage_ally -1000
     damage_enemy 3
     heal_ally 1
     heal_enemy -100
@@ -151,10 +151,10 @@ smart_mage.merge {
     consider_secondary_damage true
     accurate_knockback false
     consider_overkill true
-    consider_aoe true     // Prend en compte les dommages de zone sur les alliés
+    consider_aoe true
 }
 
-// --- CLERIC / MEDIC (Soigneur Pur) ---
+// --- CLERIC / MEDIC Pure Healer ---
 smart_cleric.merge {
     damage_ally -100
     damage_enemy 1
@@ -185,7 +185,7 @@ smart_cleric.merge {
     consider_overkill true
 }
 
-// --- THIEF (Voleur / Assassin Mobile) ---
+// --- THIEF Rogue / Mobile Assassin ---
 smart_thief.merge {
     damage_ally -100
     damage_enemy 3
@@ -209,14 +209,14 @@ smart_thief.merge {
     spawn_object_distance_to_enemy -.01
     spawn_object_distance_to_ally .0001
     negative_weight_scale .99
-    spend_mana_scale .5   // Réduit: évite le spam de CoinToss (coûte 1 coin, boucle ReloadOnGainCoins)
+    spend_mana_scale .5
     consider_total_damage true
     consider_secondary_damage true
     accurate_knockback false
     consider_overkill true
 }
 
-// --- BUTCHER (Boucher / Brutal) ---
+// --- BUTCHER Brutal ---
 smart_butcher.merge {
     damage_ally -100
     damage_enemy 3
@@ -247,7 +247,7 @@ smart_butcher.merge {
     consider_overkill true
 }
 
-// --- PSYCHIC (Contrôle et Manipulation) ---
+// --- PSYCHIC Control and Manipulation ---
 smart_psychic.merge {
     damage_ally -100
     damage_enemy 2
@@ -278,7 +278,7 @@ smart_psychic.merge {
     consider_overkill true
 }
 
-// --- COLORLESS (Bagarreur Polyvalent / Sans-collier) ---
+// --- COLORLESS Versatile Brawler ---
 smart_colorless.merge {
     damage_ally -100
     damage_enemy 2
@@ -309,7 +309,7 @@ smart_colorless.merge {
     consider_overkill true
 }
 
-// --- JESTER (Bouffon / Soutien Chaotique) ---
+// --- JESTER Clown / Chaotic Support ---
 smart_jester.merge {
     damage_ally -100
     damage_enemy 1
@@ -340,7 +340,7 @@ smart_jester.merge {
     consider_overkill true
 }
 
-// --- DRUID (Druide / Nature & Invocations) ---
+// --- DRUID Nature & Summons ---
 smart_druid.merge {
     damage_ally -100
     damage_enemy 2
@@ -354,7 +354,7 @@ smart_druid.merge {
     buff_enemy -100
     damage_self -1
     heal_self 2
-    buff_self 0.3             // Réduit: HardenSkin (1-tour) ne doit pas spammer
+    buff_self 0.3
     debuff_self -1
     damage_ally_corpse 0
     damage_enemy_corpse 0
@@ -369,10 +369,10 @@ smart_druid.merge {
     consider_secondary_damage true
     accurate_knockback false
     consider_overkill true
-    consider_aoe true     // ChaChaSlide et DeathMetal ont des risques pour les alliés
+    consider_aoe true
 }
 
-// --- MONK (Moine / Mêlée Mobile & Survie) ---
+// --- MONK Mobile Melee & Survival ---
 smart_monk.merge {
     damage_ally -100
     damage_enemy 3
@@ -386,7 +386,7 @@ smart_monk.merge {
     buff_enemy -100
     damage_self -1
     heal_self 3
-    buff_self 0.3             // Réduit: évite Meditate (Sleep 8 tours !) et Porcupine spam
+    buff_self 0.3
     debuff_self -1
     damage_ally_corpse 0
     damage_enemy_corpse 0
@@ -403,7 +403,7 @@ smart_monk.merge {
     consider_overkill true
 }
 
-// --- NECROMANCER (Nécromancien / Maître des Cadavres) ---
+// --- NECROMANCER Master of the Dead ---
 smart_necromancer.merge {
     damage_ally -100
     damage_enemy 2
@@ -434,7 +434,7 @@ smart_necromancer.merge {
     consider_overkill true
 }
 
-// --- TINKERER (Bricoleur / Ingénieur) ---
+// --- TINKERER Engineer ---
 smart_tinkerer.merge {
     damage_ally -100
     damage_enemy 2

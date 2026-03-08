@@ -1,6 +1,6 @@
 // Thief abilities AI patches
 // CoinToss: costs 1 coin + mana, has passive ReloadOnGainCoins 1 creating a loop
-// Penalize to discourage spam — the AI already has spend_mana_scale .5 from decision_presets
+// Penalize to discourage spam -- the AI already has spend_mana_scale .5 from decision_presets
 CoinToss.merge {
     damage_instance {
         ai_base_score -10
@@ -14,7 +14,7 @@ CoinToss2.merge {
     }
 }
 
-// Cheat: LuckUp (1-turn stackable buff) — slight penalty to avoid spam
+// Cheat: LuckUp 1-turn stackable buff -- slight penalty to avoid spam
 Cheat.merge {
     damage_instance {
         ai_base_score -15
@@ -28,10 +28,10 @@ Cheat2.merge {
     }
 }
 
-// Pierce: TempPenetrate + TempRangeUp — both are 1-turn buffs, only useful when about to attack
+// Pierce: TempPenetrate + TempRangeUp -- both are 1-turn buffs, only useful when about to attack
 Pierce.merge {
     damage_instance {
-        tile_close_to_enemy
+        custom_additional_ai_weight tile_close_to_enemy
         ai_base_score -5
     }
 }
@@ -39,12 +39,12 @@ Pierce.merge {
 // Pierce2: variant of Pierce, same logic
 Pierce2.merge {
     damage_instance {
-        tile_close_to_enemy
+        custom_additional_ai_weight tile_close_to_enemy
         ai_base_score -5
     }
 }
 
-// WindUp (v1): TempRangeUp 1 — 1-turn range buff, slight penalty
+// WindUp v1: TempRangeUp 1 -- 1-turn range buff, slight penalty
 WindUp.merge {
     damage_instance {
         ai_base_score -5
@@ -52,7 +52,7 @@ WindUp.merge {
 }
 
 // Jitter: applies Confusion 1 in small AoE around self without aoe_restrictions exclude_allies
-// Can confuse adjacent allies — moderate penalty
+// Can confuse adjacent allies -- moderate penalty
 Jitter.merge {
     damage_instance {
         ai_base_score -10
@@ -66,9 +66,4 @@ Jitter2.merge {
     }
 }
 
-// Outskirts2: applies TempDamageUp 2 after teleport — 1-turn buff stacks on top of teleport
-Outskirts2.merge {
-    damage_instance {
-        ai_base_score -5
-    }
-}
+// Outskirts2: variant_of Outskirts, uses self_damage not damage_instance -- cannot patch

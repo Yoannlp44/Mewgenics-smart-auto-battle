@@ -1,5 +1,5 @@
 // Butcher abilities AI patches
-// SelfMutilate: deals self-damage (generic_physical) to gain StrengthUp+Cleave — slight penalty, part of the Butcher kit
+// SelfMutilate: deals self-damage generic_physical to gain StrengthUp+Cleave -- slight penalty, part of the Butcher kit
 SelfMutilate.merge {
     damage_instance {
         ai_base_score -5
@@ -27,7 +27,7 @@ Fartoom2.merge {
     }
 }
 
-// LightenTheLoad: costs 25 HP (type spell_cost) to gain TakeExtraTurn — risky when low HP
+// LightenTheLoad: costs 25 HP type spell_cost to gain TakeExtraTurn -- risky when low HP
 LightenTheLoad.merge {
     damage_instance {
         ai_base_score -10
@@ -41,21 +41,21 @@ LightenTheLoad2.merge {
     }
 }
 
-// SkullBash: SelfStun 1 guaranteed (v1) — stuns self after attacking
+// SkullBash: SelfStun 1 guaranteed v1 -- stuns self after attacking
 SkullBash.merge {
     damage_instance {
         ai_base_score -20
     }
 }
 
-// SkullBash2: SelfStun 1 at 50% chance (v2) — less risky but still penalize
+// SkullBash2: SelfStun 1 at 50% chance v2 -- less risky but still penalize
 SkullBash2.merge {
     damage_instance {
         ai_base_score -10
     }
 }
 
-// Consume: self_damage { Drowsy 1 } — puts self to sleep while collecting pickups
+// Consume: self_damage Drowsy 1 -- puts self to sleep while collecting pickups
 Consume.merge {
     damage_instance {
         ai_base_score -20
@@ -69,7 +69,7 @@ Consume2.merge {
     }
 }
 
-// Binge: SpeedUp -1 on self — reduces own speed
+// Binge: SpeedUp -1 on self -- reduces own speed
 Binge.merge {
     damage_instance {
         ai_base_score -5
@@ -83,28 +83,28 @@ Binge2.merge {
     }
 }
 
-// TaintedOffering (v1): self_damage { Sleep 1 } — puts self to sleep to activate MeleeRevengeDamage
+// TaintedOffering v1: self_damage Sleep 1 -- puts self to sleep to activate MeleeRevengeDamage
 TaintedOffering.merge {
     damage_instance {
         ai_base_score -99999
     }
 }
 
-// TaintedOffering2: no self-Sleep, just MeleeRevengeDamage passive — slight situational penalty
+// TaintedOffering2: no self-Sleep, just MeleeRevengeDamage passive -- slight situational penalty
 TaintedOffering2.merge {
     damage_instance {
         ai_base_score -5
     }
 }
 
-// Tromp (v1): ApplyToSource { Bruise 1 } — self-injures on cast
+// Tromp v1: ApplyToSource Bruise 1 -- self-injures on cast
 Tromp.merge {
     damage_instance {
         ai_base_score -5
     }
 }
 
-// Chonkwalk: damage 5 type spell_cost — hurts self to refresh movement
+// Chonkwalk: damage 5 type spell_cost -- hurts self to refresh movement
 Chonkwalk.merge {
     damage_instance {
         ai_base_score -5
@@ -118,7 +118,7 @@ Chonkwalk2.merge {
     }
 }
 
-// Reflux: self_damage { Burn 2 } — sets self on fire
+// Reflux: self_damage Burn 2 -- sets self on fire
 Reflux.merge {
     damage_instance {
         ai_base_score -5
@@ -132,21 +132,21 @@ Reflux2.merge {
     }
 }
 
-// Tryptophan (v1): AoE Sleep 1 without restriction, max_aoe 1 — can put adjacent allies to sleep
+// Tryptophan v1: AoE Sleep 1 without restriction, max_aoe 1 -- can put adjacent allies to sleep
 Tryptophan.merge {
     damage_instance {
         ai_base_score -99999
     }
 }
 
-// Tryptophan2: Sleep AoE + heals self — sleep still hits allies, heavy penalty
+// Tryptophan2: Sleep AoE + heals self -- sleep still hits allies, heavy penalty
 Tryptophan2.merge {
     damage_instance {
         ai_base_score -20
     }
 }
 
-// Butcher: aoe_mode all — instakills anything with ≤3 HP, can kill weakened allies
+// Butcher: aoe_mode all -- instakills anything with <=3 HP, can kill weakened allies
 Butcher.merge {
     damage_instance {
         ai_base_score -20
@@ -160,7 +160,7 @@ Butcher2.merge {
     }
 }
 
-// Cough: self_damage 2 to spawn RotFly — slight penalty for self-harm
+// Cough: self_damage 2 to spawn RotFly -- slight penalty for self-harm
 Cough.merge {
     damage_instance {
         ai_base_score -5
@@ -174,7 +174,7 @@ Cough2.merge {
     }
 }
 
-// MyTurn: StealTurn 1 from an ally (must_have_ally must_have_player_cat) — steals ally's turn
+// MyTurn: StealTurn 1 from an ally must_have_ally must_have_player_cat -- steals ally's turn
 MyTurn.merge {
     damage_instance {
         ai_base_score -20
@@ -188,7 +188,7 @@ MyTurn2.merge {
     }
 }
 
-// Track: ForceMoveTowardsTaggedObject { tag food } — wastes action if no food on map
+// Track: ForceMoveTowardsTaggedObject tag food -- wastes action if no food on map
 Track.merge {
     damage_instance {
         ai_base_score -5

@@ -1,13 +1,13 @@
 // Tinkerer abilities AI patches
 
-// ShoddyJetpack (v1): randomize_target_within_range 3 — lands in random ±3 tile zone
+// ShoddyJetpack v1: randomize_target_within_range 3 -- lands in random +-3 tile zone
 ShoddyJetpack.merge {
     damage_instance {
         ai_base_score -10
     }
 }
 
-// FreshOffTheForge: Shield 7 + Burn 3 on self — sets self on fire as a cost
+// FreshOffTheForge: Shield 7 + Burn 3 on self -- sets self on fire as a cost
 FreshOffTheForge.merge {
     damage_instance {
         ai_base_score -5
@@ -21,7 +21,7 @@ FreshOffTheForge2.merge {
     }
 }
 
-// EjectButton: RandomDistanceDisplace { min_dist 4 } — teleports self far away randomly, sabotages positioning
+// EjectButton: RandomDistanceDisplace min_dist 4 -- teleports self far away randomly, sabotages positioning
 EjectButton.merge {
     damage_instance {
         ai_base_score -10
@@ -35,7 +35,7 @@ EjectButton2.merge {
     }
 }
 
-// UnreliableShield: Shield + Temporary Brace, only activates 25%/33% of the time — situational
+// UnreliableShield: Shield + Temporary Brace, only activates 25%/33% of the time -- situational
 UnreliableShield.merge {
     damage_instance {
         ai_base_score -5
@@ -49,7 +49,7 @@ UnreliableShield2.merge {
     }
 }
 
-// Shockwave: aoe_mode all + aoe_excludes_self true BUT no exclude_allies — hits all allies on the map
+// Shockwave: aoe_mode all + aoe_excludes_self true BUT no exclude_allies -- hits all allies on the map
 Shockwave.merge {
     damage_instance {
         ai_base_score -30

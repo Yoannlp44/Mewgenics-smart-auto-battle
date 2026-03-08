@@ -1,7 +1,7 @@
 // Tank abilities AI patches
-// BarbedWire: Thorns cumulables (stacks), expires après 1 tour (expires_on_appliers_turn true)
-// tile_close_to_enemy: inutile sans ennemi adjacent
-// ai_base_score -15: décourage fortement le spam — l'offensif doit toujours scorer plus haut
+// BarbedWire: Thorns stackable, expires after 1 turn expires_on_appliers_turn true
+// tile_close_to_enemy: useless without adjacent enemy
+// ai_base_score -15: strongly discourages spam -- offense should always score higher
 BarbedWire.merge {
     damage_instance {
         custom_additional_ai_weight tile_close_to_enemy
@@ -9,7 +9,7 @@ BarbedWire.merge {
     }
 }
 
-// BarbedWire2: même logique, portée 20 au lieu de 5
+// BarbedWire2: same logic, range 20 instead of 5
 BarbedWire2.merge {
     damage_instance {
         custom_additional_ai_weight tile_close_to_enemy

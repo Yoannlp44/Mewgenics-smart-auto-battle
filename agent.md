@@ -26,7 +26,7 @@ mods/Smart_AutoBattle/
 │   │   ├── colorless_abilities.gon.patch  Rest (must_heal_most_missing_health), Brace (-5), Block (-3)
 │   │   ├── fighter_abilities.gon.patch    ChaosRampage/Enrage/Bloodzerk/Stoopzerk/ThinkTooHard2 (−99999), Counter (tile_close_to_enemy−5), Berserk/Juiced (−5), Exert (−10), Hurl (−10)
 │   │   ├── hunter_abilities.gon.patch     ChaosShot/Pheromones (−99999), StakeOut (−20), SoothingShot (−10), Extend (tile_close_to_enemy−5)
-│   │   ├── psychic_abilities.gon.patch    RealityScramble/ChaosSwap/ExtraTurnQuestion/MindCrack/Glare/ThinkDeep (−99999), Pass (−20), BlindingFlash (−10), Supernova/MassManaLeech/MindBlast (−50)
+│   │   ├── psychic_abilities.gon.patch    RealityScramble/ChaosSwap2/ExtraTurnQuestion/MindCrack/Glare/ThinkDeep (−99999), Pass (−20), BlindingFlash (−10), Supernova/MassManaLeech/MindBlast (−50)
 │   │   ├── thief_abilities.gon.patch      CoinToss (−10), Cheat (−15), Pierce (tile−5), WindUp (−5), Jitter (−10), Outskirts2 (−5)
 │   │   ├── mage_abilities.gon.patch       Absorb (must_heal), ManaMeld (−5), DealWithTheDevil/Corrupt/BlackMagic (−20), ChainLightning (−20), ForbiddenFlame (−10), ForbiddenFlood/Telefrag/Divide/Magnify (−5), ForbiddenFrost (−10)
 │   │   ├── necromancer_abilities.gon.patch Flatline/SlitWrists/Seppuku/AbsorbSoul (−99999), Pestilence (−50), DemonicPact/ForbiddenFamine/Hush/Shriek (−20), BloodGeyser (−20), SoulTransfer/DonateBlood (−10), GigaDrain/TradeLife/LeechSwarm/BloodRain/WeAreOne (−5)
@@ -204,6 +204,19 @@ ID  Nom               Classe moteur
 
 ## Bugs connus / A corriger
 
+### NOTE -- Commentaires `//` dans les patches GON
+- Les commentaires `//` **sont supportes** par le parseur GON, y compris en inline (ex: `damage_enemy 2  // commentaire`).
+- Les fichiers vanilla du jeu en font usage massivement.
+- **Pas de restriction sur les commentaires** -- seul le charset ASCII est obligatoire.
+
+### ~~BUG CRITIQUE~~ CORRIGE -- Caracteres non-ASCII dans les fichiers .patch
+- **Corrige le 2026-03-07.**
+- Cause racine de l'erreur GON `"missing a '}' somewhere"` au lancement du jeu.
+- Les fichiers vanilla GON sont 100% ASCII. Le parseur GON ne supporte pas UTF-8, meme dans les commentaires.
+- Nos fichiers `.patch` contenaient des caracteres UTF-8 : tirets em (`--`), accents francais (`e`, `e`, `a`...), apostrophes typographiques.
+- **Tous les fichiers .patch ont ete reedits en ASCII pur** (18 fichiers verifies a 0 octet non-ASCII). ✅
+- **Regle** : uniquement des caracteres ASCII dans tous les fichiers `.gon.patch`.
+
 ### ~~BUG CRITIQUE~~ CORRIGÉ — Nom de classe `Colorless` vs `Collarless`
 - **Corrigé le 2026-03-07.**
 - `advanced_classes.gon.patch` ligne 74 : `Collarless.merge` → `Colorless.merge` ✅
@@ -296,16 +309,26 @@ Ajout de `ai_base_score -5` sur toutes les abilities avec `turns 1` + `expires_o
 
 ### Notes techniques — patches abilities
 - **`ChaosTeleport` (Mage)** : template `teleport`, pas de `damage_instance` → impossible à patcher via ce mécanisme
+- **`ChaosSwap` (Psychic)** : template `swap`, pas de `damage_instance` → impossible à patcher via ce mécanisme. Seul `ChaosSwap2` est patchable (il a un `damage_instance` propre).
 - **`BornAgain2` (Medic)** : version améliorée SANS le `self_damage Sleep` — ne pas patcher, c'est une bonne ability
 - Les patches sont dans `data/abilities/<classe>_abilities.gon.patch`
 - Format : `AbilityName.merge { damage_instance { ai_base_score N } }` ou `custom_additional_ai_weight <keyword>`
+
+### Corrections appliquées (session 8) -- bug custom_additional_ai_weight
+**Cause racine confirmee :** `tile_close_to_enemy` sans `custom_additional_ai_weight` devant = erreur GON au lancement.
+
+Fichiers corrigés :
+- `thief_abilities.gon.patch` : `Pierce`/`Pierce2` -- ajout de `custom_additional_ai_weight` devant `tile_close_to_enemy` ✅
+- `fighter_abilities.gon.patch` : `Counter`/`Counter2` -- ajout de `custom_additional_ai_weight` devant `tile_close_to_enemy` ✅
+
+Tous les autres fichiers utilisant `tile_close_to_enemy` avaient deja le prefixe correct (hunter, medic, druid, tank, monk, colorless).
 
 ### Corrections appliquées (session 7) — patches abilities Fighter, Hunter, Psychic + complétion de toutes les classes
 
 **Nouveaux fichiers créés :**
 - `fighter_abilities.gon.patch` — ChaosRampage, Enrage, Bloodzerk, Stoopzerk, ThinkTooHard2 → `-99999` ; Counter → `tile_close_to_enemy −5` ; Berserk, Juiced → `-5` ; Exert, Hurl → `-10`
 - `hunter_abilities.gon.patch` — ChaosShot, Pheromones → `-99999` ; StakeOut → `-20` ; SoothingShot → `-10` ; Extend → `tile_close_to_enemy −5`
-- `psychic_abilities.gon.patch` — RealityScramble, ChaosSwap, ExtraTurnQuestion, MindCrack, Glare, ThinkDeep → `-99999` ; Pass → `-20` ; BlindingFlash → `-10` ; MindBlast, Supernova, MassManaLeech → `-50`
+- `psychic_abilities.gon.patch` — RealityScramble, ChaosSwap2, ExtraTurnQuestion, MindCrack, Glare, ThinkDeep → `-99999` ; Pass → `-20` ; BlindingFlash → `-10` ; MindBlast, Supernova, MassManaLeech → `-50`
 - `tinkerer_abilities.gon.patch` — Shockwave → `-30` ; ShoddyJetpack, EjectButton → `-10` ; FreshOffTheForge, UnreliableShield → `-5`
 
 **Fichiers existants complétés :**
@@ -403,7 +426,11 @@ Patchs ajoutés dans `data/abilities/colorless_abilities.gon.patch` :
 
 ## Règles de développement
 
-- **Ne jamais modifier `dataGame/`** — lecture seule, référence uniquement.
+- **Commentaires `//` valides partout** -- y compris inline (`valeur // commentaire`). Les fichiers vanilla du jeu en font usage massivement.
+- **ASCII pur obligatoire** dans tous les fichiers `.gon.patch` -- le parseur GON ne supporte pas UTF-8, meme dans les commentaires. Pas d'accents, pas de tirets em, pas de guillemets typographiques. Remplacer : `e` accent -> `e`, `--` (em dash) -> `--`, apostrophes typographiques -> droites, etc.
+- **`custom_additional_ai_weight` obligatoire devant `tile_close_to_enemy`** -- ecrire `tile_close_to_enemy` seul dans un `damage_instance` cause une erreur GON au lancement. Format correct :
+  `custom_additional_ai_weight tile_close_to_enemy`
+- **Ne jamais modifier `dataGame/`** -- lecture seule, reference uniquement.
 - **Toujours utiliser `.merge`** pour les patches (ne pas redéfinir entièrement les objets).
 - **Vérifier les noms exacts** dans `dataGame/classes/classes.gon` et `advanced_classes.gon` avant d'écrire un patch.
 - **Vérifier les champs** dans `dataGame/ai_presets/` avant d'ajouter un nouveau champ.

@@ -1,5 +1,5 @@
-// Applique automatiquement les AI presets à chaque classe avancée via innate_passives.
-// innate_passives est auto-appliqué à tous les chats de la classe dès le début.
+// Applies AI presets to each advanced class via innate_passives.
+// innate_passives is auto-applied to all cats of the class from the start.
 
 Butcher.merge {
     innate_passives {
@@ -70,4 +70,3 @@ Jester.merge {
         }
     }
 }
-

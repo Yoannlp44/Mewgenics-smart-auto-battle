@@ -1,5 +1,5 @@
 // Necromancer abilities AI patches
-// Flatline: the caster safely kills themselves to spawn a shade clone — never do this in auto-battle
+// Flatline: the caster safely kills themselves to spawn a shade clone -- never do this in auto-battle
 Flatline.merge {
     damage_instance {
         ai_base_score -99999
@@ -13,7 +13,7 @@ Flatline2.merge {
     }
 }
 
-// BloodGeyser: deals damage but self-damages for 50% max HP — very risky
+// BloodGeyser: deals damage but self-damages for 50% max HP -- very risky
 BloodGeyser.merge {
     damage_instance {
         ai_base_score -20
@@ -27,7 +27,7 @@ BloodGeyser2.merge {
     }
 }
 
-// GigaDrain: melee attack, drains ALL current mana for damage — slight penalty to avoid wasting full mana for weak hits
+// GigaDrain: melee attack, drains ALL current mana for damage -- slight penalty to avoid wasting full mana for weak hits
 GigaDrain.merge {
     damage_instance {
         ai_base_score -5
@@ -41,7 +41,7 @@ GigaDrain2.merge {
     }
 }
 
-// Pestilence: aoe_mode all without restriction — hits allies too (damage 1, but still)
+// Pestilence: aoe_mode all without restriction -- hits allies too damage 1, but still
 Pestilence.merge {
     damage_instance {
         ai_base_score -50
@@ -55,21 +55,21 @@ Pestilence2.merge {
     }
 }
 
-// SlitWrists: damage 2 type melee on self — bonus ability that the AI should never use actively
+// SlitWrists: damage 2 type melee on self -- bonus ability that the AI should never use actively
 SlitWrists.merge {
     damage_instance {
         ai_base_score -99999
     }
 }
 
-// Seppuku: Die 1 — the caster kills themselves, never use in auto-battle
+// Seppuku: Die 1 -- the caster kills themselves, never use in auto-battle
 Seppuku.merge {
     damage_instance {
         ai_base_score -99999
     }
 }
 
-// AbsorbSoul: SafeDie 1 on an ally — kills an ally to gain power
+// AbsorbSoul: SafeDie 1 on an ally -- kills an ally to gain power
 AbsorbSoul.merge {
     damage_instance {
         ai_base_score -99999
@@ -83,7 +83,7 @@ AbsorbSoul2.merge {
     }
 }
 
-// DemonicPact: RandomInjury 1 + TakeExtraTurn — self-injury as cost
+// DemonicPact: RandomInjury 1 + TakeExtraTurn -- self-injury as cost
 DemonicPact.merge {
     damage_instance {
         ai_base_score -20
@@ -97,7 +97,7 @@ DemonicPact2.merge {
     }
 }
 
-// SoulTransfer: self_damage 4 + ConstitutionUp -1 — hurts self and reduces stats
+// SoulTransfer: self_damage 4 + ConstitutionUp -1 -- hurts self and reduces stats
 SoulTransfer.merge {
     damage_instance {
         ai_base_score -10
@@ -111,7 +111,7 @@ SoulTransfer2.merge {
     }
 }
 
-// DonateBlood: self_damage 10 to heal ally for 5 — bad trade, net loss of HP
+// DonateBlood: self_damage 10 to heal ally for 5 -- bad trade, net loss of HP
 DonateBlood.merge {
     damage_instance {
         ai_base_score -10
@@ -125,7 +125,7 @@ DonateBlood2.merge {
     }
 }
 
-// TradeLife: swaps HP with an ally — can leave caster dangerously low
+// TradeLife: swaps HP with an ally -- can leave caster dangerously low
 TradeLife.merge {
     damage_instance {
         ai_base_score -5
@@ -139,7 +139,7 @@ TradeLife2.merge {
     }
 }
 
-// LeechSwarm: aoe_mode all without exclude_allies — applies Leeches to allies too
+// LeechSwarm: aoe_mode all without exclude_allies -- applies Leeches to allies too
 LeechSwarm.merge {
     damage_instance {
         ai_base_score -5
@@ -153,7 +153,7 @@ LeechSwarm2.merge {
     }
 }
 
-// ForbiddenFamine: ApplyToRandomPartyMemberIfPossible { GainDisorderFromPool } — disorder on a random ally
+// ForbiddenFamine: ApplyToRandomPartyMemberIfPossible GainDisorderFromPool -- disorder on a random ally
 ForbiddenFamine.merge {
     damage_instance {
         ai_base_score -20
@@ -167,7 +167,7 @@ ForbiddenFamine2.merge {
     }
 }
 
-// Hush: applies Sleep 1 without restriction — can put allies to sleep (max_range 1-4)
+// Hush: applies Sleep 1 without restriction -- can put allies to sleep max_range 1-4
 Hush.merge {
     damage_instance {
         ai_base_score -20
@@ -181,7 +181,7 @@ Hush2.merge {
     }
 }
 
-// Shriek: aoe_mode cone without aoe_restrictions — Confusion + Madness can hit adjacent allies
+// Shriek: aoe_mode cone without aoe_restrictions -- Confusion + Madness can hit adjacent allies
 Shriek.merge {
     damage_instance {
         ai_base_score -20
@@ -195,14 +195,14 @@ Shriek2.merge {
     }
 }
 
-// BloodRain: allies_only heal but self_damage 1 — slight penalty for self-harm
+// BloodRain: allies_only heal but self_damage 1 -- slight penalty for self-harm
 BloodRain.merge {
     damage_instance {
         ai_base_score -5
     }
 }
 
-// WeAreOne: SoulLink on all enemies + self — links own HP to enemies
+// WeAreOne: SoulLink on all enemies + self -- links own HP to enemies
 WeAreOne.merge {
     damage_instance {
         ai_base_score -5

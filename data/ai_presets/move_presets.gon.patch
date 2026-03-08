@@ -2,31 +2,38 @@ smart_hunter_move.merge {
     distance_to_enemy -1
     distance_to_ally 0
     distance_to_character 0
-    preferred_distance reach  // Portée d'arme maximale [cite: 59]
+    // max weapon range
+    preferred_distance reach
     total_distance_moved 0.01
     face_closest_enemy 1
-    danger_avoidance 3        // Reste à distance, évite les tuiles dangereuses
-    tall_grass 1              // Se cache dans l'herbe haute si possible
+    // stays at range, avoids dangerous tiles
+    danger_avoidance 3
+    // hides in tall grass when possible
+    tall_grass 1
 }
 
 smart_fighter_move.merge {
-    distance_to_enemy -2    // Cherche frénétiquement le contact [cite: 56]
+    // charges into contact
+    distance_to_enemy -2
     distance_to_ally 0
     distance_to_character 0
     preferred_distance 0
     total_distance_moved 0.01
     face_closest_enemy 1
-    danger_avoidance 1      // Fonce quand même — accepte le risque
+    // charges anyway -- accepts the risk
+    danger_avoidance 1
 }
 
 smart_tank_move.merge {
     distance_to_enemy -1
-    distance_to_ally -1     // Reste à proximité de son équipe [cite: 60, 61]
+    // stays close to the team
+    distance_to_ally -1
     distance_to_character 0
     preferred_distance 0
     total_distance_moved 0.01
     face_closest_enemy 1
-    danger_avoidance 0.5    // Le Tank encaisse — mais évite quand même la lave
+    // the Tank tanks -- but still avoids lava
+    danger_avoidance 0.5
 }
 
 smart_mage_move.merge {
@@ -36,17 +43,22 @@ smart_mage_move.merge {
     preferred_distance reach
     total_distance_moved 0.01
     face_closest_enemy 1
-    danger_avoidance 5      // Fragile — évite activement les tuiles dangereuses
+    // fragile -- actively avoids dangerous tiles
+    danger_avoidance 5
 }
 
 smart_cleric_move.merge {
-    distance_to_enemy 1     // S'éloigne des ennemis [cite: 56]
-    distance_to_ally -2     // Cherche frénétiquement à coller ses alliés [cite: 60]
+    // moves away from enemies
+    distance_to_enemy 1
+    // seeks allies
+    distance_to_ally -2
     distance_to_character 0
-    preferred_distance 2    // Reste juste derrière la ligne de front [cite: 61]
+    // stays just behind the frontline
+    preferred_distance 2
     total_distance_moved 0.01
     face_closest_enemy 0
-    danger_avoidance 5      // Doit rester en vie pour soigner
+    // must survive to heal
+    danger_avoidance 5
 }
 
 smart_thief_move.merge {
@@ -54,10 +66,13 @@ smart_thief_move.merge {
     distance_to_ally 0
     distance_to_character 0
     preferred_distance 0
-    total_distance_moved 5    // Pousse le voleur à beaucoup bouger (flanking) [cite: 57]
+    // pushes the thief to move a lot (flanking)
+    total_distance_moved 5
     face_closest_enemy 1
-    danger_avoidance 3        // Mobile, évite les tuiles dangereuses
-    tall_grass 2              // Se cache dans l'herbe haute pour embuscades
+    // mobile, avoids dangerous tiles
+    danger_avoidance 3
+    // hides in tall grass for ambushes
+    tall_grass 2
 }
 
 smart_butcher_move.merge {
@@ -67,20 +82,23 @@ smart_butcher_move.merge {
     preferred_distance 0
     total_distance_moved 0.01
     face_closest_enemy 1
-    danger_avoidance 1      // Enragé — accepte le risque mais pas suicidaire
+    // enraged -- accepts risk but not suicidal
+    danger_avoidance 1
 }
 
 smart_psychic_move.merge {
     distance_to_enemy -1
     distance_to_ally -1
     distance_to_character 0
-    preferred_distance mov   // Garde une distance de sécurité 
+    // keeps a safe distance
+    preferred_distance mov
     total_distance_moved 0.01
     face_closest_enemy 1
-    danger_avoidance 4      // Fragile, soutien — évite les dangers
+    // fragile support -- avoids dangers
+    danger_avoidance 4
 }
 
-// Le Colorless est un bagarreur hybride, il cherche le contact mais reste flexible
+// Colorless is a hybrid brawler, seeks contact but stays flexible
 smart_colorless_move.merge {
     distance_to_enemy -1
     distance_to_ally 0
@@ -88,22 +106,26 @@ smart_colorless_move.merge {
     preferred_distance 1
     total_distance_moved 0.01
     face_closest_enemy 1
-    danger_avoidance 2      // Générique — évitement modéré
+    // generic -- moderate avoidance
+    danger_avoidance 2
 }
 
-// Le Jester bouge beaucoup et de manière imprévisible
+// Jester moves a lot and unpredictably
 smart_jester_move.merge {
     distance_to_enemy -1
     distance_to_ally 0
     distance_to_character 0
     preferred_distance 2
-    total_distance_moved 1.5    // Se déplace presque à chaque tour
+    // moves almost every turn
+    total_distance_moved 1.5
     face_closest_enemy 1
-    randomness 4                // Comportement légèrement erratique
-    danger_avoidance 2          // Un peu chaotique, évitement limité
+    // slightly erratic behavior
+    randomness 4
+    // somewhat chaotic, limited avoidance
+    danger_avoidance 2
 }
 
-// Le Druide reste un peu en arrière, près de ses invocations et de l'équipe
+// Druid stays a bit behind, near its summons and the team
 smart_druid_move.merge {
     distance_to_enemy 0
     distance_to_ally -1
@@ -111,34 +133,41 @@ smart_druid_move.merge {
     preferred_distance reach
     total_distance_moved 0.01
     face_closest_enemy 1
-    danger_avoidance 3          // Reste dans des zones sûres pour invoquer
-    tall_grass 1                // Affinité naturelle avec l'herbe
+    // stays in safe zones to summon
+    danger_avoidance 3
+    // natural affinity with grass
+    tall_grass 1
 }
 
-// Le Moine fonce au contact comme le Fighter, mais esquive plus
+// Monk charges like the Fighter, but dodges more
 smart_monk_move.merge {
     distance_to_enemy -2
     distance_to_ally 0
     distance_to_character 0
     preferred_distance 0
-    total_distance_moved 0.5    // Se repositionne souvent pour faire des frappes de flanc
+    // repositions often for flank attacks
+    total_distance_moved 0.5
     face_closest_enemy 1
-    danger_avoidance 1          // Fonce au contact — accepte le risque
+    // charges into contact -- accepts the risk
+    danger_avoidance 1
 }
 
-// Le Nécromancien reste extrêmement loin et gère son armée de morts
+// Necromancer stays extremely far back and manages its undead army
 smart_necromancer_move.merge {
-    distance_to_enemy 1         // Cherche activement à fuir l'ennemi (+1)
-    distance_to_corpse -2       // Mais il est ATTIRE par les cadavres !
+    // actively flees from enemies
+    distance_to_enemy 1
+    // but is ATTRACTED to corpses
+    distance_to_corpse -2
     distance_to_ally 0
     distance_to_character 0
     preferred_distance mov
     total_distance_moved 0.01
     face_closest_enemy 1
-    danger_avoidance 5          // Fragile — ne doit pas marcher dans la lave
+    // fragile -- must not walk into lava
+    danger_avoidance 5
 }
 
-// Le Bricoleur garde ses distances derrière ses tourelles
+// Tinkerer keeps its distance behind its turrets
 smart_tinkerer_move.merge {
     distance_to_enemy -1
     distance_to_ally 0
@@ -146,5 +175,6 @@ smart_tinkerer_move.merge {
     preferred_distance reach
     total_distance_moved 0.01
     face_closest_enemy 1
-    danger_avoidance 3          // Reste derrière ses constructions, évite les tuiles dangereuses
+    // stays behind constructions, avoids dangerous tiles
+    danger_avoidance 3
 }
