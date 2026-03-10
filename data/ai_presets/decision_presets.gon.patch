@@ -1,11 +1,11 @@
 // --- DEFAULT SAFE Fallback -- never attacks allies ---
 smart_default.merge {
-    damage_ally -100
+    damage_ally -9999
     damage_enemy 1
     heal_ally 1
     heal_enemy -100
     kill_enemy 5
-    kill_ally -100
+    kill_ally -9999
     debuff_ally -100
     buff_ally 1
     debuff_enemy 1
@@ -31,12 +31,12 @@ smart_default.merge {
 
 // --- HUNTER Sniper & Traps ---
 smart_hunter.merge {
-    damage_ally -100
+    damage_ally -9999
     damage_enemy 2
     heal_ally 1
     heal_enemy -100
-    kill_enemy 10
-    kill_ally -100
+    kill_enemy 20
+    kill_ally -9999
     debuff_ally -100
     buff_ally -100
     debuff_enemy 2
@@ -49,9 +49,10 @@ smart_hunter.merge {
     damage_enemy_corpse 2
     revive_ally_corpse 1
     revive_enemy_corpse -1
-    spawn_object 3
+    spawn_object 5
     spawn_object_distance_to_enemy -.01
     spawn_object_distance_to_ally .0001
+    spawn_object_preferred_distance 4
     negative_weight_scale .99
     spend_mana_scale .30
     consider_total_damage true
@@ -62,12 +63,12 @@ smart_hunter.merge {
 
 // --- FIGHTER Melee Aggressive ---
 smart_fighter.merge {
-    damage_ally -100
-    damage_enemy 2
+    damage_ally -9999
+    damage_enemy 1
     heal_ally 0
     heal_enemy -100
-    kill_enemy 10
-    kill_ally -100
+    kill_enemy 100
+    kill_ally -9999
     debuff_ally -100
     buff_ally 0
     debuff_enemy 1
@@ -93,19 +94,19 @@ smart_fighter.merge {
 
 // --- TANK Protector & Control ---
 smart_tank.merge {
-    damage_ally -100
-    damage_enemy 2
+    damage_ally -9999
+    damage_enemy 1
     heal_ally 1
     heal_enemy -100
     kill_enemy 8
-    kill_ally -100
+    kill_ally -9999
     debuff_ally -100
     buff_ally 1
-    debuff_enemy 2
+    debuff_enemy 5
     buff_enemy -100
     damage_self -0.1
     heal_self 2
-    buff_self 0.3
+    buff_self 5
     debuff_self -1
     damage_ally_corpse 0
     damage_enemy_corpse 0
@@ -118,21 +119,21 @@ smart_tank.merge {
     spend_mana_scale .30
     consider_total_damage true
     consider_secondary_damage true
-    accurate_knockback false
+    accurate_knockback true
     consider_overkill true
 }
 
 // --- MAGE Heavy Artillery ---
 smart_mage.merge {
-    damage_ally -1000
+    damage_ally -9999
     damage_enemy 3
     heal_ally 1
     heal_enemy -100
-    kill_enemy 10
-    kill_ally -1000
+    kill_enemy 15
+    kill_ally -9999
     debuff_ally -100
     buff_ally 2
-    debuff_enemy 2
+    debuff_enemy 5
     buff_enemy -100
     damage_self -5
     heal_self 1
@@ -156,12 +157,12 @@ smart_mage.merge {
 
 // --- CLERIC / MEDIC Pure Healer ---
 smart_cleric.merge {
-    damage_ally -100
+    damage_ally -9999
     damage_enemy 1
     heal_ally 100
     heal_enemy -100
     kill_enemy 2
-    kill_ally -100
+    kill_ally -9999
     debuff_ally -100
     buff_ally 10
     debuff_enemy 2
@@ -187,12 +188,12 @@ smart_cleric.merge {
 
 // --- THIEF Rogue / Mobile Assassin ---
 smart_thief.merge {
-    damage_ally -100
-    damage_enemy 3
+    damage_ally -9999
+    damage_enemy 2
     heal_ally 0
     heal_enemy -100
-    kill_enemy 15
-    kill_ally -100
+    kill_enemy 100
+    kill_ally -9999
     debuff_ally -100
     buff_ally 0
     debuff_enemy 3
@@ -218,12 +219,12 @@ smart_thief.merge {
 
 // --- BUTCHER Brutal ---
 smart_butcher.merge {
-    damage_ally -100
-    damage_enemy 3
+    damage_ally -9999
+    damage_enemy 1
     heal_ally 0
     heal_enemy -100
-    kill_enemy 10
-    kill_ally -100
+    kill_enemy 100
+    kill_ally -9999
     debuff_ally -100
     buff_ally 0
     debuff_enemy 3
@@ -249,12 +250,12 @@ smart_butcher.merge {
 
 // --- PSYCHIC Control and Manipulation ---
 smart_psychic.merge {
-    damage_ally -100
+    damage_ally -9999
     damage_enemy 2
     heal_ally 2
     heal_enemy -100
     kill_enemy 5
-    kill_ally -100
+    kill_ally -9999
     debuff_ally -100
     buff_ally 5
     debuff_enemy 5
@@ -280,12 +281,12 @@ smart_psychic.merge {
 
 // --- COLORLESS Versatile Brawler ---
 smart_colorless.merge {
-    damage_ally -100
+    damage_ally -9999
     damage_enemy 2
     heal_ally 0
     heal_enemy -100
     kill_enemy 5
-    kill_ally -100
+    kill_ally -9999
     debuff_ally -100
     buff_ally 1
     debuff_enemy 1
@@ -311,12 +312,12 @@ smart_colorless.merge {
 
 // --- JESTER Clown / Chaotic Support ---
 smart_jester.merge {
-    damage_ally -100
+    damage_ally -9999
     damage_enemy 1
     heal_ally 1
     heal_enemy -100
     kill_enemy 5
-    kill_ally -100
+    kill_ally -9999
     debuff_ally -100
     buff_ally 4
     debuff_enemy 4
@@ -342,12 +343,12 @@ smart_jester.merge {
 
 // --- DRUID Nature & Summons ---
 smart_druid.merge {
-    damage_ally -100
+    damage_ally -9999
     damage_enemy 2
     heal_ally 5
     heal_enemy -100
     kill_enemy 5
-    kill_ally -100
+    kill_ally -9999
     debuff_ally -100
     buff_ally 3
     debuff_enemy 2
@@ -360,7 +361,7 @@ smart_druid.merge {
     damage_enemy_corpse 0
     revive_ally_corpse 1
     revive_enemy_corpse -1
-    spawn_object 6
+    spawn_object 8
     spawn_object_distance_to_enemy -.01
     spawn_object_distance_to_ally .0001
     negative_weight_scale .99
@@ -374,12 +375,12 @@ smart_druid.merge {
 
 // --- MONK Mobile Melee & Survival ---
 smart_monk.merge {
-    damage_ally -100
+    damage_ally -9999
     damage_enemy 3
     heal_ally 0
     heal_enemy -100
     kill_enemy 10
-    kill_ally -100
+    kill_ally -9999
     debuff_ally -100
     buff_ally 1
     debuff_enemy 2
@@ -405,12 +406,12 @@ smart_monk.merge {
 
 // --- NECROMANCER Master of the Dead ---
 smart_necromancer.merge {
-    damage_ally -100
-    damage_enemy 2
+    damage_ally -9999
+    damage_enemy 1
     heal_ally 1
     heal_enemy -100
     kill_enemy 5
-    kill_ally -100
+    kill_ally -9999
     debuff_ally -100
     buff_ally 1
     debuff_enemy 3
@@ -419,11 +420,11 @@ smart_necromancer.merge {
     heal_self 2
     buff_self 1
     debuff_self -1
-    damage_ally_corpse 5
-    damage_enemy_corpse 5
-    revive_ally_corpse 10
-    revive_enemy_corpse 10
-    spawn_object 3
+    damage_ally_corpse 100
+    damage_enemy_corpse 100
+    revive_ally_corpse 100
+    revive_enemy_corpse -100
+    spawn_object 5
     spawn_object_distance_to_enemy -.01
     spawn_object_distance_to_ally .0001
     negative_weight_scale .99
@@ -436,12 +437,12 @@ smart_necromancer.merge {
 
 // --- TINKERER Engineer ---
 smart_tinkerer.merge {
-    damage_ally -100
+    damage_ally -9999
     damage_enemy 2
     heal_ally 0
     heal_enemy -100
     kill_enemy 5
-    kill_ally -100
+    kill_ally -9999
     debuff_ally -100
     buff_ally 2
     debuff_enemy 1
@@ -457,10 +458,12 @@ smart_tinkerer.merge {
     spawn_object 10
     spawn_object_distance_to_enemy -0.1
     spawn_object_distance_to_ally .0001
+    spawn_object_preferred_distance 4
     negative_weight_scale .99
     spend_mana_scale .30
     consider_total_damage true
     consider_secondary_damage true
     accurate_knockback false
     consider_overkill true
+    consider_aoe true
 }

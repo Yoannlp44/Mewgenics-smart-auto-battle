@@ -146,7 +146,7 @@ AbilityName.merge {
     damage_instance {
         ai_base_score N              // Direct score modifier
         // OR
-        custom_additional_ai_weight <keyword>  // Must use with ai_base_score
+        custom_additional_ai_weight <keyword>  // can be use with ai_base_score or not
     }
 }
 ```
@@ -164,6 +164,40 @@ AbilityName.merge {
 - `tile_close_to_enemy` — Only use near enemies
 - `tile_close_to_enemy_soft` — Soft preference near enemies  
 - `must_heal_most_missing_health` — Only when hurt
+- `toss_towards_buddy`
+- `toss_far`
+- `magnetize_favorlineup`
+- `tile_has_no_known_traps`
+- `avoid_redundant_debuffs_strict`
+- `target_farthest`
+- `target_closest`
+- `pyrophina_throw_to_lava`
+- `tile_close_to_enemy_soft`
+- `tile_exists`
+- `favor_tile_far_away`
+- `no_coins_on_map`
+- `favor_enemy_already_moved`
+- `avoid_redundant_debuffs`
+- `enemy_is_webbed`
+- `favor_tile_far_away`
+- `one_charmed_enemy_at_a_time`
+- `must_target_buddy`
+- `must_not_target_buddy`
+- `toss_farthest`
+- `moonhead_punchself`
+- `moonhead_use_if_cracked`
+- `toss_towards_bottomleft`
+- `dont_target_rock`
+- `tutorial_boulderdrop_miss_if_one_left`
+- `pills_only`
+- `no_redundant_formchange`
+- `dybbuk_possession`
+- `thiefcat_coinroll`
+- `thiefcat_roll`
+- `non_bramble_tile_close_to_enemy`
+- `spread_grenades`
+- `avoid_target_map_top`
+- `teslacoil_priorities`
 
 ### CRITICAL: `custom_additional_ai_weight` MUST be prefixed
 ```gon
@@ -173,6 +207,8 @@ custom_additional_ai_weight tile_close_to_enemy
 // WRONG - causes GON error on launch
 tile_close_to_enemy
 ```
+
+
 
 ---
 

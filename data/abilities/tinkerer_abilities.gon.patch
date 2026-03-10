@@ -1,160 +1,160 @@
-// Tinkerer abilities AI patches
-// All abilities should have explicit ai_base_score for proper AI prioritization
+// =====================================================================
+// PATCH OPTIMISÉ DE L'IA DU TINKERER - INGÉNIEUR ET TOWER DEFENSE
+// =====================================================================
 
-// ===== ATTACKS =====
-Research.merge { damage_instance { ai_base_score 0 } }
-Research2.merge { damage_instance { ai_base_score 0 } }
+// --- 1. DÉSACTIVATION DES INVENTIONS DANGEREUSES ET SUICIDAIRES ---
+// Shockwave touche TOUT LE MONDE sur la carte, y compris tes propres chats. Interdit.
+Shockwave.merge { damage_instance { ai_base_score -99999 } }
+Shockwave2.merge { damage_instance { ai_base_score -99999 } }
 
+// Ces gadgets ont des effets de téléportation aléatoire ou explosent sur le lanceur.
+ShoddyJetpack.merge { damage_instance { ai_base_score -99999 } }
+ShoddyJetpack2.merge { damage_instance { ai_base_score -99999 } }
+
+EjectButton.merge { damage_instance { ai_base_score -99999 } }
+EjectButton2.merge { damage_instance { ai_base_score -99999 } }
+
+// FreshOffTheForge brûle le Bricoleur. Le bouclier gagné ne vaut pas le statut de Brûlure.
+FreshOffTheForge.merge { damage_instance { ai_base_score -99999 } }
+FreshOffTheForge2.merge { damage_instance { ai_base_score -99999 } }
+
+// AutoPilot donne le contrôle à l'IA... l'IA ne doit pas lancer ça, c'est redondant et coûte 10 Mana.
+AutoPilot.merge { damage_instance { ai_base_score -99999 } }
+AutoPilot2.merge { damage_instance { ai_base_score -99999 } }
+
+// S'éjecter du Mech ou l'exploser tue le lanceur ou le laisse très vulnérable et termine son tour.
+MechSuitEject.merge { damage_instance { ai_base_score -99999 } }
+MechExplode.merge { damage_instance { ai_base_score -99999 } }
+
+
+// --- 2. VÉRIFICATION DE FRAPPE LÉTALE (TÉLÉPORTATIONS OFFENSIVES ET DASH) ---
+// Le Bricoleur ne doit JAMAIS foncer dans la gueule d'un Boss, il est trop fragile.
+
+// DrillDown téléporte le lanceur SUR la cible. Strictement interdit sur un Boss.
+DrillDown.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { FlatAIBonus -999999 } } } } }
+DrillDown2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { FlatAIBonus -999999 } } } } }
+
+// VoltTackle (5 Dégâts)
+VoltTackle.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 } Else { FlatAIBonus -999999 } } } } } }
+VoltTackle2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 } Else { FlatAIBonus -999999 } } } } } }
+
+// RocketSkates (5 Dégâts)
+RocketSkates.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 } Else { FlatAIBonus -999999 } } } } } }
+RocketSkates2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 } Else { FlatAIBonus -999999 } } } } } }
+RocketSkates_Bombchu.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 } Else { FlatAIBonus -999999 } } } } } }
+
+
+// --- 3. PRIORISATION DU TOWER DEFENSE ET DES INVOCATIONS ---
+// L'invocation de robots est vitale. Ils attaquent, tankent et détournent l'attention des boss.
+MechSuit.merge { damage_instance { ai_base_score 90 } } // La priorité absolue : L'armure géante !
+MechSuit2.merge { damage_instance { ai_base_score 90 } }
+
+BuildTurret.merge { damage_instance { ai_base_score 85 } } // Les tourelles font des dégâts passifs excellents.
+BuildTurret2.merge { damage_instance { ai_base_score 85 } }
+
+NurseBot.merge { damage_instance { ai_base_score 85 } } // Robot soigneur, primordial.
+NurseBot2.merge { damage_instance { ai_base_score 85 } }
+
+TeslaCoil.merge { damage_instance { ai_base_score 80 } }
+TeslaCoil2.merge { damage_instance { ai_base_score 80 } }
+
+PunchBot.merge { damage_instance { ai_base_score 75 } }
+PunchBot2.merge { damage_instance { ai_base_score 75 } }
+
+Catbot.merge { damage_instance { ai_base_score 75 } }
+Catbot2.merge { damage_instance { ai_base_score 75 } }
+
+RoboVac.merge { damage_instance { ai_base_score 70 } }
+RoboVac2.merge { damage_instance { ai_base_score 70 } }
+
+SpawnDecoy.merge { damage_instance { ai_base_score 70 } } // Leurre parfait contre les Boss !
+SpawnDecoy2.merge { damage_instance { ai_base_score 70 } }
+
+Bombchu.merge { damage_instance { ai_base_score 65 } }
+Bombchu2.merge { damage_instance { ai_base_score 65 } }
+
+
+// --- 4. FUITE ET MOBILITÉ DE SURVIE (KITING) ---
+// Le Bricoleur doit pouvoir reculer et se cacher derrière ses inventions.
+SpringShoes.merge { damage_instance { ai_base_score 60 } } // Excellent bond en arrière.
+SpringShoes2.merge { damage_instance { ai_base_score 60 } }
+
+ExperimentalTeleporter.merge { damage_instance { ai_base_score 50 } } // Téléportation d'urgence.
+ExperimentalTeleporter2.merge { damage_instance { ai_base_score 50 } }
+
+Switcheroo.merge { damage_instance { ai_base_score 50 } } // Échange de place avec un leurre. Parfait.
+Switcheroo2.merge { damage_instance { ai_base_score 50 } }
+
+
+// --- 5. GESTION DES RESSOURCES ET CRAFTING (BUFFS) ---
+// S'il n'y a pas d'ennemis directement menaçants, le Bricoleur prépare son équipement.
+InstantBarrier.merge { damage_instance { ai_base_score 50 custom_additional_ai_weight favor_if_unshielded } }
+InstantBarrier2.merge { damage_instance { ai_base_score 50 custom_additional_ai_weight favor_if_unshielded } }
+
+RepairArmor.merge { damage_instance { ai_base_score 40 } }
+RepairArmor2.merge { damage_instance { ai_base_score 40 } }
+Repair.merge { damage_instance { ai_base_score 40 } }
+Repair2.merge { damage_instance { ai_base_score 40 } }
+
+Research.merge { damage_instance { ai_base_score 30 } }
+Research2.merge { damage_instance { ai_base_score 30 } }
+Recycle.merge { damage_instance { ai_base_score 30 } }
+Recycle2.merge { damage_instance { ai_base_score 30 } }
+ArmorUp.merge { damage_instance { ai_base_score 30 custom_additional_ai_weight favor_if_unshielded } }
+ArmorUp2.merge { damage_instance { ai_base_score 30 custom_additional_ai_weight favor_if_unshielded } }
+Craft.merge { damage_instance { ai_base_score 30 } }
+Craft2.merge { damage_instance { ai_base_score 30 } }
+SpareParts.merge { damage_instance { ai_base_score 30 } }
+SpareParts2.merge { damage_instance { ai_base_score 30 } }
+
+
+// --- 6. SORTS OFFENSIFS STANDARDS ---
+// Laissés au moteur IA pour évaluer les dégâts bruts.
 Discharge.merge { damage_instance { ai_base_score 0 } }
 Discharge2.merge { damage_instance { ai_base_score 0 } }
-
-Repair.merge { damage_instance { ai_base_score 0 } }
-Repair2.merge { damage_instance { ai_base_score 0 } }
-
-SpawnDecoy.merge { damage_instance { ai_base_score 0 } }
-SpawnDecoy2.merge { damage_instance { ai_base_score 0 } }
-
 DecoySwap.merge { damage_instance { ai_base_score 0 } }
 DecoyExplode.merge { damage_instance { ai_base_score 0 } }
-
-Switcheroo.merge { damage_instance { ai_base_score 0 } }
-Switcheroo2.merge { damage_instance { ai_base_score 0 } }
-
-SpringShoes.merge { damage_instance { ai_base_score 0 } }
-SpringShoes2.merge { damage_instance { ai_base_score 0 } }
-
 Flamethrower.merge { damage_instance { ai_base_score 0 } }
 TurretShot.merge { damage_instance { ai_base_score 0 } }
 RocketTurretShot.merge { damage_instance { ai_base_score 0 } }
-
-AutoPilot.merge { damage_instance { ai_base_score 0 } }
-AutoPilot2.merge { damage_instance { ai_base_score 0 } }
-
-Recycle.merge { damage_instance { ai_base_score 0 } }
-Recycle2.merge { damage_instance { ai_base_score 0 } }
-
-BuildTurret.merge { damage_instance { ai_base_score 0 } }
-BuildTurret2.merge { damage_instance { ai_base_score 0 } }
-
-RocketSkates.merge { damage_instance { ai_base_score 0 } }
-RocketSkates2.merge { damage_instance { ai_base_score 0 } }
-RocketSkates_Bombchu.merge { damage_instance { ai_base_score 0 } }
-
-DrillDown.merge { damage_instance { ai_base_score 0 } }
-DrillDown2.merge { damage_instance { ai_base_score 0 } }
-
-ArmorUp.merge { damage_instance { ai_base_score 0 } }
-ArmorUp2.merge { damage_instance { ai_base_score 0 } }
-
 ElectricNail.merge { damage_instance { ai_base_score 0 } }
 ElectricNail2.merge { damage_instance { ai_base_score 0 } }
-
-Craft.merge { damage_instance { ai_base_score 0 } }
-Craft2.merge { damage_instance { ai_base_score 0 } }
-
 Math.merge { damage_instance { ai_base_score 0 } }
 Math2.merge { damage_instance { ai_base_score 0 } }
-
 Reprogram.merge { damage_instance { ai_base_score 0 } }
 Reprogram2.merge { damage_instance { ai_base_score 0 } }
-
 Improve.merge { damage_instance { ai_base_score 0 } }
 Improve2.merge { damage_instance { ai_base_score 0 } }
-
-Catbot.merge { damage_instance { ai_base_score 0 } }
-Catbot2.merge { damage_instance { ai_base_score 0 } }
-
-Bombchu.merge { damage_instance { ai_base_score 0 } }
-Bombchu2.merge { damage_instance { ai_base_score 0 } }
-
 RemoteDetonator.merge { damage_instance { ai_base_score 0 } }
 RemoteDetonator2.merge { damage_instance { ai_base_score 0 } }
-
 ShortCircuit.merge { damage_instance { ai_base_score 0 } }
 ShortCircuit2.merge { damage_instance { ai_base_score 0 } }
-
-Electrolyze.merge { damage_instance { ai_base_score 0 } }
-Electrolyze2.merge { damage_instance { ai_base_score 0 } }
-
+Electrolyze.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_SourceHasStatus { status CurrentWeaponAddElectricElement FlatAIBonus -999999 } } } } }
+Electrolyze2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_SourceHasStatus { status CurrentWeaponAddElectricElement FlatAIBonus -999999 } } } } }
 Firecrackers.merge { damage_instance { ai_base_score 0 } }
 Firecrackers2.merge { damage_instance { ai_base_score 0 } }
-
 Upgrade.merge { damage_instance { ai_base_score 0 } }
 Upgrade2.merge { damage_instance { ai_base_score 0 } }
-
 Eureka.merge { damage_instance { ai_base_score 0 } }
 Eureka2.merge { damage_instance { ai_base_score 0 } }
-
-PunchBot.merge { damage_instance { ai_base_score 0 } }
-PunchBot2.merge { damage_instance { ai_base_score 0 } }
-
 FastHands.merge { damage_instance { ai_base_score 0 } }
 FastHands2.merge { damage_instance { ai_base_score 0 } }
-
-MechSuitPunch.merge { damage_instance { ai_base_score 0 } }
-MechSuitEject.merge { damage_instance { ai_base_score 0 } }
-MechSuitBarrage.merge { damage_instance { ai_base_score 0 } }
-MechSuitDash.merge { damage_instance { ai_base_score 0 } }
-
-MechExplode.merge { damage_instance { ai_base_score 0 } }
-
-MechSuit.merge { damage_instance { ai_base_score 0 } }
-MechSuit2.merge { damage_instance { ai_base_score 0 } }
-
 UnreliableMissile.merge { damage_instance { ai_base_score 0 } }
 UnreliableMissile2.merge { damage_instance { ai_base_score 0 } }
-
-SpareParts.merge { damage_instance { ai_base_score 0 } }
-SpareParts2.merge { damage_instance { ai_base_score 0 } }
-
 BatteryNuke.merge { damage_instance { ai_base_score 0 } }
 BatteryNuke2.merge { damage_instance { ai_base_score 0 } }
-
-ExperimentalTeleporter.merge { damage_instance { ai_base_score 0 } }
-ExperimentalTeleporter2.merge { damage_instance { ai_base_score 0 } }
-
 ShockTherapy.merge { damage_instance { ai_base_score 0 } }
 ShockTherapy2.merge { damage_instance { ai_base_score 0 } }
-
 BuildNuke.merge { damage_instance { ai_base_score 0 } }
 BuildNuke2.merge { damage_instance { ai_base_score 0 } }
-
-InstantBarrier.merge { damage_instance { ai_base_score 0 } }
-InstantBarrier2.merge { damage_instance { ai_base_score 0 } }
-
-VoltTackle.merge { damage_instance { ai_base_score 0 } }
-VoltTackle2.merge { damage_instance { ai_base_score 0 } }
-
 Smash.merge { damage_instance { ai_base_score 0 } }
 Smash2.merge { damage_instance { ai_base_score 0 } }
-
 ShedScrap.merge { damage_instance { ai_base_score 0 } }
 ShedScrap2.merge { damage_instance { ai_base_score 0 } }
-
-RepairArmor.merge { damage_instance { ai_base_score 0 } }
-RepairArmor2.merge { damage_instance { ai_base_score 0 } }
-
 RocketRide.merge { damage_instance { ai_base_score 0 } }
 RocketRide2.merge { damage_instance { ai_base_score 0 } }
 
-// ===== PROBLEMATIC =====
-
-// ShoddyJetpack: random landing
-ShoddyJetpack.merge { damage_instance { ai_base_score -10 } }
-ShoddyJetpack2.merge { damage_instance { ai_base_score -10 } }
-
-// FreshOffTheForge: self-burn
-FreshOffTheForge.merge { damage_instance { ai_base_score -5 } }
-FreshOffTheForge2.merge { damage_instance { ai_base_score -5 } }
-
-// EjectButton: random teleport
-EjectButton.merge { damage_instance { ai_base_score -10 } }
-EjectButton2.merge { damage_instance { ai_base_score -10 } }
-
-// UnreliableShield: unreliable
-UnreliableShield.merge { damage_instance { ai_base_score -5 } }
-UnreliableShield2.merge { damage_instance { ai_base_score -5 } }
-
-// Shockwave: AoE hits allies
-Shockwave.merge { damage_instance { ai_base_score -30 } }
-Shockwave2.merge { damage_instance { ai_base_score -30 } }
+// Attaques du Mech (Gérées organiquement)
+MechSuitPunch.merge { damage_instance { ai_base_score 0 } }
+MechSuitBarrage.merge { damage_instance { ai_base_score 0 } }
+MechSuitDash.merge { damage_instance { ai_base_score 0 } }

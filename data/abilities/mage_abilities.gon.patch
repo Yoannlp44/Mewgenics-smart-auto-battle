@@ -1,167 +1,274 @@
-// Mage abilities AI patches
-// All abilities should have explicit ai_base_score for proper AI prioritization
+// =====================================================================
+// PATCH OPTIMISÉ DE L'IA DU MAGE - ARTILLERIE LOURDE ET CONTRÔLE
+// =====================================================================
 
-// ===== ATTACKS =====
-Surf.merge { damage_instance { ai_base_score 0 } }
-Surf2.merge { damage_instance { ai_base_score 0 } }
+// --- 1. INTERDICTION DES FRAPPES DE MÊLÉE ET SUICIDES LÉTALS ---
+// La règle "kill_enemy 100" dans les decisions suffit. On met juste le score de base à 0 ou on interdit les pires.
 
-Bolt.merge { damage_instance { ai_base_score 0 } }
-Bolt2.merge { damage_instance { ai_base_score 0 } }
+Shatter.merge {
+    damage_instance {
+        ai_base_score 0
+    }
+}
+Shatter2.merge {
+    damage_instance {
+        ai_base_score 0
+    }
+}
 
-Fireball.merge { damage_instance { ai_base_score 0 } }
-Fireball2.merge { damage_instance { ai_base_score 0 } }
+// Telefrag téléporte sur la cible. Interdiction stricte.
+Telefrag.merge {
+    damage_instance {
+        ai_base_score -99999
+    }
+}
+Telefrag2.merge {
+    damage_instance {
+        ai_base_score -99999
+    }
+}
 
-FreezeRay.merge { damage_instance { ai_base_score 0 } }
-FreezeRay2.merge { damage_instance { ai_base_score 0 } }
 
-Blast.merge { damage_instance { ai_base_score 0 } }
-Blast2.merge { damage_instance { ai_base_score 0 } }
+// --- 2. CONTRÔLE DE FOULE (CROWD CONTROL) & ANTI-SPAM ---
+// L'IA privilégie ces sorts pour bloquer les ennemis, mais ne les lance pas si l'ennemi a déjà le débuff.
 
-MagicMissile.merge { damage_instance { ai_base_score 0 } }
-MagicMissile2.merge { damage_instance { ai_base_score 0 } }
+FreezeRay.merge {
+    damage_instance {
+        ai_base_score 75
+        custom_additional_ai_weight avoid_redundant_debuffs
+    }
+}
+FreezeRay2.merge {
+    damage_instance {
+        ai_base_score 75
+        custom_additional_ai_weight avoid_redundant_debuffs
+    }
+}
 
-WallOfFire.merge { damage_instance { ai_base_score 0 } }
-WallOfFire2.merge { damage_instance { ai_base_score 0 } }
+Slow.merge {
+    damage_instance {
+        ai_base_score 70
+        custom_additional_ai_weight avoid_redundant_debuffs
+    }
+}
+Slow2.merge {
+    damage_instance {
+        ai_base_score 70
+        custom_additional_ai_weight avoid_redundant_debuffs
+    }
+}
 
-HyperBeam.merge { damage_instance { ai_base_score 0 } }
-HyperBeam2.merge { damage_instance { ai_base_score 0 } }
+Blizzard.merge {
+    damage_instance {
+        ai_base_score 65
+    }
+}
+Blizzard2.merge {
+    damage_instance {
+        ai_base_score 65
+    }
+}
 
-MeteorStorm.merge { damage_instance { ai_base_score 0 } }
-MeteorStorm2.merge { damage_instance { ai_base_score 0 } }
+Thunderburst.merge {
+    damage_instance {
+        ai_base_score 65
+    }
+}
+Thunderburst2.merge {
+    damage_instance {
+        ai_base_score 65
+    }
+}
 
-MegaBlast.merge { damage_instance { ai_base_score 0 } }
-MegaBlast2.merge { damage_instance { ai_base_score 0 } }
+Bolt.merge {
+    damage_instance {
+        ai_base_score 60
+    }
+}
+Bolt2.merge {
+    damage_instance {
+        ai_base_score 60
+    }
+}
 
-Slow.merge { damage_instance { ai_base_score 0 } }
-Slow2.merge { damage_instance { ai_base_score 0 } }
+IcicleTaser.merge {
+    damage_instance {
+        ai_base_score 60
+    }
+}
+IcicleTaser2.merge {
+    damage_instance {
+        ai_base_score 60
+    }
+}
 
-Enlarge.merge { damage_instance { ai_base_score 0 } }
-Enlarge2.merge { damage_instance { ai_base_score 0 } }
+Jolt.merge {
+    damage_instance {
+        ai_base_score 50
+    }
+}
+Jolt2.merge {
+    damage_instance {
+        ai_base_score 50
+    }
+}
 
-WindSlash.merge { damage_instance { ai_base_score 0 } }
-WindSlash2.merge { damage_instance { ai_base_score 0 } }
 
-Warp.merge { damage_instance { ai_base_score 0 } }
-Warp2.merge { damage_instance { ai_base_score 0 } }
+// --- 3. DÉFENSE (BOUCLIERS) ET ANTI-SPAM ---
+// Le Mage se protège s'il n'a pas déjà de bouclier.
 
-MageTeleport.merge { damage_instance { ai_base_score 0 } }
-MageTeleport2.merge { damage_instance { ai_base_score 0 } }
+IceArmor.merge {
+    damage_instance {
+        ai_base_score 40
+        custom_additional_ai_weight favor_if_unshielded
+    }
+}
+IceArmor2.merge {
+    damage_instance {
+        ai_base_score 40
+        custom_additional_ai_weight favor_if_unshielded
+    }
+}
 
-MageSwap.merge { damage_instance { ai_base_score 0 } }
-MageSwap2.merge { damage_instance { ai_base_score 0 } }
+FireArmor.merge {
+    damage_instance {
+        ai_base_score 40
+        custom_additional_ai_weight favor_if_unshielded
+    }
+}
+FireArmor2.merge {
+    damage_instance {
+        ai_base_score 40
+        custom_additional_ai_weight favor_if_unshielded
+    }
+}
 
-CryoHeal.merge { damage_instance { ai_base_score 0 } }
-CryoHeal2.merge { damage_instance { ai_base_score 0 } }
 
-Gust.merge { damage_instance { ai_base_score 0 } }
-Gust2.merge { damage_instance { ai_base_score 0 } }
+// --- 4. DÉSACTIVATION DES SORTS SUICIDAIRES ET MAGIE NOIRE ---
+// Ces sorts réduisent la vie du mage à 1, appliquent des blessures, ou touchent les alliés.
 
-Blizzard.merge { damage_instance { ai_base_score 0 } }
-Blizzard2.merge { damage_instance { ai_base_score 0 } }
+BlackMagic.merge { damage_instance { ai_base_score -99999 } }
+BlackMagic2.merge { damage_instance { ai_base_score -99999 } }
 
-Inferno.merge { damage_instance { ai_base_score 0 } }
-Inferno2.merge { damage_instance { ai_base_score 0 } }
+DealWithTheDevil.merge { damage_instance { ai_base_score -99999 } }
+DealWithTheDevil2.merge { damage_instance { ai_base_score -99999 } }
 
-Thunderburst.merge { damage_instance { ai_base_score 0 } }
-Thunderburst2.merge { damage_instance { ai_base_score 0 } }
+Corrupt.merge { damage_instance { ai_base_score -99999 } }
+Corrupt2.merge { damage_instance { ai_base_score -99999 } }
 
-Shatter.merge { damage_instance { ai_base_score 0 } }
-Shatter2.merge { damage_instance { ai_base_score 0 } }
+Divide.merge { damage_instance { ai_base_score -99999 } }
+Divide2.merge { damage_instance { ai_base_score -99999 } }
 
-ForbiddenFulmination.merge { damage_instance { ai_base_score 0 } }
-ForbiddenFulmination2.merge { damage_instance { ai_base_score 0 } }
+ChainLightning.merge { damage_instance { ai_base_score -99999 } }
+ChainLightning2.merge { damage_instance { ai_base_score 0 } } // Sûr (enemies only)
 
-FireBolt.merge { damage_instance { ai_base_score 0 } }
-FireBolt2.merge { damage_instance { ai_base_score 0 } }
+ForbiddenFrost.merge { damage_instance { ai_base_score -99999 } }
+ForbiddenFrost2.merge { damage_instance { ai_base_score -50 } }
 
-IcicleTaser.merge { damage_instance { ai_base_score 0 } }
-IcicleTaser2.merge { damage_instance { ai_base_score 0 } }
+ForbiddenFlame.merge { damage_instance { ai_base_score -99999 } }
+ForbiddenFlame2.merge { damage_instance { ai_base_score -99999 } }
 
-FreezerBurn.merge { damage_instance { ai_base_score 0 } }
-FreezerBurn2.merge { damage_instance { ai_base_score 0 } }
+ForbiddenFlood.merge { damage_instance { ai_base_score -99999 } }
+ForbiddenFlood2.merge { damage_instance { ai_base_score -99999 } }
 
-Jolt.merge { damage_instance { ai_base_score 0 } }
-Jolt2.merge { damage_instance { ai_base_score 0 } }
 
-Smolder.merge { damage_instance { ai_base_score 0 } }
-Smolder2.merge { damage_instance { ai_base_score 0 } }
+// --- 5. SORTS DE DÉGÂTS STANDARDS (ARTILLERIE LOURDE) ---
+// L'IA dépensera activement son mana pour infliger des dégâts massifs à distance.
 
-FireSurge.merge { damage_instance { ai_base_score 0 } }
-FireSurge2.merge { damage_instance { ai_base_score 0 } }
+MagicMissile.merge { damage_instance { ai_base_score 20 } }
+MagicMissile2.merge { damage_instance { ai_base_score 25 } }
+Blast.merge { damage_instance { ai_base_score 20 } }
+Blast2.merge { damage_instance { ai_base_score 25 } }
+Surf.merge { damage_instance { ai_base_score 20 } }
+Surf2.merge { damage_instance { ai_base_score 25 } }
+FireBolt.merge { damage_instance { ai_base_score 20 } }
+FireBolt2.merge { damage_instance { ai_base_score 25 } }
+Gust.merge { damage_instance { ai_base_score 20 } }
+Gust2.merge { damage_instance { ai_base_score 25 } }
 
-IceSurge.merge { damage_instance { ai_base_score 0 } }
-IceSurge2.merge { damage_instance { ai_base_score 0 } }
+Fireball.merge { damage_instance { ai_base_score 30 } }
+Fireball2.merge { damage_instance { ai_base_score 35 } }
+WallOfFire.merge { damage_instance { ai_base_score 30 } }
+WallOfFire2.merge { damage_instance { ai_base_score 35 } }
+WindSlash.merge { damage_instance { ai_base_score 30 } }
+WindSlash2.merge { damage_instance { ai_base_score 35 } }
 
-LightningSurge.merge { damage_instance { ai_base_score 0 } }
-LightningSurge2.merge { damage_instance { ai_base_score 0 } }
+// Smolder et Freezerburn ont un système anti-spam de debuff combiné avec de l'attaque.
+FreezerBurn.merge {
+    damage_instance {
+        ai_base_score 30
+        custom_additional_ai_weight avoid_redundant_debuffs
+    }
+}
+FreezerBurn2.merge {
+    damage_instance {
+        ai_base_score 35
+        custom_additional_ai_weight avoid_redundant_debuffs
+    }
+}
+Smolder.merge {
+    damage_instance {
+        ai_base_score 30
+        custom_additional_ai_weight avoid_redundant_debuffs
+    }
+}
+Smolder2.merge {
+    damage_instance {
+        ai_base_score 35
+        custom_additional_ai_weight avoid_redundant_debuffs
+    }
+}
 
-Creshendo.merge { damage_instance { ai_base_score 0 } }
-Creshendo2.merge { damage_instance { ai_base_score 0 } }
+FireSurge.merge { damage_instance { ai_base_score 30 } }
+FireSurge2.merge { damage_instance { ai_base_score 35 } }
+IceSurge.merge { damage_instance { ai_base_score 30 } }
+IceSurge2.merge { damage_instance { ai_base_score 35 } }
+LightningSurge.merge { damage_instance { ai_base_score 30 } }
+LightningSurge2.merge { damage_instance { ai_base_score 35 } }
+Creshendo.merge { damage_instance { ai_base_score 30 } }
+Creshendo2.merge { damage_instance { ai_base_score 35 } }
+HomingBlasts.merge { damage_instance { ai_base_score 30 } }
+HomingBlasts2.merge { damage_instance { ai_base_score 35 } }
 
-Teach.merge { damage_instance { ai_base_score 0 } }
-Teach2.merge { damage_instance { ai_base_score 0 } }
+Inferno.merge { damage_instance { ai_base_score 40 } }
+Inferno2.merge { damage_instance { ai_base_score 50 } }
+MegaBlast.merge { damage_instance { ai_base_score 40 } }
+MegaBlast2.merge { damage_instance { ai_base_score 50 } }
+MeteorStorm.merge { damage_instance { ai_base_score 45 } }
+MeteorStorm2.merge { damage_instance { ai_base_score 55 } }
+HyperBeam.merge { damage_instance { ai_base_score 50 } }
+HyperBeam2.merge { damage_instance { ai_base_score 60 } }
 
-HomingBlasts.merge { damage_instance { ai_base_score 0 } }
-HomingBlasts2.merge { damage_instance { ai_base_score 0 } }
 
-// ===== BUFFS =====
-IceArmor.merge { damage_instance { ai_base_score 0 } }
-IceArmor2.merge { damage_instance { ai_base_score 0 } }
-
-FireArmor.merge { damage_instance { ai_base_score 0 } }
-FireArmor2.merge { damage_instance { ai_base_score 0 } }
+// --- 6. UTILITAIRES ET SOUTIEN ---
+Absorb.merge {
+    damage_instance {
+        custom_additional_ai_weight must_heal_most_missing_health
+    }
+}
+Absorb2.merge {
+    damage_instance {
+        custom_additional_ai_weight must_heal_most_missing_health
+    }
+}
 
 Inspire.merge { damage_instance { ai_base_score 0 } }
 Inspire2.merge { damage_instance { ai_base_score 0 } }
-
-// ===== SPECIAL CASES =====
-
-// Absorb: heals based on mana - use when hurt
-Absorb.merge { damage_instance { custom_additional_ai_weight must_heal_most_missing_health } }
-Absorb2.merge { damage_instance { custom_additional_ai_weight must_heal_most_missing_health } }
-
-// ManaMeld: transfers mana - slight penalty
 ManaMeld.merge { damage_instance { ai_base_score -5 } }
 ManaMeld2.merge { damage_instance { ai_base_score -5 } }
+Magnify.merge { damage_instance { ai_base_score 0 } }
+Magnify2.merge { damage_instance { ai_base_score 0 } }
+Teach.merge { damage_instance { ai_base_score 0 } }
+Teach2.merge { damage_instance { ai_base_score 0 } }
+Enlarge.merge { damage_instance { ai_base_score 15 } }
+Enlarge2.merge { damage_instance { ai_base_score 15 } }
+CryoHeal.merge { damage_instance { ai_base_score 15 } }
+CryoHeal2.merge { damage_instance { ai_base_score 15 } }
 
-// Telefrag: self-damage for teleport
-Telefrag.merge { damage_instance { ai_base_score -5 } }
-Telefrag2.merge { damage_instance { ai_base_score -5 } }
-
-// ChainLightning: can arc to allies
-ChainLightning.merge { damage_instance { ai_base_score -20 } }
-ChainLightning2.merge { damage_instance { ai_base_score -20 } }
-
-// DealWithTheDevil: self-injury
-DealWithTheDevil.merge { damage_instance { ai_base_score -20 } }
-DealWithTheDevil2.merge { damage_instance { ai_base_score -20 } }
-
-// ForbiddenFlame: disorder on self
-ForbiddenFlame.merge { damage_instance { ai_base_score -10 } }
-ForbiddenFlame2.merge { damage_instance { ai_base_score -10 } }
-
-// ForbiddenFlood: disorder on self
-ForbiddenFlood.merge { damage_instance { ai_base_score -5 } }
-ForbiddenFlood2.merge { damage_instance { ai_base_score -5 } }
-
-// Corrupt: self-injury
-Corrupt.merge { damage_instance { ai_base_score -20 } }
-Corrupt2.merge { damage_instance { ai_base_score -20 } }
-
-// BlackMagic: near-lethal self-damage
-BlackMagic.merge { damage_instance { ai_base_score -20 } }
-BlackMagic2.merge { damage_instance { ai_base_score -20 } }
-
-// ForbiddenFrost: can hit allies
-ForbiddenFrost.merge { damage_instance { ai_base_score -10 } }
-ForbiddenFrost2.merge { damage_instance { ai_base_score -10 } }
-
-// Divide: reduces own attack
-Divide.merge { damage_instance { ai_base_score -10 } }
-Divide2.merge { damage_instance { ai_base_score -10 } }
-
-// Magnify: 1-turn buffs
-Magnify.merge { damage_instance { ai_base_score -5 } }
-Magnify2.merge { damage_instance { ai_base_score -5 } }
-
-// ChaosTeleport: template teleport, no damage_instance - cannot patch
+// Les téléportations de mobilité (gérées organiquement par le moteur spatial)
+MageTeleport.merge {}
+MageTeleport2.merge {}
+Warp.merge {}
+Warp2.merge {}
+MageSwap.merge {}
+MageSwap2.merge {}

@@ -1,165 +1,147 @@
-// Psychic abilities AI patches
-// All abilities should have explicit ai_base_score for proper AI prioritization
+// =====================================================================
+// PATCH OPTIMISÉ DE L'IA DU PSYCHIC - MAÎTRE DU CONTRÔLE DE TERRAIN
+// =====================================================================
 
-// ===== ATTACKS =====
-Telekinesis.merge { damage_instance { ai_base_score 0 } }
-Telekinesis2.merge { damage_instance { ai_base_score 0 } }
-
-Suggestion.merge { damage_instance { ai_base_score 0 } }
-Suggestion2.merge { damage_instance { ai_base_score 0 } }
-
-MindControl.merge { damage_instance { ai_base_score 0 } }
-MindControl2.merge { damage_instance { ai_base_score 0 } }
-
-MegaGrav.merge { damage_instance { ai_base_score 0 } }
-MegaGrav2.merge { damage_instance { ai_base_score 0 } }
-
-PsyFlutter.merge { damage_instance { ai_base_score 0 } }
-PsyFlutter2.merge { damage_instance { ai_base_score 0 } }
-
-MagnetPull.merge { damage_instance { ai_base_score 0 } }
-MagnetPull2.merge { damage_instance { ai_base_score 0 } }
-
-PsychicChoke.merge { damage_instance { ai_base_score 0 } }
-PsychicChoke2.merge { damage_instance { ai_base_score 0 } }
-
-SkyShatter.merge { damage_instance { ai_base_score 0 } }
-SkyShatter2.merge { damage_instance { ai_base_score 0 } }
-
-AlterDNA.merge { damage_instance { ai_base_score 0 } }
-AlterDNA2.merge { damage_instance { ai_base_score 0 } }
-
-Flicker.merge { damage_instance { ai_base_score 0 } }
-Flicker2.merge { damage_instance { ai_base_score 0 } }
-
-MindMeld.merge { damage_instance { ai_base_score 0 } }
-MindMeld2.merge { damage_instance { ai_base_score 0 } }
-
-Vaccuum.merge { damage_instance { ai_base_score 20 } }
-Vaccuum2.merge { damage_instance { ai_base_score 20 } }
-
-GrowHead.merge { damage_instance { ai_base_score 0 } }
-
-Ping.merge { damage_instance { ai_base_score 0 } }
-Ping2.merge { damage_instance { ai_base_score 0 } }
-
-FlashForward.merge { damage_instance { ai_base_score 0 } }
-FlashForward2.merge { damage_instance { ai_base_score 0 } }
-FlashBack.merge { damage_instance { ai_base_score 0 } }
-
-Order.merge { damage_instance { ai_base_score 0 } }
-Order2.merge { damage_instance { ai_base_score 0 } }
-
-TemporalShards.merge { damage_instance { ai_base_score 0 } }
-TemporalShards2.merge { damage_instance { ai_base_score 0 } }
-
-Snatch.merge { damage_instance { ai_base_score 0 } }
-Snatch2.merge { damage_instance { ai_base_score 0 } }
-
-FutureSight.merge { damage_instance { ai_base_score 0 } }
-FutureSight2.merge { damage_instance { ai_base_score 0 } }
-
-BecomeEntropy.merge { damage_instance { ai_base_score 0 } }
-BecomeEntropy2.merge { damage_instance { ai_base_score 0 } }
-
-FastForward.merge { damage_instance { ai_base_score 0 } }
-FastForward2.merge { damage_instance { ai_base_score 0 } }
-
-AncestralRecall.merge { damage_instance { ai_base_score 0 } }
-AncestralRecall2.merge { damage_instance { ai_base_score 0 } }
-
-CumulativeBlast.merge { damage_instance { ai_base_score 0 } }
-CumulativeBlast2.merge { damage_instance { ai_base_score 0 } }
-
-Hallucinate.merge { damage_instance { ai_base_score 0 } }
-Hallucinate2.merge { damage_instance { ai_base_score 0 } }
-
-MassHysteria.merge { damage_instance { ai_base_score 0 } }
-MassHysteria2.merge { damage_instance { ai_base_score 0 } }
-
-Reset.merge { damage_instance { ai_base_score 0 } }
-Reset2.merge { damage_instance { ai_base_score 0 } }
-
-Mimic.merge { damage_instance { ai_base_score 0 } }
-Mimic2.merge { damage_instance { ai_base_score 0 } }
-
-Asteroid.merge { damage_instance { ai_base_score 0 } }
-Asteroid2.merge { damage_instance { ai_base_score 0 } }
-
-Stasis.merge { damage_instance { ai_base_score 0 } }
-Stasis2.merge { damage_instance { ai_base_score 0 } }
-
-Puppet.merge { damage_instance { ai_base_score 0 } }
-Puppet2.merge { damage_instance { ai_base_score 0 } }
-
-YouSeeNothing.merge { damage_instance { ai_base_score 0 } }
-YouSeeNothing2.merge { damage_instance { ai_base_score 0 } }
-
-ForceBlast.merge { damage_instance { ai_base_score 0 } }
-ForceBlast2.merge { damage_instance { ai_base_score 0 } }
-
-IncreaseGravity.merge { damage_instance { ai_base_score 0 } }
-IncreaseGravity2.merge { damage_instance { ai_base_score 0 } }
-
-Manifest.merge { damage_instance { ai_base_score 0 } }
-Manifest2.merge { damage_instance { ai_base_score 0 } }
-
-Flip.merge { damage_instance { ai_base_score 0 } }
-Flip2.merge { damage_instance { ai_base_score 0 } }
-
-Withdraw.merge { damage_instance { ai_base_score 0 } }
-Withdraw2.merge { damage_instance { ai_base_score 0 } }
-
-ForceCone.merge { damage_instance { ai_base_score 0 } }
-ForceCone2.merge { damage_instance { ai_base_score 0 } }
-
-Inversion.merge { damage_instance { ai_base_score 0 } }
-Inversion2.merge { damage_instance { ai_base_score 0 } }
-
-ReadMind.merge { damage_instance { ai_base_score 0 } }
-ReadMind2.merge { damage_instance { ai_base_score 0 } }
-
-// ===== PROBLEMATIC =====
-
-// RealityScramble: random shuffle - DISABLE
+// --- 1. DÉSACTIVATION DES SORTS CHAOTIQUES ET TÉLÉPORTATIONS ALÉATOIRES ---
+// Ces capacités mélangent les positions de tout le monde. Si un Boss est téléporté 
+// au milieu de l'équipe (ou un allié fragile téléporté devant le Boss), c'est fini.
 RealityScramble.merge { damage_instance { ai_base_score -99999 } }
 RealityScramble2.merge { damage_instance { ai_base_score -99999 } }
 
-// ChaosSwap: template swap, no damage_instance - cannot patch
 ChaosSwap2.merge { damage_instance { ai_base_score -99999 } }
 
-// Glare: Madness without restriction
-Glare.merge { damage_instance { ai_base_score -99999 } }
-Glare2.merge { damage_instance { ai_base_score -99999 } }
+// Bump et Flicker téléportent une cible. C'est trop risqué algorithmiquement de laisser 
+// l'IA décider où envoyer un allié ou un ennemi.
+Flicker.merge { damage_instance { ai_base_score -99999 } }
+Flicker2.merge { damage_instance { ai_base_score -99999 } }
 
-// ExtraTurnQuestion: stuns self
-ExtraTurnQuestion.merge { damage_instance { ai_base_score -99999 } }
-ExtraTurnQuestion2.merge { damage_instance { ai_base_score -99999 } }
 
-// MindCrack: AoE hits allies
+// --- 2. PROTECTION DE L'ÉQUIPE (ANTI-TIR AMI MENTAL) ---
+// Ces sorts de zone touchent tout le monde, y compris les alliés, et appliquent des 
+// statuts destructeurs (Folie, Aveuglement). L'IA native ne calcule pas bien le ratio "Bénéfice/Risque".
 MindCrack.merge { damage_instance { ai_base_score -99999 } }
 MindCrack2.merge { damage_instance { ai_base_score -99999 } }
 
-// ThinkDeep: sleep on self
+MindBlast.merge { damage_instance { ai_base_score -99999 } }
+MindBlast2.merge { damage_instance { ai_base_score -99999 } }
+
+MassHysteria.merge { damage_instance { ai_base_score -99999 } }
+MassHysteria2.merge { damage_instance { ai_base_score -99999 } }
+
+Supernova.merge { damage_instance { ai_base_score -99999 } }
+Supernova2.merge { damage_instance { ai_base_score -99999 } }
+
+MassManaLeech.merge { damage_instance { ai_base_score -99999 } }
+MassManaLeech2.merge { damage_instance { ai_base_score -99999 } }
+
+BlindingFlash.merge { damage_instance { ai_base_score -99999 } } // Le niveau 1 aveugle les alliés
+BlindingFlash2.merge { damage_instance { ai_base_score 0 } } // Le niveau 2 exclut les alliés, il est sûr.
+
+// Glare rend la cible Folle (Madness) mais n'a pas de restriction. Si lancé sur un allié...
+Glare.merge { damage_instance { ai_base_score -99999 } }
+Glare2.merge { damage_instance { ai_base_score -99999 } }
+
+
+// --- 3. INTERDICTION DES SORTS QUI FONT PASSER LE TOUR (SUICIDE) ---
+// "Pass", "ThinkDeep" et "ExtraTurnQuestion" endorment ou étourdissent le lanceur. 
+// Face à un vaporisateur, perdre un tour équivaut à la mort.
+Pass.merge { damage_instance { ai_base_score -99999 } }
+Pass2.merge { damage_instance { ai_base_score -99999 } }
+
 ThinkDeep.merge { damage_instance { ai_base_score -99999 } }
 ThinkDeep2.merge { damage_instance { ai_base_score -99999 } }
 
-// Pass: wastes turn
-Pass.merge { damage_instance { ai_base_score -20 } }
-Pass2.merge { damage_instance { ai_base_score -20 } }
+ExtraTurnQuestion.merge { damage_instance { ai_base_score -99999 } }
+ExtraTurnQuestion2.merge { damage_instance { ai_base_score -99999 } }
 
-// BlindingFlash: AoE can blind allies
-BlindingFlash.merge { damage_instance { ai_base_score -10 } }
-BlindingFlash2.merge { damage_instance { ai_base_score -10 } }
 
-// MindBlast: AoE Madness hits allies
-MindBlast.merge { damage_instance { ai_base_score -50 } }
-MindBlast2.merge { damage_instance { ai_base_score -50 } }
+// --- 4. PRIORISATION DU CONTRÔLE DE FOULE (CROWD CONTROL) ---
+// Ces capacités réduisent le rayon d'action des boss ou les retournent. Ce sont des priorités absolues.
+Stasis.merge { damage_instance { ai_base_score 80 custom_additional_ai_weight avoid_redundant_debuffs } }
+Stasis2.merge { damage_instance { ai_base_score 80 custom_additional_ai_weight avoid_redundant_debuffs } }
 
-// Supernova: AoE hits allies
-Supernova.merge { damage_instance { ai_base_score -50 } }
-Supernova2.merge { damage_instance { ai_base_score -50 } }
+MindControl.merge { damage_instance { ai_base_score 75 custom_additional_ai_weight avoid_redundant_debuffs_strict } }
+MindControl2.merge { damage_instance { ai_base_score 75 custom_additional_ai_weight avoid_redundant_debuffs_strict } }
 
-// MassManaLeech: AoE drains allies too
-MassManaLeech.merge { damage_instance { ai_base_score -50 } }
-MassManaLeech2.merge { damage_instance { ai_base_score -50 } }
+Puppet.merge { damage_instance { ai_base_score 70 custom_additional_ai_weight avoid_redundant_debuffs } }
+Puppet2.merge { damage_instance { ai_base_score 70 custom_additional_ai_weight avoid_redundant_debuffs } }
+
+IncreaseGravity.merge { damage_instance { ai_base_score 65 } } // Immobilise ou Ralentit
+IncreaseGravity2.merge { damage_instance { ai_base_score 65 } }
+
+
+// --- 5. GESTION DES REPOUSSEMENTS MAJEURS (SURVIE) ---
+// Le Psychic excelle pour repousser les boss loin de l'équipe (Kiting de zone).
+Telekinesis.merge { damage_instance { ai_base_score 60 } }
+Telekinesis2.merge { damage_instance { ai_base_score 60 } }
+
+ForceBlast.merge { damage_instance { ai_base_score 60 } }
+ForceBlast2.merge { damage_instance { ai_base_score 60 } }
+
+ForceCone.merge { damage_instance { ai_base_score 55 } }
+ForceCone2.merge { damage_instance { ai_base_score 55 } }
+
+// Vaccuum peut être utile pour regrouper les ennemis avant une attaque AoE du Mage.
+Vaccuum.merge { damage_instance { ai_base_score 50 } }
+Vaccuum2.merge { damage_instance { ai_base_score 50 } }
+
+
+// --- 6. SORTS DE BASE ET DÉGÂTS RÉGULIERS ---
+// Gérés organiquement par le moteur d'IA en fonction de leurs dégâts.
+Suggestion.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight avoid_redundant_debuffs } }
+Suggestion2.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight avoid_redundant_debuffs } }
+MegaGrav.merge { damage_instance { ai_base_score 0 } }
+MegaGrav2.merge { damage_instance { ai_base_score 0 } }
+PsyFlutter.merge { damage_instance { ai_base_score 0 } }
+PsyFlutter2.merge { damage_instance { ai_base_score 0 } }
+MagnetPull.merge { damage_instance { ai_base_score 0 } }
+MagnetPull2.merge { damage_instance { ai_base_score 0 } }
+PsychicChoke.merge { damage_instance { ai_base_score 0 } }
+PsychicChoke2.merge { damage_instance { ai_base_score 0 } }
+SkyShatter.merge { damage_instance { ai_base_score 0 } }
+SkyShatter2.merge { damage_instance { ai_base_score 0 } }
+AlterDNA.merge { damage_instance { ai_base_score 0 } }
+AlterDNA2.merge { damage_instance { ai_base_score 0 } }
+MindMeld.merge { damage_instance { ai_base_score 0 } }
+MindMeld2.merge { damage_instance { ai_base_score 0 } }
+GrowHead.merge { damage_instance { ai_base_score 0 } }
+Ping.merge { damage_instance { ai_base_score 0 } }
+Ping2.merge { damage_instance { ai_base_score 0 } }
+FlashForward.merge { damage_instance { ai_base_score 0 } }
+FlashForward2.merge { damage_instance { ai_base_score 0 } }
+Order.merge { damage_instance { ai_base_score 0 } }
+Order2.merge { damage_instance { ai_base_score 0 } }
+TemporalShards.merge { damage_instance { ai_base_score 0 } }
+TemporalShards2.merge { damage_instance { ai_base_score 0 } }
+Snatch.merge { damage_instance { ai_base_score 0 } }
+Snatch2.merge { damage_instance { ai_base_score 0 } }
+FutureSight.merge { damage_instance { ai_base_score 0 } }
+FutureSight2.merge { damage_instance { ai_base_score 0 } }
+BecomeEntropy.merge { damage_instance { ai_base_score 0 } }
+BecomeEntropy2.merge { damage_instance { ai_base_score 0 } }
+FastForward.merge { damage_instance { ai_base_score 0 } }
+FastForward2.merge { damage_instance { ai_base_score 0 } }
+AncestralRecall.merge { damage_instance { ai_base_score 0 } }
+AncestralRecall2.merge { damage_instance { ai_base_score 0 } }
+CumulativeBlast.merge { damage_instance { ai_base_score 0 } }
+CumulativeBlast2.merge { damage_instance { ai_base_score 0 } }
+Hallucinate.merge { damage_instance { ai_base_score 0 } }
+Hallucinate2.merge { damage_instance { ai_base_score 0 } }
+Reset.merge { damage_instance { ai_base_score 0 } }
+Reset2.merge { damage_instance { ai_base_score 0 } }
+Mimic.merge { damage_instance { ai_base_score 0 } }
+Mimic2.merge { damage_instance { ai_base_score 0 } }
+Asteroid.merge { damage_instance { ai_base_score 0 } }
+Asteroid2.merge { damage_instance { ai_base_score 0 } }
+YouSeeNothing.merge { damage_instance { ai_base_score 0 } }
+YouSeeNothing2.merge { damage_instance { ai_base_score 0 } }
+Manifest.merge { damage_instance { ai_base_score 0 } }
+Manifest2.merge { damage_instance { ai_base_score 0 } }
+Flip.merge { damage_instance { ai_base_score 0 } }
+Flip2.merge { damage_instance { ai_base_score 0 } }
+Withdraw.merge { damage_instance { ai_base_score 0 } }
+Withdraw2.merge { damage_instance { ai_base_score 0 } }
+Inversion.merge { damage_instance { ai_base_score 0 } }
+Inversion2.merge { damage_instance { ai_base_score 0 } }
+ReadMind.merge { damage_instance { ai_base_score 0 } }
+ReadMind2.merge { damage_instance { ai_base_score 0 } }

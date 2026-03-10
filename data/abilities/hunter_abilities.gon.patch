@@ -1,168 +1,187 @@
-// Hunter abilities AI patches
-// All abilities should have explicit ai_base_score for proper AI prioritization
+// =====================================================================
+// PATCH OPTIMISÉ DE L'IA DU CHASSEUR (HUNTER) - ANTI-VAPORISATION
+// =====================================================================
 
-// ===== ATTACKS =====
-LineShot.merge { damage_instance { ai_base_score 0 } }
-LineShot2.merge { damage_instance { ai_base_score 0 } }
-
-HailOfNails.merge { damage_instance { ai_base_score 0 } }
-HailOfNails2.merge { damage_instance { ai_base_score 0 } }
-
-ScatterShot.merge { damage_instance { ai_base_score 0 } }
-ScatterShot2.merge { damage_instance { ai_base_score 0 } }
-
-BrambleShot.merge { damage_instance { ai_base_score 0 } }
-BrambleShot2.merge { damage_instance { ai_base_score 0 } }
-
-Harpoon.merge { damage_instance { ai_base_score 0 } }
-Harpoon2.merge { damage_instance { ai_base_score 0 } }
-
-TwinShot.merge { damage_instance { ai_base_score 0 } }
-TwinShot2.merge { damage_instance { ai_base_score 0 } }
-
-CrossShot.merge { damage_instance { ai_base_score 0 } }
-CrossShot2.merge { damage_instance { ai_base_score 0 } }
-
-BombShot.merge { damage_instance { ai_base_score 0 } }
-BombShot2.merge { damage_instance { ai_base_score 0 } }
-
-FireShot.merge { damage_instance { ai_base_score 0 } }
-FireShot2.merge { damage_instance { ai_base_score 0 } }
-
-FocusShot.merge { damage_instance { ai_base_score 0 } }
-FocusShot2.merge { damage_instance { ai_base_score 0 } }
-
-Shards.merge { damage_instance { ai_base_score 0 } }
-Shards2.merge { damage_instance { ai_base_score 0 } }
-
-NeedleShot.merge { damage_instance { ai_base_score 0 } }
-NeedleShot2.merge { damage_instance { ai_base_score 0 } }
-
-FleaShot.merge { damage_instance { ai_base_score 0 } }
-FleaShot2.merge { damage_instance { ai_base_score 0 } }
-
-LastHit.merge { damage_instance { ai_base_score 0 } }
-LastHit2.merge { damage_instance { ai_base_score 0 } }
-
-CupidsArrow.merge { damage_instance { ai_base_score 0 } }
-CupidsArrow2.merge { damage_instance { ai_base_score 0 } }
-
-ArrowFlurry.merge { damage_instance { ai_base_score 15 } }
-ArrowFlurry2.merge { damage_instance { ai_base_score 15 } }
-
-HeavyShot.merge { damage_instance { ai_base_score 0 } }
-HeavyShot2.merge { damage_instance { ai_base_score 0 } }
-
-Snipe.merge { damage_instance { ai_base_score 0 } }
-Snipe2.merge { damage_instance { ai_base_score 0 } }
-
-BounceShot.merge { damage_instance { ai_base_score 0 } }
-BounceShot2.merge { damage_instance { ai_base_score 0 } }
-
-Vivisect.merge { damage_instance { ai_base_score 0 } }
-Vivisect2.merge { damage_instance { ai_base_score 0 } }
-
-PoisonLace.merge { damage_instance { ai_base_score 0 } }
-PoisonLace2.merge { damage_instance { ai_base_score 0 } }
-
-// ===== TRAPS & SUMMONS =====
-SpawnMaggotFriend.merge { damage_instance { ai_base_score 0 } }
-SpawnMaggotFriend2.merge { damage_instance { ai_base_score 0 } }
-
-SpawnPooterFriend.merge { damage_instance { ai_base_score 0 } }
-SpawnPooterFriend2.merge { damage_instance { ai_base_score 0 } }
-
-Marked.merge { damage_instance { ai_base_score 15 } }
-Marked2.merge { damage_instance { ai_base_score 15 } }
-
-BearTrap.merge { damage_instance { ai_base_score 20 } }
-BearTrap2.merge { damage_instance { ai_base_score 20 } }
-
-SpawnBaitTrap.merge { damage_instance { ai_base_score 0 } }
-SpawnBaitTrap2.merge { damage_instance { ai_base_score 0 } }
-
-SummonBrambles.merge { damage_instance { ai_base_score 0 } }
-SummonBrambles2.merge { damage_instance { ai_base_score 0 } }
-
-SpikeTrap.merge { damage_instance { ai_base_score 0 } }
-SpikeTrap2.merge { damage_instance { ai_base_score 0 } }
-
-WebTrap.merge { damage_instance { ai_base_score 0 } }
-WebTrap2.merge { damage_instance { ai_base_score 0 } }
-
-BallOfSpiders.merge { damage_instance { ai_base_score 0 } }
-BallOfSpiders2.merge { damage_instance { ai_base_score 0 } }
-
-SpawnTomTomFriend.merge { damage_instance { ai_base_score 0 } }
-SpawnTomTomFriend2.merge { damage_instance { ai_base_score 0 } }
-
-CharmTrap.merge { damage_instance { ai_base_score 0 } }
-CharmTrap2.merge { damage_instance { ai_base_score 0 } }
-
-// ===== BUFFS & MOVEMENT =====
-TrailBlazer.merge { damage_instance { ai_base_score 0 } }
-TrailBlazer2.merge { damage_instance { ai_base_score 0 } }
-
-TerrainWalk.merge { damage_instance { ai_base_score 0 } }
-TerrainWalk2.merge { damage_instance { ai_base_score 0 } }
-
-// Extend: 1-turn melee range buff
-Extend.merge {
+// --- 1. DÉSACTIVATION DES MANŒUVRES SUICIDAIRES ---
+// Le Harpon attire le Chasseur au corps-à-corps de la cible. 
+// On interdit FORMELLEMENT à l'IA d'utiliser le Harpon contre un Boss.
+Harpoon.merge {
     damage_instance {
-        custom_additional_ai_weight tile_close_to_enemy
-        ai_base_score -5
+        effects {
+            Conditional_Speculative {
+                Conditional_Boss {
+                    FlatAIBonus -999999
+                }
+            }
+        }
     }
 }
-Extend2.merge {
+Harpoon2.merge {
     damage_instance {
-        custom_additional_ai_weight tile_close_to_enemy
-        ai_base_score -5
+        effects {
+            Conditional_Speculative {
+                Conditional_Boss {
+                    FlatAIBonus -999999
+                }
+            }
+        }
     }
 }
 
-Diversion.merge { damage_instance { ai_base_score 0 } }
-Diversion2.merge { damage_instance { ai_base_score 0 } }
+// Vivisect est une attaque de mêlée (portée 1). 
+// L'IA ne doit l'utiliser sur un boss QUE si les dégâts (5 par défaut) sont suffisants pour le tuer.
+Vivisect.merge {
+    damage_instance {
+        effects {
+            Conditional_Speculative {
+                Conditional_Boss {
+                    Conditional_HealthThreshold {
+                        threshold_flat 5
+                    } Else {
+                        FlatAIBonus -999999
+                    }
+                }
+            }
+        }
+    }
+}
+Vivisect2.merge {
+    damage_instance {
+        effects {
+            Conditional_Speculative {
+                Conditional_Boss {
+                    Conditional_HealthThreshold {
+                        threshold_flat 5
+                    } Else {
+                        FlatAIBonus -999999
+                    }
+                }
+            }
+        }
+    }
+}
 
-ArrowSmith.merge { damage_instance { ai_base_score 0 } }
-ArrowSmith2.merge { damage_instance { ai_base_score 0 } }
+// --- 2. PRIORISATION EXTRÊME DU HARCÈLEMENT ET DES PIÈGES ---
+// On force l'IA à jeter ses pièges entre elle et les boss pour bloquer l'avancée (Kiting)
+BearTrap.merge { damage_instance { ai_base_score 80 } }
+BearTrap2.merge { damage_instance { ai_base_score 80 } }
 
-TacticalRetreat.merge { damage_instance { ai_base_score 0 } }
-TacticalRetreat2.merge { damage_instance { ai_base_score 0 } }
+SpikeTrap.merge { damage_instance { ai_base_score 75 } }
+SpikeTrap2.merge { damage_instance { ai_base_score 75 } }
 
-Infest.merge { damage_instance { ai_base_score 0 } }
-Infest2.merge { damage_instance { ai_base_score 0 } }
+WebTrap.merge { damage_instance { ai_base_score 70 } }
+WebTrap2.merge { damage_instance { ai_base_score 70 } }
 
-CollectPelt.merge { damage_instance { ai_base_score 0 } }
-CollectPelt2.merge { damage_instance { ai_base_score 0 } }
+Bunker.merge { damage_instance { ai_base_score 85 } }
+Bunker2.merge { damage_instance { ai_base_score 85 } }
 
-SentryMode.merge { damage_instance { ai_base_score 0 } }
-SentryMode2.merge { damage_instance { ai_base_score 0 } }
+CharmTrap.merge { damage_instance { ai_base_score 60 } }
+CharmTrap2.merge { damage_instance { ai_base_score 60 } }
 
-ScoutMe.merge { damage_instance { ai_base_score 0 } }
-ScoutMe2.merge { damage_instance { ai_base_score 0 } }
 
-ShootHere.merge { damage_instance { ai_base_score 0 } }
+// --- 3. MOBILITÉ DE SURVIE ET REPOSITIONNEMENT ---
+// La retraite tactique (téléportation) doit devenir le choix prioritaire si l'ennemi approche.
+TacticalRetreat.merge { damage_instance { ai_base_score 100 } }
+TacticalRetreat2.merge { damage_instance { ai_base_score 100 } }
 
-CraftArrow.merge { damage_instance { ai_base_score 0 } }
-CraftArrow2.merge { damage_instance { ai_base_score 0 } }
+Diversion.merge { damage_instance { ai_base_score 50 } }
+Diversion2.merge { damage_instance { ai_base_score 50 } }
 
-Picnic.merge { damage_instance { ai_base_score 0 } }
-Picnic2.merge { damage_instance { ai_base_score 0 } }
 
-// ===== PROBLEMATIC ABILITIES =====
-
-// ChaosShot: random target includes allies - DISABLE
+// --- 4. DÉSACTIVATION DES COMPÉTENCES PROBLÉMATIQUES ---
+// Retrait des compétences causant du tir ami, du gaspillage de tours ou forçant la mêlée.
 ChaosShot.merge { damage_instance { ai_base_score -99999 } }
 ChaosShot2.merge { damage_instance { ai_base_score -99999 } }
 
-// Pheromones: Charmed causes friendly-fire
 Pheromones.merge { damage_instance { ai_base_score -99999 } }
 Pheromones2.merge { damage_instance { ai_base_score -99999 } }
 
-// StakeOut: wastes turn (EndTurn 1)
-StakeOut.merge { damage_instance { ai_base_score -20 } }
-StakeOut2.merge { damage_instance { ai_base_score -20 } }
+// L'extension augmente la portée de mêlée, ce qui pousse l'IA à aller au contact. A bannir.
+Extend.merge { damage_instance { ai_base_score -99999 } }
+Extend2.merge { damage_instance { ai_base_score -99999 } }
 
-// SoothingShot: heals but also charms
-SoothingShot.merge { damage_instance { ai_base_score -10 } }
-SoothingShot2.merge { damage_instance { ai_base_score -10 } }
+// StakeOut fait passer un tour à l'unité. Devant un Vaporisateur, c'est la mort.
+StakeOut.merge { damage_instance { ai_base_score -99999 } }
+StakeOut2.merge { damage_instance { ai_base_score -99999 } }
+
+
+// --- 5. ATTAQUES À DISTANCE STANDARDS ---
+// On remet toutes les attaques à distance à 0 pour que le moteur calcule naturellement 
+// leur score en fonction des dégâts qu'elles infligent.
+LineShot.merge { damage_instance { ai_base_score 0 } }
+LineShot2.merge { damage_instance { ai_base_score 0 } }
+HailOfNails.merge { damage_instance { ai_base_score 0 } }
+HailOfNails2.merge { damage_instance { ai_base_score 0 } }
+ScatterShot.merge { damage_instance { ai_base_score 0 } }
+ScatterShot2.merge { damage_instance { ai_base_score 0 } }
+BrambleShot.merge { damage_instance { ai_base_score 0 } }
+BrambleShot2.merge { damage_instance { ai_base_score 0 } }
+TwinShot.merge { damage_instance { ai_base_score 0 } }
+TwinShot2.merge { damage_instance { ai_base_score 0 } }
+CrossShot.merge { damage_instance { ai_base_score 0 } }
+CrossShot2.merge { damage_instance { ai_base_score 0 } }
+BombShot.merge { damage_instance { ai_base_score 0 } }
+BombShot2.merge { damage_instance { ai_base_score 0 } }
+FireShot.merge { damage_instance { ai_base_score 0 } }
+FireShot2.merge { damage_instance { ai_base_score 0 } }
+FocusShot.merge { damage_instance { ai_base_score 0 } }
+FocusShot2.merge { damage_instance { ai_base_score 0 } }
+Shards.merge { damage_instance { ai_base_score 0 } }
+Shards2.merge { damage_instance { ai_base_score 0 } }
+NeedleShot.merge { damage_instance { ai_base_score 0 } }
+NeedleShot2.merge { damage_instance { ai_base_score 0 } }
+FleaShot.merge { damage_instance { ai_base_score 0 } }
+FleaShot2.merge { damage_instance { ai_base_score 0 } }
+LastHit.merge { damage_instance { ai_base_score 0 } }
+LastHit2.merge { damage_instance { ai_base_score 0 } }
+CupidsArrow.merge { damage_instance { ai_base_score 0 } }
+CupidsArrow2.merge { damage_instance { ai_base_score 0 } }
+ArrowFlurry.merge { damage_instance { ai_base_score 15 } }
+ArrowFlurry2.merge { damage_instance { ai_base_score 15 } }
+HeavyShot.merge { damage_instance { ai_base_score 0 } }
+HeavyShot2.merge { damage_instance { ai_base_score 0 } }
+Snipe.merge { damage_instance { ai_base_score 0 } }
+Snipe2.merge { damage_instance { ai_base_score 0 } }
+BounceShot.merge { damage_instance { ai_base_score 0 } }
+BounceShot2.merge { damage_instance { ai_base_score 0 } }
+PoisonLace.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_SourceHasStatus { status PoisonLace FlatAIBonus -999999 } } } } }
+PoisonLace2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_SourceHasStatus { status PoisonLace FlatAIBonus -999999 } } } } }
+
+
+// --- 6. INVOCATIONS ET UTILITAIRES DE REPLI ---
+SpawnMaggotFriend.merge { damage_instance { ai_base_score 0 } }
+SpawnMaggotFriend2.merge { damage_instance { ai_base_score 0 } }
+SpawnPooterFriend.merge { damage_instance { ai_base_score 0 } }
+SpawnPooterFriend2.merge { damage_instance { ai_base_score 0 } }
+SpawnTomTomFriend.merge { damage_instance { ai_base_score 0 } }
+SpawnTomTomFriend2.merge { damage_instance { ai_base_score 0 } }
+BallOfSpiders.merge { damage_instance { ai_base_score 0 } }
+BallOfSpiders2.merge { damage_instance { ai_base_score 0 } }
+
+Marked.merge { damage_instance { ai_base_score 15 custom_additional_ai_weight avoid_redundant_debuffs } }
+Marked2.merge { damage_instance { ai_base_score 15 custom_additional_ai_weight avoid_redundant_debuffs } }
+SummonBrambles.merge { damage_instance { ai_base_score 0 } }
+SummonBrambles2.merge { damage_instance { ai_base_score 0 } }
+TrailBlazer.merge { damage_instance { ai_base_score 0 } }
+TrailBlazer2.merge { damage_instance { ai_base_score 0 } }
+TerrainWalk.merge { damage_instance { ai_base_score 0 } }
+TerrainWalk2.merge { damage_instance { ai_base_score 0 } }
+ArrowSmith.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_SourceHasStatus { status Quivered FlatAIBonus -999999 } } } } }
+ArrowSmith2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_SourceHasStatus { status Quivered FlatAIBonus -999999 } } } } }
+Infest.merge { damage_instance { ai_base_score 0 } }
+Infest2.merge { damage_instance { ai_base_score 0 } }
+CollectPelt.merge { damage_instance { ai_base_score 0 } }
+CollectPelt2.merge { damage_instance { ai_base_score 0 } }
+SentryMode.merge { damage_instance { ai_base_score 0 } }
+SentryMode2.merge { damage_instance { ai_base_score 0 } }
+ScoutMe.merge { damage_instance { ai_base_score 0 } }
+ScoutMe2.merge { damage_instance { ai_base_score 0 } }
+ShootHere.merge { damage_instance { ai_base_score 0 } }
+CraftArrow.merge { damage_instance { ai_base_score 0 } }
+CraftArrow2.merge { damage_instance { ai_base_score 0 } }
+Picnic.merge { damage_instance { ai_base_score 0 } }
+Picnic2.merge { damage_instance { ai_base_score 0 } }
+SpawnBaitTrap.merge { damage_instance { ai_base_score 0 } }
+SpawnBaitTrap2.merge { damage_instance { ai_base_score 0 } }
+SoothingShot.merge { damage_instance { ai_base_score 0 } }
+SoothingShot2.merge { damage_instance { ai_base_score 0 } }

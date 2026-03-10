@@ -1,143 +1,143 @@
-// Butcher abilities AI patches
-// All abilities should have explicit ai_base_score for proper AI prioritization
+// =====================================================================
+// PATCH OPTIMISÉ DE L'IA DU BUTCHER - EXÉCUTEUR ET LANCEUR LOURD
+// =====================================================================
 
-// ===== MOVEMENT ABILITIES =====
+// --- 1. FONCTION DE VÉRIFICATION LÉTALE (MÊLÉE & SUICIDE POTENTIEL) ---
+// Le Boucher ne doit s'engager au corps-à-corps contre un Boss QUE si l'exécution est garantie.
+// S'il survit, le Boucher prendra la punition fatale.
 
+// Mutilate (1 Dégât x 3 coups = Seuil de 3)
+Mutilate.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 3 } Else { FlatAIBonus -999999 } } } } } }
+Mutilate2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 3 } Else { FlatAIBonus -999999 } } } } } }
+
+// Shred (1 Dégât x 5 coups = Seuil de 5)
+Shred.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 } Else { FlatAIBonus -999999 } } } } } }
+Shred2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 } Else { FlatAIBonus -999999 } } } } } }
+
+// Chomp (Seuil de 5)
+Chomp.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 } Else { FlatAIBonus -999999 } } } } } }
+Chomp2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 } Else { FlatAIBonus -999999 } } } } } }
+
+// SliceAndDice (Seuil de 2)
+SliceAndDice.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 2 } Else { FlatAIBonus -999999 } } } } } }
+SliceAndDice2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 2 } Else { FlatAIBonus -999999 } } } } } }
+
+// Gib (Seuil de 3 / 6)
+Gib.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 3 } Else { FlatAIBonus -999999 } } } } } }
+Gib2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 6 } Else { FlatAIBonus -999999 } } } } } }
+
+// Monch scale sur les PV. Dans le doute face à un boss, on interdit sauf s'il lui reste très peu de vie (Seuil arbitraire de 10).
+Monch.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 10 } Else { FlatAIBonus -999999 } } } } } }
+Monch2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 10 } Else { FlatAIBonus -999999 } } } } } }
+
+
+// --- 2. GESTION DES REPOUSSEMENTS (BOUTONS D'URGENCE) ---
+// Si l'IA ne peut pas tuer le Boss, elle cherchera l'action avec le plus haut score.
+// On gonfle les scores des capacités qui repoussent l'ennemi pour protéger le Boucher !
+
+// RoughToss "jette" l'ennemi très loin. Parfait pour se sauver d'un Carnibulb.
+RoughToss.merge { damage_instance { ai_base_score 60 } }
+RoughToss2.merge { damage_instance { ai_base_score 60 } }
+
+// Burp applique "ForceMoveAway", forçant l'ennemi à reculer.
+Burp.merge { damage_instance { ai_base_score 50 } }
+Burp2.merge { damage_instance { ai_base_score 50 } }
+
+// Crushinator inflige un énorme Knockback (recul) si la cible n'a pas de bouclier !
+Crushinator.merge { damage_instance { ai_base_score 40 } }
+Crushinator2.merge { damage_instance { ai_base_score 50 } }
+
+// BadGas pousse le Boucher lui-même en arrière, lui permettant de fuir un corps-à-corps.
+BadGas.merge { damage_instance { ai_base_score 40 } }
+BadGas2.merge { damage_instance { ai_base_score 40 } }
+
+
+// --- 3. BANISSEMENT DES SUICIDES ET ERREURS D'IA ---
+// ForceFeed soigne la cible... l'IA va s'en servir pour soigner les ennemis. A DÉSACTIVER.
+ForceFeed.merge { damage_instance { ai_base_score -99999 } }
+ForceFeed2.merge { damage_instance { ai_base_score -99999 } }
+
+// SkullBash étourdit le Boucher. Face à un boss, s'il rate son coup, il est mort à 100%. A BANIR sur les boss.
+SkullBash.merge { damage_instance { ai_base_score -20 effects { Conditional_Speculative { Conditional_Boss { FlatAIBonus -999999 } } } } }
+SkullBash2.merge { damage_instance { ai_base_score -10 effects { Conditional_Speculative { Conditional_Boss { FlatAIBonus -999999 } } } } }
+
+// BodySlam sacrifie 25% des PV du Boucher pour sauter dans la mêlée. Trop dangereux contre un boss.
+BodySlam.merge { damage_instance { ai_base_score -5 effects { Conditional_Speculative { Conditional_Boss { FlatAIBonus -999999 } } } } }
+BodySlam2.merge { damage_instance { ai_base_score -5 effects { Conditional_Speculative { Conditional_Boss { FlatAIBonus -999999 } } } } }
+
+// Ces sorts endorment le boucher, volent le tour d'un allié, ou le tuent.
+TaintedOffering.merge { damage_instance { ai_base_score -99999 } }
+TaintedOffering2.merge { damage_instance { ai_base_score 0 } } // Le niveau 2 n'endort pas, on le laisse à 0.
+Tryptophan.merge { damage_instance { ai_base_score -99999 } }
+Tryptophan2.merge { damage_instance { ai_base_score -99999 } }
+MyTurn.merge { damage_instance { ai_base_score -99999 } }
+MyTurn2.merge { damage_instance { ai_base_score -99999 } }
+Butcher.merge { damage_instance { ai_base_score -99999 } } // Instakill de zone qui peut tuer les alliés.
+Butcher2.merge { damage_instance { ai_base_score -99999 } }
+
+
+// --- 4. GESTION DES RESSOURCES (NOURRITURE & SANG) ---
+// On augmente légèrement le score pour que le boucher s'entretienne quand il n'y a pas d'urgence.
+LunchTime.merge { damage_instance { ai_base_score 20 } }
+LunchTime2.merge { damage_instance { ai_base_score 20 } }
+Swallow.merge { damage_instance { ai_base_score 10 } }
+Swallow2.merge { damage_instance { ai_base_score 10 } }
+Succ.merge { damage_instance { ai_base_score 10 } }
+Succ2.merge { damage_instance { ai_base_score 10 } }
+BloodMagic.merge { damage_instance { ai_base_score 10 } }
+BloodMagic2.merge { damage_instance { ai_base_score 10 } }
+SmellBlood.merge { damage_instance { ai_base_score 10 } }
+SmellBlood2.merge { damage_instance { ai_base_score 10 } }
+Sharpen.merge { damage_instance { ai_base_score 10 } }
+Sharpen2.merge { damage_instance { ai_base_score 10 } }
+
+
+// --- 5. ATTAQUES DE ZONE, MOUVEMENTS ET DÉGÂTS RÉSIDUELS ---
+// L'IA calculera organiquement ces actions si les urgences (fuite/knockback) ne sont pas requises.
 HogRush.merge { damage_instance { ai_base_score 0 } }
 HogRush2.merge { damage_instance { ai_base_score 0 } }
-
 Trudge.merge { damage_instance { ai_base_score 0 } }
 Trudge2.merge { damage_instance { ai_base_score 0 } }
-
 CannonBall.merge { damage_instance { ai_base_score 0 } }
 CannonBall2.merge { damage_instance { ai_base_score 0 } }
-
-// ===== ATTACK ABILITIES =====
-
-Burp.merge { damage_instance { ai_base_score 0 } }
-Burp2.merge { damage_instance { ai_base_score 0 } }
-
-ForceFeed.merge { damage_instance { ai_base_score 0 } }
-ForceFeed2.merge { damage_instance { ai_base_score 0 } }
-
-Fartoom.merge { damage_instance { ai_base_score -10 } }  // Self-damage 25% HP
-Fartoom2.merge { damage_instance { ai_base_score -10 } }
-
-Mutilate.merge { damage_instance { ai_base_score 0 } }
-Mutilate2.merge { damage_instance { ai_base_score 0 } }
-
-SkullBash.merge { damage_instance { ai_base_score -20 } }  // SelfStun
-SkullBash2.merge { damage_instance { ai_base_score -10 } }  // 50% SelfStun chance
-
-Shred.merge { damage_instance { ai_base_score 0 } }
-Shred2.merge { damage_instance { ai_base_score 0 } }
-
-Chomp.merge { damage_instance { ai_base_score 0 } }  // Leech + ally buff
-Chomp2.merge { damage_instance { ai_base_score 0 } }
-
-Succ.merge { damage_instance { ai_base_score -5 } }  // Collects pickups, not combat
-Succ2.merge { damage_instance { ai_base_score -5 } }
-
-Consume.merge { damage_instance { ai_base_score -20 } }  // Self-damage Drowsy (sleep)
-Consume2.merge { damage_instance { ai_base_score -20 } }
-
-BodySlam.merge { damage_instance { ai_base_score -5 } }  // Self-damage 25% HP
-BodySlam2.merge { damage_instance { ai_base_score -5 } }
-
-BloodMagic.merge { damage_instance { ai_base_score 0 } }  // Self-damage for mana, useful
-BloodMagic2.merge { damage_instance { ai_base_score 0 } }
-
-SmellBlood.merge { damage_instance { ai_base_score 0 } }  // Self-buff, useful
-SmellBlood2.merge { damage_instance { ai_base_score 0 } }
-
-Vurp.merge { damage_instance { ai_base_score 0 } }  // Once per fight, requires trinket
-Vurp2.merge { damage_instance { ai_base_score 0 } }
-
-SliceAndDice.merge { damage_instance { ai_base_score 0 } }
-SliceAndDice2.merge { damage_instance { ai_base_score 0 } }
-
-LunchTime.merge { damage_instance { ai_base_score 0 } }  // Targets food, useful
-LunchTime2.merge { damage_instance { ai_base_score 0 } }
-
-// Tromp: self-damage Bruise to self - slight penalty
-Tromp.merge { damage_instance { ai_base_score -5 } }
-Tromp2.merge { damage_instance { ai_base_score -5 } }
-
-LightenTheLoad.merge { damage_instance { ai_base_score -10 } }  // Self-damage 25 HP for turn
-LightenTheLoad2.merge { damage_instance { ai_base_score -10 } }
-
-Crushinator.merge { damage_instance { ai_base_score 0 } }
-Crushinator2.merge { damage_instance { ai_base_score 0 } }
-
-Monch.merge { damage_instance { ai_base_score 0 } }  // Damage scales with HP, useful
-Monch2.merge { damage_instance { ai_base_score 0 } }
-
 DeathWind.merge { damage_instance { ai_base_score 0 } }
 DeathWind2.merge { damage_instance { ai_base_score 0 } }
-
-Spoil.merge { damage_instance { ai_base_score -5 } }  // Targets food, situational
-Spoil2.merge { damage_instance { ai_base_score -5 } }
-
-Grill.merge { damage_instance { ai_base_score 0 } }  // Targets food, useful
-Grill2.merge { damage_instance { ai_base_score 0 } }
-
-Roast.merge { damage_instance { ai_base_score 0 } }
-Roast2.merge { damage_instance { ai_base_score 0 } }
-
-BadGas.merge { damage_instance { ai_base_score -5 } }  // Self-knockback, self-damage risk
-BadGas2.merge { damage_instance { ai_base_score -5 } }
-
-ButcherPurge.merge { damage_instance { ai_base_score 0 } }  // Self-debuff CON -1, useful utility
-ButcherPurge2.merge { damage_instance { ai_base_score 0 } }
-
-Binge.merge { damage_instance { ai_base_score -5 } }  // Self-debuff Speed -1
-Binge2.merge { damage_instance { ai_base_score -5 } }
-
-MyTurn.merge { damage_instance { ai_base_score -20 } }  // Steals ally turn
-MyTurn2.merge { damage_instance { ai_base_score -20 } }
-
-Gib.merge { damage_instance { ai_base_score 0 } }  // Spawns food, useful
-Gib2.merge { damage_instance { ai_base_score 0 } }
-
-Swallow.merge { damage_instance { ai_base_score 0 } }  // Collects pickups, useful
-Swallow2.merge { damage_instance { ai_base_score 0 } }
-
-Track.merge { damage_instance { ai_base_score -5 } }  // Move toward food, situational
-Track2.merge { damage_instance { ai_base_score -5 } }
-
-Sharpen.merge { damage_instance { ai_base_score 0 } }  // Weapon buff, useful
-Sharpen2.merge { damage_instance { ai_base_score 0 } }
-
 FireFart.merge { damage_instance { ai_base_score 0 } }
 FireFart2.merge { damage_instance { ai_base_score 0 } }
-
-RoughToss.merge { damage_instance { ai_base_score 0 } }
-RoughToss2.merge { damage_instance { ai_base_score 0 } }
-
-Bowl.merge { damage_instance { ai_base_score 0 } }  // Targets bowling ball, situational
+Bowl.merge { damage_instance { ai_base_score 0 } }
 Bowl2.merge { damage_instance { ai_base_score 0 } }
+BowlDash.merge { damage_instance { ai_base_score 0 } }
+BowlDash2.merge { damage_instance { ai_base_score 0 } }
 
-BowlDash.merge { damage_instance { ai_base_score 0 } }  // Utility
-BowlDash2.merge { damage_instance { ai_base_score 0 } }  // Utility
 
-TaintedOffering.merge { damage_instance { ai_base_score -99999 } }  // Self-sleep, dangerous
-TaintedOffering2.merge { damage_instance { ai_base_score 0 } }  // No self-sleep, useful
-
-Tryptophan.merge { damage_instance { ai_base_score -99999 } }  // AoE Sleep hits allies
-Tryptophan2.merge { damage_instance { ai_base_score -20 } }  // Sleep + heal self, still risky
-
-Chonkwalk.merge { damage_instance { ai_base_score -5 } }  // Self-damage 5 for movement
+// --- 6. AUTO-MUTILATIONS MINEURES (Acceptables mais découragées) ---
+Fartoom.merge { damage_instance { ai_base_score -10 } }
+Fartoom2.merge { damage_instance { ai_base_score -10 } }
+Consume.merge { damage_instance { ai_base_score -20 } }
+Consume2.merge { damage_instance { ai_base_score -20 } }
+Vurp.merge { damage_instance { ai_base_score 0 } }
+Vurp2.merge { damage_instance { ai_base_score 0 } }
+Tromp.merge { damage_instance { ai_base_score -5 } }
+Tromp2.merge { damage_instance { ai_base_score -5 } }
+LightenTheLoad.merge { damage_instance { ai_base_score -10 } }
+LightenTheLoad2.merge { damage_instance { ai_base_score -10 } }
+Spoil.merge { damage_instance { ai_base_score -5 } }
+Spoil2.merge { damage_instance { ai_base_score -5 } }
+Grill.merge { damage_instance { ai_base_score 0 } }
+Grill2.merge { damage_instance { ai_base_score 0 } }
+Roast.merge { damage_instance { ai_base_score 0 } }
+Roast2.merge { damage_instance { ai_base_score 0 } }
+ButcherPurge.merge { damage_instance { ai_base_score 0 } }
+ButcherPurge2.merge { damage_instance { ai_base_score 0 } }
+Binge.merge { damage_instance { ai_base_score -5 } }
+Binge2.merge { damage_instance { ai_base_score -5 } }
+Track.merge { damage_instance { ai_base_score -5 } }
+Track2.merge { damage_instance { ai_base_score -5 } }
+Chonkwalk.merge { damage_instance { ai_base_score -5 } }
 Chonkwalk2.merge { damage_instance { ai_base_score -5 } }
-
-Reflux.merge { damage_instance { ai_base_score -5 } }  // Self-damage Burn 2
+Reflux.merge { damage_instance { ai_base_score -5 } }
 Reflux2.merge { damage_instance { ai_base_score -5 } }
-
-Cough.merge { damage_instance { ai_base_score -5 } }  // Self-damage 2 to spawn RotFly
+Cough.merge { damage_instance { ai_base_score -5 } }
 Cough2.merge { damage_instance { ai_base_score -5 } }
-
-Butcher.merge { damage_instance { ai_base_score -20 } }  // AoE instakill can kill allies
-Butcher2.merge { damage_instance { ai_base_score -20 } }
-
-// SelfMutilate: self-damage for StrengthUp+Cleave - core Butcher mechanic
 SelfMutilate.merge { damage_instance { ai_base_score -5 } }
 SelfMutilate2.merge { damage_instance { ai_base_score -5 } }

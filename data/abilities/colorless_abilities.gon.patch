@@ -1,209 +1,181 @@
-// Colorless abilities AI patches
-// All abilities should have explicit ai_base_score for proper AI prioritization
+// =====================================================================
+// PATCH OPTIMISÉ DE L'IA DU COLORLESS - SURVIE ET PROTECTION DES RESSOURCES
+// =====================================================================
 
-// ===== BASIC ATTACKS & DEFENSE =====
-Block.merge {
-    damage_instance {
-        custom_additional_ai_weight tile_close_to_enemy
-        ai_base_score -5
-    }
-}
-Block2.merge {
-    damage_instance {
-        custom_additional_ai_weight tile_close_to_enemy
-        ai_base_score -5
-    }
-}
+// --- 1. PROTECTION DU PORTEFEUILLE DU JOUEUR (ANTI-BANQUEROUTE) ---
+// On interdit formellement à l'IA d'utiliser des compétences qui coûtent de l'or.
+BuyCatnip.merge { damage_instance { ai_base_score -99999 } }
+BuyCatnip2.merge { damage_instance { ai_base_score -99999 } }
 
-Brace.merge {
-    damage_instance {
-        custom_additional_ai_weight tile_close_to_enemy
-        ai_base_score -15
-    }
-}
-Brace2.merge {
-    damage_instance {
-        custom_additional_ai_weight tile_close_to_enemy
-        ai_base_score -15
-    }
-}
+VetVisit.merge { damage_instance { ai_base_score -99999 } }
+VetVisit2.merge { damage_instance { ai_base_score -99999 } }
 
-Rest.merge { damage_instance { custom_additional_ai_weight must_heal_most_missing_health } }
-Rest2.merge { damage_instance { custom_additional_ai_weight must_heal_most_missing_health } }
+HireHitman.merge { spawn { ai_base_score -99999 } }
+HireHitman2.merge { spawn { ai_base_score -99999 } }
 
-Roll.merge { damage_instance { ai_base_score 0 } }
-Roll2.merge { damage_instance { ai_base_score 0 } }
+SubwayRide.merge { damage_instance { ai_base_score -99999 } }
+SubwayRide2.merge { damage_instance { ai_base_score -99999 } }
 
-SharpenClaws.merge { damage_instance { ai_base_score 0 } }
-SharpenClaws2.merge { damage_instance { ai_base_score 0 } }
+GymMembership.merge { damage_instance { ai_base_score -99999 } }
+GymMembership2.merge { damage_instance { ai_base_score -99999 } }
 
-Reach.merge { damage_instance { ai_base_score 0 } }
-Reach2.merge { damage_instance { ai_base_score 0 } }
-
-Groom.merge { damage_instance { ai_base_score 0 } }
-Groom2.merge { damage_instance { ai_base_score 0 } }
-
-Dart.merge { damage_instance { ai_base_score 0 } }
-Dart2.merge { damage_instance { ai_base_score 0 } }
-
-Smack.merge { damage_instance { ai_base_score 0 } }
-Smack2.merge { damage_instance { ai_base_score 0 } }
-
-Spit.merge { damage_instance { ai_base_score 0 } }
-Spit2.merge { damage_instance { ai_base_score 0 } }
-
-FetusSpit.merge { damage_instance { ai_base_score 0 } }
-
-MiniHook.merge { damage_instance { ai_base_score 0 } }
-MiniHook2.merge { damage_instance { ai_base_score 0 } }
-
-MiniDistract.merge { damage_instance { ai_base_score 0 } }
-MiniDistract2.merge { damage_instance { ai_base_score 0 } }
-
-ButtScoot.merge { damage_instance { ai_base_score 0 } }
-ButtScoot2.merge { damage_instance { ai_base_score 0 } }
-
-Confusion.merge { damage_instance { ai_base_score 0 } }
-Confusion2.merge { damage_instance { ai_base_score 0 } }
-
-PlayDead.merge { damage_instance { ai_base_score 0 } }
-PlayDead2.merge { damage_instance { ai_base_score 0 } }
-
-Reflect.merge { damage_instance { ai_base_score 0 } }
-Reflect2.merge { damage_instance { ai_base_score 0 } }
-
-SlipThrough.merge { damage_instance { ai_base_score 0 } }
-SlipThrough2.merge { damage_instance { ai_base_score 0 } }
-
-FeatherFeet.merge { damage_instance { ai_base_score 0 } }
-FeatherFeet2.merge { damage_instance { ai_base_score 0 } }
-
-Trip.merge { damage_instance { ai_base_score 0 } }
-Trip2.merge { damage_instance { ai_base_score 0 } }
+Donate.merge { spawn { ai_base_score -99999 } }
+Donate2.merge { spawn { ai_base_score -99999 } }
 
 
-// ===== BUFFS & HEALS =====
-SoothingGlow.merge { damage_instance { ai_base_score 0 } }
-SoothingGlow2.merge { damage_instance { ai_base_score 0 } }
-
-Focus.merge { damage_instance { ai_base_score 0 } }
-Focus2.merge { damage_instance { ai_base_score 0 } }
-
-Ponder.merge { damage_instance { ai_base_score 0 } }
-Ponder2.merge { damage_instance { ai_base_score 0 } }
-
-Metabolize.merge { damage_instance { ai_base_score 0 } }
-Metabolize2.merge { damage_instance { ai_base_score 0 } }
-
-Brainstorm.merge { damage_instance { ai_base_score 0 } }
-Brainstorm2.merge { damage_instance { ai_base_score 0 } }
-
-Momentum.merge { damage_instance { ai_base_score 0 } }
-Momentum2.merge { damage_instance { ai_base_score 0 } }
-
-TapLand.merge { damage_instance { ai_base_score 0 } }
-TapLand2.merge { damage_instance { ai_base_score 0 } }
-
-HolyStep.merge { damage_instance { ai_base_score 0 } }
-HolyStep2.merge { damage_instance { ai_base_score 0 } }
-
-LoveTap.merge { damage_instance { ai_base_score 0 } }
-LoveTap2.merge { damage_instance { ai_base_score 0 } }
-
-PrepareToJump.merge { damage_instance { ai_base_score 0 } }
-PrepareToJump2.merge { damage_instance { ai_base_score 0 } }
-MarkJump.merge { damage_instance { ai_base_score 0 } }
-
-BoostSpellRange.merge { damage_instance { ai_base_score 0 } }
-BoostSpellRange2.merge { damage_instance { ai_base_score 0 } }
-
-PushMove.merge { damage_instance { ai_base_score 0 } }
-PushMove2.merge { damage_instance { ai_base_score 0 } }
-
-Gamble.merge { damage_instance { ai_base_score 0 } }
-Gamble2.merge { damage_instance { ai_base_score 0 } }
-
-SoulReap.merge { damage_instance { ai_base_score 15 } }
-SoulReap2.merge { damage_instance { ai_base_score 0 } }
-
-Hunt.merge { damage_instance { ai_base_score 0 } }
-Hunt2.merge { damage_instance { ai_base_score 0 } }
-
-HolyBlood.merge { damage_instance { ai_base_score 0 } }
-HolyBlood2.merge { damage_instance { ai_base_score 0 } }
-
-DollUp.merge { damage_instance { ai_base_score 0 } }
-DollUp2.merge { damage_instance { ai_base_score 0 } }
-
-StackTheDeck.merge { damage_instance { ai_base_score 0 } }
-StackTheDeck2.merge { damage_instance { ai_base_score 0 } }
-
-Infiltrate.merge { damage_instance { ai_base_score 0 } }
-Infiltrate2.merge { damage_instance { ai_base_score 0 } }
-
-// ===== SPECIAL CASES =====
-
-// GainThorns: permanent buff - soft penalty
-GainThorns.merge { damage_instance { custom_additional_ai_weight tile_close_to_enemy_soft } }
-GainThorns2.merge { damage_instance { custom_additional_ai_weight tile_close_to_enemy_soft } }
-
-// CatNap: cleanses + sleep
-CatNap.merge { damage_instance { custom_additional_ai_weight must_heal_most_missing_health } }
-// CatNap2: no sleep, just AllStatsUp - don't patch
-
-// ===== PROBLEMATIC =====
-
-// ManaDrain: steals from allies - DISABLE
-ManaDrain.merge { damage_instance { ai_base_score -99999 } }
-ManaDrain2.merge { damage_instance { ai_base_score -99999 } }
-
-// HealBolt: can heal enemies - DISABLE
-HealBolt.merge { damage_instance { ai_base_score -99999 } }
-// HealBolt2: has DontHealEnemies - don't patch
-
-// Metronome: random action - DISABLE
-Metronome.merge { damage_instance { ai_base_score -99999 } }
-Metronome2.merge { damage_instance { ai_base_score -99999 } }
-
-// LotteryShottery: random target - DISABLE
-LotteryShottery.merge { damage_instance { ai_base_score -99999 } }
-LotteryShottery2.merge { damage_instance { ai_base_score -99999 } }
-
-// RussianRoulette: chance to die - DISABLE
+// --- 2. INTERDICTIONS DE L'AUTO-SABOTAGE ET DU SUICIDE ---
+// Russian Roulette a 16% de chance de tuer l'utilisateur. Interdit.
 RussianRoulette.merge { damage_instance { ai_base_score -99999 } }
 RussianRoulette2.merge { damage_instance { ai_base_score -99999 } }
 
-// ForbiddenFart: disorder on self
-ForbiddenFart.merge { damage_instance { ai_base_score -50 } }
-ForbiddenFart2.merge { damage_instance { ai_base_score -50 } }
+// PlayDead sort le chat du combat, le laissant vulnérable aux AoE ou ruinant l'aggro.
+PlayDead.merge { damage_instance { ai_base_score -99999 } }
+PlayDead2.merge { damage_instance { ai_base_score -99999 } }
 
-// WasteTime: does nothing
+// Rest et CatNap endorment le chat. Devant un boss, c'est la mort.
+Rest.merge { damage_instance { ai_base_score -99999 } }
+Rest2.merge { damage_instance { ai_base_score -99999 } }
+CatNap.merge { damage_instance { ai_base_score -99999 } }
+CatNap2.merge { damage_instance { ai_base_score 20 } } // Le NV2 de CatNap n'endort plus, il buff les stats. On l'autorise !
+
+// Sorts chaotiques et destructeurs pour l'équipe
+ForbiddenFart.merge { damage_instance { ai_base_score -99999 } }
+ForbiddenFart2.merge { damage_instance { ai_base_score -99999 } }
+ManaDrain.merge { damage_instance { ai_base_score -99999 } }
+ManaDrain2.merge { damage_instance { ai_base_score -99999 } }
+Metronome.merge { damage_instance { ai_base_score -99999 } }
+Metronome2.merge { damage_instance { ai_base_score -99999 } }
+LotteryShottery.merge { damage_instance { ai_base_score -99999 } }
+LotteryShottery2.merge { damage_instance { ai_base_score -99999 } }
 WasteTime.merge { damage_instance { ai_base_score -99999 } }
-// WasteTime2: gives Charge - don't patch
+Contort.merge { damage_instance { ai_base_score -99999 } }
 
-// Flex: no damage in damage_instance
-Flex.merge { damage_instance { ai_base_score 0 } }
-Flex2.merge { damage_instance { ai_base_score 0 } }
 
-// Reduce: reduces own stats
-Reduce.merge { damage_instance { ai_base_score -5 } }
-Reduce2.merge { damage_instance { ai_base_score -5 } }
+// --- 3. VÉRIFICATION DE FRAPPE LÉTALE (ATTAQUES DE MÊLÉE) ---
+// Le Colorless est fragile. S'il frappe un boss au corps-à-corps, il doit être certain de l'achever.
+Smack.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 2 } Else { FlatAIBonus -999999 } } } } } }
+Smack2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 4 } Else { FlatAIBonus -999999 } } } } } }
 
-// Nerf: reduces ally stats
-Nerf.merge { damage_instance { ai_base_score -10 } }
-Nerf2.merge { damage_instance { ai_base_score -10 } }
+// DexterousHit s'échelonne avec la Dextérité, trop variable pour une prédiction IA simple. Interdit au CaC des boss.
+DexterousHit.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { FlatAIBonus -999999 } } } } }
+DexterousHit2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { FlatAIBonus -999999 } } } } }
 
-// Copycat: copies last action - situational
-Copycat.merge { damage_instance { ai_base_score -5 } }
-Copycat2.merge { damage_instance { ai_base_score -5 } }
+// Knead est une attaque de mêlée qui inflige des debuffs. Le risque de vaporisation est trop grand.
+Knead.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { FlatAIBonus -999999 } } } } }
+Knead2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { FlatAIBonus -999999 } } } } }
 
-// Dump: removes mana
-Dump.merge { damage_instance { ai_base_score -10 } }
-Dump2.merge { damage_instance { ai_base_score -10 } }
 
-// Snacks: heals but reduces stats
-Snacks.merge { damage_instance { ai_base_score 0 } }
-Snacks2.merge { damage_instance { ai_base_score 0 } }
+// --- 4. PRIORISATION DES BOUTONS D'URGENCE (CONTRÔLE DE FOULE ET REPOUSSEMENT) ---
+// Swat fait reculer (Knockback). Excellent pour maintenir les boss à distance.
+Swat.merge { damage_instance { ai_base_score 60 } }
+Swat2.merge { damage_instance { ai_base_score 70 } }
 
-// Note: Many more colorless abilities exist but have no damage_instance
-// and cannot be patched via this mechanism
+// Hiss applique Peur (Fear) et ForceMoveAway. Un outil de survie massif.
+Hiss.merge { damage_instance { ai_base_score 75 custom_additional_ai_weight avoid_redundant_debuffs } }
+Hiss2.merge { damage_instance { ai_base_score 75 custom_additional_ai_weight avoid_redundant_debuffs } }
+
+// Trip immobilise l'ennemi. Parfait pour le kiting.
+Trip.merge { damage_instance { ai_base_score 65 } }
+Trip2.merge { damage_instance { ai_base_score 65 } }
+
+// Zap étourdit (Stun).
+Zap.merge { damage_instance { ai_base_score 60 } }
+Zap2.merge { damage_instance { ai_base_score 60 } }
+
+// LookAtMe force l'ennemi à se retourner.
+LookAtMe.merge { damage_instance { ai_base_score 50 } }
+LookAtMe2.merge { damage_instance { ai_base_score 50 } }
+
+
+// --- 5. OPTIMISATION DE LA DÉFENSE ---
+// On efface les pénalités que l'IA avait sur ces sorts et on les booste pour que le Colorless se protège.
+Block.merge { damage_instance { ai_base_score 40 custom_additional_ai_weight favor_if_unshielded } }
+Block2.merge { damage_instance { ai_base_score 40 custom_additional_ai_weight favor_if_unshielded } }
+
+Brace.merge { damage_instance { ai_base_score 40 } }
+Brace2.merge { damage_instance { ai_base_score 40 } }
+
+Flex.merge { damage_instance { ai_base_score 40 } }
+Flex2.merge { damage_instance { ai_base_score 40 } }
+
+ScuffItOff.merge { damage_instance { ai_base_score 40 } }
+ScuffItOff2.merge { damage_instance { ai_base_score 40 } }
+
+Reflect.merge { damage_instance { ai_base_score 50 } }
+Reflect2.merge { damage_instance { ai_base_score 50 } }
+
+
+// --- 6. GESTION INTELLIGENTE DES SOINS ---
+// On s'assure que ces capacités ne sont lancées que si une unité en a réellement besoin.
+CPR.merge { damage_instance { custom_additional_ai_weight must_heal_most_missing_health } }
+CPR2.merge { damage_instance { custom_additional_ai_weight must_heal_most_missing_health } }
+
+LickHeal.merge { damage_instance { custom_additional_ai_weight must_heal_most_missing_health } }
+LickHeal2.merge { damage_instance { custom_additional_ai_weight must_heal_most_missing_health } }
+
+Groom.merge { damage_instance { custom_additional_ai_weight must_heal_most_missing_health } }
+Groom2.merge { damage_instance { custom_additional_ai_weight must_heal_most_missing_health } }
+
+
+// --- 7. AUTRES ATTAQUES À DISTANCE ET UTILITAIRES DE BASE ---
+// Laissés à 0 pour une résolution organique via la formule de l'IA native.
+Dart.merge { damage_instance { ai_base_score 0 } }
+Dart2.merge { damage_instance { ai_base_score 0 } }
+Spit.merge { damage_instance { ai_base_score 0 } }
+Spit2.merge { damage_instance { ai_base_score 0 } }
+FetusSpit.merge { damage_instance { ai_base_score 0 } }
+MiniHook.merge { damage_instance { ai_base_score 0 } }
+MiniHook2.merge { damage_instance { ai_base_score 0 } }
+MiniDistract.merge { damage_instance { ai_base_score 0 } }
+MiniDistract2.merge { damage_instance { ai_base_score 0 } }
+ButtScoot.merge { damage_instance { ai_base_score 0 } }
+ButtScoot2.merge { damage_instance { ai_base_score 0 } }
+Confusion.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight avoid_redundant_debuffs } }
+Confusion2.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight avoid_redundant_debuffs } }
+SlipThrough.merge { damage_instance { ai_base_score 0 } }
+SlipThrough2.merge { damage_instance { ai_base_score 0 } }
+SoothingGlow.merge { damage_instance { ai_base_score 0 } }
+SoothingGlow2.merge { damage_instance { ai_base_score 0 } }
+Ponder.merge { damage_instance { ai_base_score 0 } }
+Ponder2.merge { damage_instance { ai_base_score 0 } }
+Focus.merge { damage_instance { ai_base_score 0 } }
+Focus2.merge { damage_instance { ai_base_score 0 } }
+Metabolize.merge { damage_instance { ai_base_score 0 } }
+Metabolize2.merge { damage_instance { ai_base_score 0 } }
+Brainstorm.merge { damage_instance { ai_base_score 0 } }
+Brainstorm2.merge { damage_instance { ai_base_score 0 } }
+Roll.merge { damage_instance { ai_base_score 0 } }
+Roll2.merge { damage_instance { ai_base_score 0 } }
+SharpenClaws.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_SourceHasStatus { status StrengthUp FlatAIBonus -999999 } } } } }
+SharpenClaws2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_SourceHasStatus { status StrengthUp FlatAIBonus -999999 } } } } }
+Reach.merge { damage_instance { ai_base_score 0 } }
+Reach2.merge { damage_instance { ai_base_score 0 } }
+Momentum.merge { damage_instance { ai_base_score 0 } }
+Momentum2.merge { damage_instance { ai_base_score 0 } }
+TapLand.merge { damage_instance { ai_base_score 0 } }
+TapLand2.merge { damage_instance { ai_base_score 0 } }
+HolyStep.merge { damage_instance { ai_base_score 0 } }
+HolyStep2.merge { damage_instance { ai_base_score 0 } }
+LoveTap.merge { damage_instance { ai_base_score 0 } }
+LoveTap2.merge { damage_instance { ai_base_score 0 } }
+PrepareToJump.merge { damage_instance { ai_base_score 0 } }
+PrepareToJump2.merge { damage_instance { ai_base_score 0 } }
+MarkJump.merge { damage_instance { ai_base_score 0 } }
+BoostSpellRange.merge { damage_instance { ai_base_score 0 } }
+BoostSpellRange2.merge { damage_instance { ai_base_score 0 } }
+PushMove.merge { damage_instance { ai_base_score 0 } }
+PushMove2.merge { damage_instance { ai_base_score 0 } }
+Gamble.merge { damage_instance { ai_base_score 0 } }
+Gamble2.merge { damage_instance { ai_base_score 0 } }
+SoulReap.merge { damage_instance { ai_base_score 15 } }
+SoulReap2.merge { damage_instance { ai_base_score 0 } }
+Hunt.merge { damage_instance { ai_base_score 0 } }
+Hunt2.merge { damage_instance { ai_base_score 0 } }
+HolyBlood.merge { damage_instance { ai_base_score 0 } }
+HolyBlood2.merge { damage_instance { ai_base_score 0 } }
+DollUp.merge { damage_instance { ai_base_score 0 } }
+DollUp2.merge { damage_instance { ai_base_score 0 } }
+StackTheDeck.merge { damage_instance { ai_base_score 0 } }
+StackTheDeck2.merge { damage_instance { ai_base_score 0 } }
+Infiltrate.merge { damage_instance { ai_base_score 0 } }
+Infiltrate2.merge { damage_instance { ai_base_score 0 } }

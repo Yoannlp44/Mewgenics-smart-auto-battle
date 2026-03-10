@@ -1,20 +1,30 @@
-// Jester abilities AI patches
-// All abilities should have explicit ai_base_score for proper AI prioritization
+// =====================================================================
+// PATCH OPTIMISÉ DE L'IA DU JESTER - CONTRÔLE DU CHAOS
+// =====================================================================
 
-// ===== ATTACKS =====
-RNGCannon.merge { damage_instance { ai_base_score 0 } }
-RNGCannon2.merge { damage_instance { ai_base_score 0 } }
-
-// ===== SPECIAL =====
-
-// SmartMetronome: random action - DISABLE
+// --- 1. DÉSACTIVATION DES SORTS DE ROULETTE RUSSE ---
+// "SmartMetronome" utilise une compétence aléatoire du jeu. 
+// Le risque de lancer un sort suicidaire ou de vaporiser l'équipe est de 100% sur le long terme.
 SmartMetronome.merge { damage_instance { ai_base_score -99999 } }
 SmartMetronome2.merge { damage_instance { ai_base_score -99999 } }
 
-// Bump: random displacement - DISABLE
+// "Bump" téléporte aléatoirement la cible. 
+// L'IA risque de téléporter un boss vaporisateur (Carnibulb) directement sur un allié fragile.
 Bump.merge { damage_instance { ai_base_score -99999 } }
 Bump2.merge { damage_instance { ai_base_score -99999 } }
 
-// PowerUp: random buff
+
+// --- 2. GESTION DES RESSOURCES ALÉATOIRES ---
+// "PowerUp" vide tout le mana du lanceur pour des buffs aléatoires. 
+// On lui met un score négatif (-10) pour que l'IA ne le lance QUE s'il n'a vraiment aucune autre option, 
+// évitant ainsi de gâcher tout le mana pour des buffs inutiles (ex: donner "Thorns" à un archer).
 PowerUp.merge { damage_instance { ai_base_score -10 } }
 PowerUp2.merge { damage_instance { ai_base_score -10 } }
+
+
+// --- 3. ATTAQUES À DISTANCE (Chaos contrôlé) ---
+// "RNGCannon" fait des dégâts aléatoires ou applique des statuts. 
+// On laisse le score à 0. L'IA le lancera sur les ennemis car c'est une attaque ciblée standard, 
+// sans risque de toucher les alliés.
+RNGCannon.merge { damage_instance { ai_base_score 0 } }
+RNGCannon2.merge { damage_instance { ai_base_score 0 } }

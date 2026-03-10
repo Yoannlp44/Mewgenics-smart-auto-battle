@@ -1,78 +1,91 @@
+// --- LES SPÉCIALISTES DU HARCÈLEMENT (KITING) ---
+// Objectif : Maintenir la cible à la bordure absolue de la portée pour fuir les entités à 3 mouvements (ex: Carnibulb).
+
 smart_hunter_move.merge {
     distance_to_enemy 2
     distance_to_ally 0
     distance_to_character 0
-    // max weapon range
-    preferred_distance reach
+    // Utilisation de mov+reach (inspiré de keep_max_ranged_distance ) pour reculer tout en tirant
+    preferred_distance mov+reach
     total_distance_moved 0.01
     face_closest_enemy 1
-    // stays at range, avoids dangerous tiles
     danger_avoidance 3
-    // hides in tall grass when possible
-    tall_grass 2
-}
-
-smart_fighter_move.merge {
-    // charges into contact
-    distance_to_enemy -2
-    distance_to_ally 0
-    distance_to_character 0
-    preferred_distance 0
-    total_distance_moved 0.01
-    face_closest_enemy 1
-    // charges anyway -- accepts the risk
-    danger_avoidance 1
-}
-
-smart_tank_move.merge {
-    distance_to_enemy -1
-    // stays close to the team
-    distance_to_ally -1
-    distance_to_character 0
-    preferred_distance 0
-    total_distance_moved 0.01
-    face_closest_enemy 1
-    // the Tank tanks -- but still avoids lava
-    danger_avoidance 0.5
+    // Augmenté à 5 (inspiré de prefer_tall_grass_always_move [cite: 6]) pour maximiser l'esquive
+    tall_grass 5
 }
 
 smart_mage_move.merge {
     distance_to_enemy 2
     distance_to_ally 0
     distance_to_character 0
-    preferred_distance reach
+    // Kiting maximal 
+    preferred_distance mov+reach
     total_distance_moved 0.01
     face_closest_enemy 1
-    // fragile -- actively avoids dangerous tiles
-    danger_avoidance 5
+    danger_avoidance 3
 }
 
-smart_cleric_move.merge {
-    // moves away from enemies
-    distance_to_enemy 1
-    // seeks allies
-    distance_to_ally -2
+smart_psychic_move.merge {
+    distance_to_enemy 3
+    distance_to_ally -1
     distance_to_character 0
-    // stays just behind the frontline
-    preferred_distance 2
+    // Remplacement du "8" fixe par la logique dynamique mov+reach 
+    preferred_distance mov+reach
     total_distance_moved 0.01
-    face_closest_enemy 0
-    // must survive to heal
-    danger_avoidance 5
+    face_closest_enemy 1
+    danger_avoidance 3
 }
 
-smart_thief_move.merge {
+smart_tinkerer_move.merge {
     distance_to_enemy -1
     distance_to_ally 0
     distance_to_character 0
-    preferred_distance 0
-    // pushes the thief to move a lot (flanking)
-    total_distance_moved 5
+    // Garde ses distances par rapport à l'ennemi ET potentiellement ses propres tourelles explosives 
+    preferred_distance mov+reach
+    total_distance_moved 0.01
     face_closest_enemy 1
-    // mobile, avoids dangerous tiles
     danger_avoidance 3
-    // hides in tall grass for ambushes
-    tall_grass 2
+}
+
+
+// --- LA LIGNE DE FRONT ET LE SOUTIEN ---
+// Objectif : Le Tank bloque physiquement, le Clerc se cache derrière lui.
+
+smart_tank_move.merge {
+    // Poussé à -2 pour forcer le contact et bloquer les couloirs
+    distance_to_enemy -2
+    distance_to_ally -1
+    distance_to_character 0
+    preferred_distance 0
+    total_distance_moved 0.01
+    face_closest_enemy 1
+    // Ajusté à 1.5 : protège l'équipe mais ne se suicide pas sur un Death Worm
+    danger_avoidance 1.5
+}
+
+smart_cleric_move.merge {
+    distance_to_enemy 1
+    distance_to_ally -2
+    distance_to_character 0
+    preferred_distance 2
+    total_distance_moved 0.01
+    face_closest_enemy 0
+    danger_avoidance 5
+}
+
+
+// --- LES COMBATTANTS DE MÊLÉE ---
+// Objectif : Agressifs, mais avec assez d'instinct de survie pour ne pas marcher dans la lave lors de l'approche.
+
+smart_fighter_move.merge {
+    distance_to_enemy -2
+    distance_to_ally 0
+    distance_to_character 0
+    preferred_distance 0
+    total_distance_moved 0.01
+    face_closest_enemy 1
+    // Augmenté à 2 pour survivre aux déplacements
+    danger_avoidance 2
 }
 
 smart_butcher_move.merge {
@@ -82,23 +95,21 @@ smart_butcher_move.merge {
     preferred_distance 0
     total_distance_moved 0.01
     face_closest_enemy 1
-    // enraged -- accepts risk but not suicidal
-    danger_avoidance 1
+    // Augmenté à 2 pour la survie environnementale
+    danger_avoidance 2
 }
 
-smart_psychic_move.merge {
-    distance_to_enemy 3
-    distance_to_ally -1
+smart_monk_move.merge {
+    distance_to_enemy -2
+    distance_to_ally 0
     distance_to_character 0
-    // keeps a safe distance
-    preferred_distance 8
-    total_distance_moved 0.01
+    preferred_distance 0
+    // Mouvement conservé à 0.5 (similaire à chaotic_runaway [cite: 4]) pour le hit & run agile
+    total_distance_moved 0.5
     face_closest_enemy 1
-    // fragile support -- avoids dangers
-    danger_avoidance 5
+    danger_avoidance 2
 }
 
-// Colorless is a hybrid brawler, seeks contact but stays flexible
 smart_colorless_move.merge {
     distance_to_enemy -1
     distance_to_ally 0
@@ -106,26 +117,36 @@ smart_colorless_move.merge {
     preferred_distance 1
     total_distance_moved 0.01
     face_closest_enemy 1
-    // generic -- moderate avoidance
     danger_avoidance 2
 }
 
-// Jester moves a lot and unpredictably
+
+// --- LES CLASSES SPÉCIALES ET EXTRÊMES ---
+
+smart_thief_move.merge {
+    distance_to_enemy -1
+    distance_to_ally 0
+    distance_to_character 0
+    preferred_distance 0
+    // Poussé à 10 (inspiré du preset natif stay_close_move_far [cite: 3]) pour forcer le contournement complet (Backstab)
+    total_distance_moved 10
+    face_closest_enemy 1
+    danger_avoidance 3
+    tall_grass 5
+}
+
 smart_jester_move.merge {
     distance_to_enemy -1
     distance_to_ally 0
     distance_to_character 0
     preferred_distance 2
-    // moves almost every turn
     total_distance_moved 1.5
     face_closest_enemy 1
-    // slightly erratic behavior
-    randomness 4
-    // somewhat chaotic, limited avoidance
+    // Poussé à 6 (inspiré de bat_chaos_runaway [cite: 9, 10]) pour un pathfinding imprévisible
+    randomness 6
     danger_avoidance 2
 }
 
-// Druid stays a bit behind, near its summons and the team
 smart_druid_move.merge {
     distance_to_enemy 0
     distance_to_ally -1
@@ -133,48 +154,19 @@ smart_druid_move.merge {
     preferred_distance reach
     total_distance_moved 0.01
     face_closest_enemy 1
-    // stays in safe zones to summon
     danger_avoidance 3
-    // natural affinity with grass
-    tall_grass 1
+    // Poussé à 5 pour s'enraciner dans les herbes hautes [cite: 6]
+    tall_grass 5
 }
 
-// Monk charges like the Fighter, but dodges more
-smart_monk_move.merge {
-    distance_to_enemy -2
-    distance_to_ally 0
-    distance_to_character 0
-    preferred_distance 0
-    // repositions often for flank attacks
-    total_distance_moved 0.5
-    face_closest_enemy 1
-    // charges into contact -- accepts the risk
-    danger_avoidance 1
-}
-
-// Necromancer stays extremely far back and manages its undead army
 smart_necromancer_move.merge {
-    // actively flees from enemies
     distance_to_enemy 1
-    // but is ATTRACTED to corpses
-    distance_to_corpse -2
+    // Attraction gravitationnelle absolue vers les corps (inspirée du preset natif zombie )
+    distance_to_corpse -100
     distance_to_ally 0
     distance_to_character 0
     preferred_distance mov
     total_distance_moved 0.01
     face_closest_enemy 1
-    // fragile -- must not walk into lava
-    danger_avoidance 5
-}
-
-// Tinkerer keeps its distance behind its turrets
-smart_tinkerer_move.merge {
-    distance_to_enemy -1
-    distance_to_ally 0
-    distance_to_character 0
-    preferred_distance reach
-    total_distance_moved 0.01
-    face_closest_enemy 1
-    // stays behind constructions, avoids dangerous tiles
     danger_avoidance 3
 }

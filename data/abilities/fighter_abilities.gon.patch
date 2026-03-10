@@ -1,182 +1,133 @@
-// Fighter abilities AI patches
-// All abilities should have explicit ai_base_score for proper AI prioritization
+// =====================================================================
+// PATCH OPTIMISÉ DE L'IA DU FIGHTER - VÉRIFICATION DE FRAPPE LÉTALE
+// =====================================================================
 
-// ===== BASIC ATTACKS & MOVEMENT =====
-Dash.merge { damage_instance { ai_base_score 0 } }
-Dash2.merge { damage_instance { ai_base_score 0 } }
+// --- 1. EXÉCUTIONS MAJEURES (Seuil : 25 Dégâts) ---
+FalconPunch.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 25 } Else { FlatAIBonus -999999 } } } } } }
+FalconPunch2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 25 } Else { FlatAIBonus -999999 } } } } } }
 
-Spin.merge { damage_instance { ai_base_score 0 } }
-Spin2.merge { damage_instance { ai_base_score 0 } }
+// --- 2. EXÉCUTIONS LOURDES (Seuil : 15 Dégâts) ---
+Pawbreaker.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 15 } Else { FlatAIBonus -999999 } } } } } }
+Pawbreaker2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 15 } Else { FlatAIBonus -999999 } } } } } }
 
-FirePunch.merge { damage_instance { ai_base_score 0 } }
-FirePunch2.merge { damage_instance { ai_base_score 0 } }
+// --- 3. EXÉCUTIONS MOYENNES (Seuil : 10 Dégâts) ---
+BigPunch.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 10 } Else { FlatAIBonus -999999 } } } } } }
+BigPunch2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 10 } Else { FlatAIBonus -999999 } } } } } }
+IcePunch2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 10 } Else { FlatAIBonus -999999 } } } } } }
+CosmicPunch.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 10 } Else { FlatAIBonus -999999 } } } } } }
+CosmicPunch2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 10 } Else { FlatAIBonus -999999 } } } } } }
 
-IcePunch.merge { damage_instance { ai_base_score 0 } }
-IcePunch2.merge { damage_instance { ai_base_score 0 } }
+// --- 4. ATTAQUES STANDARDS (Seuil : 5 Dégâts) ---
+FirePunch.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 } Else { FlatAIBonus -999999 } } } } } }
+FirePunch2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 } Else { FlatAIBonus -999999 } } } } } }
+IcePunch.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 } Else { FlatAIBonus -999999 } } } } } }
+ThunderPunch.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 } Else { FlatAIBonus -999999 } } } } } }
+ThunderPunch2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 } Else { FlatAIBonus -999999 } } } } } }
+SideSlash.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 } Else { FlatAIBonus -999999 } } } } } }
+SideSlash2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 } Else { FlatAIBonus -999999 } } } } } }
+Uppercut.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 } Else { FlatAIBonus -999999 } } } } } }
+Uppercut2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 } Else { FlatAIBonus -999999 } } } } } }
+TailWhip.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 } Else { FlatAIBonus -999999 } } } } } }
+TailWhip2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 } Else { FlatAIBonus -999999 } } } } } }
+FighterLeap2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 } Else { FlatAIBonus -999999 } } } } } }
+Lacerate2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 } Else { FlatAIBonus -999999 } } } } } }
+MeteorSlam.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 } Else { FlatAIBonus -999999 } } } } } }
+MeteorSlam2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 } Else { FlatAIBonus -999999 } } } } } }
+MuscleMemory.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 } Else { FlatAIBonus -999999 } } } } } }
+MuscleMemory2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 } Else { FlatAIBonus -999999 } } } } } }
+BreakingPoint.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 } Else { FlatAIBonus -999999 } } } } } }
+BreakingPoint2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 } Else { FlatAIBonus -999999 } } } } } }
+RagePunch2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 } Else { FlatAIBonus -999999 } } } } } }
 
-ThunderPunch.merge { damage_instance { ai_base_score 0 } }
-ThunderPunch2.merge { damage_instance { ai_base_score 0 } }
+// --- 5. ATTAQUES LÉGÈRES (Seuil : 3 Dégâts) ---
+Dash.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 3 } Else { FlatAIBonus -999999 } } } } } }
+Dash2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 3 } Else { FlatAIBonus -999999 } } } } } }
+Lacerate.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 3 } Else { FlatAIBonus -999999 } } } } } }
+Ram2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 3 } Else { FlatAIBonus -999999 } } } } } }
+Spin.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 3 } Else { FlatAIBonus -999999 } } } } } }
+Spin2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 3 } Else { FlatAIBonus -999999 } } } } } }
+OneTwoPunch.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 3 } Else { FlatAIBonus -999999 } } } } } }
+OneTwoPunch2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 3 } Else { FlatAIBonus -999999 } } } } } }
 
-FurySwipes.merge { damage_instance { ai_base_score 0 } }
-FurySwipes2.merge { damage_instance { ai_base_score 0 } }
+// --- 6. ATTAQUES TRÈS LÉGÈRES (Seuil : 1 Dégât) ---
+FurySwipes.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 1 } Else { FlatAIBonus -999999 } } } } } }
+FurySwipes2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 1 } Else { FlatAIBonus -999999 } } } } } }
+Poke.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 1 } Else { FlatAIBonus -999999 } } } } } }
+Poke2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 1 } Else { FlatAIBonus -999999 } } } } } }
+Nip2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 1 } Else { FlatAIBonus -999999 } } } } } }
+BerserkDash.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 1 } Else { FlatAIBonus -999999 } } } } } }
+BerserkDash2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 1 } Else { FlatAIBonus -999999 } } } } } }
+Slap.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 1 } Else { FlatAIBonus -999999 } } } } } }
+AssertDominance.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 1 } Else { FlatAIBonus -999999 } } } } } }
+AssertDominance2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 1 } Else { FlatAIBonus -999999 } } } } } }
+RagePunch.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 1 } Else { FlatAIBonus -999999 } } } } } }
 
-SideSlash.merge { damage_instance { ai_base_score 0 } }
-SideSlash2.merge { damage_instance { ai_base_score 0 } }
+// --- 7. INTERDICTIONS TOTALES CONTRE LES BOSS (Suicide garanti) ---
+// Ces capacités n'infligent pas de dégâts ou vous verrouillent au corps-à-corps inutilement
+Nip.merge { damage_instance { effects { Conditional_Speculative { Conditional_Boss { FlatAIBonus -999999 } } } } }
+Grapple.merge { damage_instance { effects { Conditional_Speculative { Conditional_Boss { FlatAIBonus -999999 } } } } }
+Grapple2.merge { damage_instance { effects { Conditional_Speculative { Conditional_Boss { FlatAIBonus -999999 } } } } }
+FighterLeap.merge { damage_instance { effects { Conditional_Speculative { Conditional_Boss { FlatAIBonus -999999 } } } } }
+Ram.merge { damage_instance { effects { Conditional_Speculative { Conditional_Boss { FlatAIBonus -999999 } } } } }
 
-FighterLeap.merge { damage_instance { ai_base_score 0 } }
-FighterLeap2.merge { damage_instance { ai_base_score 0 } }
 
-Uppercut.merge { damage_instance { ai_base_score 0 } }
-Uppercut2.merge { damage_instance { ai_base_score 0 } }
+// --- 8. PRIORISATION DES UTILITAIRES DE SURVIE ET DU CONTRÔLE DE FOULE ---
+// Si le Fighter ne peut pas tuer le boss, il va utiliser Push pour le repousser et survivre.
+Push.merge { damage_instance { ai_base_score 50 } }
+Push2.merge { damage_instance { ai_base_score 50 } }
 
-TailWhip.merge { damage_instance { ai_base_score 0 } }
-TailWhip2.merge { damage_instance { ai_base_score 0 } }
+// Les attaques à distance (Jets d'objets) deviennent le plan B parfait.
+Hurl.merge { damage_instance { ai_base_score 40 } }
+Hurl2.merge { damage_instance { ai_base_score 40 } }
+FighterBonusThrow.merge { damage_instance { ai_base_score 40 } }
 
-Poke.merge { damage_instance { ai_base_score 0 } }
-Poke2.merge { damage_instance { ai_base_score 0 } }
 
-Nip.merge { damage_instance { ai_base_score 0 } }
-Nip2.merge { damage_instance { ai_base_score 0 } }
-
-Push.merge { damage_instance { ai_base_score 0 } }
-Push2.merge { damage_instance { ai_base_score 0 } }
-
-FalconPunch.merge { damage_instance { ai_base_score 0 } }
-FalconPunch2.merge { damage_instance { ai_base_score 0 } }
-
-CosmicPunch.merge { damage_instance { ai_base_score 0 } }
-CosmicPunch2.merge { damage_instance { ai_base_score 0 } }
-
-FighterTaunt.merge { damage_instance { ai_base_score 0 } }
-FighterTaunt2.merge { damage_instance { ai_base_score 0 } }
-
-GravitySlam.merge { damage_instance { ai_base_score 0 } }
-GravitySlam2.merge { damage_instance { ai_base_score 0 } }
-
-BerserkDash.merge { damage_instance { ai_base_score 0 } }
-BerserkDash2.merge { damage_instance { ai_base_score 0 } }
-
-Slap.merge { damage_instance { ai_base_score 0 } }
-
-Grapple.merge { damage_instance { ai_base_score 0 } }
-Grapple2.merge { damage_instance { ai_base_score 0 } }
-
-Reposition.merge { damage_instance { ai_base_score 0 } }
-Reposition2.merge { damage_instance { ai_base_score 0 } }
-
-FighterBonusThrow.merge { damage_instance { ai_base_score 0 } }
-
-Lacerate.merge { damage_instance { ai_base_score 0 } }
-Lacerate2.merge { damage_instance { ai_base_score 0 } }
-
-MeteorSlam.merge { damage_instance { ai_base_score 0 } }
-MeteorSlam2.merge { damage_instance { ai_base_score 0 } }
-
-MuscleMemory.merge { damage_instance { ai_base_score 0 } }
-MuscleMemory2.merge { damage_instance { ai_base_score 0 } }
-
-Inhale.merge { damage_instance { ai_base_score 0 } }
-Inhale2.merge { damage_instance { ai_base_score 0 } }
-
-OneTwoPunch.merge { damage_instance { ai_base_score 0 } }
-OneTwoPunch2.merge { damage_instance { ai_base_score 0 } }
-
+// --- 9. RÈGLES D'ÉQUIPE ET COMPÉTENCES NEUTRES ---
 TeamSpin.merge { damage_instance { ai_base_score 0 } }
 TeamSpin2.merge { damage_instance { ai_base_score 0 } }
-
 TeamFlex.merge { damage_instance { ai_base_score 0 } }
 TeamFlex2.merge { damage_instance { ai_base_score 0 } }
 TeamFlex_Impl.merge { damage_instance { ai_base_score 0 } }
 TeamFlex_Impl2.merge { damage_instance { ai_base_score 0 } }
-
 Huddle.merge { damage_instance { ai_base_score 0 } }
 Huddle2.merge { damage_instance { ai_base_score 0 } }
 Huddle_Impl.merge { damage_instance { ai_base_score 0 } }
-
-RagePunch.merge { damage_instance { ai_base_score 0 } }
-RagePunch2.merge { damage_instance { ai_base_score 0 } }
-
-BreakingPoint.merge { damage_instance { ai_base_score 0 } }
-BreakingPoint2.merge { damage_instance { ai_base_score 0 } }
-
-AssertDominance.merge { damage_instance { ai_base_score 0 } }
-AssertDominance2.merge { damage_instance { ai_base_score 0 } }
-
 DumbMove.merge { damage_instance { ai_base_score 0 } }
 DumbMove2.merge { damage_instance { ai_base_score 0 } }
-
-// ===== SPECIAL ABILITIES =====
-
-// Counter: requires enemy to be adjacent - useful but situational
-Counter.merge {
-    damage_instance {
-        custom_additional_ai_weight tile_close_to_enemy
-        ai_base_score -5
-    }
-}
-Counter2.merge {
-    damage_instance {
-        custom_additional_ai_weight tile_close_to_enemy
-        ai_base_score -5
-    }
-}
-
-// Exert: Drowsy 1 to self - slight penalty
-Exert.merge { damage_instance { ai_base_score -10 } }
-Exert2.merge { damage_instance { ai_base_score -10 } }
-
-// Enrage: Confusion to self - causes friendly fire
-Enrage.merge { damage_instance { ai_base_score -99999 } }
-Enrage2.merge { damage_instance { ai_base_score -99999 } }
-
-// Tumble: movement ability
 Tumble.merge { damage_instance { ai_base_score 0 } }
 Tumble2.merge { damage_instance { ai_base_score 0 } }
-
-// Confront: movement
 Confront.merge { damage_instance { ai_base_score 0 } }
 Confront2.merge { damage_instance { ai_base_score 0 } }
-
-// Juiced: TempMovement buff - 1 turn
-Juiced.merge { damage_instance { ai_base_score -5 } }
-Juiced2.merge { damage_instance { ai_base_score -5 } }
-
-// Challenge: taunt
 Challenge.merge { damage_instance { ai_base_score 0 } }
 Challenge2.merge { damage_instance { ai_base_score 0 } }
+FighterTaunt.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight avoid_redundant_debuffs } }
+FighterTaunt2.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight avoid_redundant_debuffs } }
 
-// Berserk: self-damage + buff
+
+// --- 10. COMPÉTENCES DÉSACTIVÉES (Dangers pour l'équipe ou le lanceur) ---
+Counter.merge { damage_instance { ai_base_score -5 effects { Conditional_Speculative { Conditional_SourceHasStatus { status TempCounterAttack FlatAIBonus -999999 } } } } }
+Counter2.merge { damage_instance { ai_base_score -5 effects { Conditional_Speculative { Conditional_SourceHasStatus { status TempPreEmptiveCounterAttack FlatAIBonus -999999 } } } } }
+Exert.merge { damage_instance { ai_base_score -10 } }
+Exert2.merge { damage_instance { ai_base_score -10 } }
+Enrage.merge { damage_instance { ai_base_score -99999 } }
+Enrage2.merge { damage_instance { ai_base_score -99999 } }
+Juiced.merge { damage_instance { ai_base_score -5 effects { Conditional_Speculative { Conditional_SourceHasStatus { status TempMovement FlatAIBonus -999999 } } } } }
+Juiced2.merge { damage_instance { ai_base_score -5 } }
 Berserk.merge { damage_instance { ai_base_score -5 } }
 Berserk2.merge { damage_instance { ai_base_score -5 } }
-
-// Stoopzerk: reduces own intelligence to 0
 Stoopzerk.merge { damage_instance { ai_base_score -99999 } }
 Stoopzerk2.merge { damage_instance { ai_base_score -99999 } }
-
-// LastThought: buff to self
 LastThought.merge { damage_instance { ai_base_score 0 } }
 LastThought2.merge { damage_instance { ai_base_score 0 } }
-
-// SleeperHold: sleep to target
 SleeperHold.merge { damage_instance { ai_base_score -20 } }
 SleeperHold2.merge { damage_instance { ai_base_score -20 } }
-
-// ThinkTooHard: reduces own intelligence
 ThinkTooHard.merge { damage_instance { ai_base_score -99999 } }
 ThinkTooHard2.merge { damage_instance { ai_base_score -99999 } }
-
-// Zoomzerk: movement + buff
 Zoomzerk.merge { damage_instance { ai_base_score 0 } }
 Zoomzerk2.merge { damage_instance { ai_base_score 0 } }
-
-// Bloodzerk: sets HP to 1
 Bloodzerk.merge { damage_instance { ai_base_score -99999 } }
 Bloodzerk2.merge { damage_instance { ai_base_score -99999 } }
-
-// ExhaustingBlow: exhaust self
 ExhaustingBlow.merge { damage_instance { ai_base_score -10 } }
 ExhaustingBlow2.merge { damage_instance { ai_base_score -10 } }
-
-// ChaosRampage: Madness + Confusion to self
 ChaosRampage.merge { damage_instance { ai_base_score -99999 } }
 ChaosRampage2.merge { damage_instance { ai_base_score -99999 } }

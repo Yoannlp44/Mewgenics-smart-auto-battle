@@ -1,166 +1,152 @@
-// Medic abilities AI patches
-// All abilities should have explicit ai_base_score for proper AI prioritization
+// =====================================================================
+// PATCH OPTIMISÉ DE L'IA DU CLERC - SURVIE, BUFFS ET SOINS INTELLIGENTS
+// =====================================================================
 
-// ===== HEALS =====
-RangedHeal.merge { damage_instance { ai_base_score 0 } }
-RangedHeal2.merge { damage_instance { ai_base_score 0 } }
+// --- 1. SÉCURISATION DES ATTAQUES DE MÊLÉE ---
+// Le Clerc ne doit frapper un boss au CaC que s'il peut le tuer. 
+// "OpenWounds" s'échelonne sur les PV manquants de la cible (jusqu'à 25/50 dégâts). 
+// On interdit formellement son utilisation sur un boss sauf si c'est le coup de grâce.
+OpenWounds.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 25 } Else { FlatAIBonus -999999 } } } } } }
+OpenWounds2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 50 } Else { FlatAIBonus -999999 } } } } } }
 
-MeleeHeal.merge { damage_instance { ai_base_score 0 } }
-MeleeHeal2.merge { damage_instance { ai_base_score 0 } }
 
-Prayer.merge { damage_instance { ai_base_score 0 } }
-Prayer2.merge { damage_instance { ai_base_score 0 } }
+// --- 2. INTERDICTION DES SUICIDES DE SOUTIEN ---
+// "BornAgain" endort le Clerc pour 4 tours. Devant un Boss, c'est la mort garantie du soigneur.
+// L'IA Autobattler ne peut pas gérer ce niveau de vulnérabilité. À DÉSACTIVER.
+BornAgain.merge { damage_instance { ai_base_score -99999 } }
+BornAgain2.merge { damage_instance { ai_base_score -99999 } }
 
-Cleanse.merge { damage_instance { ai_base_score 0 } }
-Cleanse2.merge { damage_instance { ai_base_score 0 } }
 
-Wish.merge { damage_instance { ai_base_score 0 } }
-Wish2.merge { damage_instance { ai_base_score 0 } }
+// --- 3. OPTIMISATION DES SOINS (NE PAS GASPILLER LE MANA) ---
+// On force l'IA à ne soigner que les cibles qui en ont VRAIMENT besoin 
+// et on donne un très haut score pour prioriser la survie de l'équipe.
+RangedHeal.merge { damage_instance { ai_base_score 70 custom_additional_ai_weight must_heal_most_missing_health } }
+RangedHeal2.merge { damage_instance { ai_base_score 70 custom_additional_ai_weight must_heal_most_missing_health } }
 
-Revive.merge { damage_instance { ai_base_score 0 } }
-Revive2.merge { damage_instance { ai_base_score 0 } }
+MeleeHeal.merge { damage_instance { ai_base_score 60 custom_additional_ai_weight must_heal_most_missing_health } }
+MeleeHeal2.merge { damage_instance { ai_base_score 60 custom_additional_ai_weight must_heal_most_missing_health } }
 
+HealingFall.merge { damage_instance { ai_base_score 60 custom_additional_ai_weight must_heal_most_missing_health } }
+HealingFall2.merge { damage_instance { ai_base_score 60 custom_additional_ai_weight must_heal_most_missing_health } }
+
+RallyCharge.merge { damage_instance { ai_base_score 50 custom_additional_ai_weight must_heal_most_missing_health } }
+RallyCharge2.merge { damage_instance { ai_base_score 50 custom_additional_ai_weight must_heal_most_missing_health } }
+
+Booster.merge { damage_instance { ai_base_score 40 } } // Soigne moins, mais donne des stats, score plus bas.
+Booster2.merge { damage_instance { ai_base_score 40 } }
+
+HealingSalve.merge { damage_instance { ai_base_score 30 } } // Regen lente, score modéré.
+HealingSalve2.merge { damage_instance { ai_base_score 30 } }
+
+
+// --- 4. PRIORISATION DES BUFFS MAJEURS ET DE LA PROTECTION ---
+// Si personne n'a besoin d'être soigné, le clerc doit Buffer ou se protéger !
+Zealot.merge { damage_instance { ai_base_score 80 custom_additional_ai_weight favor_if_unshielded } }
+Zealot2.merge { damage_instance { ai_base_score 80 custom_additional_ai_weight favor_if_unshielded } }
+
+Ethereal.merge { damage_instance { ai_base_score 80 custom_additional_ai_weight favor_if_unshielded } }
+Ethereal2.merge { damage_instance { ai_base_score 80 custom_additional_ai_weight favor_if_unshielded } }
+
+DivineProtection.merge { damage_instance { ai_base_score 75 } }
+DivineProtection2.merge { damage_instance { ai_base_score 75 } }
+
+CircleOfProtection.merge { damage_instance { ai_base_score 75 } }
+CircleOfProtection2.merge { damage_instance { ai_base_score 75 } }
+
+GuardianAngel.merge { damage_instance { ai_base_score 65 } }
+GuardianAngel2.merge { damage_instance { ai_base_score 65 } }
+
+Stimulants.merge { damage_instance { ai_base_score 50 } } // Buff de vitesse utile.
+Stimulants2.merge { damage_instance { ai_base_score 50 } }
+
+
+// --- 5. SAUVETAGE ET RÉSURRECTION ---
+// Les sorts d'urgence doivent avoir les scores les plus élevés du jeu pour surclasser l'attaque.
+Revive.merge { damage_instance { ai_base_score 100 } }
+Revive2.merge { damage_instance { ai_base_score 100 } }
+
+Emergency.merge { damage_instance { ai_base_score 90 } }
+Emergency2.merge { damage_instance { ai_base_score 90 } }
+
+
+// --- 6. ATTAQUES À DISTANCE ET CONTRÔLE (Kiting) ---
+// Ces sorts sont gardés organiquement, l'IA les utilisera si le groupe est en pleine santé.
 HolyLight.merge { damage_instance { ai_base_score 0 } }
 HolyLight2.merge { damage_instance { ai_base_score 0 } }
-
-HealingFall.merge { damage_instance { ai_base_score 0 } }
-HealingFall2.merge { damage_instance { ai_base_score 0 } }
-
-RallyCharge.merge { damage_instance { ai_base_score 0 } }
-RallyCharge2.merge { damage_instance { ai_base_score 0 } }
-
-Emergency.merge { damage_instance { ai_base_score 0 } }
-Emergency2.merge { damage_instance { ai_base_score 0 } }
-
-GuardianAngel.merge { damage_instance { ai_base_score 0 } }
-GuardianAngel2.merge { damage_instance { ai_base_score 0 } }
-
-Baptism.merge { damage_instance { ai_base_score 0 } }
-Baptism2.merge { damage_instance { ai_base_score 0 } }
-
-Pray.merge { damage_instance { ai_base_score 0 } }
-Pray2.merge { damage_instance { ai_base_score 0 } }
-
-// ===== ATTACKS =====
-Malaise.merge { damage_instance { ai_base_score 0 } }
-Malaise2.merge { damage_instance { ai_base_score 0 } }
-
-OpenWounds.merge { damage_instance { ai_base_score 0 } }
-OpenWounds2.merge { damage_instance { ai_base_score 0 } }
-
-Convert.merge { damage_instance { ai_base_score 0 } }
-Convert2.merge { damage_instance { ai_base_score 0 } }
-
+BlindingLight.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight avoid_redundant_debuffs } }
+BlindingLight2.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight avoid_redundant_debuffs } }
+WrathOfGod.merge { damage_instance { ai_base_score 0 } }
+WrathOfGod2.merge { damage_instance { ai_base_score 0 } }
+Malaise.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight avoid_redundant_debuffs } }
+Malaise2.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight avoid_redundant_debuffs } }
 Rebuke.merge { damage_instance { ai_base_score 0 } }
 Rebuke2.merge { damage_instance { ai_base_score 0 } }
 
+
+// --- 7. DÉSACTIVATION DES SORTS GÊNANTS OU PEU FIABLES POUR L'IA ---
+// "GetDown" intervertit les places. Si le Clerc prend la place du Tank devant un boss, il meurt.
+GetDown.merge { damage_instance { ai_base_score -99999 } }
+GetDown2.merge { damage_instance { ai_base_score -99999 } }
+
+// "FriendOrFoe" est une roulette russe de soin/dégâts. Trop instable.
+FriendOrFoe.merge { damage_instance { ai_base_score -99999 } }
+FriendOrFoe2.merge { damage_instance { ai_base_score -99999 } }
+
+
+// --- 8. SORTS UTILITAIRES ET ÉCONOMIE ---
+Prayer.merge { damage_instance { ai_base_score 10 } }
+Prayer2.merge { damage_instance { ai_base_score 10 } }
+Cleanse.merge { damage_instance { ai_base_score 20 } } // Utile pour retirer les poisons/brûlures
+Cleanse2.merge { damage_instance { ai_base_score 20 } }
+Wish.merge { damage_instance { ai_base_score 0 } }
+Wish2.merge { damage_instance { ai_base_score 0 } }
+Baptism.merge { damage_instance { ai_base_score 0 } }
+Baptism2.merge { damage_instance { ai_base_score 0 } }
+Pray.merge { damage_instance { ai_base_score 0 } }
+Pray2.merge { damage_instance { ai_base_score 0 } }
+Convert.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight avoid_redundant_debuffs_strict } }
+Convert2.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight avoid_redundant_debuffs_strict } }
 Crusade.merge { damage_instance { ai_base_score 0 } }
 Crusade2.merge { damage_instance { ai_base_score 0 } }
-
-WrathOfGod.merge { damage_instance { ai_base_score 0 } }
-WrathOfGod2.merge { damage_instance { ai_base_score 0 } }
-
-BlindingLight.merge { damage_instance { ai_base_score 0 } }
-BlindingLight2.merge { damage_instance { ai_base_score 0 } }
-
-// ===== BUFFS =====
 Purge.merge { damage_instance { ai_base_score 0 } }
 Purge2.merge { damage_instance { ai_base_score 0 } }
-
 HereticMark.merge { damage_instance { ai_base_score 0 } }
 HereticMark2.merge { damage_instance { ai_base_score 0 } }
-
-// Zealot: DivineShield - useful when near enemies
-Zealot.merge {
-    damage_instance {
-        custom_additional_ai_weight tile_close_to_enemy
-    }
-}
-Zealot2.merge {
-    damage_instance {
-        custom_additional_ai_weight tile_close_to_enemy
-    }
-}
-
 Haste.merge { damage_instance { ai_base_score 0 } }
 Haste2.merge { damage_instance { ai_base_score 0 } }
-
 Rally.merge { damage_instance { ai_base_score 0 } }
 Rally2.merge { damage_instance { ai_base_score 0 } }
-
 BuddyUp.merge { damage_instance { ai_base_score 0 } }
 BuddyUp2.merge { damage_instance { ai_base_score 0 } }
-
 ReverseDamage.merge { damage_instance { ai_base_score 0 } }
 ReverseDamage2.merge { damage_instance { ai_base_score 0 } }
-
 WitchHunt.merge { damage_instance { ai_base_score 0 } }
 WitchHunt2.merge { damage_instance { ai_base_score 0 } }
-
-FriendOrFoe.merge { damage_instance { ai_base_score 0 } }
-FriendOrFoe2.merge { damage_instance { ai_base_score 0 } }
-
-Ethereal.merge { damage_instance { ai_base_score 0 } }
-Ethereal2.merge { damage_instance { ai_base_score 0 } }
-
 Benediction.merge { damage_instance { ai_base_score 0 } }
 Benediction2.merge { damage_instance { ai_base_score 0 } }
-
 HallowedGround.merge { damage_instance { ai_base_score 0 } }
 HallowedGround2.merge { damage_instance { ai_base_score 0 } }
-
 Enlighten.merge { damage_instance { ai_base_score 0 } }
 Enlighten2.merge { damage_instance { ai_base_score 0 } }
-
 Anoint.merge { damage_instance { ai_base_score 0 } }
 Anoint2.merge { damage_instance { ai_base_score 0 } }
-
 EyeForAnEye.merge { damage_instance { ai_base_score 0 } }
 EyeForAnEye2.merge { damage_instance { ai_base_score 0 } }
-
 Adoubement.merge { damage_instance { ai_base_score 0 } }
 Adoubement2.merge { damage_instance { ai_base_score 0 } }
-
-DivineProtection.merge { damage_instance { ai_base_score 0 } }
-DivineProtection2.merge { damage_instance { ai_base_score 0 } }
-
 ChosenWarrior.merge { damage_instance { ai_base_score 0 } }
 ChosenWarrior2.merge { damage_instance { ai_base_score 0 } }
-
 SwiftSanctify.merge { damage_instance { ai_base_score 0 } }
 SwiftSanctify2.merge { damage_instance { ai_base_score 0 } }
-
 DivineGift.merge { damage_instance { ai_base_score 0 } }
 DivineGift2.merge { damage_instance { ai_base_score 0 } }
-
 HolyWeapon.merge { damage_instance { ai_base_score 0 } }
 HolyWeapon2.merge { damage_instance { ai_base_score 0 } }
-
-GetDown.merge { damage_instance { ai_base_score 0 } }
-GetDown2.merge { damage_instance { ai_base_score 0 } }
-
 MedicObey.merge { damage_instance { ai_base_score 0 } }
 MedicObey2.merge { damage_instance { ai_base_score 0 } }
-
 Awaken.merge { damage_instance { ai_base_score 0 } }
 Awaken2.merge { damage_instance { ai_base_score 0 } }
-
-Booster.merge { damage_instance { ai_base_score 0 } }
-Booster2.merge { damage_instance { ai_base_score 0 } }
-
-Stimulants.merge { damage_instance { ai_base_score 20 } }
-Stimulants2.merge { damage_instance { ai_base_score 20 } }
-
-CircleOfProtection.merge { damage_instance { ai_base_score 0 } }
-CircleOfProtection2.merge { damage_instance { ai_base_score 0 } }
-
 CallOver.merge { damage_instance { ai_base_score 0 } }
 CallOver2.merge { damage_instance { ai_base_score 0 } }
-
 Grace.merge { damage_instance { ai_base_score 0 } }
 Grace2.merge { damage_instance { ai_base_score 0 } }
-
-// ===== PROBLEMATIC =====
-
-// BornAgain: caster sleeps 4 turns - DISABLE
-BornAgain.merge { damage_instance { ai_base_score -99999 } }

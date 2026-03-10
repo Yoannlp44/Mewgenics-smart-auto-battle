@@ -1,165 +1,157 @@
-// Druid abilities AI patches
-// All abilities should have explicit ai_base_score for proper AI prioritization
+// =====================================================================
+// PATCH OPTIMISÉ DE L'IA DU DRUIDE - MAÎTRE DES BÊTES ET MULTIFORME
+// =====================================================================
 
-// ===== MOVEMENT =====
+// --- 1. VÉRIFICATION DE FRAPPE LÉTALE POUR LES FORMES ANIMALES ---
+// Le Druide ne doit jamais se suicider au corps-à-corps d'un Boss, peu importe sa forme !
+
+// FORME DE TIGRE (TigerSwipes, Pounce) - Seuil de 3 pour les griffes, 2 pour le bond.
+TigerSwipes.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 3 } Else { FlatAIBonus -999999 } } } } } }
+TigerSwipes2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 3 } Else { FlatAIBonus -999999 } } } } } }
+Pounce.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 2 } Else { FlatAIBonus -999999 } } } } } }
+Pounce2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 2 } Else { FlatAIBonus -999999 } } } } } }
+
+// FORME DE RHINOCÉROS (HornCharge) - Seuil de 5.
+HornCharge.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 } Else { FlatAIBonus -999999 } } } } } }
+
+// FORME D'ÉLAN (AntlerSwipe) - L'attaque de base n'inflige QUE des bleus (0 dégâts de base). Interdit sur les boss !
+AntlerSwipe.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { FlatAIBonus -999999 } } } } }
+AntlerSwipe2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 } Else { FlatAIBonus -999999 } } } } } }
+
+// FORME D'ARBRE (Timber) - Charge de zone (Seuil de 10).
+Timber.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 10 } Else { FlatAIBonus -999999 } } } } } }
+
+
+// --- 2. PRIORISATION EXTRÊME DES INVOCATIONS (BOUCLIERS DE CHAIR) ---
+// Les familiers n'ont pas de pénalité de "vaporisation" permanente. L'IA doit les spammer pour distraire les Boss.
+SquirrelSquad.merge { damage_instance { ai_base_score 80 } }
+SquirrelSquad2.merge { damage_instance { ai_base_score 80 } }
+
+SummonSquirrel.merge { damage_instance { ai_base_score 70 } }
+SummonSquirrel2.merge { damage_instance { ai_base_score 70 } }
+
+SummonSnake.merge { damage_instance { ai_base_score 75 } }
+SummonSnake2.merge { damage_instance { ai_base_score 75 } }
+
+SummonTurtle.merge { damage_instance { ai_base_score 75 } }
+SummonTurtle2.merge { damage_instance { ai_base_score 75 } }
+
+SummonToad.merge { damage_instance { ai_base_score 75 } }
+SummonToad2.merge { damage_instance { ai_base_score 75 } }
+
+SummonBear.merge { damage_instance { ai_base_score 85 } }
+SummonBear2.merge { damage_instance { ai_base_score 85 } }
+
+SummonCatepillar.merge { damage_instance { ai_base_score 70 } }
+SummonCatepillar2.merge { damage_instance { ai_base_score 70 } }
+
+SummonCrow.merge { damage_instance { ai_base_score 70 } }
+SummonCrow2.merge { damage_instance { ai_base_score 70 } }
+
+FromTheTrees.merge { damage_instance { ai_base_score 80 } }
+FromTheTrees2.merge { damage_instance { ai_base_score 80 } }
+
+
+// --- 3. HARCÈLEMENT ET CONTRÔLE MAGIQUE ---
+// Ces capacités doivent être utilisées pour gêner l'ennemi.
+BrambleBurst.merge { damage_instance { ai_base_score 60 } }
+BrambleBurst2.merge { damage_instance { ai_base_score 60 } }
+
+Entangle.merge { damage_instance { ai_base_score 65 custom_additional_ai_weight avoid_redundant_debuffs } }
+Entangle2.merge { damage_instance { ai_base_score 65 custom_additional_ai_weight avoid_redundant_debuffs } }
+
+SleepPowder.merge { damage_instance { ai_base_score 65 custom_additional_ai_weight avoid_redundant_debuffs } }
+
+Lullaby.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight avoid_redundant_debuffs } }
+Lullaby2.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight avoid_redundant_debuffs } }
+
+// --- 4. DÉSACTIVATION DES COMPÉTENCES DANGEREUSES ---
+// ChaChaSlide frappe les alliés et les repousse aléatoirement. Trop de chaos.
+ChaChaSlide.merge { damage_instance { ai_base_score -99999 } }
+ChaChaSlide2.merge { damage_instance { ai_base_score -99999 } }
+
+// DeathMetal explose un personnage. Si l'IA cible un allié, c'est la vaporisation garantie.
+DeathMetal.merge { damage_instance { ai_base_score -99999 } }
+DeathMetal2.merge { damage_instance { ai_base_score -99999 } }
+
+// PullToSafety attire un allié VERS le lanceur. Si le druide est au CaC d'un Boss, ça tue l'allié !
+PullToSafety.merge { damage_instance { ai_base_score -99999 } }
+PullToSafety2.merge { damage_instance { ai_base_score -99999 } }
+
+
+// --- 5. MOBILITÉ ET KITING ---
+// Les mouvements organiques sont gérés par les dégâts ou le paramètre de fuite.
 CrowFlutter.merge { damage_instance { ai_base_score 0 } }
 CrowFlutter2.merge { damage_instance { ai_base_score 0 } }
 CrowFlutter3.merge { damage_instance { ai_base_score 0 } }
+DruidSwap.merge { damage_instance { ai_base_score 50 } } // Permet de se téléporter à la place d'un familier pour fuir.
+DruidSwap2.merge { damage_instance { ai_base_score 50 } }
 
+
+// --- 6. SORTS STANDARDS (Dégâts, buffs, modificateurs de terrain) ---
 CrowFlap.merge { damage_instance { ai_base_score 0 } }
 CrowFlap2.merge { damage_instance { ai_base_score 0 } }
 CrowFlap3.merge { damage_instance { ai_base_score 0 } }
-
-// ===== ATTACKS =====
 ManaBomb.merge { damage_instance { ai_base_score 0 } }
 ManaBomb2.merge { damage_instance { ai_base_score 0 } }
-
-BrambleBurst.merge { damage_instance { ai_base_score 0 } }
-BrambleBurst2.merge { damage_instance { ai_base_score 0 } }
-
-HornCharge.merge { damage_instance { ai_base_score 0 } }
-
 HydroPump.merge { damage_instance { ai_base_score 0 } }
 HydroPump2.merge { damage_instance { ai_base_score 0 } }
-
-Timber.merge { damage_instance { ai_base_score 0 } }
-
-// ===== SUMMONS =====
-SquirrelSquad.merge { damage_instance { ai_base_score 20 } }
-SquirrelSquad2.merge { damage_instance { ai_base_score 0 } }
-
-SummonSquirrel.merge { damage_instance { ai_base_score 15 } }
-SummonSquirrel2.merge { damage_instance { ai_base_score 0 } }
-
-SummonSnake.merge { damage_instance { ai_base_score 0 } }
-SummonSnake2.merge { damage_instance { ai_base_score 0 } }
-
-SummonTurtle.merge { damage_instance { ai_base_score 0 } }
-SummonTurtle2.merge { damage_instance { ai_base_score 0 } }
-
-SummonToad.merge { damage_instance { ai_base_score 0 } }
-SummonToad2.merge { damage_instance { ai_base_score 0 } }
-
-SummonBear.merge { damage_instance { ai_base_score 0 } }
-SummonBear2.merge { damage_instance { ai_base_score 0 } }
-
-SummonCatepillar.merge { damage_instance { ai_base_score 0 } }
-SummonCatepillar2.merge { damage_instance { ai_base_score 0 } }
-
-SummonCrow.merge { damage_instance { ai_base_score 0 } }
-SummonCrow2.merge { damage_instance { ai_base_score 0 } }
-
-// ===== HEALS & BUFFS =====
 SongOfSpring.merge { damage_instance { ai_base_score 0 } }
 SongOfSpring2.merge { damage_instance { ai_base_score 0 } }
-
 GrantLife.merge { damage_instance { ai_base_score 0 } }
 GrantLife2.merge { damage_instance { ai_base_score 0 } }
-
 FlowerFeet.merge { damage_instance { ai_base_score 0 } }
 FlowerFeet2.merge { damage_instance { ai_base_score 0 } }
-
 ThornyFeet.merge { damage_instance { ai_base_score 0 } }
 ThornyFeet2.merge { damage_instance { ai_base_score 0 } }
-
 Encourage.merge { damage_instance { ai_base_score 0 } }
 Encourage2.merge { damage_instance { ai_base_score 0 } }
-
 Protection.merge { damage_instance { ai_base_score 0 } }
 Protection2.merge { damage_instance { ai_base_score 0 } }
-
 Promote.merge { damage_instance { ai_base_score 0 } }
 Promote2.merge { damage_instance { ai_base_score 0 } }
-
 SafetyDance.merge { damage_instance { ai_base_score 0 } }
 SafetyDance2.merge { damage_instance { ai_base_score 0 } }
-
 BattleCry.merge { damage_instance { ai_base_score 0 } }
 BattleCry2.merge { damage_instance { ai_base_score 0 } }
-
 WarCry.merge { damage_instance { ai_base_score 0 } }
 WarCry2.merge { damage_instance { ai_base_score 0 } }
-
-PullToSafety.merge { damage_instance { ai_base_score 0 } }
-PullToSafety2.merge { damage_instance { ai_base_score 0 } }
-
 InspirationalSong.merge { damage_instance { ai_base_score 0 } }
 InspirationalSong2.merge { damage_instance { ai_base_score 0 } }
-
 BestowWisdom.merge { damage_instance { ai_base_score 0 } }
 BestowWisdom2.merge { damage_instance { ai_base_score 0 } }
-
 CallTheWind.merge { damage_instance { ai_base_score 0 } }
 CallTheWind2.merge { damage_instance { ai_base_score 0 } }
-
-SleepPowder.merge { damage_instance { ai_base_score 0 } }
-
 WeWillRockYou.merge { damage_instance { ai_base_score 0 } }
 WeWillRockYou2.merge { damage_instance { ai_base_score 0 } }
-
 Synthesize.merge { damage_instance { ai_base_score 0 } }
 Synthesize2.merge { damage_instance { ai_base_score 0 } }
-
 ControlPlants.merge { damage_instance { ai_base_score 0 } }
 ControlPlants2.merge { damage_instance { ai_base_score 0 } }
 ControlPlantsPartTwo.merge { damage_instance { ai_base_score 0 } }
 ControlPlantsPartTwo2.merge { damage_instance { ai_base_score 0 } }
-
 ControlWater.merge { damage_instance { ai_base_score 0 } }
 ControlWater2.merge { damage_instance { ai_base_score 0 } }
 ControlWaterPartTwo.merge { damage_instance { ai_base_score 0 } }
 ControlWaterPartTwo2.merge { damage_instance { ai_base_score 0 } }
+HardenSkin.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_SourceHasStatus { status Shield FlatAIBonus -999999 } } } } }
+HardenSkin2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_SourceHasStatus { status Shield FlatAIBonus -999999 } } } } }
 
-// ===== FORMS =====
-TigerForm.merge { damage_instance { ai_base_score 15 } }
+// --- 7. TRANSFORMATIONS MAGIQUES (Activent les formes animales) ---
+// Laissées à 0 pour être utilisées organiquement en fonction du mana disponible.
+TigerForm.merge { damage_instance { ai_base_score 0 } }
 TigerForm2.merge { damage_instance { ai_base_score 0 } }
-TigerSwipes.merge { damage_instance { ai_base_score 0 } }
-TigerSwipes2.merge { damage_instance { ai_base_score 0 } }
-Pounce.merge { damage_instance { ai_base_score 0 } }
-Pounce2.merge { damage_instance { ai_base_score 0 } }
-
 MonkeyForm.merge { damage_instance { ai_base_score 0 } }
 MonkeyForm2.merge { damage_instance { ai_base_score 0 } }
 ThrowPoop.merge { damage_instance { ai_base_score 0 } }
 MonkeyThrow.merge { damage_instance { ai_base_score 0 } }
 MonkeyThrow2.merge { damage_instance { ai_base_score 0 } }
-
 RhinoForm.merge { damage_instance { ai_base_score 0 } }
 RhinoForm2.merge { damage_instance { ai_base_score 0 } }
-
 RaccoonForm.merge { damage_instance { ai_base_score 0 } }
 RaccoonForm2.merge { damage_instance { ai_base_score 0 } }
 Pilfer.merge { damage_instance { ai_base_score 0 } }
 Scavenge.merge { damage_instance { ai_base_score 0 } }
 Scavenge2.merge { damage_instance { ai_base_score 0 } }
-
 TreeForm.merge { damage_instance { ai_base_score 0 } }
 TreeForm2.merge { damage_instance { ai_base_score 0 } }
-
-// ===== SWAP =====
-DruidSwap.merge { damage_instance { ai_base_score 0 } }
-DruidSwap2.merge { damage_instance { ai_base_score 0 } }
-
-// ===== PROBLEMATIC =====
-
-// ChaChaSlide: random knockback can hit allies - DISABLE
-ChaChaSlide.merge { damage_instance { ai_base_score -99999 } }
-ChaChaSlide2.merge { damage_instance { ai_base_score -99999 } }
-
-// DeathMetal: AoE can hit allies
-DeathMetal.merge { damage_instance { ai_base_score -10 } }
-DeathMetal2.merge { damage_instance { ai_base_score -10 } }
-
-// HardenSkin: 1-turn stackable buff
-HardenSkin.merge {
-    damage_instance {
-        custom_additional_ai_weight tile_close_to_enemy
-        ai_base_score -15
-    }
-}
-HardenSkin2.merge {
-    damage_instance {
-        custom_additional_ai_weight tile_close_to_enemy
-        ai_base_score -15
-    }
-}

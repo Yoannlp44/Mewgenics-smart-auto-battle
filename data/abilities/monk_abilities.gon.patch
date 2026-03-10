@@ -1,169 +1,147 @@
-// Monk abilities AI patches
-// All abilities should have explicit ai_base_score for proper AI prioritization
+// =====================================================================
+// PATCH OPTIMISÉ DE L'IA DU MONK - MAÎTRE DES ARTS MARTIAUX ET DU KI
+// =====================================================================
 
-// ===== ATTACKS =====
-Propell.merge { damage_instance { ai_base_score 0 } }
-Propell2.merge { damage_instance { ai_base_score 0 } }
+// --- 1. FONCTION DE VÉRIFICATION LÉTALE (ATTAQUES DE MÊLÉE) ---
+// Le Moine est un combattant agile mais fragile. Il ne doit engager les boss 
+// au corps-à-corps QUE s'il peut garantir une exécution.
 
-Hadouken.merge { damage_instance { ai_base_score 0 } }
-Hadouken2.merge { damage_instance { ai_base_score 0 } }
+// Attaques de base (Seuil de 5)
+Propell.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 } Else { FlatAIBonus -999999 } } } } } }
+Propell2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 } Else { FlatAIBonus -999999 } } } } } }
 
-StoneFists.merge { damage_instance { ai_base_score 0 } }
-StoneFists2.merge { damage_instance { ai_base_score 0 } }
+ComboThrow.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 } Else { FlatAIBonus -999999 } } } } } }
+ComboThrow2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 } Else { FlatAIBonus -999999 } } } } } }
 
-HipToss.merge { damage_instance { ai_base_score 0 } }
-HipToss2.merge { damage_instance { ai_base_score 0 } }
+// Attaques lourdes (Seuil de 10)
+DragonPunch.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 10 } Else { FlatAIBonus -999999 } } } } } }
+DragonPunch2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 10 } Else { FlatAIBonus -999999 } } } } } }
 
-Bruise.merge { damage_instance { ai_base_score 0 } }
-Bruise2.merge { damage_instance { ai_base_score 0 } }
+// Dash et Lunge (Seuils variables basés sur la mêlée)
+UnimpededLunge.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 } Else { FlatAIBonus -999999 } } } } } }
+UnimpededLunge2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 5 } Else { FlatAIBonus -999999 } } } } } }
 
-Slapback.merge { damage_instance { ai_base_score 0 } }
-Slapback2.merge { damage_instance { ai_base_score 0 } }
+// OnePunch (Instakill potentiel) - Autorisé si PV du boss < 25 (Exécution absolue).
+OnePunch.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 25 } Else { FlatAIBonus -999999 } } } } } }
+OnePunch2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { Conditional_HealthThreshold { threshold_flat 25 } Else { FlatAIBonus -999999 } } } } } }
 
-Finisher.merge { damage_instance { ai_base_score 0 } }
-Finisher2.merge { damage_instance { ai_base_score 0 } }
 
-Reverberate.merge { damage_instance { ai_base_score 0 } }
-Reverberate2.merge { damage_instance { ai_base_score 0 } }
+// --- 2. GESTION DES REPOUSSEMENTS ET CONTRÔLE (SURVIE) ---
+// Si l'IA ne peut pas tuer un boss au corps-à-corps, elle doit chercher à le repousser ou le bloquer.
 
-ComboThrow.merge { damage_instance { ai_base_score 0 } }
-ComboThrow2.merge { damage_instance { ai_base_score 0 } }
+// HipToss (Projection) - Excellent pour éloigner une menace.
+HipToss.merge { damage_instance { ai_base_score 60 } }
+HipToss2.merge { damage_instance { ai_base_score 60 } }
 
-ComboPull.merge { damage_instance { ai_base_score 0 } }
-ComboPull2.merge { damage_instance { ai_base_score 0 } }
+// FlyingFist (Repoussement de zone).
+FlyingFist.merge { damage_instance { ai_base_score 50 } }
+FlyingFist2.merge { damage_instance { ai_base_score 50 } }
 
-DoomPunch.merge { damage_instance { ai_base_score 0 } }
-DoomPunch2.merge { damage_instance { ai_base_score 0 } }
 
-KiBurst.merge { damage_instance { ai_base_score 0 } }
-KiBurst2.merge { damage_instance { ai_base_score 0 } }
+// --- 3. HARCÈLEMENT À DISTANCE (KITING) ---
+// L'IA privilégiera ces capacités pour grignoter les PV du boss en toute sécurité.
+Hadouken.merge { damage_instance { ai_base_score 20 } }
+Hadouken2.merge { damage_instance { ai_base_score 20 } }
 
-DragonPunch.merge { damage_instance { ai_base_score 0 } }
-DragonPunch2.merge { damage_instance { ai_base_score 0 } }
+ComboPull.merge { damage_instance { ai_base_score 15 } }
+ComboPull2.merge { damage_instance { ai_base_score 15 } }
 
-HundredHandSlap.merge { damage_instance { ai_base_score 0 } }
-HundredHandSlap2.merge { damage_instance { ai_base_score 0 } }
+AirBurst.merge { damage_instance { ai_base_score 15 } }
+AirBurst2.merge { damage_instance { ai_base_score 15 } }
 
-Pummel.merge { damage_instance { ai_base_score 0 } }
-Pummel2.merge { damage_instance { ai_base_score 0 } }
-
-QuickAttack.merge { damage_instance { ai_base_score 0 } }
-QuickAttack2.merge { damage_instance { ai_base_score 0 } }
-
-FlyingFist.merge { damage_instance { ai_base_score 0 } }
-FlyingFist2.merge { damage_instance { ai_base_score 0 } }
-
+// SpiritBomb & Kamehameha ont des portées énormes. L'IA gérera organiquement les dégâts.
 SpiritBomb.merge { damage_instance { ai_base_score 0 } }
 SpiritBomb2.merge { damage_instance { ai_base_score 0 } }
-
 ThrowSpiritBomb.merge { damage_instance { ai_base_score 0 } }
 ThrowSpiritBomb2.merge { damage_instance { ai_base_score 0 } }
-
-OnePunch.merge { damage_instance { ai_base_score 0 } }
-OnePunch2.merge { damage_instance { ai_base_score 0 } }
-
-UnbridledHits.merge { damage_instance { ai_base_score 0 } }
-UnbridledHits2.merge { damage_instance { ai_base_score 0 } }
-
 Kamehameha.merge { damage_instance { ai_base_score 0 } }
 Kamehameha2.merge { damage_instance { ai_base_score 0 } }
 
-DoubleDragon.merge { damage_instance { ai_base_score 0 } }
-DoubleDragon2.merge { damage_instance { ai_base_score 0 } }
 
-FistOfFate.merge { damage_instance { ai_base_score 0 } }
-FistOfFate2.merge { damage_instance { ai_base_score 0 } }
-
-// ===== MOVEMENT =====
-Cartwheel.merge { damage_instance { ai_base_score 0 } }
-Cartwheel2.merge { damage_instance { ai_base_score 0 } }
-
-OneWithTheWind.merge { damage_instance { ai_base_score 0 } }
-OneWithTheWind2.merge { damage_instance { ai_base_score 0 } }
-
-Pogo.merge { damage_instance { ai_base_score 0 } }
-Pogo2.merge { damage_instance { ai_base_score 0 } }
-
-ReallyFastRun.merge { damage_instance { ai_base_score 0 } }
-ReallyFastRun2.merge { damage_instance { ai_base_score 0 } }
-
-SideStep.merge { damage_instance { ai_base_score 0 } }
-SideStep2.merge { damage_instance { ai_base_score 0 } }
-
-UnimpededLunge.merge { damage_instance { ai_base_score 0 } }
-UnimpededLunge2.merge { damage_instance { ai_base_score 0 } }
-
-// ===== BUFFS =====
-Transcend.merge { damage_instance { ai_base_score 0 } }
-Transcend2.merge { damage_instance { ai_base_score 0 } }
-
-TrainArms.merge { damage_instance { ai_base_score 0 } }
-TrainArms2.merge { damage_instance { ai_base_score 0 } }
-
-Anneal.merge { damage_instance { ai_base_score 0 } }
-Anneal2.merge { damage_instance { ai_base_score 0 } }
-
-DeepDive.merge { damage_instance { ai_base_score 0 } }
-DeepDive2.merge { damage_instance { ai_base_score 0 } }
-
-HopAndBlock.merge { damage_instance { ai_base_score 0 } }
-HopAndBlock2.merge { damage_instance { ai_base_score 0 } }
-
-TrainMind.merge { damage_instance { ai_base_score 0 } }
-TrainMind2.merge { damage_instance { ai_base_score 0 } }
-
-TrainLegs.merge { damage_instance { ai_base_score 0 } }
-TrainLegs2.merge { damage_instance { ai_base_score 0 } }
-
-DetectWeakness.merge { damage_instance { ai_base_score 0 } }
-DetectWeakness2.merge { damage_instance { ai_base_score 0 } }
-
-KineticCharge.merge { damage_instance { ai_base_score 0 } }
-KineticCharge2.merge { damage_instance { ai_base_score 0 } }
-
-AirBurst.merge { damage_instance { ai_base_score 0 } }
-AirBurst2.merge { damage_instance { ai_base_score 0 } }
-
-TrainBody.merge { damage_instance { ai_base_score 0 } }
-TrainBody2.merge { damage_instance { ai_base_score 0 } }
-
-ReleaseEnergy.merge { damage_instance { ai_base_score 0 } }
-ReleaseEnergy2.merge { damage_instance { ai_base_score 0 } }
-
-PerfectForm.merge { damage_instance { ai_base_score 0 } }
-PerfectForm2.merge { damage_instance { ai_base_score 0 } }
-
-WarmupStretch.merge { damage_instance { ai_base_score 0 } }
-WarmupStretch2.merge { damage_instance { ai_base_score 0 } }
-
-RapidFlowSpin.merge { damage_instance { ai_base_score 0 } }
-RapidFlowSpin2.merge { damage_instance { ai_base_score 0 } }
-
-DonateEnergy.merge { damage_instance { ai_base_score 0 } }
-DonateEnergy2.merge { damage_instance { ai_base_score 0 } }
-
-Nirvana.merge { damage_instance { ai_base_score 0 } }
-Nirvana2.merge { damage_instance { ai_base_score 0 } }
-
-EmptyMind.merge { damage_instance { ai_base_score 0 } }
-EmptyMind2.merge { damage_instance { ai_base_score 0 } }
-
-// ===== PROBLEMATIC =====
-
-// Porcupine: 1-turn stackable buff
-Porcupine.merge {
-    damage_instance {
-        custom_additional_ai_weight tile_close_to_enemy
-        ai_base_score -15
-    }
-}
-Porcupine2.merge {
-    damage_instance {
-        custom_additional_ai_weight tile_close_to_enemy
-        ai_base_score -15
-    }
-}
-
-// Meditate: sleep 8 turns - DISABLE
+// --- 4. DÉSACTIVATION DES SUICIDES ---
+// "Meditate" endort le moine (Sleep 8 !). Devant un boss, c'est l'annihilation. À DÉSACTIVER.
 Meditate.merge { damage_instance { ai_base_score -99999 } }
 Meditate2.merge { damage_instance { ai_base_score -99999 } }
+
+// "DoomPunch" applique le statut Doomed (mort après X tours). Sur un boss, ça endort le moine. À DÉSACTIVER contre les Boss.
+DoomPunch.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { FlatAIBonus -999999 } } } } }
+DoomPunch2.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_Boss { FlatAIBonus -999999 } } } } }
+
+// DeepDive tue littéralement le lanceur (SafeDie 1) pour le ressusciter. L'IA gère mal ce risque de fin de tour.
+DeepDive.merge { damage_instance { ai_base_score -99999 } }
+DeepDive2.merge { damage_instance { ai_base_score -99999 } }
+
+
+// --- 5. COMPÉTENCES À RISQUE MODÉRÉ (Épines et Provocations) ---
+Porcupine.merge { damage_instance { ai_base_score -15 custom_additional_ai_weight tile_close_to_enemy } }
+Porcupine2.merge { damage_instance { ai_base_score -15 custom_additional_ai_weight tile_close_to_enemy } }
+
+
+// --- 6. ATTAQUES À CIBLES MULTIPLES ET BUFFS ORGANIQUES ---
+// Le système de base (Utility Scoring) les évaluera en fonction du nombre de cibles ou du buff.
+StoneFists.merge { damage_instance { ai_base_score 0 } }
+StoneFists2.merge { damage_instance { ai_base_score 0 } }
+Bruise.merge { damage_instance { ai_base_score 0 } }
+Bruise2.merge { damage_instance { ai_base_score 0 } }
+Slapback.merge { damage_instance { ai_base_score 0 } }
+Slapback2.merge { damage_instance { ai_base_score 0 } }
+Finisher.merge { damage_instance { ai_base_score 0 } }
+Finisher2.merge { damage_instance { ai_base_score 0 } }
+Reverberate.merge { damage_instance { ai_base_score 0 } }
+Reverberate2.merge { damage_instance { ai_base_score 0 } }
+KiBurst.merge { damage_instance { ai_base_score 0 } }
+KiBurst2.merge { damage_instance { ai_base_score 0 } }
+HundredHandSlap.merge { damage_instance { ai_base_score 0 } }
+HundredHandSlap2.merge { damage_instance { ai_base_score 0 } }
+Pummel.merge { damage_instance { ai_base_score 0 } }
+Pummel2.merge { damage_instance { ai_base_score 0 } }
+QuickAttack.merge { damage_instance { ai_base_score 0 } }
+QuickAttack2.merge { damage_instance { ai_base_score 0 } }
+UnbridledHits.merge { damage_instance { ai_base_score 0 } }
+UnbridledHits2.merge { damage_instance { ai_base_score 0 } }
+DoubleDragon.merge { damage_instance { ai_base_score 0 } }
+DoubleDragon2.merge { damage_instance { ai_base_score 0 } }
+FistOfFate.merge { damage_instance { ai_base_score 0 } }
+FistOfFate2.merge { damage_instance { ai_base_score 0 } }
+Cartwheel.merge { damage_instance { ai_base_score 0 } }
+Cartwheel2.merge { damage_instance { ai_base_score 0 } }
+OneWithTheWind.merge { damage_instance { ai_base_score 0 } }
+OneWithTheWind2.merge { damage_instance { ai_base_score 0 } }
+Pogo.merge { damage_instance { ai_base_score 0 } }
+Pogo2.merge { damage_instance { ai_base_score 0 } }
+ReallyFastRun.merge { damage_instance { ai_base_score 0 } }
+ReallyFastRun2.merge { damage_instance { ai_base_score 0 } }
+SideStep.merge { damage_instance { ai_base_score 0 } }
+SideStep2.merge { damage_instance { ai_base_score 0 } }
+Transcend.merge { damage_instance { ai_base_score 0 } }
+Transcend2.merge { damage_instance { ai_base_score 0 } }
+TrainArms.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_SourceHasStatus { status ExtraBasicAttacks_Status FlatAIBonus -999999 } } } } }
+TrainArms2.merge { damage_instance { ai_base_score 0 } }
+Anneal.merge { damage_instance { ai_base_score 0 } }
+Anneal2.merge { damage_instance { ai_base_score 0 } }
+HopAndBlock.merge { damage_instance { ai_base_score 0 } }
+HopAndBlock2.merge { damage_instance { ai_base_score 0 } }
+TrainMind.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_SourceHasStatus { status DoubleCastSpellsEachTurn_Status FlatAIBonus -999999 } } } } }
+TrainMind2.merge { damage_instance { ai_base_score 0 } }
+TrainLegs.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_SourceHasStatus { status ExtraBasicMoves_Status FlatAIBonus -999999 } } } } }
+TrainLegs2.merge { damage_instance { ai_base_score 0 } }
+DetectWeakness.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight avoid_redundant_debuffs } }
+DetectWeakness2.merge { damage_instance { ai_base_score 0 custom_additional_ai_weight avoid_redundant_debuffs } }
+KineticCharge.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_SourceHasStatus { status KineticSpikes FlatAIBonus -999999 } } } } }
+KineticCharge2.merge { damage_instance { ai_base_score 0 } }
+TrainBody.merge { damage_instance { ai_base_score 0 effects { Conditional_Speculative { Conditional_SourceHasStatus { status Brace FlatAIBonus -999999 } } } } }
+TrainBody2.merge { damage_instance { ai_base_score 0 } }
+ReleaseEnergy.merge { damage_instance { ai_base_score 0 } }
+ReleaseEnergy2.merge { damage_instance { ai_base_score 0 } }
+PerfectForm.merge { damage_instance { ai_base_score 0 } }
+PerfectForm2.merge { damage_instance { ai_base_score 0 } }
+WarmupStretch.merge { damage_instance { ai_base_score 0 } }
+WarmupStretch2.merge { damage_instance { ai_base_score 0 } }
+RapidFlowSpin.merge { damage_instance { ai_base_score 0 } }
+RapidFlowSpin2.merge { damage_instance { ai_base_score 0 } }
+DonateEnergy.merge { damage_instance { ai_base_score 0 } }
+DonateEnergy2.merge { damage_instance { ai_base_score 0 } }
+Nirvana.merge { damage_instance { ai_base_score 0 } }
+Nirvana2.merge { damage_instance { ai_base_score 0 } }
+EmptyMind.merge { damage_instance { ai_base_score 0 } }
+EmptyMind2.merge { damage_instance { ai_base_score 0 } }
